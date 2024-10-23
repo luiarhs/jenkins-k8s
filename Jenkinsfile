@@ -1,11 +1,24 @@
 pipeline {
     agent {
         kubernetes {
-            inheritFrom 'jmeter-agent'
+            yaml """
+            apiVersion: v1
+            kind: Pod
+            spec:
+              containers:
+              - name: jmeter
+                image: luiarhs/jmeter:latest  # Using your custom JMeter image
+                command:
+                - cat
+                tty: true
+                volumeMounts:
+                - name: workspace-volume
+                  mountPath: "/home/jenkins/agent"
+              volumes:
+              - name: workspace-volume
+                emptyDir: {}
+            """
         }
-    }
-    options {
-        timeout(time: 3, unit: 'MINUTES')  // Set a higher timeout for the job
     }
     stages {
         stage('Transfer Files') {
