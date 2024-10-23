@@ -1,0 +1,1 @@
+%JAVA_HOME%\bin\java -cp "lib\*" -Xms256M -Xmx512M -Dfile.encoding=ISO-8859-1 -Djms.conf=ac-comm-jms.xml -Dquartz.config=quartz.properties -DlogFile=log4j.xml -Dconfig.path= -Dconfig.filename=configWin.cfg com.synthesis.bridge.liverpool.agent.BridgeAgent

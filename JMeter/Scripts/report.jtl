@@ -1,0 +1,12 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1728581085572,3096,bzm-RTE-CONNECT,,,Thread Group 1-1,text,true,,2060,0,1,1,null,1661,0,827
+1728581089689,97,bzm-RTE-SEND_INPUT-1,,,Thread Group 1-1,text,true,,2060,0,1,1,null,50,0,0
+1728581090794,98,bzm-RTE-SEND_INPUT-2,,,Thread Group 1-1,text,true,,2060,0,1,1,null,49,0,0
+1728581091900,47,bzm-RTE-SEND_INPUT-3,,,Thread Group 1-1,text,true,,2060,0,1,1,null,47,0,0
+1728581092955,68,bzm-RTE-SEND_INPUT-4,,,Thread Group 1-1,text,true,,1944,0,1,1,null,68,0,0
+1728581094031,495,bzm-RTE-SEND_INPUT-5,,,Thread Group 1-1,text,true,,1944,0,1,1,null,47,0,0
+1728581095534,84,bzm-RTE-SEND_INPUT-6,,,Thread Group 1-1,text,true,,1944,0,1,1,null,47,0,0
+1728581096625,116,bzm-RTE-SEND_INPUT-7,,,Thread Group 1-1,text,true,,1944,0,1,1,null,66,0,0
+1728581097749,106,bzm-RTE-SEND_INPUT-8,,,Thread Group 1-1,text,true,,1944,0,1,1,null,53,0,0
+1728581098859,110,bzm-RTE-SEND_INPUT-9,,,Thread Group 1-1,text,true,,1944,0,1,1,null,53,0,0
+1728581099976,6,bzm-RTE-DISCONNECT,,,Thread Group 1-1,text,true,,0,0,1,1,null,0,0,0
