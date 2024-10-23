@@ -4,6 +4,9 @@ pipeline {
             inheritFrom 'jmeter-agent'
         }
     }
+    options {
+        timeout(time: 3, unit: 'MINUTES')  // Set a higher timeout for the job
+    }
     stages {
         stage('Transfer Files') {
             steps {
