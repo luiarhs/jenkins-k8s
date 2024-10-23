@@ -1,23 +1,7 @@
 pipeline {
     agent {
         kubernetes {
-            yaml """
-            apiVersion: v1
-            kind: Pod
-            spec:
-              containers:
-              - name: jmeter
-                image: luiarhs/jmeter:latest  # Using your custom JMeter image
-                command:
-                - cat
-                tty: true
-                volumeMounts:
-                - name: workspace-volume
-                  mountPath: "/home/jenkins/agent"
-              volumes:
-              - name: workspace-volume
-                emptyDir: {}
-            """
+            inheritFrom 'jmeter-agent'
         }
     }
     stages {
