@@ -1,3 +1,12 @@
+credentials:
+  system:
+    domainCredentials:
+    - credentials:
+      - gitHubApp:
+          appID: "158810"
+          description: "Credentials for GitHub App"
+          id: "github-app"
+          privateKey: "{AQAAABAAAAawEzP8l1Orenjj0gz2MqAI6B4kt1W18xkkF/a0naBwRKFAivBezWw3IzsKFbbdVFOLuCkwfB0sWoC9tX/5DchI4HxOJf3nYXrof1/W/ue6Z4XMP7Alye2EWu7DcnSf9TiKSIvFKx5RCvyvyGEi2aMgDjXfc19PIbgh19dGvSanFas/swb2yceJOdhqAwidadfW59hpv+Q3/CX+kgct/ZbKfIZQ1EB+T2Om6TrOcs9eH3QnbTIVSgyCo3xJ+A6W1rCPiPzKoSwWLFYvT35CMuNrG1Thnjdcy1pFRJQ1WOd7VnsZ0WcGkjC6wGUucyv/UzLyo7ZqlBXXD5dawgT/k7+Tpr8aSM4EVqqHoeGL18gdzc+Zn+mPTJbW1pDKl0uTrxBC8e7yH0xM0962Wh2ef4jp/eufTqctDW5ZQQeyn8dVTj0zgZUf2kS4AOpM15rY1mVAdXu0vdJLFLNdyhK4Ieox6Adazk+SfreCmqW9UM3Oc71hLTJao4x/tVZsUc3cW/p7kZnZFwrBxxGFAoq7EjLM9l5i6khLOhIp8j9f027bKZxCdNR22DsadhZLVDUYNsJvBgaA7fnFIiI+FBgyFU3nyT5On6xAwJO/T+ICvf5L70LBkblz5DRyUH2FniCjq5Q5jNP6t1eZVmJHC0OEQOtAitIPdKyDu+YXwnVNhmXi4oLM5AgA/e7Jv4KDHDnTrKpzvdzbQKJolabODCCDb0jecnvcp2DwNc+69N0zO085ue2Yc8hVzKBaR7fmJAm95OS7qFP55NsJo4Z6SVMWNFqMwE8Q2Cnx4Eicd9BzGqhqbA00F/K70RjxG4BnYzxy2luTHjH/kFc+ITX56iL1xj65XxvgbxPo/j6pjQPCILuBpZoS+d5fW/CjOZcsSMmov+v8c14uoKjUKX+idHtedB4Zh3aACPP67aM9opHVErd5G25feKPP6bYB9y1Gx4qBK1PUu1w1398l2udfWfZvT+Tt38W8SmQpNHlnIyJ0l0B1xyDxbafqvtPnPou7OQks70UGlgPjxNrhSJXSZGdxr7M8sGEgOnTZW1VHrBHxItk2EhWBy1cVaSdLD5TctUXm1JgXUdb/AA6HBPGF2Czcl83V1Gyq8eitpj+8d5d80xvYJINmbOPUfqitWsbfE8BBwGNHbYCQq4yLzvDfTS2ixaexMdxollDyjyQKp/AI/lBef+hv/4H1yXmiiOZgSin+mapjkaU7dN5uuLlrZ1ExcjTJ/ZspzUef+9iw1MRfSLDujY66vMukxO3PLBm9QsorBoNpGY69WRdTg8bleO/urIoFteKS4U2RL9QwXH81aaQCZWVsjHXM6BLTO3igZ/hKRUBYIc8OrrnVG04CDQMcCr66M76WH/rTsKSOFss6vpyGGXCcclw1dFuouoJtw+m4QYYsGF9uyb+gRMltAqq20EFMEOmCpd/skucZ1kpIk7u7kS6VdDoDRsnbbepIcvf5rLmNP8kq2BdX7nGO+GZjuc4HJ7Q+OEFC5TwcpKPSzDdqA4l76FwtLSuT07MtoKRYIl07v5oh3/XAfJprB7nfMxtaLhbmtd5YTB6k1mN1TT3+1L/BHew96r9KJJmCR96zvHTVDseM1AQB5E7DRO22cnWuJLiRY6MCnQZOwBlrsBuJHtWDniSmrznig091ESA0s66YZo1qMng2FQvOcL3RfDCeYCNPRVCjbeKNsm24h++Q8MAR5cBdKacgCoHW4iF5KvSTxZ7lPu4SEBB+Db4Z5odP8KeNjVsMiFWIWqdZoF9Xr0db0z/vCcP8vPHt/BysO7QEE8cyadCJSo+qszJ+YdU6Mnxhn7VFyU0PEMsgZCNqid0LRjojyDan6Ul+kpXJoeTNCZEMulSM+F3nEqBIVwApLKjGGesSEzyyeGx/X2rKukH5352kO0a3zAQazsQXBxy+MlVJc5yzb/JPieZcROkIdlJKHxWXFpK3UWA6R61oevtBgkPTEiISotT/21qr6IolAGhhGzF0hxx/Y/HZ//Eey1fnqZ67KAATEeXj+az/I4p7u1yOZZkYql+NUg0ykk5m8dcIKxgs9fRHTO39QYnkeqw/1fd1lnprRHCDvce9+reF5MYo7MsmQbT5rqz4qnhk0u9y6ldRRkos+vZt27hZaI9xrRp8MpkAb8TFJL7JmWnqRHrZsVdx1PMl/WaqTJcsy7FAfd8s3keEBP5DbomhbpWVlELKblIFIe7y+ua+JLNRMvMG4SBAXvxESn6wlHpm65q27uBq7s4cg2M1UmXcFVgI0B1JAQgGr+3r5cGhVvQQbEOWrNDiyJN2KGwuxVBr}"
 jenkins:
   agentProtocols:
   - "JNLP4-connect"
@@ -41,13 +50,31 @@ jenkins:
         slaveConnectTimeout: 100
         slaveConnectTimeoutStr: "100"
         yamlMergeStrategy: "override"
+      - containers:
+        - command: "cat"
+          image: "luiarhs/jmeter:latest"
+          livenessProbe:
+            failureThreshold: 0
+            initialDelaySeconds: 0
+            periodSeconds: 0
+            successThreshold: 0
+            timeoutSeconds: 0
+          name: "jmeter"
+          workingDir: "/"
+        id: "7fcfee45-9eb5-46a4-b7e5-be0bc1b03afb"
+        label: "jmeter-agent"
+        name: "jmeter-agent"
+        yamlMergeStrategy: "override"
   crumbIssuer:
     standard:
       excludeClientIPFromCrumb: true
   disableRememberMe: false
   labelAtoms:
+  - name: "LA_jenk8s_main_3-27gl6"
   - name: "built-in"
   - name: "jenkins-jenkins-agent"
+  - name: "jmeter-agent"
+  - name: "la-jenk8s-main-3-27gl6-xjxr4-9xq9w"
   markupFormatter: "plainText"
   mode: NORMAL
   myViewsTabBar: "standard"
@@ -122,6 +149,10 @@ unclassified:
   fingerprints:
     fingerprintCleanupDisabled: false
     storage: "file"
+  gitHubConfiguration:
+    apiRateLimitChecker: ThrottleForNormalize
+  gitHubPluginConfig:
+    hookUrl: "http://jenkins:8080/github-webhook/"
   location:
     adminAddress: "address not configured yet <nobody@nowhere>"
     url: "http://jenkins:8080/"
