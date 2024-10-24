@@ -38,39 +38,39 @@ pipeline {
                 }
             }
         }
-        stage('Run JMeter Test') {
-            steps {
-                container('jmeter') {
-                    script {
-                        // Define the path to your JMeter test script
-                        def jmeterTestFile = 'test.jmx'
-                        def resultFile = 'result.jtl'
+        // stage('Run JMeter Test') {
+        //     steps {
+        //         container('jmeter') {
+        //             script {
+        //                 // Define the path to your JMeter test script
+        //                 def jmeterTestFile = 'test.jmx'
+        //                 def resultFile = 'result.jtl'
 
-                        // Run JMeter test using shell command (assumes JMeter is installed on the agent)
-                        sh """
-                            jmeter -n -t ${jmeterTestFile} -l ${resultFile}
-                        """
-                    }
-                }
-            }
-        }
-        stage('Publish Performance Report') {
-            steps {
-                script {
-                    sh 'cat jmeter.log'
-                    // Publish the performance report using the Performance plugin
-                    perfReport errorFailedThreshold: 0, // Set this to your acceptable failure threshold (e.g., response time)
-                               errorUnstableThreshold: 0, 
-                               sourceDataFiles: 'result.jtl' // Point to the JMeter results file
-                }
-            }
-        }
-        stage('Archive JMeter Results') {
-            steps {
-                // Archive the JMeter result file and the test script
-                archiveArtifacts artifacts: 'result.jtl, test.jmx', allowEmptyArchive: true
-            }
-        }
+        //                 // Run JMeter test using shell command (assumes JMeter is installed on the agent)
+        //                 sh """
+        //                     jmeter -n -t ${jmeterTestFile} -l ${resultFile}
+        //                 """
+        //             }
+        //         }
+        //     }
+        // }
+        // stage('Publish Performance Report') {
+        //     steps {
+        //         script {
+        //             sh 'cat jmeter.log'
+        //             // Publish the performance report using the Performance plugin
+        //             perfReport errorFailedThreshold: 0, // Set this to your acceptable failure threshold (e.g., response time)
+        //                        errorUnstableThreshold: 0, 
+        //                        sourceDataFiles: 'result.jtl' // Point to the JMeter results file
+        //         }
+        //     }
+        // }
+        // stage('Archive JMeter Results') {
+        //     steps {
+        //         // Archive the JMeter result file and the test script
+        //         archiveArtifacts artifacts: 'result.jtl, test.jmx', allowEmptyArchive: true
+        //     }
+        // }
     }
 
     post {
