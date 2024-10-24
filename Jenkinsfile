@@ -34,7 +34,6 @@ pipeline {
                         //     transferFile(remote, 'test.bat', REMOTE_PATH)
                         // }
                         sh 'jmeter --version'
-                        sh 'dpkg -l | grep telnet'
                     }
                 }
             }
@@ -49,7 +48,7 @@ pipeline {
 
                         // Run JMeter test using shell command (assumes JMeter is installed on the agent)
                         sh """
-                            jmeter -n -t test.jmx -l result.jtl
+                            jmeter -n -t ${jmeterTestFile} -l ${resultFile} -Djava.awt.headless=true
                         """
                     }
                 }
