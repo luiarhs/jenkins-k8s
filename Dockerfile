@@ -13,18 +13,22 @@ ENV JMETER_LIB=${JMETER_HOME}/lib
 ENV JMETER_PLUGINS=${JMETER_LIB}/ext
 ENV JMETER_DOWNLOAD_URL=https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-${JMETER_VERSION}.tgz
 
-# Install necessary packages (curl, wget, telnet, libfreetype6)
+# Install necessary packages
 RUN apt-get update -qqy && apt-get upgrade -qqy \
     && apt-get install -y --no-install-recommends \
         curl \
         wget \
         libfreetype6 \
         telnet \
+        fontconfig \
     && mkdir -p /tmp/dependencies \
     && curl -L --silent ${JMETER_DOWNLOAD_URL} > /tmp/dependencies/apache-jmeter-${JMETER_VERSION}.tgz \
     && mkdir -p /opt \
     && tar -xzf /tmp/dependencies/apache-jmeter-${JMETER_VERSION}.tgz -C /opt \
     && rm -rf /tmp/dependencies
+
+# Set Java to run in headless mode by default
+ENV JAVA_TOOL_OPTIONS="-Djava.awt.headless=true"
 
 # Set the working directory for JMeter libraries
 WORKDIR ${JMETER_LIB}
