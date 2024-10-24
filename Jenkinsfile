@@ -57,7 +57,7 @@ pipeline {
         stage('Publish Performance Report') {
             steps {
                 script {
-                    sh 'cat jmeter.log'
+                    sh 'cat TestLog.log'
                     // Publish the performance report using the Performance plugin
                     perfReport errorFailedThreshold: 0, // Set this to your acceptable failure threshold (e.g., response time)
                                errorUnstableThreshold: 0, 
