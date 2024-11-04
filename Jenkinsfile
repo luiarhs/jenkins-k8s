@@ -33,7 +33,7 @@ pipeline {
                             def remote = configureRemote(REMOTE_NAME, REMOTE_HOST, REMOTE_USER, REMOTE_PASSWORD)
 
                             // Transfer the files to the remote host
-                            transferFile(remote, 'bundle.zip', REMOTE_PATH)
+                            transferFile(remote, 'test.bat', REMOTE_PATH)
                         }
                     }
                 }
