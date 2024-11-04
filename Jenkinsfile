@@ -15,10 +15,12 @@ pipeline {
     stages {
         stage('Prepare Files') {
             steps {
-                script {
-                    // sh "zip -r ${zipFile} scripts/*"
-                    sh 'ls -l'
-                    sh 'jmeter --version'
+                container('jmeter') {
+                    script {
+                        // sh "zip -r ${zipFile} scripts/*"
+                        sh 'ls -l'
+                        sh 'jmeter --version'
+                    }
                 }
             }
         }
