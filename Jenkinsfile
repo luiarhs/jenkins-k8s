@@ -9,16 +9,16 @@ pipeline {
         REMOTE_NAME = 'postest'
         REMOTE_HOST = "172.22.13.75" // IP address 4690
         // REMOTE_HOST = "172.22.70.34" // IP address Linux
-        REMOTE_PATH = '/opt/vx4690/fuse/c_drive'  // Path where the files will be stored and extracted
+        REMOTE_PATH = '/opt/vx4690/fuse/m_drive'  // Path where the files will be stored and extracted
     }
 
     stages {
         stage('Prepare Files') {
             steps {
                 script {
-                    def zipFile = 'test.zip'
                     // sh "zip -r ${zipFile} scripts/*"
-                    sh "ls -l"
+                    sh 'ls -l'
+                    sh 'jmeter --version'
                 }
             }
         }
@@ -27,13 +27,12 @@ pipeline {
                 container('jmeter') {
                     script {
                         // Configure the remote details
-                        // withCredentials([usernamePassword(credentialsId: 'REMOTE_AGENT_POS_4690_QA', usernameVariable: 'REMOTE_USER', passwordVariable: 'REMOTE_PASSWORD')]) {
-                        //     def remote = configureRemote(REMOTE_NAME, REMOTE_HOST, REMOTE_USER, REMOTE_PASSWORD)
+                        withCredentials([usernamePassword(credentialsId: 'POS_4690_QA', usernameVariable: 'REMOTE_USER', passwordVariable: 'REMOTE_PASSWORD')]) {
+                            def remote = configureRemote(REMOTE_NAME, REMOTE_HOST, REMOTE_USER, REMOTE_PASSWORD)
 
-                        //     // Transfer the files to the remote host
-                        //     transferFile(remote, 'test.bat', REMOTE_PATH)
-                        // }
-                        sh 'jmeter --version'
+                            // Transfer the files to the remote host
+                            transferFile(remote, 'buendle.zip', REMOTE_PATH)
+                        }
                     }
                 }
             }
@@ -43,7 +42,7 @@ pipeline {
                 container('jmeter') {
                     script {
                         // Define the path to your JMeter test script
-                        def jmeterTestFile = 'test.jmx'
+                        def jmeterTestFile = 'JMeter/Scripts/4690UnzipVer.jmx'
                         def resultFile = 'result.jtl'
 
                         // Run JMeter test using shell command (assumes JMeter is installed on the agent)
@@ -52,6 +51,15 @@ pipeline {
                         """
                     }
                 }
+            }
+        }
+        stage('Sleep') {
+            steps {
+                script {
+                    print('I am sleeping for a while')
+                    sleep(30)    
+                }
+                
             }
         }
         stage('Publish Performance Report') {
