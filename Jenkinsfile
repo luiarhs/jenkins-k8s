@@ -8,7 +8,7 @@ pipeline {
     environment {
         REMOTE_NAME = 'postest'
         REMOTE_HOST = "172.22.13.75" // IP address 4690
-        REMOTE_PATH = '/opt/vx4690/fuse/c_drive'  // Path where the files will be stored and extracted
+        REMOTE_PATH = 'm'  // Path where the files will be stored and extracted
     }
 
     stages {
@@ -28,10 +28,9 @@ pipeline {
                     script {
                         // Use scp to transfer the files to the remote host
                         withCredentials([usernamePassword(credentialsId: 'POS_QA', usernameVariable: 'REMOTE_USER', passwordVariable: 'REMOTE_PASSWORD')]) {
-                            def remote = configureRemote(REMOTE_NAME, REMOTE_HOST, REMOTE_USER, REMOTE_PASSWORD)
-
-                            // Transfer the files to the remote host
-                            transferFile(remote, 'bundle.zip', REMOTE_PATH)
+                            sh """
+                                sshpass -p '$REMOTE_PASSWORD' scp -o HostKeyAlgorithms=+ssh-rsa bundle.zip ${REMOTE_USER}@${REMOTE_HOST}
+                            """
                         }
                     }
                 }
@@ -91,37 +90,5 @@ pipeline {
         failure {
             echo 'Pipeline failed.'
         }
-    }
-}
-
-// Helper function to configure the remote details
-def configureRemote(name, host, user, password) {
-    return [
-        name: name,
-        host: host,
-        user: user,
-        password: password,
-        allowAnyHosts: true,
-        logLevel: 'INFO'
-    ]
-}
-
-// Helper function to execute SSH command
-def executeSSH(remote, command) {
-    try {
-        sshCommand remote: remote, command: command
-        log("Command executed successfully on ${remote.host}")
-    } catch (Exception e) {
-        error("SSH command failed on ${remote.host}: ${e.message}")
-    }
-}
-
-// Helper function to transfer files via sshPut
-def transferFile(remote, localFilePath, remoteFilePath) {
-    try {
-        sshPut remote: remote, from: localFilePath, into: remoteFilePath, failOnError: false
-        log("File transferred successfully from ${localFilePath} to ${remote.host}:${remoteFilePath}")
-    } catch (Exception e) {
-        error("File transfer failed to ${remote.host}: ${e.message}")
     }
 }
