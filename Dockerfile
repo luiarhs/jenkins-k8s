@@ -13,7 +13,7 @@ ENV JMETER_LIB=${JMETER_HOME}/lib
 ENV JMETER_PLUGINS=${JMETER_LIB}/ext
 ENV JMETER_DOWNLOAD_URL=https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-${JMETER_VERSION}.tgz
 
-# Install necessary packages
+# Install necessary packages, including SSH client and sshpass
 RUN apt-get update -qqy && apt-get upgrade -qqy \
     && apt-get install -y --no-install-recommends \
         curl \
@@ -22,6 +22,7 @@ RUN apt-get update -qqy && apt-get upgrade -qqy \
         telnet \
         fontconfig \
         openssh-client \
+        sshpass \
     && mkdir -p /tmp/dependencies \
     && curl -L --silent ${JMETER_DOWNLOAD_URL} > /tmp/dependencies/apache-jmeter-${JMETER_VERSION}.tgz \
     && mkdir -p /opt \
@@ -50,8 +51,8 @@ ENV PATH=$PATH:$JMETER_BIN:$JMETER_LIB:$JMETER_PLUGINS
 # Install a specific JMeter plugin (e.g., bzm-rte)
 RUN PluginsManagerCMD.sh install bzm-rte=3.3
 
-# Configure SSH to support specific host key algorithms
-RUN mkdir -p /root/.ssh && echo -e "Host *\n    HostKeyAlgorithms +ssh-rsa,ssh-dss" > /root/.ssh/config
+# Configure SSH to support specific host key algorithms for scp
+RUN mkdir -p /root/.ssh && printf "Host *\n    HostKeyAlgorithms +ssh-rsa,ssh-dss\n" > /root/.ssh/config
 
 # Clean up the package lists to reduce image size
 RUN apt-get clean \
