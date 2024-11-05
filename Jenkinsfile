@@ -16,8 +16,8 @@ pipeline {
             steps {
                 container('jmeter') {
                     script {
-                        // Zip all the files in the /app folder
-                        sh "zip -r bundle.zip /app"
+                        // Zip all the files in the /app folder using the Pipeline Utility Steps plugin
+                        zip zipFile: 'bundle.zip', archive: false, dir: '/app'
                     }
                 }
             }
