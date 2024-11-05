@@ -8,7 +8,6 @@ pipeline {
     environment {
         REMOTE_NAME = 'postest'
         REMOTE_HOST = "172.22.13.75" // IP address 4690
-        // REMOTE_HOST = "172.22.70.34" // IP address Linux
         REMOTE_PATH = '/opt/vx4690/fuse/m_drive'  // Path where the files will be stored and extracted
     }
 
@@ -17,9 +16,8 @@ pipeline {
             steps {
                 container('jmeter') {
                     script {
-                        // sh "zip -r ${zipFile} scripts/*"
-                        sh 'ls -l'
-                        sh 'jmeter --version'
+                        // Zip all the files in the /app folder
+                        sh "zip -r bundle.zip /app"
                     }
                 }
             }
@@ -28,12 +26,11 @@ pipeline {
             steps {
                 container('jmeter') {
                     script {
-                        // Configure the remote details
-                        withCredentials([usernamePassword(credentialsId: 'POS_4690_QA', usernameVariable: 'REMOTE_USER', passwordVariable: 'REMOTE_PASSWORD')]) {
-                            def remote = configureRemote(REMOTE_NAME, REMOTE_HOST, REMOTE_USER, REMOTE_PASSWORD)
-
-                            // Transfer the files to the remote host
-                            transferFile(remote, 'test.bat', REMOTE_PATH)
+                        // Use scp to transfer the files to the remote host
+                        withCredentials([usernamePassword(credentialsId: 'POS_QA', usernameVariable: 'REMOTE_USER', passwordVariable: 'REMOTE_PASSWORD')]) {
+                            sh """
+                                sshpass -p $REMOTE_PASSWORD scp -o HostKeyAlgorithms=+ssh-rsa bundle.zip ${REMOTE_USER}@${REMOTE_HOST}:${REMOTE_PATH}
+                            """
                         }
                     }
                 }
@@ -44,10 +41,10 @@ pipeline {
                 container('jmeter') {
                     script {
                         // Define the path to your JMeter test script
-                        def jmeterTestFile = 'JMeter/Scripts/4690UnzipVer.jmx'
+                        def jmeterTestFile = 'script.jmx'
                         def resultFile = 'result.jtl'
 
-                        // Run JMeter test using shell command (assumes JMeter is installed on the agent)
+                        // Run JMeter test using shell command
                         sh """
                             jmeter -n -t ${jmeterTestFile} -l ${resultFile} -Djava.awt.headless=true
                         """
@@ -58,7 +55,7 @@ pipeline {
         stage('Sleep') {
             steps {
                 script {
-                    print('I am sleeping for a while')
+                    echo 'I am sleeping for a while'
                     sleep(30)    
                 }
                 
@@ -75,12 +72,12 @@ pipeline {
                 }
             }
         }
-        // stage('Archive JMeter Results') {
-        //     steps {
-        //         // Archive the JMeter result file and the test script
-        //         archiveArtifacts artifacts: 'result.jtl, test.jmx', allowEmptyArchive: true
-        //     }
-        // }
+        stage('Archive JMeter Results') {
+            steps {
+                // Archive the JMeter result file and the test script
+                archiveArtifacts artifacts: 'result.jtl, test.jmx', allowEmptyArchive: true
+            }
+        }
     }
 
     post {
@@ -93,37 +90,5 @@ pipeline {
         failure {
             echo 'Pipeline failed.'
         }
-    }
-}
-
-// Helper function to configure the remote details
-def configureRemote(name, host, user, password) {
-    return [
-        name: name,
-        host: host,
-        user: user,
-        password: password,
-        allowAnyHosts: true,
-        logLevel: 'INFO'
-    ]
-}
-
-// Helper function to execute SSH command
-def executeSSH(remote, command) {
-    try {
-        sshCommand remote: remote, command: command
-        log("Command executed successfully on ${remote.host}")
-    } catch (Exception e) {
-        error("SSH command failed on ${remote.host}: ${e.message}")
-    }
-}
-
-// Helper function to transfer files via sshPut
-def transferFile(remote, localFilePath, remoteFilePath) {
-    try {
-        sshPut remote: remote, from: localFilePath, into: remoteFilePath, failOnError: false
-        log("File transferred successfully from ${localFilePath} to ${remote.host}:${remoteFilePath}")
-    } catch (Exception e) {
-        error("File transfer failed to ${remote.host}: ${e.message}")
     }
 }
