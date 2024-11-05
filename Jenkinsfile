@@ -8,7 +8,7 @@ pipeline {
     environment {
         REMOTE_NAME = 'postest'
         REMOTE_HOST = "172.22.13.75" // IP address 4690
-        REMOTE_PATH = '/opt/vx4690/fuse/m_drive'  // Path where the files will be stored and extracted
+        REMOTE_PATH = '/opt/vx4690/fuse/c_drive'  // Path where the files will be stored and extracted
     }
 
     stages {
