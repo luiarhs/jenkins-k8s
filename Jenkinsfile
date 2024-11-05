@@ -29,7 +29,7 @@ pipeline {
                         // Use scp to transfer the files to the remote host
                         withCredentials([usernamePassword(credentialsId: 'POS_QA', usernameVariable: 'REMOTE_USER', passwordVariable: 'REMOTE_PASSWORD')]) {
                             sh """
-                                sshpass -p ${REMOTE_PASSWORD} scp -o HostKeyAlgorithms=+ssh-rsa bundle.zip ${REMOTE_USER}@${REMOTE_HOST}:${REMOTE_PATH}
+                                sshpass -p '$POS_QA:$REMOTE_PASSWORD' scp -o HostKeyAlgorithms=+ssh-rsa bundle.zip ${REMOTE_USER}@${REMOTE_HOST}:${REMOTE_PATH}
                             """
                         }
                     }
