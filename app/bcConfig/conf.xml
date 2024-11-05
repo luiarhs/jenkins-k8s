@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<configuration>
+	<tenders>
+		<!-- Configuración de medios de pago:
+			Tender id: Corresponde al ID único que diferencia los medios de pago, no debe estar repetido
+			Type: Tipo de pago, el valor 4 corresponde a monedas foráneas
+			Descriptor: Descriptor del medio de pago
+			account: Indica si se solicita cuenta
+			validationRequired: Parámetro sin uso
+			Change: Medio de pago admite vuelto
+			enabled: Se habilita el medio de pago
+			allowedInSale: Permitido en venta
+			allowedInRefund: Permitido en devoluciones
+			minAmount: Monto mínimo para uso de este medio de pago
+			maxAmount: Monto máximo para uso de este medio de pago
+			quoteFactor: En caso de ser moneda foránea este será el factor de conversión por default
+			currencySymbol: Simbolo identificador de la moneda
+			cashdrawerOpeningRequired: Identificador de que el medio de pago abre o no cajón de dinero
+		-->
+		<tender id="1">
+			<type>1</type>
+			<descriptor>CONTADO</descriptor>
+			<account>true</account>
+			<validationRequired>true</validationRequired>
+			<change>true</change>
+			<enabled>true</enabled>
+			<allowedInSale>true</allowedInSale>
+			<allowedInRefund>true</allowedInRefund>
+			<minAmount>0</minAmount>
+			<maxAmount>999999.99</maxAmount>
+			<cashdrawerOpeningRequired>true</cashdrawerOpeningRequired>
+		</tender>
+		<tender id="2">
+			<type>2</type>
+			<descriptor>D I L I S A</descriptor>
+			<account>true</account>
+			<validationRequired>true</validationRequired>
+			<change>false</change>
+			<enabled>true</enabled>
+			<allowedInSale>true</allowedInSale>
+			<allowedInRefund>true</allowedInRefund>
+			<minAmount>0</minAmount>
+			<maxAmount>999999.99</maxAmount>
+		</tender>
+		<tender id="3">
+			<type>2</type>
+			<descriptor>Tarjeta Externa</descriptor>
+			<account>true</account>
+			<validationRequired>true</validationRequired>
+			<change>false</change>
+			<enabled>true</enabled>
+			<allowedInSale>true</allowedInSale>
+			<allowedInRefund>true</allowedInRefund>
+			<minAmount>0</minAmount>
+			<maxAmount>999999.99</maxAmount>
+		</tender>
+		<tender id="4">
+			<type>1</type>
+			<descriptor>Regalo Abierto</descriptor>
+			<account>true</account>
+			<validationRequired>true</validationRequired>
+			<change>false</change>
+			<enabled>true</enabled>
+			<allowedInSale>true</allowedInSale>
+			<allowedInRefund>true</allowedInRefund>
+			<minAmount>0</minAmount>
+			<maxAmount>999999.99</maxAmount>
+		</tender>
+		<tender id="5">
+			<type>1</type>
+			<descriptor>Vale/Monedero</descriptor>
+			<account>true</account>
+			<validationRequired>true</validationRequired>
+			<change>false</change>
+			<enabled>true</enabled>
+			<allowedInSale>true</allowedInSale>
+			<allowedInRefund>true</allowedInRefund>
+			<minAmount>0</minAmount>
+			<maxAmount>999999.99</maxAmount>
+		</tender>		
+		<tender id="6">
+			<type>2</type>
+			<descriptor>CERTI. AMEX</descriptor>
+			<account>true</account>
+			<validationRequired>true</validationRequired>
+			<change>false</change>
+			<enabled>true</enabled>
+			<allowedInSale>true</allowedInSale>
+			<allowedInRefund>true</allowedInRefund>
+			<minAmount>0</minAmount>
+			<maxAmount>999999.99</maxAmount>
+		</tender>	
+		<tender id="7">
+			<type>3</type>
+			<descriptor>Cheque</descriptor>
+			<account>true</account>
+			<validationRequired>true</validationRequired>
+			<change>true</change>
+			<enabled>true</enabled>
+			<allowedInSale>true</allowedInSale>
+			<allowedInRefund>true</allowedInRefund>
+			<minAmount>0</minAmount>
+			<maxAmount>999999.99</maxAmount>
+			<cashdrawerOpeningRequired>true</cashdrawerOpeningRequired>
+		</tender>	
+		<tender id="8">
+			<type>2</type>
+			<descriptor>LIVERPOOL VISA</descriptor>
+			<account>true</account>
+			<validationRequired>true</validationRequired>
+			<change>false</change>
+			<enabled>true</enabled>
+			<allowedInSale>true</allowedInSale>
+			<allowedInRefund>true</allowedInRefund>
+			<minAmount>0</minAmount>
+			<maxAmount>999999.99</maxAmount>
+		</tender>
+		<tender id="9">
+			<type>4</type>
+			<descriptor>Dólares</descriptor>
+			<account>true</account>
+			<validationRequired>true</validationRequired>
+			<change>true</change>
+			<enabled>true</enabled>
+			<allowedInSale>true</allowedInSale>
+			<allowedInRefund>true</allowedInRefund>
+			<minAmount>1</minAmount>
+			<maxAmount>0</maxAmount>
+			<quoteFactor>0</quoteFactor>
+			<currencySymbol>US</currencySymbol>
+			<cashdrawerOpeningRequired>true</cashdrawerOpeningRequired>
+		</tender>
+		<tender id="10">
+			<type>4</type>
+			<descriptor>Quetzales</descriptor>
+			<account>true</account>
+			<validationRequired>true</validationRequired>
+			<change>true</change>
+			<enabled>true</enabled>
+			<allowedInSale>true</allowedInSale>
+			<allowedInRefund>true</allowedInRefund>
+			<minAmount>0</minAmount>
+			<maxAmount>999999.99</maxAmount>
+			<quoteFactor>0</quoteFactor>
+			<currencySymbol>QT</currencySymbol>
+			<cashdrawerOpeningRequired>true</cashdrawerOpeningRequired>
+		</tender>
+		<tender id="11">
+			<type>1</type>
+			<descriptor>Cupones</descriptor>
+			<account>true</account>
+			<validationRequired>true</validationRequired>
+			<change>true</change>
+			<enabled>true</enabled>
+			<allowedInSale>true</allowedInSale>
+			<allowedInRefund>true</allowedInRefund>
+			<minAmount>0</minAmount>
+			<maxAmount>999999.99</maxAmount>
+			<cashdrawerOpeningRequired>true</cashdrawerOpeningRequired>
+		</tender>
+		<tender id="12">
+			<descriptor>Canal Móvil</descriptor>
+		</tender>
+		<tender id="13">
+			<type>4</type>
+			<descriptor>Euros</descriptor>
+			<account>true</account>
+			<validationRequired>true</validationRequired>
+			<change>true</change>
+			<enabled>true</enabled>
+			<allowedInSale>true</allowedInSale>
+			<allowedInRefund>true</allowedInRefund>
+			<minAmount>0</minAmount>
+			<maxAmount>999999.99</maxAmount>
+			<quoteFactor>0</quoteFactor>
+			<currencySymbol>EU</currencySymbol>
+			<cashdrawerOpeningRequired>true</cashdrawerOpeningRequired>
+		</tender>
+		<tender id="14">
+			<type>4</type>
+			<descriptor>Dólares Beliceños</descriptor>
+			<account>true</account>
+			<validationRequired>true</validationRequired>
+			<change>true</change>
+			<enabled>true</enabled>
+			<allowedInSale>true</allowedInSale>
+			<allowedInRefund>true</allowedInRefund>
+			<minAmount>0</minAmount>
+			<maxAmount>999999.99</maxAmount>
+			<quoteFactor>0</quoteFactor>
+			<currencySymbol>DB</currencySymbol>
+			<cashdrawerOpeningRequired>true</cashdrawerOpeningRequired>
+		</tender>
+		<tender id="15">
+			<type>4</type>
+			<descriptor>Dólares Canadienses</descriptor>
+			<account>true</account>
+			<validationRequired>true</validationRequired>
+			<change>true</change>
+			<enabled>true</enabled>
+			<allowedInSale>true</allowedInSale>
+			<allowedInRefund>true</allowedInRefund>
+			<minAmount>0</minAmount>
+			<maxAmount>999999.99</maxAmount>
+			<quoteFactor>0</quoteFactor>
+			<currencySymbol>DC</currencySymbol>
+			<cashdrawerOpeningRequired>true</cashdrawerOpeningRequired>
+		</tender>
+		<tender id="16">
+			<type>2</type>
+			<descriptor>SUBURBIA TD</descriptor>
+			<account>true</account>
+			<validationRequired>true</validationRequired>
+			<change>false</change>
+			<enabled>true</enabled>
+			<allowedInSale>true</allowedInSale>
+			<allowedInRefund>true</allowedInRefund>
+			<minAmount>0</minAmount>
+			<maxAmount>999999.99</maxAmount>
+		</tender>
+		<tender id="17">
+			<type>2</type>
+			<descriptor>SUBURBIA VISA</descriptor>
+			<account>true</account>
+			<validationRequired>true</validationRequired>
+			<change>false</change>
+			<enabled>true</enabled>
+			<allowedInSale>true</allowedInSale>
+			<allowedInRefund>true</allowedInRefund>
+			<minAmount>0</minAmount>
+			<maxAmount>999999.99</maxAmount>
+		</tender>
+		<tender id="18">
+			<type>2</type>
+			<descriptor>EWALLET</descriptor>
+			<account>true</account>
+			<validationRequired>true</validationRequired>
+			<change>false</change>
+			<enabled>true</enabled>
+			<allowedInSale>true</allowedInSale>
+			<allowedInRefund>true</allowedInRefund>
+			<minAmount>0</minAmount>
+			<maxAmount>999999.99</maxAmount>
+		</tender>
+		<tender id="19">
+			<type>2</type>
+			<descriptor>MINIPAGOS</descriptor>
+			<account>true</account>
+			<validationRequired>true</validationRequired>
+			<change>false</change>
+			<enabled>true</enabled>
+			<allowedInSale>true</allowedInSale>
+			<allowedInRefund>true</allowedInRefund>
+			<minAmount>700</minAmount>
+			<maxAmount>400000</maxAmount>
+		</tender>
+		<tender id="20">
+			<type>1</type>
+			<descriptor>HIPOTECA VERDE</descriptor>
+			<account>true</account>
+			<validationRequired>true</validationRequired>
+			<change>false</change>
+			<enabled>true</enabled>
+			<allowedInSale>true</allowedInSale>
+			<allowedInRefund>true</allowedInRefund>
+			<minAmount>0</minAmount>
+			<maxAmount>999999.99</maxAmount>
+		</tender>
+	</tenders>
+	<promo>
+		<initPromo>true</initPromo>
+		<configurationPath>q:/</configurationPath>
+		<mapUpdateMode>indexLocal</mapUpdateMode>
+		<store>1000</store>
+		<port>3000</port>
+		<ip>127.0.0.1</ip>
+		<timeOut>20000</timeOut>
+		<conectionRetries>3</conectionRetries>
+	</promo>
+	<terminals>
+		<terminal idClones="1-999">
+			<signOff>true</signOff>
+			<multipleSession>false</multipleSession>
+			<initialStatus>closed</initialStatus>
+			<type>normal</type>
+			<secondCashLimitParameter>10</secondCashLimitParameter>
+			<itemPriceWeightRoundingModeParameter>2</itemPriceWeightRoundingModeParameter>
+			<itemPriceWeightDecimalsParameter>2</itemPriceWeightDecimalsParameter>
+			<saleDiscountAllowedParameter>true</saleDiscountAllowedParameter>
+			<discountRoundingModeParameter>1</discountRoundingModeParameter>
+			<minimumPercentageDiscountItemParameter>0</minimumPercentageDiscountItemParameter>
+			<maximumPercentageDiscountItemParameter>100</maximumPercentageDiscountItemParameter>
+		</terminal>
+	</terminals>
+	
+	<validators>
+		<validator id="quantity">
+			<check type="datavalue" datatype="decimal" min="0.01" max="500" maxdecimals="2"/>
+		</validator>
+		<validator id="weight">
+			<check type="datavalue" datatype="decimal" min="0.01" max="500" maxdecimals="2"/>
+		</validator>
+	</validators>
+</configuration>

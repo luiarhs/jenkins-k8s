@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Configuración de archivos. Para configurar un archivo se realiza lo siguiente:
+1) El tag <fileAccessConfiguration> es el identificador del archivo.
+2) El tag <type> es el tipo de archivo.
+3) El tag <mode> es el modo de lectura.
+4) El tag <name> es la ruta del archivo
+5) El tag <jms> si se conectara mediante agente de jms
+6) El tag <keepOpen> aquí se configura si se mantendra abierto el archivo este valor por default es false -->
+<filesAccess>
+	<fileAccessConfigurations>
+		<!--<fileAccessConfiguration id="TLOG">
+			<type>bc4690File</type>
+			<mode>rw</mode>
+			<name>EALTRANS</name>
+		</fileAccessConfiguration>-->
+		<fileAccessConfiguration id="NVRAM">
+			<type>random</type>
+			<mode>rw</mode>
+			<name>nvram/</name>
+			<keyTypeAscii>true</keyTypeAscii>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="STORE_STATUS">
+			<type>random</type>
+			<mode>rw</mode>
+			<name>storeStatus</name>
+			<keyTypeAscii>true</keyTypeAscii>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="FINAL">
+			<type>keyed</type>
+			<mode>r</mode>
+			<name>$INAL</name>
+			<keyTypeAscii>true</keyTypeAscii>
+			<keepOpen>true</keepOpen>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="EALITEMR">
+			<type>keyed</type>
+			<mode>r</mode>
+			<name>$ALITEMR</name>
+			<keepOpen>true</keepOpen>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="EALPMUPC">
+			<type>keyed</type>
+			<mode>r</mode>
+			<name>$ALPMUPC</name>
+			<keepOpen>true</keepOpen>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="EALAUTH">
+			<type>keyed</type>
+			<mode>r</mode>
+			<name>$ALAUTH</name>
+			<keepOpen>true</keepOpen>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="MEALAUTH">
+			<type>keyed</type>
+			<mode>r</mode>
+			<name>EALAUTH</name>
+			<keepOpen>false</keepOpen>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="EALSIGNO">
+			<type>keyed</type>
+			<mode>rw</mode>
+			<name>EALSIGNO</name>
+			<keepOpen>true</keepOpen>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="EALSIGN2">
+			<type>keyed</type>
+			<mode>rw</mode>
+			<name>EALSIGN2</name>
+			<keepOpen>true</keepOpen>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="EALTERMS">
+			<type>keyed</type>
+			<mode>rw</mode>
+			<name>EALTERMS</name>
+			<keepOpen>true</keepOpen>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="STORENAM">
+			<type>random</type>
+			<mode>r</mode>
+			<name>$TORENAM</name>
+			<keepOpen>true</keepOpen>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="LIVPREFK">
+			<type>keyed</type>
+			<mode>r</mode>
+			<name>$IVPREFK</name>
+			<keepOpen>true</keepOpen>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="LIVMONED">
+			<type>keyed</type>
+			<mode>r</mode>
+			<name>ADX_UDT1:LIVMONED.DAT</name>
+			<keepOpen>true</keepOpen>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="EALEXCHG">
+			<type>random</type>
+			<mode>r</mode>
+			<name>EALEXCHG</name>
+			<keepOpen>false</keepOpen>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="VIDKYCOM">
+			<type>keyed</type>
+			<mode>rw</mode>
+			<name>VIDKYCOM</name>
+			<keepOpen>false</keepOpen>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="COMANDAS">
+			<type>random</type>
+			<mode>rw</mode>
+			<name>COMANDAS</name>
+			<keepOpen>false</keepOpen>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="CONFIRMA">
+			<type>keyed</type>
+			<mode>rw</mode>
+			<name>CONFIRMA</name>
+			<keepOpen>false</keepOpen>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="EALTLNDX">
+			<type>keyed</type>
+			<mode>rw</mode>
+			<name>EALTLNDX</name>
+			<keepOpen>false</keepOpen>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="SECUENC">
+			<type>random</type>
+			<mode>rw</mode>
+			<name>SECUENC</name>
+			<keepOpen>false</keepOpen>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="FACTOR">
+			<type>random</type>
+			<mode>rw</mode>
+			<name>$ACTOR</name>
+			<keepOpen>false</keepOpen>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="CLIENTES">
+			<type>keyed</type>
+			<mode>r</mode>
+			<name>$LIENTES</name>
+			<keepOpen>true</keepOpen>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="LIMITE">
+			<type>keyed</type>
+			<mode>r</mode>
+			<name>$IMITE</name>
+			<keepOpen>true</keepOpen>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="CANASTAS">
+			<type>keyed</type>
+			<mode>r</mode>
+			<name>$ANASTAS</name>
+			<keepOpen>false</keepOpen>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="LIVCONFG">
+			<type>random</type>
+			<mode>rw</mode>
+			<name>$IVCONFG</name>
+			<keepOpen>false</keepOpen>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="LIVMENUS">
+			<type>random</type>
+			<mode>rw</mode>
+			<name>LIVMENUS</name>
+			<keepOpen>false</keepOpen>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="VTOL_STORE">
+			<type>xml</type>
+			<mode>r</mode>
+			<name>vtolstore.xml</name>
+			<keepOpen>false</keepOpen>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="CONF">
+			<type>xml</type>
+			<mode>r</mode>
+			<name>conf.xml</name>
+			<keepOpen>false</keepOpen>
+			<application>BC_GSA</application>
+			<clazz>com.synthesis.bridge.liverpool.bcore.xml.helper.XMLConfigurator</clazz>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="LIVCONF">
+			<type>xml</type>
+			<mode>r</mode>
+			<name>livConf.xml</name>
+			<keepOpen>false</keepOpen>
+			<application>BC_GSA</application>
+			<clazz>com.synthesis.bridge.liverpool.bcore.xml.helper.XMLLiverpoolConfigurator</clazz>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="BC3CONF">
+			<type>xml</type>
+			<mode>r</mode>
+			<name>bc3conf.xml</name>
+			<keepOpen>false</keepOpen>
+			<application>BC_GSA</application>
+			<clazz>com.synthesis.bridge.liverpool.bcore.xml.helper.XMLBC3Configurator</clazz>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="GARANTIA">
+			<type>xml</type>
+			<mode>r</mode>
+			<name>garantia.xml</name>
+			<keepOpen>false</keepOpen>
+			<application>BC_GSA</application>
+			<clazz>com.synthesis.bridge.liverpool.bcore.xml.helper.XMLGarantiaConfigurator</clazz>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="IMPUESTOS">
+			<type>xml</type>
+			<mode>r</mode>
+			<name>impuestos.xml</name>
+			<keepOpen>false</keepOpen>
+			<application>BC_GSA</application>
+			<clazz>com.synthesis.bridge.liverpool.bcore.xml.helper.XMLImpuestosConfigurator</clazz>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="AGENT_CONFIG">
+			<type>xml</type>
+			<mode>r</mode>
+			<name>agentConfig.xml</name>
+			<keepOpen>false</keepOpen>
+			<localFile>true</localFile>
+			<!-- ms -->
+			<timeOut>60000</timeOut>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="AGENT_CONFIG_BKP">
+			<type>xml</type>
+			<mode>rw</mode>
+			<name>agentConfigLabBkp.xml</name>
+			<keepOpen>false</keepOpen>
+			<localFile>true</localFile>
+			<!-- ms -->
+			<timeOut>60000</timeOut>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="CONTROLLER_AGENTS">
+			<type>random</type>
+			<mode>rw</mode>
+			<name>agent.txt</name>
+			<keepOpen>false</keepOpen>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="BROWSER_CONFIG">
+			<type>xml</type>
+			<mode>r</mode>
+			<name>browser.xml</name>
+			<keepOpen>false</keepOpen>
+			<application>BC_GSA</application>
+			<clazz>com.synthesis.bridge.liverpool.bcore.helper.configurator.XMLBrowserLiverpoolConfiguration</clazz>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="DOMFTDA">
+			<type>random</type>
+			<mode>r</mode>
+			<name>ADX_IPGM:DOMFTDA.INI</name>
+			<keepOpen>false</keepOpen>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="MENUEMPL">
+			<type>random</type>
+			<mode>r</mode>
+			<name>ADX_IPGM:MENUEMPL.INI</name>
+			<keepOpen>false</keepOpen>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="FACTURA">
+			<type>random</type>
+			<mode>r</mode>
+			<name>ADX_UDT1:FACTURA.ON</name>
+			<keepOpen>false</keepOpen>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="ANTILAVADO">
+			<type>xml</type>
+			<mode>r</mode>
+			<name>antilavado.xml</name>
+			<keepOpen>false</keepOpen>
+			<application>BC_GSA</application>
+			<clazz>com.synthesis.bridge.liverpool.bcore.xml.helper.XMLAntiLavadoLiverpoolConfigurator</clazz>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="DELIVERYFOOD">
+			<type>xml</type>
+			<mode>r</mode>
+			<name>deliveryFood.xml</name>
+			<keepOpen>false</keepOpen>
+			<application>BC_GSA</application>
+			<clazz>com.synthesis.bridge.liverpool.bcore.xml.helper.XMLDeliveryFoodLiverpoolConfigurator</clazz>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="LIVTELK">
+			<type>keyed</type>
+			<mode>r</mode>
+			<name>LIVTELK</name>
+			<keepOpen>true</keepOpen>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="VENTCORP">
+			<type>random</type>
+			<mode>rw</mode>
+			<name>ADX_UDT1:VENTCORP.DAT</name>
+			<keepOpen>true</keepOpen>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="EWALLETF">
+			<type>keyed</type>
+			<mode>rw</mode>
+			<name>EWALLETF</name>
+			<keepOpen>false</keepOpen>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="LIVPROD_FILE">
+			<type>random</type>
+			<mode>r</mode>
+			<name>LIVPROD</name>
+			<keepOpen>false</keepOpen>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="VENTACRUZADA">
+			<type>xml</type>
+			<mode>r</mode>
+			<name>ADX_UDT1:VENTACRU.XML</name>
+			<keepOpen>false</keepOpen>
+			<application>BC_GSA</application>
+			<clazz>com.synthesis.bridge.liverpool.bcore.xml.helper.XMLVentaCruzadaComputoConfigurator</clazz>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="VERSION">
+			<type>xml</type>
+			<mode>r</mode>
+			<name>version.xml</name>
+			<keepOpen>false</keepOpen>
+			<application>BC_GSA</application>
+			<clazz>com.synthesis.bridge.liverpool.bcore.xml.helper.XMLVersionLiverpoolConfigurator</clazz>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="BPOSCONF">
+			<type>xml</type>
+			<mode>r</mode>
+			<name>bposconf.xml</name>
+			<keepOpen>false</keepOpen>
+			<application>BPOS_GSA</application>
+			<clazz>com.synthesis.bridge.liverpool.pos.config.xml.XMLBPOSConfigurator</clazz>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="SKUMOTOS">
+			<type>random</type>
+			<mode>r</mode>
+			<name>SKUMOTOS</name>
+			<keepOpen>false</keepOpen>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="FACTURACION">
+			<type>xml</type>
+			<mode>r</mode>
+			<name>facturacion.xml</name>
+			<keepOpen>false</keepOpen>
+			<application>BC_GSA</application>
+			<clazz>com.synthesis.bridge.liverpool.bcore.helper.configurator.XMLFacturacionConfigurator</clazz>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="SERVICIOS">
+			<type>xml</type>
+			<mode>r</mode>
+			<name>servicios.xml</name>
+			<keepOpen>false</keepOpen>
+			<application>BC_GSA</application>
+			<clazz>com.synthesis.bridge.liverpool.bcore.helper.configurator.XMLServiciosCpsConfigurator</clazz>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="BANCOS">
+			<type>xml</type>
+			<mode>r</mode>
+			<name>bancos.xml</name>
+			<keepOpen>false</keepOpen>
+			<application>BC_GSA</application>
+			<clazz>com.synthesis.bridge.liverpool.bcore.helper.configurator.XMLBanksCpsConfigurator</clazz>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="VTOL_STORE_SIMULATE">
+			<type>xml</type>
+			<mode>r</mode>
+			<name>vtolStoreSimulateMessage.xml</name>
+			<keepOpen>false</keepOpen>
+			<application>BC_GSA</application>
+			<clazz>com.synthesis.bridge.liverpool.bcore.xml.helper.XMLSimulateVtolStoreConfigurator</clazz>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="DIRTDAVO">
+			<type>random</type>
+			<mode>r</mode>
+			<name>ADX_UDT1:DIRTDAVO.DAT</name>
+			<keepOpen>false</keepOpen>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="ESTADOVO">
+			<type>random</type>
+			<mode>r</mode>
+			<name>ADX_UDT1:ESTADOVO.DAT</name>
+			<keepOpen>false</keepOpen>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="CUENTA_PIF">
+			<type>keyed</type>
+			<mode>r</mode>
+			<name>CTAPIF</name>
+			<keepOpen>false</keepOpen>
+			<keyTypeAscii>true</keyTypeAscii>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="CUENTA_EWALLET_PIF">
+			<type>keyed</type>
+			<mode>r</mode>
+			<name>CTAEWP</name>
+			<keepOpen>false</keepOpen>
+			<keyTypeAscii>true</keyTypeAscii>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="OMNIFL">
+			<type>random</type>
+			<mode>rw</mode>
+			<name>OMNIFL</name>
+			<keepOpen>false</keepOpen>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="MARKETPLACE">
+			<type>xml</type>
+			<mode>r</mode>
+			<name>marketPlace.xml</name>
+			<keepOpen>false</keepOpen>
+			<application>BC_GSA</application>
+			<clazz>com.synthesis.bridge.liverpool.bcore.helper.configurator.XMLMarketPlaceConfigurator</clazz>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="CDP_CATALOGO">
+			<type>xml</type>
+			<mode>r</mode>
+			<name>cdpCatalogo.xml</name>
+			<keepOpen>false</keepOpen>
+			<application>BC_GSA</application>
+			<clazz>com.synthesis.bridge.liverpool.bcore.helper.configurator.XMLCdpCatalogoConfigurator</clazz>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="DESCUENTOS">
+			<type>xml</type>
+			<mode>r</mode>
+			<name>descuentos.xml</name>
+			<keepOpen>false</keepOpen>
+			<application>BC_GSA</application>
+			<clazz>com.synthesis.bridge.liverpool.bcore.helper.configurator.XMLDescuentosConfigurator</clazz>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="ADXCVMAC">
+			<type>random</type>
+			<mode>r</mode>
+			<name>ADX_UDT1:ADXCVMAC.DAT</name>
+			<keepOpen>false</keepOpen>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="RSAPUBLI">
+			<type>random</type>
+			<mode>r</mode>
+			<name>ADX_UDT1:RSAPUBLI.DAT</name>
+			<keepOpen>false</keepOpen>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="VTACRUZSEG">
+			<type>xml</type>
+			<mode>r</mode>
+			<name>ventaCruzadaSeguros.xml</name>
+			<keepOpen>false</keepOpen>
+			<application>BC_GSA</application>
+			<clazz>com.synthesis.bridge.liverpool.bcore.xml.helper.XMLVtaCruzadaSegurosConfigurator</clazz>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="TELEPHONE_OPERATOR">
+			<type>xml</type>
+			<mode>r</mode>
+			<name>telephoneOperators.xml</name>
+			<keepOpen>false</keepOpen>
+			<application>BC_GSA</application>
+			<clazz>com.synthesis.bridge.liverpool.bcore.helper.configurator.XMLTelephoneOperatorConfigurator</clazz>
+		</fileAccessConfiguration>
+		<fileAccessConfiguration id="ESQUEMAAPPLE">
+			<type>xml</type>
+			<mode>r</mode>
+			<name>planesCare.xml</name>
+			<keepOpen>false</keepOpen>
+			<application>BC_GSA</application>
+			<clazz>com.synthesis.bridge.liverpool.bcore.helper.configurator.XMLAppleCareConfigurator</clazz>
+		</fileAccessConfiguration>
+	</fileAccessConfigurations>
+</filesAccess>

@@ -1,0 +1,17 @@
+<descuentos>
+	<listaDescuentos>
+		<descuentoTecla id="1" descripcion="Mal etiquetado/diferencia en precio" />
+		<descuentoTecla id="2" descripcion="Ajuste en promoción" />
+		<descuentoTecla id="3" descripcion="Mercancía de exhibición/con defecto" />
+		<descuentoTecla id="4" descripcion="Autorizado por Compras/proveedor" />
+		<descuentoTecla id="5" descripcion="Autorizado por Dirección/Gerencia" />
+		<descuentoTecla id="6" descripcion="Samsung Galaxy Canje" />
+		<descuentoTecla id="7" descripcion="Miembros de la Unión Francesa de los Extranjeros en México" />
+		<descuentoTecla id="8" descripcion="Cuerpo diplomático acreditado en México (carnet expedido por la SRE)" />
+		<descuentoTecla id="9" descripcion="Miembros del clero católico (sacerdotes, monjes, seminaristas, etc...)" />
+		<descuentoTecla id="10" descripcion="Jubilación/Incapacidad permanente" />
+	</listaDescuentos>
+
+	<!-- Secciones para descuento por tecla -->
+	<seccionesDescuento>101,104,105,106,107,108,111,116,121,154,156,161,201,203,205,206,207,224,237,251,261,271,276,302,307,321,322,323,344,351,356,374,376,388,391,413,424,433,466,504,510,511,512,521,524,533,540,545,550,553,555,571,623,625,628,629,632,634,635,636,701,702</seccionesDescuento>
+</descuentos>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<producers>
+   <producer name="SuiteProducer" class="ar.com.synthesis.communication.JavaProducer" >
+    <writer name="SuiteWriter" class="ar.com.synthesis.communication.JavaWriter" />
+    <interpreter name="SuiteInterpreter" class="ar.com.synthesis.communication.JavaInterpreter" />
+    <message id="RETURN" class="ar.com.synthesis.pos.message.ReturnOutputMessage" />
+   </producer>
+</producers>
+

@@ -1,0 +1,2039 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Este archivo es compatible con las siguientes versiones  -->
+<!-- POS Unificado 1.0.11 -->
+<!-- BC3 2.0.11 -->
+<!-- POS Productivo 1.26.09 -->
+<liverpoolConfiguration>
+	<tenders>
+		<liverpoolTender id="1">
+			<gsa>15</gsa>
+			<includedTransaction id="1,2,20,50" subTransaction="" aditionalTrx="" />
+			<excludedTransaction id="" subTransaction="37,42" aditionalTrx="" />
+			<inputKeyboard>1</inputKeyboard>
+		</liverpoolTender>
+		<liverpoolTender id="2">
+			<gsa>8</gsa>
+		</liverpoolTender>
+		<liverpoolTender id="3">
+			<gsa>10</gsa>
+			<includedTransaction id="1,2,3,4,15,20,50" subTransaction="" aditionalTrx="" />
+			<inputKeyboard>5</inputKeyboard>
+		</liverpoolTender>
+		<liverpoolTender id="4">
+			<gsa>4</gsa>
+			<includedTransaction id="1" subTransaction="6" aditionalTrx="" />
+			<inputKeyboard>9</inputKeyboard>
+		</liverpoolTender>
+		<liverpoolTender id="5">
+			<gsa>2</gsa>
+			<includedTransaction id="1,2,3,4,20,50" subTransaction="" aditionalTrx="" />
+			<excludedTransaction id="" subTransaction="21,22,37,42,47" aditionalTrx="" />
+			<inputKeyboard>4</inputKeyboard>
+		</liverpoolTender>
+		<liverpoolTender id="6">
+			<gsa>3</gsa>
+		</liverpoolTender>
+		<liverpoolTender id="7">
+			<gsa>0</gsa>
+			<includedTransaction id="1,2,20,50" subTransaction="" aditionalTrx="" />
+			<excludedTransaction id="" subTransaction="37,42,48" aditionalTrx="" />
+			<inputKeyboard>2</inputKeyboard>
+		</liverpoolTender>
+		<liverpoolTender id="8">
+			<gsa>11</gsa>
+		</liverpoolTender>
+		<liverpoolTender id="9">
+			<gsa>30</gsa>
+			<includedTransaction id="1,2,20,50" subTransaction="" aditionalTrx="" />
+			<excludedTransaction id="" subTransaction="37,42" aditionalTrx="23" />
+			<noAcceptsDecimal>true</noAcceptsDecimal>
+			<inputKeyboard>6</inputKeyboard>
+		</liverpoolTender>
+		<liverpoolTender id="10">
+			<gsa>31</gsa>
+			<includedTransaction id="1,2,20,50" subTransaction="" aditionalTrx="" />
+			<excludedTransaction id="" subTransaction="32,37,42" aditionalTrx="" />
+			<inputKeyboard>7</inputKeyboard>
+		</liverpoolTender>
+		<liverpoolTender id="11">
+			<gsa>1</gsa>
+			<includedTransaction id="1,2,20,50" subTransaction="" aditionalTrx="" />
+			<excludedTransaction id="" subTransaction="16,32,37,42" aditionalTrx="" />
+			<inputKeyboard>3</inputKeyboard>
+		</liverpoolTender>
+		<liverpoolTender id="12">
+			<includedTransaction id="1,2,3,4,20,50" subTransaction="" aditionalTrx="" />
+			<excludedTransaction id="" subTransaction="21,22,37,42" aditionalTrx="" />
+			<inputKeyboard>10</inputKeyboard>
+		</liverpoolTender>
+		<liverpoolTender id="13">
+			<gsa>27</gsa>
+			<includedTransaction id="1,2,20,50" subTransaction="" aditionalTrx="" />
+			<excludedTransaction id="" subTransaction="32,37,42" aditionalTrx="" />
+			<inputKeyboard>11</inputKeyboard>
+		</liverpoolTender>
+		<liverpoolTender id="14">
+			<gsa>26</gsa>
+			<includedTransaction id="1,2,20,50" subTransaction="" aditionalTrx="" />
+			<excludedTransaction id="" subTransaction="32,37,42" aditionalTrx="" />
+			<inputKeyboard>12</inputKeyboard>
+		</liverpoolTender>
+		<liverpoolTender id="15">
+			<gsa>28</gsa>
+			<includedTransaction id="1,2,20,50" subTransaction="" aditionalTrx="" />
+			<excludedTransaction id="" subTransaction="32,37,42" aditionalTrx="" />
+			<inputKeyboard>13</inputKeyboard>
+		</liverpoolTender>
+		<liverpoolTender id="16">
+			<gsa>19</gsa>
+		</liverpoolTender>
+		<liverpoolTender id="17">
+			<gsa>20</gsa>
+		</liverpoolTender>
+		<liverpoolTender id="18">
+		</liverpoolTender>
+		<liverpoolTender id="19">
+			<gsa>32</gsa>
+		</liverpoolTender>
+		<liverpoolTender id="20">
+			<gsa>10</gsa>
+		</liverpoolTender>
+	</tenders>
+
+	<banks>
+		<bank code="1">
+			<description>CITIBANAMEX</description>
+			<securityCodeLength>3</securityCodeLength>
+		</bank>
+		<bank code="2">
+			<description>BBVA</description>
+			<securityCodeLength>3</securityCodeLength>
+		</bank>
+		<bank code="3">
+			<description>CARNET</description>
+			<securityCodeLength>3</securityCodeLength>
+		</bank>
+		<bank code="4">
+			<description>AMERICAN EXPR</description>
+			<securityCodeLength>4</securityCodeLength>
+		</bank>
+		<bank code="5">
+			<description>INBURSA</description>
+			<securityCodeLength>3</securityCodeLength>
+		</bank>
+		<bank code="6">
+			<description>PROSA</description>
+			<securityCodeLength>3</securityCodeLength>
+		</bank>
+		<bank code="7">
+			<description>HSBC</description>
+			<securityCodeLength>3</securityCodeLength>
+		</bank>
+		<bank code="8">
+			<description>CITIBANK</description>
+			<securityCodeLength>3</securityCodeLength>
+		</bank>
+		<bank code="9">
+			<description>SCOTIABANK</description>
+			<securityCodeLength>3</securityCodeLength>
+		</bank>
+		<bank code="10">
+			<description>BANORTE</description>
+			<securityCodeLength>3</securityCodeLength>
+		</bank>
+		<bank code="11">
+			<description>SERFIN</description>
+			<securityCodeLength>3</securityCodeLength>
+		</bank>
+		<bank code="12">
+			<description>SANTANDER</description>
+			<securityCodeLength>3</securityCodeLength>
+		</bank>
+		<bank code="13">
+			<description>BANJERCITO</description>
+			<securityCodeLength>3</securityCodeLength>
+		</bank>
+		<bank code="14">
+			<description>IXE</description>
+			<securityCodeLength>3</securityCodeLength>
+		</bank>
+		<bank code="15">
+			<description>INVEX</description>
+			<securityCodeLength>3</securityCodeLength>
+		</bank>
+		<bank code="16">
+			<description>PREMIUMCARD</description>
+			<securityCodeLength>3</securityCodeLength>
+		</bank>
+		<bank code="17">
+			<description>SBB VISA</description>
+			<securityCodeLength>3</securityCodeLength>
+		</bank>
+	</banks>
+	
+	<transactions>
+     	<liverpoolTerminal idClones="1-999">
+			<types>
+				<type id="1" name="ventaCliente" getAccount="false">
+					<subtypes>
+						<subtype id="5" name="normal" getAccount="false" />
+						<subtype id="6" name="mesaRegalo" getAccount="true">
+							<subtypes>
+								<subtype id="5" name="Cliente se lleva la mercancía" getAccount="true" />
+								<subtype id="8" name="Paquetería" getAccount="true">
+									<subtypes>
+										<subtype id="11" name="masculino" getAccount="true" />
+										<subtype id="12" name="femenino" getAccount="true" />
+									</subtypes>
+								</subtype>
+								<subtype id="13" name="Regalo electrónico" getAccount="true" />
+							</subtypes>
+						</subtype>
+						<subtype id="7" name="soms" getAccount="true" />
+						<subtype id="8" name="paqueteria" getAccount="false" />
+						<subtype id="9" name="optica" getAccount="true" />
+						<subtype id="16" name="seguros" getAccount="true" >
+							<subtypes>
+								<subtype id="44" name="oficina" getAccount="true" />
+								<subtype id="45" name="celulares" getAccount="true" />
+							</subtypes>
+						</subtype>
+						<subtype id="19" name="dulceria" getAccount="false" />
+						<subtype id="34" name="garantiaExt" getAccount="true" />
+						<subtype id="29" name="centroDiseno" getAccount="true">
+							<subtypes>
+								<subtype id="5" name="Normal" getAccount="false" />
+								<subtype id="8" name="Paquetería" getAccount="false">
+								</subtype>
+							</subtypes>
+						</subtype>
+						<subtype id="23" name="ventaMonedero" getAccount="false" />
+						<subtype id="30" name="alimentos" getAccount="true" />
+						<subtype id="32" name="agenciaViajes" getAccount="false" />
+						<subtype id="15" name="servicios" getAccount="false" />
+						<subtype id="31" name="aprovisionamiento" getAccount="false" />
+						<subtype id="33" name="tiempoAire" getAccount="false" />
+						<subtype id="42" name="valesVw" getAccount="true" />
+						<subtype id="28" name="sastreria" getAccount="false" />
+						<subtype id="43" name="relojes" getAccount="true" />
+						<subtype id="46" name="planesTarifarios" getAccount="false" />
+						<subtype id="47" name="ventasInstitucionales" getAccount="false" />
+						<subtype id="49" name="llantas" getAccount="true" />
+						<subtype id="50" name="monederoPromass" getAccount="false" />
+					</subtypes>
+				</type>
+				<type id="2" name="ventaEmpleado" getAccount="true">
+					<subtypes>
+						<subtype id="5" name="normal" getAccount="false" />
+						<subtype id="6" name="mesaRegalo" getAccount="true">
+							<subtypes>
+								<subtype id="5" name="Cliente se lleva la mercancía" getAccount="false" />
+								<subtype id="8" name="Paquetería" getAccount="false">
+									<subtypes>
+										<subtype id="11" name="masculino" getAccount="false" />
+										<subtype id="12" name="femenino" getAccount="false" />
+									</subtypes>
+								</subtype>
+							</subtypes>
+						</subtype>
+						<subtype id="7" name="soms" getAccount="true" />
+						<subtype id="30" name="alimentos" getAccount="true" />
+						<subtype id="16" name="seguros" getAccount="true" />
+						<subtype id="8" name="paqueteria" getAccount="false" />
+						<subtype id="9" name="optica" getAccount="true" />
+						<subtype id="29" name="centroDiseno" getAccount="true">
+							<subtypes>
+								<subtype id="5" name="Normal" getAccount="false" />
+								<subtype id="8" name="Paquetería" getAccount="false">
+								</subtype>
+							</subtypes>
+						</subtype>
+						<subtype id="33" name="tiempoAire" getAccount="false" />
+						<subtype id="34" name="garantiaExt" getAccount="true" />
+						<subtype id="28" name="sastreria" getAccount="false" />
+						<subtype id="43" name="relojes" getAccount="true" />
+						<subtype id="49" name="llantas" getAccount="true" />
+						<subtype id="50" name="monederoPromass" getAccount="false" />
+					</subtypes>
+				</type>
+				<type id="3" name="devolucionCliente" getAccount="false">
+					<subtypes>
+						<subtype id="5" name="normal" getAccount="false" />
+						<subtype id="6" name="mesaRegalo" getAccount="true" />
+						<subtype id="7" name="soms" getAccount="true" />
+						<subtype id="9" name="optica" getAccount="true" />
+						<subtype id="29" name="centroDiseno" getAccount="true">
+							<subtypes>
+								<subtype id="5" name="Normal" getAccount="false" />
+								<subtype id="8" name="Paquetería" getAccount="false">
+								</subtype>
+							</subtypes>
+						</subtype>
+						<subtype id="32" name="agenciaViajes" getAccount="false" />
+						<subtype id="28" name="sastreria" getAccount="false" />
+						<subtype id="49" name="llantas" getAccount="true" />
+					</subtypes>
+				</type>
+				<type id="4" name="devolucionEmpleado" getAccount="false">
+					<subtypes>
+						<subtype id="5" name="normal" getAccount="false" />
+						<subtype id="6" name="mesaRegalo" getAccount="true" />
+						<subtype id="7" name="soms" getAccount="true" />
+						<subtype id="9" name="optica" getAccount="true" />
+						<subtype id="29" name="centroDiseno" getAccount="true">
+							<subtypes>
+								<subtype id="5" name="Normal" getAccount="false" />
+								<subtype id="8" name="Paquetería" getAccount="false">
+								</subtype>
+							</subtypes>
+						</subtype>
+						<subtype id="28" name="sastreria" getAccount="false" />
+						<subtype id="49" name="llantas" getAccount="true" />
+					</subtypes>
+				</type>
+			</types>
+			<accounts>
+				<account id="1">
+					<type>11,22</type>
+					<subtype>33,44</subtype>
+				</account>
+			</accounts>
+		</liverpoolTerminal>
+	</transactions>
+
+	<sellNotExistItem>true</sellNotExistItem>
+	<sellIncompleteItem>false</sellIncompleteItem>
+	<item>
+		<department>1</department>
+		<name>MERCANCIA</name>
+		<move>false</move>
+		<tax>true</tax>
+		<taxId>1</taxId>
+		<taxCategoryId>3</taxCategoryId>
+
+		<!-- Se agrega categoria de impuesto para 8's -->
+		<taxId8s>1</taxId8s>
+		<taxCategoryId8s>2</taxCategoryId8s>
+
+		<!-- Se agrega lista de departamentos que NO cambian a 9's cuando no existan en el Itemr -->
+		<changeToDeparment9s>101,104,105,106,107,108,110,111,116,121,145,147,149,152,154,156,157,161,180,201,203,205,206,207,211,213,223,224,225,237,241,242,245,246,247,251,261,271,276,279,282,285,288,302,307,321,322,323,327,337,338,340,343,344,345,351,356,357,358,365,374,375,376,377,380,388,390,391,392,393,394,398,402,405,413,417,421,423,424,425,433,435,436,437,438,440,443,444,450,456,459,466,469,470,473,478,479,480,486,495,504,508,510,511,512,514,520,521,522,523,524,525,529,530,532,533,535,536,540,544,545,550,553,555,557,559,565,566,571,610,622,623,625,626,627,628,629,630,631,632,633,634,635,636,637,638,639,640,649,651,701,702,704,705,706,707,708,780,897,898,902,905,910,911,913,914,920,930,931,933,934,936,980</changeToDeparment9s>
+	</item>
+	
+	<terminalesDesayunoEmpleado>
+		<terminalDesayunoEmpleado idTienda="101" idTerminal="104" />
+	</terminalesDesayunoEmpleado>
+	<itemDesayunoEmpleadoId>897</itemDesayunoEmpleadoId>
+	<deptoTrxServicios>999999</deptoTrxServicios>
+
+	<discountDilisa>true</discountDilisa>
+
+	<!-- EIC -->
+	<!-- Direción del servidor EIC. El EIC corre por cada terminal, -->
+	<!-- Por lo que debe tener la dirección 127.0.0.1-->
+	<EICAddress>127.0.0.1</EICAddress>
+	<!-- Puerto donde el EIC espera los request de BridgePos -->
+	<EICPort>19999</EICPort>
+	<!-- Timeout entre BridgePos y el EIC -->
+	<EICTimeout>32000</EICTimeout>
+	<!-- EIC END -->
+	
+	<responseCodeActions>
+		<responseCode id="1">
+			<action>APROBADA</action>
+		</responseCode>
+		<responseCode id="2">
+			<action>RECHAZADA</action>
+		</responseCode>
+		<responseCode id="4">
+			<action>PEDIR_AUTORIZACION</action>
+		</responseCode>
+		<responseCode id="7">
+			<action>TIME_OUT</action>
+		</responseCode>
+		<responseCode id="9">
+			<action>PEDIR_AUTORIZACION</action>
+			<action>TIME_OUT</action>
+			<action>SIN_COMUNICACION</action>
+		</responseCode>
+	</responseCodeActions>
+	
+	<tlogFileName>R::EALTRANS</tlogFileName>
+	<saveTlogRetries>3</saveTlogRetries>
+	<saveTlogTimeout>5</saveTlogTimeout>
+
+	<maxPercentageDiscount>99</maxPercentageDiscount>
+	<maxFixedDiscount>999999</maxFixedDiscount>
+
+	<encodedAuthorization>false</encodedAuthorization>
+	<bancomerAfil>111</bancomerAfil>
+	<upcItunesList>
+		<upcItunes id="1">
+			<code>076750087448</code>
+			<sku>1000811421</sku>
+			<mercaderia>1000811871</mercaderia>
+		</upcItunes>
+		<upcItunes id="2">
+			<code>076750041891</code>
+			<sku>1000811552</sku>
+			<mercaderia>1000811897</mercaderia>
+		</upcItunes>
+		<upcItunes id="3">
+			<code>076750041907</code>
+			<sku>1000811561</sku>
+			<mercaderia>1000811901</mercaderia>
+		</upcItunes>
+		<upcItunes id="4">
+			<code>076750065767</code>
+			<sku>1000928352</sku>
+			<mercaderia>1000928417</mercaderia>
+		</upcItunes>
+		<upcItunes id="5">
+			<code>076750065774</code>
+			<sku>1000928379</sku>
+			<mercaderia>1000928557</mercaderia>
+		</upcItunes>
+		<upcItunes id="6">
+			<code>076750065781</code>
+			<sku>1000928395</sku>
+			<mercaderia>1000928581</mercaderia>
+		</upcItunes>
+		<upcItunes id="7">
+			<code>0885909919734</code>
+			<sku>1032461251</sku>
+			<mercaderia>1032324025</mercaderia>
+		</upcItunes>
+		<upcItunes id="8">
+			<code>0885909919772</code>
+			<sku>1032461260</sku>
+			<mercaderia>1032324041</mercaderia>
+		</upcItunes>
+		<upcItunes id="9">
+			<code>0885909919826</code>
+			<sku>1032461278</sku>
+			<mercaderia>1032324050</mercaderia>
+		</upcItunes>
+		<upcItunes id="10">
+			<code>0885909919871</code>
+			<sku>1032461286</sku>
+			<mercaderia>1032324068</mercaderia>
+		</upcItunes>
+		<upcItunes id="11">
+			<code>190198593771</code>
+			<sku>1077352381</sku>
+			<mercaderia>1043457001</mercaderia>
+		</upcItunes>
+		<upcItunes id="12">
+			<code>076750459948</code>
+			<sku>1103154380</sku>
+			<mercaderia>1103160380</mercaderia>
+		</upcItunes>
+		<upcItunes id="13">
+			<code>07675040132</code>
+			<sku>1117682133</sku>
+			<mercaderia>1117688182</mercaderia>
+		</upcItunes>
+		<upcItunes id="14">
+			<code>07675040139</code>
+			<sku>1117682192</sku>
+			<mercaderia>1117688930</mercaderia>
+		</upcItunes>
+		<upcItunes id="15">
+			<code>076750299926</code>
+			<sku>1106294395</sku>
+			<mercaderia>1106295511</mercaderia>
+		</upcItunes>
+		<upcItunes id="16">
+			<code>07675049729</code>
+			<sku>1117684101</sku>
+			<mercaderia>1117689014</mercaderia>
+		</upcItunes>
+		<upcItunes id="17">
+			<code>076750530319</code>
+			<sku>1145692594</sku>
+			<mercaderia>1145695267</mercaderia>
+		</upcItunes>
+		<upcItunes id="18">
+			<code>076750530326</code>
+			<sku>1145695232</sku>
+			<mercaderia>1145695275</mercaderia>
+		</upcItunes>
+		<upcItunes id="19">
+			<code>076750530333</code>
+			<sku>1145695241</sku>
+			<mercaderia>1145695283</mercaderia>
+		</upcItunes>
+		<upcItunes id="20">
+			<code>076750530340</code>
+			<sku>1145695259</sku>
+			<mercaderia>1145695291</mercaderia>
+		</upcItunes>
+		<upcItunes id="21">
+			<code>076750530357</code>
+			<sku>1148467249</sku>
+			<mercaderia>1148467257</mercaderia>
+		</upcItunes>
+		<upcItunes id="22">
+			<code>076750144608</code>
+			<sku>1025485285</sku>
+			<mercaderia>1025487849</mercaderia>
+		</upcItunes>
+		<upcItunes id="23">
+			<code>076750144615</code>
+			<sku>1025486532</sku>
+			<mercaderia>1025488110</mercaderia>
+		</upcItunes>
+		<upcItunes id="24">
+			<code>076750144622</code>
+			<sku>1025486613</sku>
+			<mercaderia>1025488420</mercaderia>
+		</upcItunes>
+		<upcItunes id="25">
+			<code>07675026205</code>
+			<sku>1060140517</sku>
+			<mercaderia>1060238169</mercaderia>
+		</upcItunes>
+		<upcItunes id="26">
+			<code>07675026206</code>
+			<sku>1060142021</sku>
+			<mercaderia>1060238177</mercaderia>
+		</upcItunes>
+		<upcItunes id="27">
+			<code>07675026207</code>
+			<sku>1060142030</sku>
+			<mercaderia>1060240279</mercaderia>
+		</upcItunes>
+		<upcItunes id="28">
+			<code>076750375040</code>
+			<sku>1097893442</sku>
+			<mercaderia>1097893451</mercaderia>
+		</upcItunes>
+		<upcItunes id="29">
+			<code>076750262081</code>
+			<sku>1060142048</sku>
+			<mercaderia>1060240350</mercaderia>
+		</upcItunes>
+		<upcItunes id="30">
+			<code>076750184260</code>
+			<sku>1039533088</sku>
+			<mercaderia>1039359231</mercaderia>
+		</upcItunes>
+		<upcItunes id="31">
+			<code>076750254772</code>
+			<sku>1074010365</sku>
+			<mercaderia>1074018722</mercaderia>
+		</upcItunes>
+		<upcItunes id="32">
+			<code>076750254789</code>
+			<sku>1074010373</sku>
+			<mercaderia>1074018731</mercaderia>
+		</upcItunes>
+		<upcItunes id="33">
+			<code>076750254796</code>
+			<sku>1074010381</sku>
+			<mercaderia>1074018749</mercaderia>
+		</upcItunes>
+		<upcItunes id="34">
+			<code>076750222726</code>
+			<sku>1060140428</sku>
+			<mercaderia>1060235828</mercaderia>
+		</upcItunes>
+		<upcItunes id="35">
+			<code>076750222764</code>
+			<sku>1060140436</sku>
+			<mercaderia>1060237332</mercaderia>
+		</upcItunes>
+		<upcItunes id="36">
+			<code>076750222771</code>
+			<sku>1060140444</sku>
+			<mercaderia>1060237359</mercaderia>
+		</upcItunes>
+		<upcItunes id="37">
+			<code>07675027266</code>
+			<sku>1060140452</sku>
+			<mercaderia>1060237367</mercaderia>
+		</upcItunes>
+		<upcItunes id="38">
+			<code>07675027264</code>
+			<sku>1060140461</sku>
+			<mercaderia>1060237944</mercaderia>
+		</upcItunes>
+		<upcItunes id="39">
+			<code>07675027263</code>
+			<sku>1060140479</sku>
+			<mercaderia>1060238070</mercaderia>
+		</upcItunes>
+		<upcItunes id="40">
+			<code>076750147098</code>
+			<sku>1066953340</sku>
+			<mercaderia>1067009548</mercaderia>
+		</upcItunes>
+		<upcItunes id="41">
+			<code>076750296857</code>
+			<sku>1077863041</sku>
+			<mercaderia>1077866473</mercaderia>
+		</upcItunes>
+		<upcItunes id="42">
+			<code>076750296864</code>
+			<sku>1077863067</sku>
+			<mercaderia>1077866481</mercaderia>
+		</upcItunes>
+		<upcItunes id="43">
+			<code>076750296840</code>
+			<sku>1077863091</sku>
+			<mercaderia>1077866490</mercaderia>
+		</upcItunes>
+		<upcItunes id="44">
+			<code>076750298981</code>
+			<sku>1077863105</sku>
+			<mercaderia>1077866503</mercaderia>
+		</upcItunes>
+		<upcItunes id="45">
+			<code>076750377075</code>
+			<sku>1098672041</sku>
+			<mercaderia>1098672091</mercaderia>
+		</upcItunes>
+		<upcItunes id="46">
+			<code>076750377099</code>
+			<sku>1098672067</sku>
+			<mercaderia>1098672105</mercaderia>
+		</upcItunes>
+		<upcItunes id="47">
+			<code>076750377082</code>
+			<sku>1098672075</sku>
+			<mercaderia>1098672113</mercaderia>
+		</upcItunes>
+		<upcItunes id="48">
+			<code>076750389634</code>
+			<sku>1098672083</sku>
+			<mercaderia>1098672229</mercaderia>
+		</upcItunes>
+		<upcItunes id="49">
+			<code>076750171901</code>
+			<sku>1099304622</sku>
+			<mercaderia>1099304649</mercaderia>
+		</upcItunes>
+		<upcItunes id="50">
+			<code>076750462054</code>
+			<sku>1100224069</sku>
+			<mercaderia>1100224239</mercaderia>
+		</upcItunes>
+		<upcItunes id="51">
+			<code>076750462894</code>
+			<sku>1100224077</sku>
+			<mercaderia>1100224247</mercaderia>
+		</upcItunes>
+		<upcItunes id="52">
+			<code>076750343469</code>
+			<sku>1100224107</sku>
+			<mercaderia>1100224255</mercaderia>
+		</upcItunes>
+		<upcItunes id="53">
+			<code>076750343490</code>
+			<sku>1100224115</sku>
+			<mercaderia>1100224263</mercaderia>
+		</upcItunes>
+		<upcItunes id="54">
+			<code>076750343605</code>
+			<sku>1100224221</sku>
+			<mercaderia>1100224271</mercaderia>
+		</upcItunes>
+		<upcItunes id="55">
+			<code>076750446702</code>
+			<sku>1100461222</sku>
+			<mercaderia>1100461303</mercaderia>
+		</upcItunes>
+		<upcItunes id="56">
+			<code>076750478390</code>
+			<sku>1100461231</sku>
+			<mercaderia>1100461311</mercaderia>
+		</upcItunes>
+		<upcItunes id="57">
+			<code>076750417405</code>
+			<sku>1100461290</sku>
+			<mercaderia>1100461621</mercaderia>
+		</upcItunes>
+		<upcItunes id="58">
+			<code>076750444036</code>
+			<sku>1114279648</sku>
+			<mercaderia>1114282070</mercaderia>
+		</upcItunes>
+		<upcItunes id="59">
+			<code>076750446986</code>
+			<sku>1114429321</sku>
+			<mercaderia>1114429356</mercaderia>
+		</upcItunes>
+		<upcItunes id="60">
+			<code>076750447068</code>
+			<sku>1114429330</sku>
+			<mercaderia>1114429372</mercaderia>
+		</upcItunes>
+		<upcItunes id="61">
+			<code>076750447129</code>
+			<sku>1114429348</sku>
+			<mercaderia>1114429381</mercaderia>
+		</upcItunes>
+		<upcItunes id="62">
+			<code>07675050403</code>
+			<sku>1117681412</sku>
+			<mercaderia>1117685914</mercaderia>
+		</upcItunes>
+		<upcItunes id="63">
+			<code>07675050404</code>
+			<sku>1117682125</sku>
+			<mercaderia>1117687488</mercaderia>
+		</upcItunes>
+		<upcItunes id="64">
+			<code>076750517648</code>
+			<sku>1125993598</sku>
+			<mercaderia>1125996929</mercaderia>
+		</upcItunes>
+		<upcItunes id="65">
+			<code>076750517662</code>
+			<sku>1125993601</sku>
+			<mercaderia>1125996937</mercaderia>
+		</upcItunes>
+		<upcItunes id="66">
+			<code>076750517679</code>
+			<sku>1125993610</sku>
+			<mercaderia>1125997003</mercaderia>
+		</upcItunes>
+		<upcItunes id="67">
+			<code>076750529597</code>
+			<sku>1129421815</sku>
+			<mercaderia>1129422447</mercaderia>
+		</upcItunes>
+		<upcItunes id="68">
+			<code>076750529580</code>
+			<sku>1129422421</sku>
+			<mercaderia>1129423516</mercaderia>
+		</upcItunes>
+		<upcItunes id="69">
+			<code>076750520389</code>
+			<sku>1134259341</sku>
+			<mercaderia>1134259601</mercaderia>
+		</upcItunes>
+		<upcItunes id="70">
+			<code>076750520396</code>
+			<sku>1134259350</sku>
+			<mercaderia>1134259619</mercaderia>
+		</upcItunes>
+		<upcItunes id="71">
+			<code>076750520402</code>
+			<sku>1134259376</sku>
+			<mercaderia>1134259821</mercaderia>
+		</upcItunes>
+		<upcItunes id="72">
+			<code>076750520372</code>
+			<sku>1134259392</sku>
+			<mercaderia>1134259848</mercaderia>
+		</upcItunes>
+		<upcItunes id="73">
+			<code>076750549045</code>
+			<sku>1149563527</sku>
+			<mercaderia>1149563535</mercaderia>
+		</upcItunes>
+	</upcItunesList>
+	<!--  <skuBlackHawk>1035090688</skuBlackHawk> -->
+	<mesaRegaloEventsTypes>
+		<eventType id="1">
+			<descriptionEvent>BODA</descriptionEvent>
+		</eventType>
+		<eventType id="2">
+			<descriptionEvent>DESPEDIDA</descriptionEvent>
+		</eventType>
+		<eventType id="3">
+			<descriptionEvent>ANIVERSARIO</descriptionEvent>
+		</eventType>
+		<eventType id="4">
+			<descriptionEvent>BEBES</descriptionEvent>
+		</eventType>
+		<eventType id="5">
+			<descriptionEvent>QUINCEAÑERAS</descriptionEvent>
+		</eventType>		
+		<eventType id="6">
+			<descriptionEvent>PRIMERA COMUNION</descriptionEvent>
+		</eventType>
+		<eventType id="7">
+			<descriptionEvent>BAUTIZO</descriptionEvent>
+		</eventType>
+		<eventType id="8">
+			<descriptionEvent>CUMPLEAÑOS</descriptionEvent>
+		</eventType>
+		<eventType id="9">
+			<descriptionEvent>CUMPLEAÑOS</descriptionEvent>
+		</eventType>
+		<eventType id="14">
+			<descriptionEvent>BEBES</descriptionEvent>
+		</eventType>
+		<eventType id="21">
+			<descriptionEvent>BODA</descriptionEvent>
+		</eventType>
+		<eventType id="22">
+			<descriptionEvent>DESPEDIDA</descriptionEvent>
+		</eventType>
+		<eventType id="23">
+			<descriptionEvent>ANIVERSARIO</descriptionEvent>
+		</eventType>
+		<eventType id="24">
+			<descriptionEvent>BEBES</descriptionEvent>
+		</eventType>
+		<eventType id="25">
+			<descriptionEvent>QUINCEAÑERAS</descriptionEvent>
+		</eventType>
+		<eventType id="26">
+			<descriptionEvent>PRIMERA COMUNION</descriptionEvent>
+		</eventType>
+		<eventType id="27">
+			<descriptionEvent>BAUTIZO</descriptionEvent>
+		</eventType>
+		<eventType id="28">
+			<descriptionEvent>CUMPLEAÑOS</descriptionEvent>
+		</eventType>
+		<eventType id="50">
+			<descriptionEvent>SERVICIOS DE DISEÑO  INTERIOR</descriptionEvent>
+		</eventType>
+		<eventType id="51">
+			<descriptionEvent>SERVICIOS DE DISEÑO  INTERIOR</descriptionEvent>
+		</eventType>
+	</mesaRegaloEventsTypes>
+
+	<!-- Codigo de banco para identificar tarjetas lpc -->
+	<lpc>16</lpc>
+	
+	<!-- Factores de descuento por primer día de compras para Dilisa/LPC -->
+	<dilisaFactorDiscount>	   
+		<dilisaFactor id="00" discount="00" />
+		<dilisaFactor id="01" discount="10" />
+		<dilisaFactor id="02" discount="10" />
+		<dilisaFactor id="03" discount="10" />
+	</dilisaFactorDiscount>
+	
+	<!-- Parámetro para deshabilitar la facturación electrónica. Para que SI permita facturar, debe estar en false -->
+	<!-- Posibles Valores: false/true -->
+	<electronicInvoiceDisabled>false</electronicInvoiceDisabled>
+
+	<!-- Lista de departamentos donde está deshabilitada la funcionalidad de facturación electrónica. -->
+	<invalidInvoicingDepartaments>
+		<eicInvalidDepartment depNumber="703" />
+		<eicInvalidDepartment depNumber="394" />
+	</invalidInvoicingDepartaments>
+
+	<refundCauses>
+		<refundCause code="1" totalMustBeZero="true" description="Cambio mercancía igual precio"/>
+		<refundCause code="2" totalMustBeZero="false" description="No le gustó/está insatisfecho"/>
+		<refundCause code="3" totalMustBeZero="false" description="Defecto/no funciona"/>
+		<refundCause code="4" totalMustBeZero="false" description="Tiempo de entrega/sin inventario"/>
+		<refundCause code="5" totalMustBeZero="false" description="Producto diferente al que pidió"/>
+		<refundCause code="6" totalMustBeZero="false" description="Exclusivo CAT"/>
+		<refundCause code="42" totalMustBeZero="false" description="Mercancía no apta para la venta"/>
+	</refundCauses>
+	
+	<motos>
+		<motoPlan planID="M" itemsMaxCount="1" AssuranceItemMinCount="1" assuranceItemCode="39532271"/>
+		<motoPlan planID="W" itemsMaxCount="9999999" AssuranceItemMinCount="4" assuranceItemCode="39531461"/>
+	</motos>
+	
+	<!-- options "*": all; "-":none -->
+	<dutyfreeStores>
+		<dutyfreeStore idStore="19" departments="*"/>
+		<dutyfreeStore idStore="62" departments="374,375,376"/>
+		<dutyfreeStore idStore="75" departments="*"/>
+		<dutyfreeStore idStore="76" departments="374,375,376"/>
+		<dutyfreeStore idStore="79" departments="*"/>
+		<dutyfreeStore idStore="110" departments="*"/>
+		<dutyfreeStore idStore="212" departments="*"/>
+		<dutyfreeStore idStore="307" departments="*"/>
+		<dutyfreeStore idStore="308" departments="*"/>
+		<dutyfreeStore idStore="312" departments="*"/>
+		<dutyfreeStore idStore="688" departments="*"/>
+		<dutyfreeStore idStore="846" departments="374,375,376"/>
+		<dutyfreeStore idStore="853" departments="*"/>
+		<dutyfreeStore idStore="1034" departments="*"/>
+	</dutyfreeStores>
+	
+	<!-- Configuracion por transacción de descuento manual -->
+	<itemDiscounts>
+		<itemDiscount>
+			<transactionType>1</transactionType>
+			<transactionSubtype>5,6,7,8,9,16,28,29,32,34,46,49</transactionSubtype>
+			<amountAllow>true</amountAllow>
+			<maxAmountAllow>99999</maxAmountAllow>
+			<percentAllow>true</percentAllow>
+			<maxPercentAllow>99</maxPercentAllow>
+		</itemDiscount>
+		<itemDiscount>
+			<transactionType>1</transactionType>
+			<transactionSubtype>43</transactionSubtype>
+			<amountAllow>false</amountAllow>
+			<maxAmountAllow>99999</maxAmountAllow>
+			<percentAllow>true</percentAllow>
+			<maxPercentAllow>99</maxPercentAllow>
+		</itemDiscount>
+		<itemDiscount>
+			<transactionType>2</transactionType>
+			<transactionSubtype>5,6,7,8,9,28,29,34,46,49</transactionSubtype>
+			<amountAllow>true</amountAllow>
+			<maxAmountAllow>99999</maxAmountAllow>
+			<percentAllow>true</percentAllow>
+			<maxPercentAllow>99</maxPercentAllow>
+		</itemDiscount>
+		<itemDiscount>
+			<transactionType>3</transactionType>
+			<transactionSubtype>5,6,9,28,29,32,49</transactionSubtype>
+			<amountAllow>true</amountAllow>
+			<maxAmountAllow>99999</maxAmountAllow>
+			<percentAllow>true</percentAllow>
+			<maxPercentAllow>99</maxPercentAllow>
+		</itemDiscount>
+		<itemDiscount>
+			<transactionType>3</transactionType>
+			<transactionSubtype>43</transactionSubtype>
+			<amountAllow>false</amountAllow>
+			<maxAmountAllow>99999</maxAmountAllow>
+			<percentAllow>true</percentAllow>
+			<maxPercentAllow>99</maxPercentAllow>
+		</itemDiscount>
+		<itemDiscount>
+			<transactionType>4</transactionType>
+			<transactionSubtype>5,6,9,28,29,46,49</transactionSubtype>
+			<amountAllow>true</amountAllow>
+			<maxAmountAllow>99999</maxAmountAllow>
+			<percentAllow>true</percentAllow>
+			<maxPercentAllow>99</maxPercentAllow>
+		</itemDiscount>
+		<itemDiscount>
+			<transactionType>15</transactionType>
+			<transactionSubtype>42</transactionSubtype>
+			<amountAllow>true</amountAllow>
+			<maxAmountAllow>99999</maxAmountAllow>
+			<percentAllow>true</percentAllow>
+			<maxPercentAllow>99</maxPercentAllow>
+		</itemDiscount>
+	</itemDiscounts>
+	
+	<!-- Para venta departamental -->
+	<excludedDepartments>108,122,365,633</excludedDepartments>
+
+	<!-- Si la terminal es para restaurante Gourmet poner en true, si es Tradicional dejar en false -->
+	<mundoGourmet>true</mundoGourmet>
+	
+	<areasSeccionesMundoGourmet>
+		<areaSeccionMundoGourmet area="1"  seccion="0897" rangoPrefijo="01-09"/>	
+		<areaSeccionMundoGourmet area="10" seccion="0898" rangoPrefijo="10-11"/>
+		<areaSeccionMundoGourmet area="11" seccion="0898" rangoPrefijo="12-13"/>
+		<areaSeccionMundoGourmet area="12" seccion="0898" rangoPrefijo="14-15"/>
+		<areaSeccionMundoGourmet area="13" seccion="0898" rangoPrefijo="16-17"/>
+		<areaSeccionMundoGourmet area="14" seccion="0898" rangoPrefijo="18-19"/>
+		<areaSeccionMundoGourmet area="15" seccion="0898" rangoPrefijo="20-21"/>
+		<areaSeccionMundoGourmet area="16" seccion="0898" rangoPrefijo="22-23"/>
+		<areaSeccionMundoGourmet area="17" seccion="0898" rangoPrefijo="24-25"/>
+		<areaSeccionMundoGourmet area="18" seccion="0898" rangoPrefijo="26-27"/>
+		<areaSeccionMundoGourmet area="19" seccion="0898" rangoPrefijo="28-29"/>
+		<areaSeccionMundoGourmet area="20" seccion="0898" rangoPrefijo="30-31"/>
+		<areaSeccionMundoGourmet area="21" seccion="0898" rangoPrefijo="32-33"/>
+		<areaSeccionMundoGourmet area="22" seccion="0898" rangoPrefijo="34-35"/>
+		<areaSeccionMundoGourmet area="24" seccion="0898" rangoPrefijo="42-43"/>
+		<areaSeccionMundoGourmet area="25" seccion="0898" rangoPrefijo="44-45"/>
+		<areaSeccionMundoGourmet area="26" seccion="0898" rangoPrefijo="46-47"/>
+		<areaSeccionMundoGourmet area="27" seccion="0898" rangoPrefijo="48-49"/>
+		<areaSeccionMundoGourmet area="28" seccion="0898" rangoPrefijo="50-51"/>
+		<areaSeccionMundoGourmet area="29" seccion="0898" rangoPrefijo="52-53"/>
+		<areaSeccionMundoGourmet area="30" seccion="0898" rangoPrefijo="54-55"/>
+		<areaSeccionMundoGourmet area="31" seccion="0898" rangoPrefijo="56-57"/>
+		<areaSeccionMundoGourmet area="32" seccion="0897" rangoPrefijo="58-59"/>
+		<areaSeccionMundoGourmet area="33" seccion="0898" rangoPrefijo="60-61"/>
+		<areaSeccionMundoGourmet area="34" seccion="0898" rangoPrefijo="62-63"/>
+		<areaSeccionMundoGourmet area="35" seccion="0898" rangoPrefijo="64-65"/>
+		<areaSeccionMundoGourmet area="36" seccion="0897" rangoPrefijo="36-41"/>
+	</areasSeccionesMundoGourmet>
+	
+	<areasSeccionesRestaurant>
+		<areaSeccionRestaurant digito="1" area ="2" seccion="0898"/>
+		<areaSeccionRestaurant digito="2" area ="2" seccion="0898"/>
+		<areaSeccionRestaurant digito="3" area ="2" seccion="0898"/>
+		<areaSeccionRestaurant digito="4" area ="2" seccion="0898"/>
+		<areaSeccionRestaurant digito="5" area ="1" seccion="0897"/>
+		<areaSeccionRestaurant digito="6" area ="1" seccion="0897"/>
+		<areaSeccionRestaurant digito="7" area ="1" seccion="0897"/>
+		<areaSeccionRestaurant digito="8" area ="1" seccion="0897"/>
+		<areaSeccionRestaurant digito="9" area ="1" seccion="0897"/>
+	</areasSeccionesRestaurant>
+	
+	<certificadosAmex>
+		<amex id="1">
+			<monto>300</monto>
+			<saldo>2000</saldo>
+		</amex>
+		<amex id="2">
+			<monto>600</monto>
+			<saldo>4000</saldo>
+		</amex>
+		<amex id="3">
+			<monto>900</monto>
+			<saldo>6000</saldo>
+		</amex>
+		<amex id="4">
+			<monto>1200</monto>
+			<saldo>8000</saldo>
+		</amex>
+		<amex id="5">
+			<monto>1500</monto>
+			<saldo>10000</saldo>
+		</amex>
+	</certificadosAmex>
+
+	<suspendedTransactionPathName>R::SUSPENDE</suspendedTransactionPathName>
+	<suspendedTransactionTlogPath>q:/</suspendedTransactionTlogPath>
+	<maxQuantityOfOperators>1000</maxQuantityOfOperators>
+
+	<villaNevadaConfiguration>
+	   <villaNevada department="910">
+	      <villaNevadaItems>
+		      <villaNevadaItem item="63253111"/>
+		      <villaNevadaItem item="79217361"/>
+		      <villaNevadaItem item="88909569"/>
+		      <villaNevadaItem item="1004162753"/>
+	      </villaNevadaItems>
+	   </villaNevada>
+	</villaNevadaConfiguration>
+	
+	<!-- Parámetros de configuración de Artículos de Inventario Display (ET58) -->
+	<mercanciaDisplayID>58</mercanciaDisplayID>
+	<mercanciaDisplayLength>12</mercanciaDisplayLength>
+	<mercanciaDisplayEtiqueta>0000000058</mercanciaDisplayEtiqueta>
+	<mercanciaDisplayURLHabilitada>false</mercanciaDisplayURLHabilitada>
+
+	<!-- Parámetro para deshabilitar el pinpad -->
+ 	<pinpadHabilitado>true</pinpadHabilitado>
+ 	<pinpadEncryption>true</pinpadEncryption>
+
+	<!-- Número de promoción a enviar en el mensaje al ocurrir un abono a monedero -->
+	<monederoDefaultTypePromotion>0054</monederoDefaultTypePromotion>
+	
+	<maxAmountRefundSupervisor>2500</maxAmountRefundSupervisor>
+	
+	<showPromoCasa>false</showPromoCasa>
+	
+	<showPrintingMessage>false</showPrintingMessage>
+	
+	<tiposEventosListaEuropea>21,22,23,24,25,26,27,28</tiposEventosListaEuropea>
+	
+	<!-- Monto mínimo permitido para la transacción de agencia de viajes -->
+	<travelAgencyMinAmount>0.01</travelAgencyMinAmount>
+	
+	<!-- Monto máximo permitido para la transacción de agencia de viajes -->
+	<travelAgencyMaxAmount>9999999.99</travelAgencyMaxAmount>
+	
+	<!-- Monto mínimo permitido para la transacción de disposición de efectivo -->
+	<dispEfeMinAmount>20.00</dispEfeMinAmount>
+	
+	<!-- Monto máximo permitido para la transacción de disposición de efectivo -->
+	<dispEfeMaxAmount>2500.00</dispEfeMaxAmount>
+
+	<!-- Monto máximo permitido para la transacción de retiro -->
+	<cashWithdrawalMaxAmount>500000.00</cashWithdrawalMaxAmount>
+	
+	<customerPaymentPlan>885</customerPaymentPlan>
+	<employeePaymentPlan>886</employeePaymentPlan>
+	
+	<!-- Validación para el ingreso manual de tarjeta Dilisa, LPC, Credito Externa, poner en true para permitir teclearlas -->
+	<!-- Esta validación funciona para todas al mismo tiempo o ninguna de esas tarjetas -->
+	<tecleaTarjeta>false</tecleaTarjeta>
+	
+	<!-- Leyenda que se imprime al final de la factura electrónica  -->
+	<regimenFiscal>REGIMEN GENERAL DE LEY DE PERSONAS MORALES</regimenFiscal>
+	
+	<!-- Tipos de cheques para franquear  -->
+	<tiposCheques>
+		<tipoCheque valorBanco="003" grupo="1" banco="Serfin" />
+		<tipoCheque valorBanco="012" grupo="1" banco="Bancomer" />
+		<tipoCheque valorBanco="017" grupo="1" banco="BBV" />
+		<tipoCheque valorBanco="019" grupo="1" banco="Banjercito" />
+		<tipoCheque valorBanco="021" grupo="1" banco="Bital" />
+		<tipoCheque valorBanco="044" grupo="1" banco="Inverlat" />
+		<tipoCheque valorBanco="072" grupo="1" banco="Banorte" />
+		<tipoCheque valorBanco="103" grupo="1" banco="AmericanExpress" />
+		<tipoCheque valorBanco="161" grupo="1" banco="BanCrecer" />
+		<tipoCheque valorBanco="002" grupo="2" banco="Banamex" />
+		<tipoCheque valorBanco="025" grupo="2" banco="Sureste" />
+		<tipoCheque valorBanco="014" grupo="3" banco="Santander" />
+		<tipoCheque valorBanco="032" grupo="4" banco="Ixe" />
+		<tipoCheque valorBanco="068" grupo="4" banco="Promex" />
+		<tipoCheque valorBanco="007" grupo="5" banco="Citibank" />
+		<tipoCheque valorBanco="011" grupo="5" banco="Citibank" />
+		<tipoCheque valorBanco="042" grupo="5" banco="Mifel" />
+		<tipoCheque valorBanco="137" grupo="6" banco="BanCoppel" />
+		<tipoCheque valorBanco="127" grupo="7" banco="BancoAzteca" />
+	</tiposCheques>
+	
+	<!-- Prefijo que deben tener las tarjetas FashionCard -->
+	<fashionCardPrefix>4178498</fashionCardPrefix>
+	<fashionCardDescription>TC G FASHION CARD</fashionCardDescription>
+	
+	<!-- 
+		TIENDAS DONDE APLICAN DOLARES 
+		
+		Al ingresar al medio de pago dolares, se validara la lista de tiendas configurada aqui que aceptan el medio de pago.
+		En el tag <storeDolar> se configura la tienda que aceptara dolares. 
+		El atributo store representa el numero de tienda y el atributo maxAmount es el monto maximo de dolares para aceptar en esa tienda.
+	-->
+	<storesDolar>
+		<storeDolar store="7" maxAmount="250.00" />
+		<storeDolar store="27" maxAmount="250.00" />
+		<storeDolar store="28" maxAmount="250.00" />
+		<storeDolar store="37" maxAmount="250.00" />
+		<storeDolar store="41" maxAmount="250.00" />
+		<storeDolar store="55" maxAmount="250.00" />
+		<storeDolar store="62" maxAmount="250.00" />
+		<storeDolar store="73" maxAmount="250.00" />
+		<storeDolar store="75" maxAmount="250.00" />
+		<storeDolar store="79" maxAmount="250.00" />
+		<storeDolar store="110" maxAmount="250.00" />
+		<storeDolar store="117" maxAmount="250.00" />
+		<storeDolar store="160" maxAmount="250.00" />
+		<storeDolar store="165" maxAmount="250.00" />
+		<storeDolar store="175" maxAmount="250.00" />
+		<storeDolar store="212" maxAmount="250.00" />
+		<storeDolar store="254" maxAmount="250.00" />
+		<storeDolar store="302" maxAmount="250.00" />
+		<storeDolar store="305" maxAmount="250.00" />
+		<storeDolar store="306" maxAmount="250.00" />
+		<storeDolar store="307" maxAmount="250.00" />
+		<storeDolar store="308" maxAmount="250.00" />
+		<storeDolar store="312" maxAmount="250.00" />
+		<storeDolar store="347" maxAmount="250.00" />
+		<storeDolar store="450" maxAmount="250.00" />
+		<storeDolar store="451" maxAmount="250.00" />
+		<storeDolar store="452" maxAmount="250.00" />
+		<storeDolar store="453" maxAmount="250.00" />
+		<storeDolar store="472" maxAmount="250.00" />
+		<storeDolar store="688" maxAmount="250.00" />
+		<storeDolar store="755" maxAmount="250.00" />
+		<storeDolar store="815" maxAmount="250.00" />
+		<storeDolar store="821" maxAmount="250.00" />
+		<storeDolar store="847" maxAmount="250.00" />
+		<storeDolar store="853" maxAmount="250.00" />
+		<storeDolar store="877" maxAmount="250.00" />
+		<storeDolar store="882" maxAmount="250.00" />
+		<storeDolar store="1014" maxAmount="250.00" />
+		<storeDolar store="1034" maxAmount="250.00" />
+		<storeDolar store="1113" maxAmount="250.00" />
+	</storesDolar>
+	
+	<storesEuro>
+		<storeEuro store="7" maxAmount="68750.00" />
+		<storeEuro store="307" maxAmount="68750.00" />
+		<storeEuro store="755" maxAmount="68750.00" />
+		<storeEuro store="853" maxAmount="68750.00" />
+		<storeEuro store="1014" maxAmount="68750.00" />
+		<storeEuro store="1113" maxAmount="68750.00" />
+	</storesEuro>
+	
+	<storesQuetzal>
+		<storeQuetzal store="7" maxAmount="666666.67" />
+		<storeQuetzal store="19" maxAmount="666666.67" />
+		<storeQuetzal store="79" maxAmount="666666.67" />
+		<storeQuetzal store="85" maxAmount="666666.67" />
+		<storeQuetzal store="472" maxAmount="666666.67" />
+	</storesQuetzal>
+	
+	<storesDolarBel>
+		<storeDolarBel store="7" maxAmount="186440.68" />
+	</storesDolarBel>
+	
+	<storesDolarCan>
+		<storeDolarCan store="7" maxAmount="100000.00" />
+	</storesDolarCan>
+	
+	<!-- Parámetro para habilitar la impresión de nombre de la persona que paga en el ticket -->
+	<!-- y en pantalla en caso de haber cupon CRM -->
+	<!-- También, en caso de no estar encendido, no permite que se envíe a promo el evento para sembrado -->
+	<!-- de Dilisa -->
+	<!-- Representa lo que hacía el bit 18 del archivo reporte.dat en BGUI -->
+	<!-- Se pone en false cuando no se quiere imprimir en el ticket ni pantalla de cupones -->
+	<crmEnabled>true</crmEnabled>
+	<crmCouponId>9999</crmCouponId>
+	
+	<!-- Parametro para habilitar comunicación con CRM-Siebel en la emision -->
+	<crmSiebelEnabledEmision>true</crmSiebelEnabledEmision>
+	
+	<!-- Parametro para habilitar comunicación con CRM-Siebel en la redencion -->
+	<crmSiebelEnabledRedencion>true</crmSiebelEnabledRedencion>
+	
+	<!-- Parametro para representar si una oferta imprime codigo de barras o no -->
+	<crmSiebelOfferType>Sin oferta</crmSiebelOfferType>
+	
+	<!-- Parametro para representar si muestra mensaje de error de cupon ya redimido -->
+	<errorCodeCuponRedimido>5</errorCodeCuponRedimido>
+	
+	<!-- Parametro para habilitar comunicación con CRM-Loyalty en la emision -->
+	<crmLoyaltyEnabledEmision>false</crmLoyaltyEnabledEmision>
+	
+	<!-- Parametro para habilitar comunicación con CRM-Loyalty en la redencion -->
+	<crmLoyaltyEnabledRedencion>false</crmLoyaltyEnabledRedencion>
+	
+	<!-- Parametro para representar si un cupon Loyalty imprime codigo de barras o no -->
+	<crmLoyaltyPrintFlag>N</crmLoyaltyPrintFlag>
+	
+	<!-- Parametro para representar si muestra mensaje de error de cupon ya redimido -->
+	<errorCodeCuponRedimidoLoyalty>5</errorCodeCuponRedimidoLoyalty>
+	
+	<!-- Parametro para representar si un error code es valido -->
+	<errorCodeValidoLoyalty>7</errorCodeValidoLoyalty>
+	
+	<!-- Parámetro que contiene los subtipos de transacción de venta que no permiten ingreso de cupones CRM Dilisa -->
+	<!-- Se habilita alimentos -->
+	<excludedCrmDilisaTrxSubtypes>16,18,19,32</excludedCrmDilisaTrxSubtypes>
+
+	<!-- Parámetro que contiene los subtipos de transacción de venta que no permiten ingreso de cupones CRM Siebel -->
+	<!-- Se habilita alimentos -->
+	<excludedCrmSiebelTrxSubtypes>16,18,19,32</excludedCrmSiebelTrxSubtypes>
+
+	<!-- Transacciones de Venta Institucional 																								-->
+ 	<!-- El atributo "id" corresponde al identificador de la venta institucional utilizado en el archivo livmenus.dat  						-->
+	<!-- El Tag <allowAllTenders> indica tipo de pago permitido, si está vacío o su valor es "false", permite únicamente pago con Tarjeta	-->
+	<!-- El Tag <allowedPrefixes> indica los prefijos que son permitidos para pagar con Tarjeta												-->
+	<!-- El Tag <serviceMaxAmount> indica el valor máximo que se puede ingresar como importe 												-->
+	<!-- El Tag <benefitPercentage> indica el porcentaje de incremento o descuento que se otorga en la emision de monedero 					-->
+	<!-- El Tag <increaseAmountMethod> indica si la transacción permitirá agregar al importe el monto correspondiente a la tasa de premio	-->
+	<!-- El Tag <discountAmountMethod> indica si la transacción permitirá descontar al importe el monto correspondiente a la tasa de premio	-->
+	<serviceTransactions>
+	  <serviceTransaction id="0740">
+	   	<serviceTitleDescription>Monedero VW</serviceTitleDescription>
+  		<allowAllTenders>false</allowAllTenders>
+	   	<allowedPrefixes>
+	   		<allowedPrefix prefix="533987" />
+	    	<allowedPrefix prefix="627636" />
+	    	<allowedPrefix prefix="534926" />
+	   	</allowedPrefixes>	
+	   	<serviceMaxAmount>999999.99</serviceMaxAmount>
+		  <benefitPercentage>10</benefitPercentage>
+		  <increaseAmountMethod>true</increaseAmountMethod>
+		  <discountAmountMethod>false</discountAmountMethod>
+	  </serviceTransaction>
+	</serviceTransactions>
+
+	<!-- Si el monto es cero no muestra mensaje al total, si es mayor muestra el mensaje -->
+	<montoMensajeTotal>5000.00</montoMensajeTotal>
+
+	<!-- Ruta de la imagen que se muestra en presupuesto reparacion de relojes -->
+	<rutaImagenRelojTemplate>q:\TEMPLATE.JPG</rutaImagenRelojTemplate>
+	<!-- Ruta del controlador donde se guarda la imagen de reparación de relojes-->
+	<rutaImagenRelojSalida>R::C:\IMG\</rutaImagenRelojSalida>
+
+	<!-- Mínimo de Dígitos de póliza de Seguros-->
+	<minAssuranceDigits>8</minAssuranceDigits>
+	<!-- Máximo de Dígitos de póliza de Seguros-->
+	<maxAssuranceDigits>15</maxAssuranceDigits>
+	
+	<!-- "transaction" Indica las transacciones permitidas para descuentos por medio de pago (se habilita venta normal y empleado) -->
+	<!-- "paymentIds" Se indican los medios de pago habilitados para estas promociones, el alcance del desarrollo contempla DILISA, EXTERNA y LPC 
+		 (Para estos 3 casos, siempre el parámetro 10 debe estar configurado) -->
+	<!-- "suggestedColor" es el color como se desean visualizar las líneas de las promociones sugeridas, si el parámetro no está
+		 el color es el default --> 
+	<promoPaymentPromotions>
+		<transactions>
+			<transaction id="1,2" subTransaction="" aditionalTrx="" />
+		</transactions>
+		<paymentIds>8,10,11</paymentIds>
+	</promoPaymentPromotions>
+	
+	<!-- Configuracion de Planes Tarifarios -->
+	<!-- "planTarifario" Contiene los datos del Plan tarifario a configurar -->
+	<!-- El atributo "id" es el Identificador del Plan Tarifario, es un numero entero consecutivo.  Este atributo es obligatorio  -->
+	<!-- "descripcion"  Indica el nombre que identifica al Plan Tarifario.  Esta descripcion aparecera en el titulo de ventana.  Este valor es obligatorio -->
+	<!-- "skuPlan" Indica el sku del Plan Tarifario que debe estar configurado en el maestro de articulos.  Este valor es obligatorio -->
+	<!-- "grupoPlan" Indica el codigo de Grupo al que pertenece el Plan Tarifario que debe estar configurado en el maestro de articulos. Este valor
+	es obligatorio -->
+	<!-- "grupoTelefonos" Indica los codigos de Grupo de los Telefonos que pertenecen a ese plan.  Es necesario que exista por lo menos un valor
+	y de existir mas de uno debera agregarse como otro tag "grupoTelefono" con el valor del grupo-->
+	<planesTarifariosTelefoniaCelular>
+		<planTarifario id ="1">
+			<descripcion>Telcel</descripcion>
+			<skuPlan>1021225874</skuPlan>
+			<grupoPlan>63251</grupoPlan>
+			<gruposTelefonos>
+				<grupoTelefono>63201</grupoTelefono>
+			</gruposTelefonos>
+		</planTarifario>
+		<planTarifario id ="2">
+			<descripcion>Iusacell</descripcion>
+			<skuPlan>1021225297</skuPlan>
+			<grupoPlan>63251</grupoPlan>
+			<gruposTelefonos>
+				<grupoTelefono>63203</grupoTelefono>
+			</gruposTelefonos>
+		</planTarifario>
+		<planTarifario id ="3">
+			<descripcion>Movistar</descripcion>
+			<skuPlan>1021224720</skuPlan>
+			<grupoPlan>63251</grupoPlan>
+			<gruposTelefonos>
+				<grupoTelefono>63202</grupoTelefono>
+			</gruposTelefonos>
+		</planTarifario>
+		<planTarifario id ="4">
+			<descripcion>Unefon</descripcion>
+			<skuPlan>1021225297</skuPlan>
+			<grupoPlan>63251</grupoPlan>
+			<gruposTelefonos>
+				<grupoTelefono>63203</grupoTelefono>
+			</gruposTelefonos>
+		</planTarifario>
+	</planesTarifariosTelefoniaCelular>
+	<!-- Fin Configuracion de Planes Tarifarios -->
+	
+	<!-- Inactividad de modo entrenamiento -->
+	<modeTrainInactivity>60000</modeTrainInactivity>
+	
+	<!-- Parametro para deshabilitar el logueo en el rollo eletronico de la transaccion de pagos -->
+	<tracePagos>true</tracePagos>
+	
+	<!-- Parametro que indica cual sera el Rfc para extranjeros -->
+	<rfcExtranjero>XEXX010101000</rfcExtranjero>
+
+	<!-- Parametro que indica cual sera la Llave para extranjeros -->
+	<llaveExtranjero>1319898</llaveExtranjero>
+	
+	<!-- Parámetro para identificar el subtype del cupón -->	
+	<crm>
+		<tipoCrm descripcion="rifa bebes"  id="1" />
+	</crm>
+	
+	<!-- Marcas que aplican para Apple Buy Back -->
+	<buyBack>
+		<brightStar>
+			<apple>
+				<marcaAplicable>7764</marcaAplicable>
+				<marcaAplicable>4139</marcaAplicable>
+			</apple>
+		</brightStar>
+	</buyBack>
+	
+	<!-- Funcionalidades ocultas del punto de venta -->
+	<hiddenFunctionality>
+		<manualHeapDump>true</manualHeapDump>  <!-- Se habilita funcionalidad oculta de CTRL+F12 (Se genera HeapDump manual) -->
+		<evaluateMemory>true</evaluateMemory>  <!-- Se evalua memoria al finalizar una transacción en caso de falta de memoria se ejecuta GC y se evalua si se ha liberado la misma -->
+		<criticalConditionFactor>10.0</criticalConditionFactor> <!-- Si luego de ejecutar GC, la memoria no liberó este factor de porcentaje, se asume estado crítico -->
+	</hiddenFunctionality>
+	
+	<paymentPlanPresDif>Diferido</paymentPlanPresDif>
+	
+	<!-- Parametro para deshabilitar el logueo en el ej de la transaccion de consulta de saldo -->
+	<traceConsulta>true</traceConsulta>
+	
+	<!-- Parametro para definir el monto para mostrar aviso de confirmación de pago -->
+	<popupMonto>10000.00</popupMonto>
+	
+	<errorFacturaTypes>
+		<okCodeType id="0">
+			<description>Se ha realizado la operación correctamente.</description>
+		</okCodeType>
+		<okCodeType id="1">
+			<description>No existe la información solicitada.</description>
+		</okCodeType>
+		<okCodeType id="2">
+			<description>RFC incorrecto.</description>
+		</okCodeType>
+		<okCodeType id="3">
+			<description>RFC incorrecto.</description>
+		</okCodeType>
+		<okCodeType id="4">
+			<description>RFC incorrecto.</description>
+		</okCodeType>
+		<okCodeType id="5">
+			<description>La información proporcionada está duplicada.</description>
+		</okCodeType>
+		<okCodeType id="6">
+			<description>Error inesperado en el sistema. CTE_DB2</description>
+		</okCodeType>
+		<okCodeType id="7">
+			<description>La transacción solicitada requiere del nombre del cliente.</description>
+		</okCodeType>
+		<okCodeType id="8">
+			<description>La calle proporcionada es incorrecta.</description>
+		</okCodeType>
+		<okCodeType id="9">
+			<description>La colonia proporcionada es incorrecta.</description>
+		</okCodeType>
+		<okCodeType id="10">
+			<description>La población proporcionada es incorrecta.</description>
+		</okCodeType>
+		<okCodeType id="11">
+			<description>El estado proporcionado no existe.</description>
+		</okCodeType>
+		<okCodeType id="12">
+			<description>El folio de la factura es incorrecto.</description>
+		</okCodeType>
+		<okCodeType id="13">
+			<description>El código postal es incorrecto.</description>
+		</okCodeType>
+		<okCodeType id="14">
+			<description>La empresa de la boleta a facturar es incorrecta.</description>
+		</okCodeType>
+		<okCodeType id="15">
+			<description>La tienda de la boleta a facturar es incorrecta.</description>
+		</okCodeType>
+		<okCodeType id="16">
+			<description>La fecha de la boleta a facturar es incorrecta.</description>
+		</okCodeType>
+		<okCodeType id="17">
+			<description>La terminal de la boleta a facturar es incorrecta.</description>
+		</okCodeType>
+		<okCodeType id="18">
+			<description>El número de la boleta a facturar es incorrecto.</description>
+		</okCodeType>
+		<okCodeType id="19">
+			<description>La transacción solicitada es incorrecta.</description>
+		</okCodeType>
+		<okCodeType id="20">
+			<description>La boleta consultada no existe: favor de verificarla.</description>
+		</okCodeType>
+		<okCodeType id="21">
+			<description>La boleta consultada está en buzón.</description>
+		</okCodeType>
+		<okCodeType id="22">
+			<description>La boleta consultada está anulada.</description>
+		</okCodeType>
+		<okCodeType id="23">
+			<description>Los artículos seleccionados han sido facturados previamente.</description>
+		</okCodeType>
+		<okCodeType id="24">
+			<description>La tienda donde se desea facturar no existe.</description>
+		</okCodeType>
+		<okCodeType id="25">
+			<description>El folio de la factura no es numérico.</description>
+		</okCodeType>
+		<okCodeType id="26">
+			<description>La fecha de la factura es incorrecta.</description>
+		</okCodeType>
+		<okCodeType id="27">
+			<description>El número de renglones informado a facturar es incorrecto.</description>
+		</okCodeType>
+		<okCodeType id="28">
+			<description>El valor neto de un SKU no es el correcto.</description>
+		</okCodeType>
+		<okCodeType id="29">
+			<description>El IVA de un SKU es incorrecto.</description>
+		</okCodeType>
+		<okCodeType id="30">
+			<description>El SKU es incorrecto.</description>
+		</okCodeType>
+		<okCodeType id="31">
+			<description>La boleta a facturar corresponde a una devolución.</description>
+		</okCodeType>
+		<okCodeType id="32">
+			<description>Error inesperado en el sistema. CTE_Otro</description>
+		</okCodeType>
+		<okCodeType id="33">
+			<description>La boleta no es de compra.</description>
+		</okCodeType>
+		<okCodeType id="34">
+			<description>La boleta corresponde a una devolución.</description>
+		</okCodeType>
+		<okCodeType id="35">
+			<description>El RFC seleccionado esta corrupto.</description>
+		</okCodeType>
+		<okCodeType id="36">
+			<description>Acción solicitada es incorrecta.</description>
+		</okCodeType>
+		<okCodeType id="37">
+			<description>La factura esta duplicada.</description>
+		</okCodeType>
+		<okCodeType id="38">
+			<description>Error inesperado en el sistema. CTE_Escoge</description>
+		</okCodeType>
+		<okCodeType id="39">
+			<description>La empresa no existe.</description>
+		</okCodeType>
+		<okCodeType id="40">
+			<description>Seleccionar un país.</description>
+		</okCodeType>
+		<okCodeType id="41">
+			<description>El monedero ya ha sido facturado.</description>
+		</okCodeType>
+		<okCodeType id="42">
+			<description>El plan de pago es incorrecto.</description>
+		</okCodeType>
+		<okCodeType id="43">
+			<description>La factura no es de compra.</description>
+		</okCodeType>
+		<okCodeType id="44">
+			<description>El importe es incorrecto.</description>
+		</okCodeType>
+		<okCodeType id="45">
+			<description>La boleta no es de compra de monedero.</description>
+		</okCodeType>
+		<okCodeType id="46">
+			<description>Error inesperado en el sistema. CTE_Sys</description>
+		</okCodeType>
+		<okCodeType id="47">
+			<description>La forma de pago es incorrecta.</description>
+		</okCodeType>
+		<okCodeType id="48">
+			<description>La condición de pago de la factura no corresponde con la boleta.</description>
+		</okCodeType>
+		<okCodeType id="49">
+			<description>La fecha del plan de pago es incorrecta.</description>
+		</okCodeType>
+		<okCodeType id="50">
+			<description>El SKU ya ha sido facturado.</description>
+		</okCodeType>
+		<okCodeType id="51">
+			<description>El saldo por segmento es incorrecto.</description>
+		</okCodeType>
+		<okCodeType id="52">
+			<description>El importe del pago a facturar no corresponde.</description>
+		</okCodeType>
+		<okCodeType id="53">
+			<description>La factura no tiene pagos por facturar.</description>
+		</okCodeType>
+		<okCodeType id="54">
+			<description>El remanente de la factura no es el correcto.</description>
+		</okCodeType>
+		<okCodeType id="55">
+			<description>El usuario que ha ingresado al sistema no existe.</description>
+		</okCodeType>
+		<okCodeType id="56">
+			<description>El usuario que ha ingresado al sistema no está autorizado.</description>
+		</okCodeType>
+		<okCodeType id="57">
+			<description>La factura está cancelada.</description>
+		</okCodeType>
+		<okCodeType id="58">
+			<description>Se requiere información adicional para realizar la transacción.</description>
+		</okCodeType>
+		<okCodeType id="59">
+			<description>Error inesperado en el sistema. CTE_Commit</description>
+		</okCodeType>
+		<okCodeType id="60">
+			<description>El sistema que solicita la factura no está autorizado.</description>
+		</okCodeType>
+		<okCodeType id="61">
+			<description>Error inesperado en el sistema. CTE_61</description>
+		</okCodeType>
+		<okCodeType id="62">
+			<description>El total de resultado es muy extenso: por favor proporcione más detalle.</description>
+		</okCodeType>
+		<okCodeType id="63">
+			<description>El periodo a facturar es incorrecto.</description>
+		</okCodeType>
+		<okCodeType id="64">
+			<description>El email proporcionado es incorrecto.</description>
+		</okCodeType>
+		<okCodeType id="65">
+			<description>La información proporcionada no es facturable.</description>
+		</okCodeType>
+		<okCodeType id="66">
+			<description>La boleta a facturar requiere especificar la cuenta de convenio.</description>
+		</okCodeType>
+		<okCodeType id="67">
+			<description>El pedimento del articulo es incorrecto.</description>
+		</okCodeType>
+		<okCodeType id="68">
+			<description>La cuenta de convenio es incorrecta.</description>
+		</okCodeType>
+		<okCodeType id="69">
+			<description>La forma de pago es incorrecta (69)</description>
+		</okCodeType>
+		<okCodeType id="70">
+			<description>El régimen fiscal especificado no es el esperado.</description>
+		</okCodeType>
+		<okCodeType id="71">
+			<description>El régimen fiscal especificado es incorrecto.</description>
+		</okCodeType>
+		<okCodeType id="72">
+			<description>La cantidad es incorrecta.</description>
+		</okCodeType>
+		<okCodeType id="99">
+			<description>Error inesperado en el sistema. CTE_Timeout</description>
+		</okCodeType>
+	</errorFacturaTypes>
+	
+	<!-- Parametro para habilitar el grabado de tiempos en tlog -->
+	<grabadoTiemposTlog>true</grabadoTiemposTlog>
+	
+	<!-- Secciones para aplicar QPS -->
+	<qps>
+	  <seccionQps id="101"  monto="1.00" />
+	  <seccionQps id="104"  monto="1.00" />
+	  <seccionQps id="105"  monto="1.00" />
+	  <seccionQps id="106"  monto="1.00" />
+	  <seccionQps id="107"  monto="1.00" />
+	  <seccionQps id="108"  monto="1.00" />
+	  <seccionQps id="110"  monto="1.00" />
+	  <seccionQps id="111"  monto="1.00" />
+	  <seccionQps id="116"  monto="1.00" />
+	  <seccionQps id="121"  monto="1.00" />
+	  <seccionQps id="145"  monto="1.00" />
+	  <seccionQps id="147"  monto="1.00" />
+	  <seccionQps id="149"  monto="1.00" />
+	  <seccionQps id="152"  monto="1.00" />
+	  <seccionQps id="154"  monto="1.00" />
+	  <seccionQps id="156"  monto="1.00" />
+	  <seccionQps id="157"  monto="1.00" />
+	  <seccionQps id="161"  monto="1.00" />
+	  <seccionQps id="180"  monto="1.00" />
+	  <seccionQps id="201"  monto="1.00" />
+	  <seccionQps id="203"  monto="1.00" />
+	  <seccionQps id="205"  monto="1.00" />
+	  <seccionQps id="206"  monto="1.00" />
+	  <seccionQps id="207"  monto="1.00" />
+	  <seccionQps id="211"  monto="1.00" />
+	  <seccionQps id="213"  monto="1.00" />
+	  <seccionQps id="223"  monto="1.00" />
+	  <seccionQps id="224"  monto="1.00" />
+	  <seccionQps id="225"  monto="1.00" />
+	  <seccionQps id="237"  monto="1.00" />
+	  <seccionQps id="241"  monto="1.00" />
+	  <seccionQps id="242"  monto="1.00" />
+	  <seccionQps id="245"  monto="1.00" />
+	  <seccionQps id="246"  monto="1.00" />
+	  <seccionQps id="247"  monto="1.00" />
+	  <seccionQps id="251"  monto="1.00" />
+	  <seccionQps id="261"  monto="1.00" />
+	  <seccionQps id="271"  monto="1.00" />
+	  <seccionQps id="276"  monto="1.00" />
+	  <seccionQps id="279"  monto="1.00" />
+	  <seccionQps id="282"  monto="1.00" />
+	  <seccionQps id="285"  monto="1.00" />
+	  <seccionQps id="288"  monto="1.00" />
+	  <seccionQps id="302"  monto="1.00" />
+	  <seccionQps id="307"  monto="1.00" />
+	  <seccionQps id="321"  monto="1.00" />
+	  <seccionQps id="322"  monto="1.00" />
+	  <seccionQps id="323"  monto="1.00" />
+	  <seccionQps id="327"  monto="1.00" />
+	  <seccionQps id="337"  monto="1.00" />
+	  <seccionQps id="338"  monto="1.00" />
+	  <seccionQps id="340"  monto="1.00" />
+	  <seccionQps id="343"  monto="1.00" />
+	  <seccionQps id="344"  monto="1.00" />
+	  <seccionQps id="345"  monto="1.00" />
+	  <seccionQps id="351"  monto="1.00" />
+	  <seccionQps id="356"  monto="1.00" />
+	  <seccionQps id="357"  monto="1.00" />
+	  <seccionQps id="358"  monto="1.00" />
+	  <seccionQps id="365"  monto="1.00" />
+	  <seccionQps id="374"  monto="1.00" />
+	  <seccionQps id="375"  monto="1.00" />
+	  <seccionQps id="376"  monto="1.00" />
+	  <seccionQps id="377"  monto="1.00" />
+	  <seccionQps id="380"  monto="1.00" />
+	  <seccionQps id="388"  monto="1.00" />
+	  <seccionQps id="390"  monto="1.00" />
+	  <seccionQps id="391"  monto="1.00" />
+	  <seccionQps id="392"  monto="1.00" />
+	  <seccionQps id="393"  monto="1.00" />
+	  <seccionQps id="394"  monto="1.00" />
+	  <seccionQps id="398"  monto="1.00" />
+	  <seccionQps id="402"  monto="1.00" />
+	  <seccionQps id="405"  monto="1.00" />
+	  <seccionQps id="413"  monto="1.00" />
+	  <seccionQps id="417"  monto="1.00" />
+	  <seccionQps id="421"  monto="1.00" />
+	  <seccionQps id="423"  monto="1.00" />
+	  <seccionQps id="424"  monto="1.00" />
+	  <seccionQps id="425"  monto="1.00" />
+	  <seccionQps id="433"  monto="1.00" />
+	  <seccionQps id="435"  monto="1.00" />
+	  <seccionQps id="436"  monto="1.00" />
+	  <seccionQps id="437"  monto="1.00" />
+	  <seccionQps id="438"  monto="1.00" />
+	  <seccionQps id="440"  monto="1.00" />
+	  <seccionQps id="443"  monto="1.00" />
+	  <seccionQps id="444"  monto="1.00" />
+	  <seccionQps id="450"  monto="1.00" />
+	  <seccionQps id="456"  monto="1.00" />
+	  <seccionQps id="459"  monto="1.00" />
+	  <seccionQps id="466"  monto="1.00" />
+	  <seccionQps id="469"  monto="1.00" />
+	  <seccionQps id="470"  monto="1.00" />
+	  <seccionQps id="473"  monto="1.00" />
+	  <seccionQps id="478"  monto="1.00" />
+	  <seccionQps id="479"  monto="1.00" />
+	  <seccionQps id="480"  monto="1.00" />
+	  <seccionQps id="486"  monto="1.00" />
+	  <seccionQps id="495"  monto="1.00" />
+	  <seccionQps id="504"  monto="1.00" />
+	  <seccionQps id="508"  monto="1.00" />
+	  <seccionQps id="510"  monto="1.00" />
+	  <seccionQps id="511"  monto="1.00" />
+	  <seccionQps id="512"  monto="1.00" />
+	  <seccionQps id="514"  monto="1.00" />
+	  <seccionQps id="520"  monto="1.00" />
+	  <seccionQps id="521"  monto="1.00" />
+	  <seccionQps id="522"  monto="1.00" />
+	  <seccionQps id="523"  monto="1.00" />
+	  <seccionQps id="524"  monto="1.00" />
+	  <seccionQps id="525"  monto="1.00" />
+	  <seccionQps id="529"  monto="1.00" />
+	  <seccionQps id="530"  monto="1.00" />
+	  <seccionQps id="532"  monto="1.00" />
+	  <seccionQps id="533"  monto="1.00" />
+	  <seccionQps id="535"  monto="1.00" />
+	  <seccionQps id="536"  monto="1.00" />
+	  <seccionQps id="540"  monto="1.00" />
+	  <seccionQps id="544"  monto="1.00" />
+	  <seccionQps id="545"  monto="1.00" />
+	  <seccionQps id="550"  monto="1.00" />
+	  <seccionQps id="553"  monto="1.00" />
+	  <seccionQps id="555"  monto="1.00" />
+	  <seccionQps id="557"  monto="1.00" />
+	  <seccionQps id="559"  monto="1.00" />
+	  <seccionQps id="565"  monto="1.00" />
+	  <seccionQps id="566"  monto="1.00" />
+	  <seccionQps id="571"  monto="1.00" />
+	  <seccionQps id="610"  monto="1.00" />
+	  <seccionQps id="622"  monto="1.00" />
+	  <seccionQps id="623"  monto="1.00" />
+	  <seccionQps id="625"  monto="1.00" />
+	  <seccionQps id="626"  monto="1.00" />
+	  <seccionQps id="627"  monto="1.00" />
+	  <seccionQps id="628"  monto="1.00" />
+	  <seccionQps id="629"  monto="1.00" />
+	  <seccionQps id="630"  monto="1.00" />
+	  <seccionQps id="631"  monto="1.00" />
+	  <seccionQps id="632"  monto="1.00" />
+	  <seccionQps id="633"  monto="1.00" />
+	  <seccionQps id="634"  monto="1.00" />
+	  <seccionQps id="635"  monto="1.00" />
+	  <seccionQps id="636"  monto="1.00" />
+	  <seccionQps id="637"  monto="1.00" />
+	  <seccionQps id="638"  monto="1.00" />
+	  <seccionQps id="639"  monto="1.00" />
+	  <seccionQps id="640"  monto="1.00" />
+	  <seccionQps id="649"  monto="1.00" />
+	  <seccionQps id="651"  monto="1.00" />
+	  <seccionQps id="701"  monto="1.00" />
+	  <seccionQps id="702"  monto="1.00" />
+	  <seccionQps id="704"  monto="1.00" />
+	  <seccionQps id="705"  monto="1.00" />
+	  <seccionQps id="706"  monto="1.00" />
+	  <seccionQps id="707"  monto="1.00" />
+	  <seccionQps id="708"  monto="1.00" />
+	  <seccionQps id="780"  monto="1.00" />
+	  <seccionQps id="897"  monto="1.00" />
+	  <seccionQps id="898"  monto="1.00" />
+	  <seccionQps id="902"  monto="1.00" />
+	  <seccionQps id="905"  monto="1.00" />
+	  <seccionQps id="910"  monto="1.00" />
+	  <seccionQps id="911"  monto="1.00" />
+	  <seccionQps id="913"  monto="1.00" />
+	  <seccionQps id="914"  monto="1.00" />
+	  <seccionQps id="920"  monto="1.00" />
+	  <seccionQps id="930"  monto="1.00" />
+	  <seccionQps id="931"  monto="1.00" />
+	  <seccionQps id="933"  monto="1.00" />
+	  <seccionQps id="934"  monto="1.00" />
+	  <seccionQps id="936"  monto="1.00" />
+	  <seccionQps id="980"  monto="1.00" />
+	  <seccionQps id="999"  monto="1.00" />
+	</qps>
+
+	<!-- Parametro para identificar el grupo de articulos de llantas -->
+	<cobroDeLlantas>
+		<grupoCobroLlantas>34352</grupoCobroLlantas>
+	</cobroDeLlantas>
+
+	<!-- Configuracion para determinar en que tarjetas se debe mostrar directamente el pago por segmentos -->
+	<binDilisaSegmento>
+		<binDilisa>430000</binDilisa>
+	</binDilisaSegmento>
+
+	<!-- Configuracion para determinar que prefijos son validos en CDI -->
+	<prefijosCDI>
+		<prefijoCDI>000090</prefijoCDI>
+		<prefijoCDI>000093</prefijoCDI>
+		<prefijoCDI>000094</prefijoCDI>
+		<prefijoCDI>000098</prefijoCDI>
+	</prefijosCDI>
+	
+	<prefijoPromass>10</prefijoPromass>
+	
+	<!-- Configuracion para rango de monederos que no facturan ni generan CF -->
+	<!-- 
+	     Sintaxis: rangoInicial-rangoFinal. Se deben separar los rangos por un guion medio.Solo se puede definir uno por prefix.
+	     Siempre se debe definir el rango, en caso de que sea un solo rango colocar como sigue: prefix="990211635020-990211635020".
+	-->
+	<electronicInvoiceDisabledWallet>
+		<rangeElectronicInvoiceDisabledWallet prefix="8010000032507-8010000033528" />
+		<rangeElectronicInvoiceDisabledWallet prefix="8010000140011-8010000160002" />
+		<rangeElectronicInvoiceDisabledWallet prefix="8010000205017-8010000218031" />
+		<rangeElectronicInvoiceDisabledWallet prefix="8010000218048-8010000218109" />
+		<rangeElectronicInvoiceDisabledWallet prefix="8010000230019-8010000235007" />
+		<rangeElectronicInvoiceDisabledWallet prefix="8010002140019-8010002147513" />
+		<rangeElectronicInvoiceDisabledWallet prefix="8010002147520-8010002149623" />
+		<rangeElectronicInvoiceDisabledWallet prefix="8010002150018-8010002160000" />
+		<rangeElectronicInvoiceDisabledWallet prefix="8010002160017-8010002164268" />
+		<rangeElectronicInvoiceDisabledWallet prefix="8010002165012-8010002170009" />
+		<rangeElectronicInvoiceDisabledWallet prefix="8010002220018-8010002225006" />
+		<rangeElectronicInvoiceDisabledWallet prefix="8010002225013-8010002236545" />
+		<rangeElectronicInvoiceDisabledWallet prefix="8010002240016-8010002245004" />
+		<rangeElectronicInvoiceDisabledWallet prefix="8010002456455-8010002457445" />
+		<rangeElectronicInvoiceDisabledWallet prefix="8010008497261-8010008497995" />
+		<rangeElectronicInvoiceDisabledWallet prefix="8010008498008-8010008498251" />
+		<rangeElectronicInvoiceDisabledWallet prefix="8010010640013-8010010650005" />
+		<rangeElectronicInvoiceDisabledWallet prefix="8120000000000-8129999999999" />
+		<rangeElectronicInvoiceDisabledWallet prefix="8200000000000-8209999999999" />
+	</electronicInvoiceDisabledWallet>
+	
+	<!-- Configuracion de grupos de articulos de tarjetas de entretenimiento, con precio abierto, con un rango de importe de venta -->	
+	<!-- Sintaxis:
+	     id         Identificador de cada grupo de tarjeta
+		   group      Grupo de artículos que aplican la validacion del rango minimo y maximo de monto de venta
+		   minLimit   Monto mínimo al que se puede vender cada tarjeta. Incluir decimales con el punto.
+		   maxLimit   Monto maximo al que se puede vender cada tarjeta. Incluir decimales con el punto.
+	
+	     Restriciones:
+	             Solo aplica para tarjetas con precio requerido 
+	             En caso de no estar definidos algunos de los tags no se toma en cuenta ese entertainmentCardVariableAmount	
+	-->
+	<entertainmentCardVariableAmountList>
+		<entertainmentCardVariableAmount id="1">
+			<group>63351</group>
+			<minLimit>50</minLimit>
+			<maxLimit>500</maxLimit>
+		</entertainmentCardVariableAmount>
+		<entertainmentCardVariableAmount id="2">
+			<group>63353</group>
+			<minLimit>200</minLimit>
+			<maxLimit>5000</maxLimit>
+		</entertainmentCardVariableAmount>
+		<entertainmentCardVariableAmount id="3">
+			<group>63354</group>
+			<minLimit>100</minLimit>
+			<maxLimit>5000</maxLimit>
+		</entertainmentCardVariableAmount>
+	</entertainmentCardVariableAmountList>
+	
+	<!-- Configuracion seguridad venta monedero -->
+	<seguridadVentaMonedero>
+		<solicitaClaveJefe>true</solicitaClaveJefe>
+		<montoMinimo>3000.00</montoMinimo>
+	</seguridadVentaMonedero>
+	
+	<!-- Parametro para habilitar facturacion fase IV -->
+	<facturaFase4>true</facturaFase4>
+	
+	<!-- Configuracion de descriptores para los distintos tipos de tienda -->
+	<!-- 
+		Sintaxis:
+		 name			Nombre del prefijo del descriptor a buscar
+		 storeList		Tipo o subtipo que aplicará para el descriptor, si es más de uno se separan por comas sin espacios
+	-->
+	<descriptoresTienda>
+		<!-- Este es el parametro por default -->
+		<descriptorTienda name="liverpool" storeList="LV,BQ"/>
+		<descriptorTienda name="we" storeList="WE"/>
+		<descriptorTienda name="ws" storeList="WS"/>
+		<descriptorTienda name="pb" storeList="PB"/>
+	</descriptoresTienda>
+	
+	<devoluciones>
+		<tdaDev typeCode="BR"> <!-- tienda donde se está originando la devolución -->
+			<tdaOrigen>BR</tdaOrigen> <!--  tienda origen de la boleta -->
+			<subtipo>true</subtipo>
+		</tdaDev>
+		<tdaDev typeCode="GP">
+			<tdaOrigen>GP</tdaOrigen>
+			<subtipo>true</subtipo>
+		</tdaDev>
+		<tdaDev typeCode="KS">
+			<tdaOrigen>KS</tdaOrigen>
+			<subtipo>true</subtipo>
+		</tdaDev>
+		<tdaDev typeCode="LV">
+			<tdaOrigen>LV</tdaOrigen>
+			<subtipo>false</subtipo>
+		</tdaDev>
+		<tdaDev typeCode="MC">
+			<tdaOrigen>MC</tdaOrigen>
+			<subtipo>true</subtipo>
+		</tdaDev>
+		<tdaDev typeCode="PB">
+			<tdaOrigen>PB</tdaOrigen>
+			<subtipo>true</subtipo>
+		</tdaDev>
+		<tdaDev typeCode="PR">
+			<tdaOrigen>PR</tdaOrigen>
+			<subtipo>true</subtipo>
+		</tdaDev>
+		<tdaDev typeCode="TR">
+			<tdaOrigen>TR</tdaOrigen>
+			<subtipo>true</subtipo>
+		</tdaDev>
+		<tdaDev typeCode="WE">
+			<tdaOrigen>WE</tdaOrigen>
+			<subtipo>true</subtipo>
+		</tdaDev>
+		<tdaDev typeCode="WS">
+			<tdaOrigen>WS</tdaOrigen>
+			<subtipo>true</subtipo>
+		</tdaDev>
+	</devoluciones>
+
+	<!-- Parámetro para habilitar el enmascarado del rollo electrónico -->
+	<maskEjournal>false</maskEjournal>
+
+	<!-- Parámetro para habilitar desarrollo DILISA Corporativa --> 
+	<validarDILISAcorporativa>true</validarDILISAcorporativa>
+
+	<!-- Los logos DILISA Corporativa que no permiten abono al monedero se deberán agregar en este parámetro -->
+	<!-- separándolos por comas. Los logos aquí presentes, en caso de existir beneficio a monedero, mandarán -->
+	<!-- popup de advertencia, ejemplo: <corporateDILISAlogos>37,20,60</corporateDILISAlogos> -->
+	<corporateDILISAlogos>37,85</corporateDILISAlogos>
+
+	<!-- Parámetro para habilitar desarrollo Sobregiro tarjetas propias --> 
+	<sobregiroTarjetasPropias>true</sobregiroTarjetasPropias>
+	
+	<!-- Parámetro para habilitar funcionalidad Pick Mix en transacción Dulcería --> 
+	<enabledPickMix>true</enabledPickMix>
+
+	<!-- delayMS - Parámetro que permite fijar el tiempo en milisegundos de retardo para 
+					obtener el peso de la báscula
+	 	noReintentos - Parámetro que fija el número de veces adicionales que el programa
+	 				intentará obtener el peso de la báscula en caso que la primera vez que se
+	 				solicite el peso, este por alguna inestabilidad, no logre la medición.
+	 	Parámetros obligatorios de tipo entero, si se desea que no haya retardo, es neceario
+	 	establecer el parámetro delayMS = "0", si se desea que no haya reintentos, es necesario
+	 	establecer el parámetro noReintentos = "0", ya que no es permitida la cadena vacía
+	-->
+	<pickMixFlow delayMS="200" noReintentos="3">
+		<elementsPickMix>
+			<pickMix>
+				<orden>1</orden>
+				<sku>1051879585</sku>
+				<descripcion>Rojo</descripcion>
+				<enabled>true</enabled>
+			</pickMix>
+			<pickMix>
+				<orden>2</orden>
+				<sku>1051881555</sku>
+				<descripcion>Azul</descripcion>
+				<enabled>true</enabled>
+			</pickMix>
+			<pickMix>
+				<orden>3</orden>
+				<sku>1051881563</sku>
+				<descripcion>Amarillo</descripcion>
+				<enabled>true</enabled>
+			</pickMix>
+			<pickMix>
+				<orden>4</orden>
+				<sku>1051881571</sku>
+				<descripcion>Verde</descripcion>
+				<enabled>true</enabled>
+			</pickMix>
+			<pickMix>
+				<orden>5</orden>
+				<sku>1051881580</sku>
+				<descripcion>Naranja</descripcion>
+				<enabled>true</enabled>
+			</pickMix>
+			<pickMix>
+				<orden>6</orden>
+				<sku>1051881598</sku>
+				<descripcion>Morado</descripcion>
+				<enabled>true</enabled>
+			</pickMix>
+			<pickMix>
+				<orden>7</orden>
+				<sku>1051881601</sku>
+				<descripcion>Rosa</descripcion>
+				<enabled>true</enabled>
+			</pickMix>
+			<pickMix>
+				<orden>8</orden>
+				<sku>1031156978</sku>
+				<descripcion>Paris</descripcion>
+				<enabled>true</enabled>
+			</pickMix>
+			<pickMix>
+				<orden>9</orden>
+				<sku>1109304774</sku>
+				<descripcion>Bruselas</descripcion>
+				<enabled>true</enabled>
+			</pickMix>
+			<pickMix>
+				<orden>10</orden>
+				<sku>1109304782</sku>
+				<descripcion>Londres</descripcion>
+				<enabled>true</enabled>
+			</pickMix>
+			<pickMix>
+				<orden>11</orden>
+				<sku>1109304791</sku>
+				<descripcion>Colonia</descripcion>
+				<enabled>true</enabled>
+			</pickMix>
+			<pickMix>
+				<orden>12</orden>
+				<sku>1031156960</sku>
+				<descripcion>Austria</descripcion>
+				<enabled>true</enabled>
+			</pickMix>
+			<pickMix>
+				<orden>13</orden>
+				<sku>1109304812</sku>
+				<descripcion>Dinamarca</descripcion>
+				<enabled>true</enabled>
+			</pickMix>
+			<pickMix>
+				<orden>14</orden>
+				<sku>1109305266</sku>
+				<descripcion>Grecia</descripcion>
+				<enabled>true</enabled>
+			</pickMix>
+			<pickMix>
+				<orden>15</orden>
+				<sku>1109305274</sku>
+				<descripcion>Portugal</descripcion>
+				<enabled>true</enabled>
+			</pickMix>
+		</elementsPickMix>
+	</pickMixFlow>
+	
+	<!-- Funcionalidad para validar si la tienda y terminal permite imprimir articulos de la seccion parametrizada, este cambio corresponde a Snack Bar	-->
+	<snackbar secciones="391,392,393">
+		<terminalSnackbarList>
+			<terminalsnackbar tienda="3" terminales="999"/>
+		</terminalSnackbarList>
+	</snackbar>
+	
+	<!-- Contenedor de cantidad maxima que es posible pagar por monedero electrónico -->
+	<maxAmountMonederoAllowed>999999.99</maxAmountMonederoAllowed>
+	
+	<monederoRangos></monederoRangos>
+
+	<telephonicAuthorization>false</telephonicAuthorization>
+	
+	<!-- Parametro para habilitar los rangos del monedero fisico separados por comas "," -->
+	<rangoMonederoFisico>01,02,03,04,05,11,12,13,14,15,16,17,18,20,72</rangoMonederoFisico>
+	
+	<!-- Parametro para habilitar los rangos del monedero virtual separados por comas "," -->
+	<rangoMonederoVirtual>79</rangoMonederoVirtual>
+	
+	<!-- Parametro para habilitar funcionalidad de monedero escaneado -->
+	<enabledMonedero>false</enabledMonedero>
+    
+	<!-- Parametro para habilitar funcionalidad de monedero escaneado en consulta y emision, cuando esta deshabilitado enabledMonedero -->
+	<enabledMonederoConsultEmition>true</enabledMonederoConsultEmition>
+  
+	<!-- Parametro para habilitar funcionalidad de monedero robustecido -->
+	<enabledMonederoRobustecido>true</enabledMonederoRobustecido>
+    
+	<!-- Parametro para habilitar funcionalidad de pedir CVV en eWallet -->
+	<inputCVVMonederoVirtual>true</inputCVVMonederoVirtual>
+  
+	<!-- Lista de bines (primeros 6 digitos de la tarjeta) para permitir uso de Dilisas en monedero robustecido -->
+	<binesMonederoDilisas>
+		<binMonederoDilisa>231000</binMonederoDilisa>
+	</binesMonederoDilisas>
+
+	<!-- Parametro para habilitar funcionalidad de leer el archivo C:\ADX_UDT1\LIVMONED.DAT --> 
+	<readLivMoned>true</readLivMoned>
+
+	<!-- Lista de bines permitidos en la transacción de Disposición de efectivo -->
+	<binesDisposicion>557905,557907,557908,557909,557910</binesDisposicion>
+</liverpoolConfiguration>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<component name="BARRA_PIE_FORM" class="ar.com.synthesis.pos.component.FormComponent" messageid="RETURN"	producer="SuiteProducer">
+
+         <component name = "BARRAPIE_CLOCK_WATCH" class = "ar.com.synthesis.pos.component.WatchComponent">
+         <property key = "size"        x = "152" y = "24"  />
+         <property key = "location"    x = "264" y = "578" />
+         <property key = "visible"     value = "true"      />
+         <property key = "color"       color = "0xD30037"  />
+         <property key = "font"        value = "HELVETICA NARROW-BOLD-12"/>
+         <property key = "forecolor"   color = "0xFFFFFF" />
+         <property key = "opaque"      value = "false"    />
+         <property key = "editable"    value = "false"    />
+         <property key = "align"       value = "center"   />
+         <property key = "format"      value = "  dd/MMM/yyyy ' - ' HH:mm  " />
+         <property key = "refresh"     value = "1" />
+         <property key = "contenttype" value = "text/plain" />
+      </component>
+
+       <component name = "BARRAPIE_STORE_TXT" class="ar.com.synthesis.pos.component.InputTextComponent">
+         <property key = "size"      x = "96"  y = "24" />
+         <property key = "location"  x = "2"  y = "574"  />
+         <property key = "visible"   value = "true"       />
+         <property key = "color"     color = "0xF00000"   />
+         <property key = "font"      value = "HELVETICA NARROW-BOLD-12"/>
+         <property key = "forecolor" color = "0xFFFFFF"  />
+         <property key = "opaque"    value = "false"     />
+         <property key = "editable"  value = "false"     />
+         <property key = "align"     value = "center"      />
+         <event id = "TEXT">
+            <handler name = "ar.com.synthesis.pos.handler.InputTextHandler"/>
+         </event>
+      </component>
+
+      <component name = "BARRAPIE_TERM_TXT" class="ar.com.synthesis.pos.component.InputTextComponent">
+         <property key = "size"      x = "152" y = "24"  />
+         <property key = "location"  x = "104" y = "574" />
+         <property key = "visible"   value = "true"       />
+         <property key = "color"     color = "0xF00000"   />
+         <property key = "font"      value = "HELVETICA NARROW-BOLD-12"/>
+         <property key = "forecolor" color = "0xFFFFFF"  />
+         <property key = "opaque"    value = "false"     />
+         <property key = "editable"  value = "false"     />
+         <property key = "align"     value = "center"    />
+
+         <event id = "TEXT">
+            <handler name = "ar.com.synthesis.pos.handler.InputTextHandler"/>
+         </event>
+      </component>
+
+       <component name = "BARRAPIE_STATUS_TXT" class="ar.com.synthesis.pos.component.InputTextComponent">
+         <property key = "size"      x = "59"  y = "24" />
+         <property key = "location"  x = "423"  y = "574"  />
+         <property key = "visible"   value = "true"       />
+         <property key = "color"     color = "0xF00000"   />
+         <property key = "font"      value = "HELVETICA NARROW-BOLD-12"/>
+         <property key = "forecolor" color = "0xFFFFFF"  />
+         <property key = "opaque"    value = "false"     />
+         <property key = "editable"  value = "false"     />
+         <property key = "align"     value = "center"    />
+         <event id = "TEXT">
+            <handler name = "ar.com.synthesis.pos.handler.InputTextHandler"/>
+         </event>
+      </component>
+
+      <component name = "BARRAPIE_OPER_TITLE" class="ar.com.synthesis.pos.component.InputTextComponent">
+         <property key = "size"      x = "146"  y = "24" />
+         <property key = "location"  x = "485"  y = "544"  />
+         <property key = "visible"   value = "true"       />
+         <property key = "color"     color = "0xF00000"   />
+         <property key = "font"      value = "VERDANA-BOLD-12"/>|
+         <property key = "forecolor" color = "0xE4D2E8"  />
+         <property key = "opaque"    value = "false"     />
+         <property key = "editable"  value = "false"     />
+         <property key = "align"     value = "center"    />
+      </component>
+      
+      <component name = "BARRAPIE_OPER_TXT" class="ar.com.synthesis.pos.component.InputTextComponent">
+         <property key = "size"      x = "146"  y = "24" />
+         <property key = "location"  x = "487"  y = "574"  />
+         <property key = "visible"   value = "true"       />
+         <property key = "color"     color = "0xF00000"   />
+         <property key = "font"      value = "HELVETICA NARROW-BOLD-12"/>
+         <property key = "forecolor" color = "0xFFFFFF"  />
+         <property key = "opaque"    value = "false"     />
+         <property key = "editable"  value = "false"     />
+         <property key = "align"     value = "center"    />
+      </component>
+
+</component>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<vtolStore>
+	<terminals>
+		<!-- Contiguración para terminales pares -->
+		<evenTerminal>
+			<!-- Dirección IP y puerto de VtolStore -->
+			<serverIP>172.22.13.75</serverIP>
+			<serverPort>4000</serverPort>
+			<!-- Dirección IP y puerto de VtolStore alternativo en caso de error en comunicación con el anterior -->
+			<alternativeServerIP>172.22.13.76</alternativeServerIP>
+			<alternativeServerPort>4000</alternativeServerPort>
+			<connectionSSL>false</connectionSSL>
+			<pathSSLkeystore>src/main/resources/ppClient.jks</pathSSLkeystore>
+			<passwordSSL>was_70F2175a3a6Dc63666DD50fb324282Aa</passwordSSL>
+		</evenTerminal>
+		<!-- Contiguración para terminales impares -->
+		<oddTerminal>
+			<!-- Dirección IP y puerto de VtolStore -->
+			<serverIP>172.22.13.76</serverIP>
+			<serverPort>4000</serverPort>
+			<!-- Dirección IP y puerto de VtolStore alternativo en caso de error en comunicación con el anterior -->
+			<alternativeServerIP>172.22.13.75</alternativeServerIP>
+			<alternativeServerPort>4000</alternativeServerPort>
+			<connectionSSL>false</connectionSSL>
+			<pathSSLkeystore>src/main/resources/ppClient.jks</pathSSLkeystore>
+			<passwordSSL>was_70F2175a3a6Dc63666DD50fb324282Aa</passwordSSL>
+		</oddTerminal>
+		<!-- Contiguración para rango de terminales, reescribe la configuración de pares e impares -->
+		<!-- <terminal idClones="1-99"> <serverIP>10.3.2.150</serverIP> <serverPort>4000</serverPort> 
+			<alternativeServerIP>10.3.2.150</alternativeServerIP> <alternativeServerPort>4000</alternativeServerPort> 
+			</terminal> -->
+		<!-- Contiguración para una terminal, reescribe la configuración de pares e impares, y rango de terminales -->
+		<!-- <terminal id="99"> <serverIP>10.3.2.150</serverIP> <serverPort>4000</serverPort> 
+			<alternativeServerIP>10.3.2.150</alternativeServerIP> <alternativeServerPort>4000</alternativeServerPort> 
+			</terminal> -->
+	</terminals>
+
+	<!-- Puerto donde BridgePos espera la respuesta de VtolStore -->
+	<serverPortResponse>8888</serverPortResponse>
+
+	<!-- Time-out de comunicación:
+		reqValidationTO: Es el time-out asignado al socket en su creación
+		backValidationTO: Es el tiempo que se esperará una respuesta de VTOL-STORE
+	-->
+	<reqValidationTO>22000</reqValidationTO>
+	<backValidationTO>22000</backValidationTO>
+</vtolStore>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!--
+		Archivo de configuración de las URLS que se visualizarán desde el browser de la aplicación
+	  NOTA: para utilizar en una URL el caracter ampersand (separador de parametros) sera necesario reemplazarlo por &amp; como en HTML en 
+	  vez de  este, para poder como se puede ver en la URL que utiliza parametros de tienda y vendedor
+	  Las key del 1 al 99 se encuentran reservadas para teclas motoras.
+	  La Key 201 y 999, se encuentran reservadas para manejo de tabla del browser.
+	  El atributo offFocus, se ocupa para que NO ponga en foco el browser
+	-->
+	     
+<urls>
+	<urlButtons>
+		<urlButton key="100" name="Servicio Interno">
+			<browserUrls>
+				<browserUrl name="MENU DE EMPLEADOS" url="http://172.16.203.107/MenuInterno/MenuEmp.do" />
+			</browserUrls>
+		</urlButton>
+		<urlButton key="101" name="Servicio Externo">
+			<browserUrls>
+				<browserUrl name="MENU DE CLIENTES" url="http://172.16.203.107/MenuExterno/MenuCli.do?numTienda={TIENDA}&amp;numEmpleado={ID_VENDEDOR}" /> 
+			</browserUrls>
+		</urlButton>
+		<urlButton key="102" name="Status de transferencias">
+			<browserUrls>
+				<browserUrl name="STATUS DE TRANSFERENCIAS" url="http://172.16.203.107/consinv/seguimiento/seguimiento.action" />
+			</browserUrls>
+		</urlButton>
+		<urlButton key="103" name="Registro de tiempos">
+			<browserUrls>
+				<browserUrl name="REGISTRO DE TIEMPOS" url="http://172.16.203.107/WBII/RegT/regtf-inicio.action" />
+			</browserUrls>
+		</urlButton>
+		
+		<!-- El ID de la URL para sastrería se inicia en 998 para no afectar a los botones laterales.
+		Sastrería es una transacción que llama un browser al finalizar, no una -->
+		<urlButton key="999" name="Hipoteca verde">
+			<browserUrls>
+				<browserUrl name="PRINT" url="http://172.16.202.109:8085/FaeSferaWeb/POSLivW/facturacionPos-init.action" />
+			</browserUrls>
+		</urlButton>
+		<urlButton key="998" name="Sastreria">
+			<browserUrls>
+				<browserUrl name="SASTRERIA" url="http://172.16.203.248/sastrerias/alta/cargarAlta.action?boleta={BOLETA}&amp;noTienda={TIENDA_8}&amp;noTerminal={TERMINAL}&amp;fecha={FECHA}&amp;noEmpleado={ID_VENDEDOR_8}&amp;noTarjeta={TARJETA}" />
+			</browserUrls>
+		</urlButton>
+		<urlButton key="997" name="Relojes Cobro">
+			<browserUrls>
+				<browserUrl name="WATCH_REPAIR_CHARGE" url="http://172.16.202.209:9089/rprTEST/actions/consultaCobroAction.do?orden={ORDEN}" />
+			</browserUrls>
+		</urlButton>
+		<urlButton key="996" name="Presupuesto Reparacion Relojes">
+			<browserUrls>
+				<browserUrl name="WATCH_REPAIR_BUDGET" url="http://172.16.202.209:9089/rprTEST/actions/nuevaOrdenPOSAction.do?vendedor={ID_VENDEDOR_8}" />
+			</browserUrls>
+		</urlButton>
+		<urlButton key="995" name="Mercancia Display">
+			<browserUrls>
+				<browserUrl name="MERCHANDISE_DISPLAY" url="http://172.27.203.27:9080/mercanciaDisplay/baja.do?tienda={TIENDA}&amp;terminal={NRO_TERMINAL}&amp;boleta={NRO_BOLETA}&amp;fecha={FECHA}" offFocus="true" />
+			</browserUrls>
+		</urlButton>
+	</urlButtons>
+</urls>

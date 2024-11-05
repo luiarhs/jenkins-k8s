@@ -1,0 +1,67 @@
+<telephoneOperator>
+	<operators>
+		<operator id="1" description="TELCEL">
+			<rechargeValid>
+				<recharge id="1" amount="10" sku="1046793354"/>
+				<recharge id="2" amount="20" sku="1046793362"/>
+				<recharge id="3" amount="30" sku="61557440"/>
+				<recharge id="4" amount="50" sku="61557458"/>
+				<recharge id="5" amount="100" sku="47984653"/>
+				<recharge id="6" amount="150" sku="78241004"/>
+				<recharge id="7" amount="200" sku="47984661"/>
+				<recharge id="8" amount="300" sku="47984670"/>
+				<recharge id="9" amount="500" sku="47984688"/>
+			</rechargeValid>
+		</operator>
+		<operator id="2" description="ATT">
+			<rechargeValid>
+				<recharge id="1" amount="30" sku="61557393"/>
+				<recharge id="2" amount="50" sku="61557407"/>
+				<recharge id="3" amount="70" sku="1056194351"/>
+				<recharge id="4" amount="100" sku="47984513"/>
+				<recharge id="5" amount="120" sku="1056194360"/>
+				<recharge id="6" amount="150" sku="47984521"/>
+				<recharge id="7" amount="200" sku="47984530"/>
+				<recharge id="8" amount="300" sku="47984548"/>
+				<recharge id="9" amount="500" sku="47984556"/>
+				<recharge id="10" amount="1000" sku="47984564"/>
+			</rechargeValid>
+		</operator>
+		<operator id="3" description="MOVISTAR">
+			<rechargeValid>
+				<recharge id="1" amount="30" sku="49905823"/>
+				<recharge id="2" amount="40" sku="1051861228"/>
+				<recharge id="3" amount="60" sku="1009888809"/>
+				<recharge id="4" amount="70" sku="1078427899"/>
+				<recharge id="5" amount="100" sku="47984467"/>
+				<recharge id="6" amount="120" sku="1009888817"/>
+				<recharge id="7" amount="140" sku="1078427902"/>
+				<recharge id="8" amount="150" sku="47984475"/>
+				<recharge id="9" amount="200" sku="47984483"/>
+				<recharge id="10" amount="300" sku="47984491"/>
+				<recharge id="11" amount="500" sku="47984505"/>
+			</rechargeValid>
+		</operator>
+		<operator id="4" description="VIRGIN">
+			<rechargeValid>
+				<recharge id="1" amount="50" sku="1051872726"/>
+				<recharge id="2" amount="100" sku="1051872742"/>
+				<recharge id="3" amount="150" sku="1051872751"/>
+				<recharge id="4" amount="200" sku="1051872769"/>
+			</rechargeValid>
+		</operator>
+		<operator id="5" description="UNEFON">
+			<rechargeValid>
+				<recharge id="1" amount="50" sku="61557431"/>
+				<recharge id="2" amount="70" sku="1056194335"/>
+				<recharge id="3" amount="100" sku="1044363867"/>
+				<recharge id="4" amount="120" sku="1056194343"/>
+				<recharge id="5" amount="150" sku="47984581"/>
+				<recharge id="6" amount="200" sku="47984599"/>
+				<recharge id="7" amount="300" sku="47984602"/>
+				<recharge id="8" amount="500" sku="47984611"/>
+				<recharge id="9" amount="1000" sku="47984637"/>
+			</rechargeValid>
+		</operator>
+	</operators>
+</telephoneOperator>

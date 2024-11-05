@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<deliveryFood>
+	<!--
+			Configuración de los proveedores de entrega de comida.
+			Venta de platillos de Gourmet con entrega a domicilio por medio de la colaboración de un proveedor externo.
+
+			El tag <conceptos> tiene los siguientes atributos:
+				id: representa el identificador del proveedor y es un número entero consecutivo (este atributo es obligatorio),
+				prefijoComanda: prefijo con el que se identifica una comanda de Delivery, descripcion: descripción del proveedor de entregas de comida,
+				SKU: SKU a vender, seccion: es la sección donde se registrará la venta,
+				noTarjeta: número de cuenta con el que se identificará al proveedor de entrega, descuentoProvedor: % de descuento a aplicar,
+				noAutorizacion: número de autorizacion para el proveedor de entrega, tienda: número de tienda en la que aplicará esta funcionalidad,
+				terminal: número de terminal en la que aplicará esta funcionalidad
+				isFood: Determina si se trata de un proovedor de alimento, coso contrario se trata de un proovedor delivery normal
+	-->
+	<conceptos>
+		<conceptoDeliveryFood id="1" descripcion="Uber Eats Exp. GMT" SKU="67741625" seccion="898" noTarjeta="7900000001234560" descuentoProvedor="20%" noAutorizacion="00000709" tienda="*" terminal="*" areaComanda="31" skuPropina="67738977" isFood="true" />
+		<conceptoDeliveryFood id="1" descripcion="Uber Eats Restaurante" SKU="67742486" seccion="897" noTarjeta="7900000001234560" descuentoProvedor="20%" noAutorizacion="00000709" tienda="*" terminal="*" areaComanda="32" skuPropina="67738977" isFood="true" />
+		<conceptoDeliveryFood id="1" descripcion="Uber Eats Exp. GMT Pick Up" SKU="67742613" seccion="898" noTarjeta="7900000001234560" descuentoProvedor="20%" noAutorizacion="00000709" tienda="*" terminal="*" areaComanda="31" skuPropina="67738977" isFood="true" />
+		<conceptoDeliveryFood id="1" descripcion="Uber Eats Restaurante Pick Up" SKU="67742605" seccion="897" noTarjeta="7900000001234560" descuentoProvedor="20%" noAutorizacion="00000709" tienda="*" terminal="*" areaComanda="32" skuPropina="67738977" isFood="true" />
+	</conceptos>
+</deliveryFood>

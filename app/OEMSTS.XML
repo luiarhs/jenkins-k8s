@@ -1,0 +1,41 @@
+<?xml version='1.0'?>
+
+
+<!------------------------------------------------------->
+<!--                                                   -->
+<!-- Serial Devices for which JavaPOS services are to  -->
+<!-- be loaded must have JposEntry's in this file. For -->
+<!-- examples on the format of JposEntry's, see        -->
+<!-- adxcnfjp.xml.                                     -->
+<!--                                                   -->
+<!-- This file is not limited to serial devices, it    -->
+<!-- can be used to force the loading of any JavaPOS   -->
+<!-- service.                                          -->
+<!--                                                   -->
+<!-- JposEntry definitions in this file will override  -->
+<!-- any entries (of the same logical name) created    -->
+<!-- by the auto-config.                               -->
+<!--                                                   -->
+<!------------------------------------------------------->
+
+
+<JCML>
+  <!----------------------------------------------------->
+  <!-- IBM CASH DRAWER                                 -->
+  <!----------------------------------------------------->
+  <JposEntry
+    logicalName="CashDrawer2"
+    serviceInstanceFactoryClass="com.ibm.jpos.services.IBMJposServiceInstanceFactory"
+  >
+  <Property name="devCat" type="String" value="CashDrawer"/>
+  <Property name="deviceCategory" type="String" value="CashDrawer"/>
+  <Property name="abstractionClass" type="String" value="com.ibm.jpos.services.IBMCashDrawer"/>
+  <Property name="impClass" type="String" value="com.ibm.jpos.services.OS4690.IBMCashDrawerImp"/>
+  <Property name="driverName" type="String" value="ADXPID0:"/>
+  <Property name="posNslotNumber" type="Integer" value="0x01"/>
+  <Property name="posNportNumber" type="Integer" value="0x11"/>
+  <!--Property name="posNdeviceNumber" type="Integer" value="0x54"/-->
+  <Property name="posNdeviceNumber" type="Integer" value="0x83"/>
+  </JposEntry>
+
+</JCML>

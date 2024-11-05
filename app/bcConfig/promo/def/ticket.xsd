@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	$Id: ticket.xsd 13136 2017-08-28 12:29:19Z germanb $
+-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:element name="item-void">
+        <xsd:complexType>
+            <xsd:attribute name="seq" type="xsd:string" use="required"/>
+        </xsd:complexType>
+    </xsd:element>
+		
+    <xsd:element name="item-add">
+        <xsd:complexType>
+            <xsd:attribute name="brand" type="xsd:string" use="optional"/>
+            <xsd:attribute name="code" type="xsd:string" use="optional"/>
+            <xsd:attribute name="dept" type="xsd:string" use="optional"/>
+            <xsd:attribute name="discountable" type="xsd:boolean" use="optional"/>
+            <xsd:attribute name="category" type="xsd:string" use="optional"/>
+            <!--<xsd:attribute name="family" type="xsd:string" use="optional"/>-->
+            <!-- El atributo family no es para Liverpool, en cambio van los atributos:
+            	 group, generic, product, tag, affected -->
+            <!-- LIVERPOOL -->
+            <xsd:attribute name="group" type="xsd:string" use="optional"/>
+            <xsd:attribute name="generic" type="xsd:string" use="optional"/>
+            <xsd:attribute name="product" type="xsd:string" use="optional"/>
+   					<xsd:attribute name="tag" type="xsd:string" use="optional"/>         
+            <xsd:attribute name="affected" type="xsd:string" use="optional"/>
+            <xsd:attribute name="promotioncode" type="xsd:string" use="optional"/>
+			<xsd:attribute name="tagPromo" type="xsd:string" use="optional"/>
+            <!-- FIN LIVERPOOL-->
+            <xsd:attribute name="magnitude" type="xsd:double" use="required"/>
+            <xsd:attribute name="qty" type="xsd:double" use="optional"/>
+            <xsd:attribute name="seq" type="xsd:string" use="required"/>
+            <xsd:attribute name="supplier" type="xsd:string" use="optional"/>
+            <xsd:attribute name="unitprice" type="xsd:double" use="optional"/>
+            <xsd:attribute name="xprice" type="xsd:double" use="required"/>
+			<xsd:attribute name="list" type="xsd:string" use="optional"/>
+        </xsd:complexType>
+    </xsd:element>
+    
+	<xsd:element name="item-change">
+     	<xsd:complexType>
+		    <xsd:attribute name="seq" type="xsd:string" use="required"/>
+		    <xsd:attribute name="optionGroup" type="xsd:string" use="required"/>
+		    <xsd:attribute name="option" type="xsd:string" use="required"/>
+	    </xsd:complexType>
+    </xsd:element>
+	
+    <xsd:element name="coupon-void">
+        <xsd:complexType>
+            <xsd:attribute name="seq" type="xsd:string" use="required"/>
+        </xsd:complexType>
+    </xsd:element>
+        
+    <xsd:element name="coupon-add">
+        <xsd:complexType>
+            <xsd:attribute name="type" type="xsd:string" use="optional"/>
+            <xsd:attribute name="id" type="xsd:string" use="optional"/>
+            <xsd:attribute name="seq" type="xsd:string" use="required"/>
+            <xsd:attribute name="qty" type="xsd:double" use="optional"/>
+            <xsd:attribute name="amount" type="xsd:double" use="optional"/>
+        </xsd:complexType>
+    </xsd:element>
+
+	<xsd:element name="customer-void">
+        <xsd:complexType>
+            <xsd:attribute name="seq" type="xsd:string" use="required"/>
+        </xsd:complexType>
+    </xsd:element>
+
+    
+	<xsd:element name="customer-add">
+        <xsd:complexType>
+            <xsd:attribute name="type" type="xsd:string" use="optional"/>
+            <xsd:attribute name="id" type="xsd:string" use="optional"/>
+            <xsd:attribute name="seq" type="xsd:string" use="required"/>
+            <!-- <xsd:attribute name="qty" type="xsd:positiveInteger" use="optional"/> -->
+            <xsd:attribute name="points" type="xsd:double" use="optional"/>
+            <xsd:attribute name="remainingAmount" type="xsd:double" use="optional"/>
+        </xsd:complexType>
+    </xsd:element>
+	
+	<xsd:element name="payment-void">
+        <xsd:complexType>
+            <xsd:attribute name="seq" type="xsd:string" use="required"/>
+        </xsd:complexType>
+    </xsd:element>
+	
+	    
+	<xsd:element name="payment-add">
+        <xsd:complexType>
+            <xsd:attribute name="id" type="xsd:string" use="optional"/>
+            <xsd:attribute name="type" type="xsd:string" use="optional"/>
+            <xsd:attribute name="seq" type="xsd:string" use="required"/>
+            <xsd:attribute name="qty" type="xsd:positiveInteger" use="optional"/>
+            <xsd:attribute name="amount" type="xsd:double" use="optional"/>
+            <xsd:attribute name="plan" type="xsd:string" use="optional"/>
+            <xsd:attribute name="installments" type="xsd:string" use="optional"/>            
+            <!-- pagos parciales -->
+            <xsd:attribute name="itemamount" type="xsd:double" use="optional"/>
+            <xsd:attribute name="balance" type="xsd:boolean" use="optional"/>
+            <xsd:attribute name="bank" type="xsd:string" use="optional"/>
+        </xsd:complexType>
+    </xsd:element>
+    
+    <xsd:element name="event-void">
+        <xsd:complexType>
+            <xsd:attribute name="seq" type="xsd:string" use="required"/>
+        </xsd:complexType>
+    </xsd:element>
+    
+    
+    <xsd:element name="event-add">
+        <xsd:complexType>
+            <xsd:attribute name="type" type="xsd:string" use="optional"/>
+            <xsd:attribute name="id" type="xsd:string" use="optional"/>
+            <xsd:attribute name="seq" type="xsd:string" use="required"/>
+            <xsd:attribute name="value" type="xsd:string" use="optional"/>
+        </xsd:complexType>
+    </xsd:element>
+	    
+   <xsd:element name="benefit-void">
+        <xsd:complexType>
+            <xsd:attribute name="seq" type="xsd:string" use="required"/>
+        </xsd:complexType>
+    </xsd:element>    
+    
+    <xsd:element name="benefit-add">
+        <xsd:complexType>
+            <xsd:attribute name="type" type="xsd:string" use="required"/>
+            <xsd:attribute name="id" type="xsd:string" use="required"/>
+            <xsd:attribute name="seq" type="xsd:string" use="required"/>
+            <xsd:attribute name="amount" type="xsd:string" use="required"/>
+            <xsd:attribute name="benefitType" type="xsd:string" use="optional"/>
+            <xsd:attribute name="seqItem" type="xsd:string" use="optional"/>
+        </xsd:complexType>
+    </xsd:element>    
+	    
+    <xsd:element name="message">
+        <xsd:complexType>
+        	<xsd:sequence>
+        	<xsd:choice minOccurs="0" maxOccurs="unbounded">
+                <xsd:element maxOccurs="unbounded" minOccurs="0" ref="item-add"/>
+				<xsd:element maxOccurs="unbounded" minOccurs="0" ref="item-change"/>
+				<xsd:element maxOccurs="unbounded" minOccurs="0" ref="coupon-add"/>
+				<xsd:element maxOccurs="unbounded" minOccurs="0" ref="customer-add"/>
+				<xsd:element maxOccurs="unbounded" minOccurs="0" ref="payment-add"/>
+				<xsd:element maxOccurs="unbounded" minOccurs="0" ref="event-add"/>								                                
+				<xsd:element maxOccurs="unbounded" minOccurs="0" ref="benefit-add"/>								                                
+				<xsd:element maxOccurs="unbounded" minOccurs="0" ref="item-void"/>
+				<xsd:element maxOccurs="unbounded" minOccurs="0" ref="coupon-void"/>
+				<xsd:element maxOccurs="unbounded" minOccurs="0" ref="customer-void"/>
+				<xsd:element maxOccurs="unbounded" minOccurs="0" ref="payment-void"/>
+				<xsd:element maxOccurs="unbounded" minOccurs="0" ref="event-void"/>								                                
+				<xsd:element maxOccurs="unbounded" minOccurs="0" ref="benefit-void"/>							                                
+			</xsd:choice>
+            </xsd:sequence>
+            <xsd:attribute name="date-time" type="xsd:string" use="required"/>
+            <xsd:attribute name="evaluate" use="optional" default="false" type="xsd:boolean"/>
+            <xsd:attribute name="init-tck" type="xsd:boolean" use="optional" default="false"/>
+            <xsd:attribute name="messageId" type="xsd:positiveInteger" use="required"/>
+            <xsd:attribute name="response" type="xsd:boolean" use="optional" default="false"/>
+            <xsd:attribute name="store" type="xsd:string" use="required"/>
+            <xsd:attribute name="terminal" type="xsd:string" use="required"/>
+            <xsd:attribute name="void-trx" type="xsd:boolean" use="optional" default="false"/>
+            <xsd:attribute name="status" type="xsd:string" use="optional" default=""/>
+            <xsd:attribute name="msg-version" type="xsd:string" use="optional" default=""/>
+            <xsd:attribute name="map-version" type="xsd:string" use="optional" default=""/>
+           <xsd:attribute name="suggest" type="xsd:boolean" use="optional" default="false"/>
+            <xsd:attribute name="suggest-seq" type="xsd:string" use="optional"/>
+            <xsd:attribute name="suggest-seq-type" use="optional">
+            	<xsd:simpleType>
+					  <xsd:restriction base="xsd:string">
+					    <xsd:enumeration value="coupon"/>
+					    <xsd:enumeration value="payment"/>
+					    <xsd:enumeration value="item"/>
+					    <xsd:enumeration value="customer"/>
+					    <xsd:enumeration value="event"/>
+					    <xsd:enumeration value="benefit"/>
+					  </xsd:restriction>
+				</xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="suggest-per-type" type="xsd:boolean" use="optional" default="false"/>
+            <xsd:attribute name="suggest-filter-type" use="optional">
+            	<xsd:simpleType>
+					  <xsd:restriction base="xsd:string">
+					    <xsd:enumeration value="coupon"/>
+					    <xsd:enumeration value="payment"/>
+					    <xsd:enumeration value="item"/>
+					    <xsd:enumeration value="customer"/>
+					    <xsd:enumeration value="event"/>
+					    <xsd:enumeration value="benefit"/>
+					  </xsd:restriction>
+				</xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="suggest-extended" type="xsd:boolean" use="optional" default="false"/>
+			<xsd:attribute name="evaluateOptionGroup" type="xsd:boolean" use="optional" default="false"/>
+			<xsd:attribute name="offline" type="xsd:boolean" use="optional" default="false"/>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>

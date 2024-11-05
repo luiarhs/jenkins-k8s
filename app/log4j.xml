@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'
+	debug="false">
+<!--
+	<appender name="Console" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{HH:mm:ss.SSS} %p [%c@%t] %m\r\n" />
+		</layout>
+	</appender>
+-->
+	<!-- ConsoleRollingFileAppender -->
+	<!-- Nota: ConsoleRollingFileAppender no convive con ConsoleAppender el
+	mismo debe estar comentado -->
+	<!--<appender name="RSFile" class="com.synthesis.pos.ConsoleRollingFileAppender"> -->
+	<appender name="RSFile"	class="com.synthesis.promo.logging.PromoRollingFileAppender">
+		<param name="File" value="r::c:/promo/bpos" />
+		<param name="append" value="true" />
+		<param name="MaxFileSize" value="10MB" />
+		<param name="MaxBackupIndex" value="5" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{dd/MM/yyyy HH:mm:ss.SSS} %p [%c@%t] - %m\r\n" />
+		</layout>
+	</appender>
+
+	<!-- Categoria para Promo -->
+	<category name="Promo">
+		<priority value="OFF" />
+	</category>
+
+	<!-- Logueo para ver consumo de memoria -->
+	<category name="PromoSystemMonitor">
+		<priority value="FATAL" />
+	</category>
+
+	<category name="com.ibm.jusb.UsbInterfaceImp">
+		<priority value="OFF" />
+	</category>
+
+	<category name="com.synthesis.bridge.conn.devicemanager.deviceadapter.GUIBussinessEvents">
+    <priority value="ERROR" />
+  </category>
+  
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<!-- Ver errores controlados y tiempos de operaciones -->
+		<category
+			name="com.synthesis.bridge.bcore.business.operations.BaseTransactionalOperation">
+			<priority value="DEBUG" />
+		</category>
+	<!-- Ver tiempos de las reglas -->
+		<category name="com.synthesis.bridge.bcore.operations.base.AbstractRule">
+			<priority value="DEBUG" />
+		</category>
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<!-- Logueo para dispositivos -->
+	<!-- 	<category name="com.synthesis.bridge.conn.devicemanager"> -->
+	<!-- 		<priority value="DEBUG" /> -->
+	<!-- 	</category> -->
+	<!-- Comunicación entre GUI y BPOS -->
+	<!-- 	<category name="com.synthesis.bridge.pos.gui.POSInterfaceFacade"> -->
+	<!-- 		<priority value="DEBUG" /> -->
+	<!-- 	</category> -->
+	<!-- Eventos entre BPOS -->
+	<!-- 	<category name="com.synthesis.bridge.mvp.EventDispatcher"> -->
+	<!-- 		<priority value="DEBUG" /> -->
+	<!-- 	</category> -->
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<!-- Logueo para pinpad -->
+	<category name="com.synthesis.pinpadConnector.adapter"> -->
+	  <priority value="DEBUG" /> -->
+	</category>
+	
+	<category name="com.synthesis.vtol.direct"> -->
+	  <priority value="DEBUG" /> -->
+	</category>
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <category name="com.synthesis.bridge.liverpool.bcore.business.rules.comm.impl.ProcessCardResponseRule">
+		<priority value="ERROR" />
+	</category>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<!-- Logueo para impresora -->
+	<category name="com.synthesis.bridge.liverpool.pos.models.PrinterLiverpoolModel">
+		<priority value="DEBUG" />
+	</category>
+
+	<category name="com.synthesis.bridge.liverpool.bcore.business.rules.printer.TransformPrinterDocumentLiverpoolRule">
+		<priority value="OFF" />
+	</category>
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	
+  <category name="com.synthesis.invoicing.client">
+    <priority value="DEBUG" />
+  </category>
+
+	<category name="com.synthesis.bridge.liverpool.bcore.business.rules.comm.impl.ProcessSomsMessageRule">
+		<priority value="DEBUG" />
+	</category>
+  
+  <!-- Logueo para impresora -->
+	<category name="com.synthesis.bridge.pos.views.gui.translators.toDevice.PrinterToDeviceTranslator">
+		<priority value="OFF" />
+	</category>	
+
+	<category name="com.synthesis.bridge.conn.devicemanager.deviceadapter.POSPrinterAdapterSts">
+		<priority value="OFF" />
+	</category>
+
+	<category name="com.synthesis.bridge.conn.core.publisher.Publisher">
+		<priority value="OFF" />
+	</category>
+
+  <!-- Logueo para touch -->
+	<category name="com.synthesis.bridge.pos.gui.POSInterfaceFacade">
+		<priority value="INFO" />
+	</category>
+
+	<category name="com.synthesis.bridge.liverpool.pos.views.gui.LoginLiverpoolView">
+   	<priority value="DEBUG" />
+	</category>
+
+	<category name="com.synthesis.bridge.pos.views.gui.keyboard.LoginView">
+   	<priority value="DEBUG" />
+	</category>
+	
+  <!-- Logueo para AID -->
+  <category name="com.synthesis.bridge.liverpool.bcore.business.rules.entry.ReadPinpadMessageRule">
+    <priority value="DEBUG" />
+  </category>
+
+  <category name="com.synthesis.bridge.liverpool.bcore.business.activities.impl.RepresentationLiverpoolBuilder">
+    <priority value="ERROR" />
+  </category>
+
+	<category name="com.synthesis.liverpool.saf.SaveTlogRule">
+  	<priority value="DEBUG" />
+	</category>
+
+	<root>
+		<priority value="ERROR" />
+		<!--
+		<appender-ref ref="Console" />
+		-->
+		<appender-ref ref="RSFile" />
+	</root>
+</log4j:configuration>

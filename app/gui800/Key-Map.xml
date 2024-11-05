@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ********************** Mapa de conversion de teclas ****************************** -->
+<keymap>
+	<keypressed key="10" value="1"/> <!-- Enter -->
+	<keypressed key="27" value="2"/> <!-- Escape -->
+	<keypressed key="33" value="33"/> <!-- Page Down -->
+	<keypressed key="34" value="34"/> <!-- Page Up -->
+	<keypressed key="36" value="19"/> <!-- Home -->
+	<keypressed key="38" value="166"/> <!-- flecha up -->
+	<keypressed key="40" value="167"/> <!-- flecha down -->
+	<keypressed key="106" value="5"/> <!-- Multiplication -->
+	<keypressed key="107" value="3"/> <!-- Addition -->
+	<keypressed key="109" value="4"/> <!-- Substraction -->
+	<keypressed key="111" value="6"/> <!-- Division -->
+	<keypressed key="112" value="7"/> <!-- F1 -->
+	<keypressed key="113" value="8"/> <!-- F2 -->
+	<keypressed key="114" value="9"/> <!-- F3 -->
+	<keypressed key="115" value="10"/> <!-- F4 -->
+	<keypressed key="116" value="11"/> <!-- F5 -->
+	<keypressed key="190" value="190"/> <!-- Propina -->
+	<keypressed key="188" value="188"/> <!-- Regalo -->
+	<keypressed key="119" value="14"/> <!-- F8 -->
+	<keypressed key="120" value="15"/> <!-- F9 -->
+	<keypressed key="121" value="16"/> <!-- F10 -->
+	<keypressed key="122" value="17"/> <!-- F11 -->
+	<keypressed key="123" value="18"/> <!-- F12 -->
+	<keypressed key="124" value="27"/> <!-- Anular -->
+	<keypressed key="187" value="43"/> <!-- ALT F1 carga de llaves manual -->
+	<keypressed key="1050" value="200"/> <!-- devolucion -->
+	<keypressed key="1000" value="1000"/> <!-- Comando especifico de cliente-->
+	<keypressed key="189" value="189"/> <!-- Crtl + F2 -->
+	<keypressed key="2218" value="2218"/> <!-- Crtl + F11 -->
+	<keypressed key="2219" value="2219"/> <!-- Crtl + F12 -->
+	<keypressed key="184" value="184"/> <!-- Shift + S1 -->
+	<keypressed key="117" value="12"/> <!--  -->
+	<keypressed key="118" value="13"/> <!-- Subtotal -->
+	<keypressed key="301" value="301"/> <!-- Crtl + F2 -->
+	<keypressed key="302" value="302"/> <!-- Crtl + F3 -->
+	<keypressed key="303" value="303"/> <!-- Crtl + F4 -->
+	<keypressed key="1500" value="1500"/> <!-- Comando especifico de cliente-->
+	<keypressed key="191" value="191"/><!-- Comando para mostrar teclado virtual-->
+	<keypressed key="192" value="192"/><!-- Comando para ocultar teclado virtual-->
+</keymap>
+		<!-- ********************** Fin de Mapa de conversion de teclas ****************************** -->

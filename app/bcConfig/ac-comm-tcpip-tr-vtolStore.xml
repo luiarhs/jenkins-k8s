@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:util="http://www.springframework.org/schema/util"
+   xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd">
+
+	<!-- ************************************************************************** -->
+	<!-- GENERICS -->
+	<!-- ************************************************************************** -->
+	<!-- Writer -->
+	<bean id="readerMarker" class="com.synthesis.bridge.liverpool.bcore.comm.vtolStore.VtolStoreHeaderReader" />
+	
+	<!-- Reader -->
+	<bean id="writerMarker" class="com.synthesis.bridge.liverpool.bcore.comm.vtolStore.VtolStoreHeaderWriter" />
+
+	<bean id="vtolStoreResponseHandler"
+		class="com.synthesis.bridge.liverpool.bcore.comm.vtolStore.VtolStoreResponseHandler" />
+
+	<!-- ************************************************************************** -->
+	<!-- LISTENER -->
+	<!-- ************************************************************************** -->
+	<bean id="vtolStoreServerCommunication"
+		class="com.synthesis.bridge.liverpool.bcore.comm.vtolStore.VtolStoreServerCommunication"
+		init-method="initialize" destroy-method="stop">
+		<constructor-arg type="boolean" value="false" />
+		<property name="port" value="8888" />
+		<property name="readBufferSize" value="1024" />
+		<property name="writeBufferSize" value="1024" />
+		<property name="waitTime" value="500" />
+		<property name="reader" ref="readerMarker" />
+		<property name="writer" ref="writerMarker" />
+	</bean>
+
+   <bean id="communicationBinder"
+		class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+		<property name="targetObject" ref="vtolStoreServerCommunication" />
+		<property name="targetMethod" value="registerListener" />
+		<property name="arguments">
+			<list>
+				<ref bean="vtolStoreCommunicationListener" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="vtolStoreCommunicationListener"
+		class="com.synthesis.bridge.liverpool.bcore.comm.vtolStore.VtolStoreCommunicationListener">
+		<property name="responseHandler" ref="vtolStoreResponseHandler" />
+	</bean>
+	
+	<!-- ************************************************************************** -->
+	<!-- SENDER -->
+	<!-- ************************************************************************** -->
+	<bean id="vtolStoreMessageSender" class="com.synthesis.bridge.liverpool.bcore.comm.vtolStore.VtolStoreMessageSender">
+		<property name="clientCommunication" ref="vtolStoreClientCommunication" />
+	</bean>
+
+	<bean id="vtolStoreClientCommunication"
+		class="com.synthesis.bridge.liverpool.bcore.comm.vtolStore.TcpIpSSLSyncClientCommunication"
+		destroy-method="close">
+		<property name="socketTimeout" value="0" />
+		<property name="port" value="4000" />
+		<property name="hostName" value="127.0.0.1" />
+		<!-- Se apaga el parametro, para que use vtol-store anterior -->
+		<property name="respondingMessage" value="true" />
+		<property name="reader" ref="readerMarker" />
+		<property name="writer" ref="writerMarker" />
+		<property name="connectionSSL" value="false" />
+		<property name="pathSSLkeystore" value="src/main/resources/ppClient.jks" />
+		<property name="passwordSSL" value="was_70F2175a3a6Dc63666DD50fb324282Aa" />
+	</bean>
+	
+</beans>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.1.xsd">
+
+	<!-- CONFIGURACIÓN DE LA COLA DE COMUNICACIÓN CON LOS AGENTES jmsServer: 
+		Host del servidor JMS (JBoss) username/password: Credenciales de acceso JMS 
+		queuePath: Path de la Queue de mensajes responseQueuePath: Path de la Queue 
+		de respuestas storeCode: Código de tienda a utilizarse en el filtrado de 
+		mensajes terminalCode: Código de terminal a utilizarse en el filtrado de 
+		mensajes. -->
+	<util:properties id="jmsProperties">
+		<!-- 10.3.7.150 10.3.5.23 -->
+		<prop key="jmsServer">linux-t29r</prop>
+
+		<!-- 10.3.2.175 10.3.5.22 -->
+		<!-- <prop key="jmsServer">pruebasbc2</prop> -->
+
+		<!-- 10.3.7.150 10.3.5.21 -->
+		<!-- <prop key="jmsServer">linux-t297</prop> -->
+		<!-- 10.3.5.207 -->
+		<!-- <prop key="jmsServer">WIN-LD8687QS8PU</prop> -->
+		<!-- localhost -->
+		<!-- <prop key="jmsServer">127.0.0.1</prop> -->
+		<!-- 10.3.5.22 -->
+		<!-- <prop key="jmsServer">pruebasbc2</prop> -->
+		<prop key="jmsUsername">liverpool</prop>
+		<prop key="jmsPassword">!!!Liverpool123!!!</prop>
+		<prop key="queuePath">jms/queue/messages</prop>
+		<prop key="responseQueuePath">jms/queue/responses</prop>
+	</util:properties>
+
+	<context:property-placeholder
+		properties-ref="jmsProperties" />
+
+	<!-- JNDI Template: Bean que ubica la JMS Queue como un recurso JNDI. La 
+		property "java.naming.provider.url" es la que se debe setear con la ruta 
+		al proveedor JNDI de nuestro servidor JBoss, incluyendo el puerto (por lo 
+		general, es el 4447). -->
+	<bean id="jndiTemplate" class="org.springframework.jndi.JndiTemplate">
+		<property name="environment">
+			<props>
+				<prop key="java.naming.factory.initial">org.jboss.naming.remote.client.InitialContextFactory
+				</prop>
+				<prop key="java.naming.provider.url">remote://${jmsServer}:4447</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- Connection Factory: Bean que matchea al Connection Factory del servidor 
+		remoto. Por lo general, no es preciso cambiar el parámetro jndiName, ya que 
+		el valor "jms/RemoteConnectionFactory" es el valor por default en JBoss. -->
+	<bean id="connectionFactory" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiTemplate" ref="jndiTemplate" />
+		<property name="jndiName" value="jms/RemoteConnectionFactory" />
+	</bean>
+
+	<!-- Credentials Connection Factory: Wrappea nuestro factory de conexión, 
+		adosándole las credenciales de autenticación (usuario y password). -->
+	<bean id="credentialsConnectionFactory"
+		class="org.springframework.jms.connection.UserCredentialsConnectionFactoryAdapter">
+		<property name="targetConnectionFactory" ref="connectionFactory" />
+		<property name="username" value="${jmsUsername}" />
+		<property name="password" value="${jmsPassword}" />
+	</bean>
+
+	<!-- Destinations: bean que apunta a la queue en la que deseamos trabajar. 
+		La property a ajustar es "jndiName" con la ruta a la queue. -->
+	<bean id="messageDestination" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiTemplate" ref="jndiTemplate" />
+		<property name="jndiName" value="${queuePath}" />
+	</bean>
+
+	<bean id="replyDestination" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiTemplate" ref="jndiTemplate" />
+		<property name="jndiName" value="${responseQueuePath}" />
+	</bean>
+
+	<!-- JMS Template: Bean que encapsula y simplifica la interacción con la 
+		queue JMS. Este es el bean con el que debemos trabajar para enviar y recibir 
+		mensajes. -->
+	<bean id="jmsTemplateTlog" class="org.springframework.jms.core.JmsTemplate">
+		<property name="connectionFactory" ref="credentialsConnectionFactory" />
+		<property name="defaultDestination" ref="messageDestination" />
+		<property name="explicitQosEnabled" value="true" />
+		<!-- <property name="timeToLive" value="10000" /> -->
+		<property name="receiveTimeout" value="5000" />
+	</bean>
+
+	<bean id="jmsTemplateFile" class="org.springframework.jms.core.JmsTemplate">
+		<property name="connectionFactory" ref="credentialsConnectionFactory" />
+		<property name="defaultDestination" ref="messageDestination" />
+		<property name="explicitQosEnabled" value="true" />
+		<property name="deliveryPersistent" value="false" />
+		<property name="receiveTimeout" value="20000" /> <!-- TimeOut del mensaje -->
+		<!-- <property name="timeToLive" value="55000" /> Lo borra de la cola: 
+			Ojo si lo pones desde windows a linux caduca de una por diferencia horaria -->
+	</bean>
+
+	<bean id="jmsTemplatePing" class="org.springframework.jms.core.JmsTemplate">
+		<property name="connectionFactory" ref="credentialsConnectionFactory" />
+		<property name="defaultDestination" ref="messageDestination" />
+		<property name="explicitQosEnabled" value="true" />
+		<property name="deliveryPersistent" value="false" />
+		<property name="receiveTimeout" value="10000" /> <!-- TimeOut del mensaje -->
+<!-- 		<property name="timeToLive" value="55000" /> Lo borra de la cola: Ojo si lo pones desde windows a linux caduca de una por diferencia horaria -->
+	</bean>
+	
+		<bean id="jmsTemplateRestart" class="org.springframework.jms.core.JmsTemplate">
+		<property name="connectionFactory" ref="credentialsConnectionFactory" />
+		<property name="defaultDestination" ref="messageDestination" />
+		<property name="explicitQosEnabled" value="true" />
+		<property name="deliveryPersistent" value="false" />
+		<property name="receiveTimeout" value="10000" /> <!-- TimeOut del mensaje -->
+<!-- 		<property name="timeToLive" value="55000" /> Lo borra de la cola: Ojo si lo pones desde windows a linux caduca de una por diferencia horaria -->
+	</bean>
+	
+	<bean id="jmsTemplateFileList" class="org.springframework.jms.core.JmsTemplate">
+		<property name="connectionFactory" ref="credentialsConnectionFactory" />
+		<property name="defaultDestination" ref="messageDestination" />
+		<property name="explicitQosEnabled" value="true" />
+		<property name="deliveryPersistent" value="false" />
+		<property name="receiveTimeout" value="60000" /> <!-- TimeOut del mensaje -->
+<!-- 	<property name="timeToLive" value="65000" /> -->	 <!-- Lo borra de la cola: Ojo si lo pones desde windows a linux caduca de una por diferencia horaria -->
+	</bean>
+
+</beans>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<nodes>
+	<fileVersion>001</fileVersion>
+	<!--cantidad de terminales a partir de las que el server sugiere a las terminales 
+		moverse a otro servidor. -->
+	<minTerminalsBalanceQty>30</minTerminalsBalanceQty>
+	<!--tiempo desde la última operación ejecutada por una terminal a partir 
+		del cual deja de considerarse activa. En milisegundos. -->
+	<activeTerminalTime>60000</activeTerminalTime>
+	<!--tiempo desde el último ping recibido desde otro servidor, a partir del 
+		cual deja de considerarse activo. En milisegundos. -->
+	<activeServerTime>600000</activeServerTime>
+	<!-- Configuración de Agentes. Para configurar un nuevo Agente se realiza 
+		lo siguiente: El tag <agentNodes> contiene: 1) El tag <bridgeCoreAgents> 
+		es el listado de la configuracion. 1.1) El tag <agent> aqui se configura 
+		cada agente 1.1.1) El tag <ip> aqui se configura cada ip de agente, que dara 
+		servicio a bridge core 3 -->
+	<agentNodes>
+		<agent>
+			<ip>$(agent.1)</ip>
+		</agent>
+		<agent>
+			<ip>$(agent.2)</ip>
+		</agent>
+		<agent>
+			<ip>$(agent.3)</ip>
+		</agent>
+		<agent>
+			<ip>$(agent.4)</ip>
+		</agent>
+		<agent>
+			<ip>$(agent.5)</ip>
+		</agent>
+		<agent>
+			<ip>$(agent.6)</ip>
+		</agent>
+		<agent>
+			<ip>$(agent.7)</ip>
+		</agent>
+		<agent>
+			<ip>$(agent.8)</ip>
+		</agent>
+	</agentNodes>
+	<serverNodes>
+		<server>
+			<ip>$(serverIp.1)</ip>
+			<name>$(serverName.1)</name>
+			<port>$(serverPort.1)</port>
+		</server>
+		<server>
+			<ip>$(serverIp.2)</ip>
+			<name>$(serverName.2)</name>
+			<port>$(serverPort.2)</port>
+		</server>
+		<server>
+			<ip>$(serverIp.3)</ip>
+			<name>$(serverName.3)</name>
+			<port>$(serverPort.3)</port>
+		</server>
+	</serverNodes>
+</nodes>

@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+	<!-- 
+			Configuración de archivo de respuestas de simulación en Modo Entrenamiento.
+			
+			Al realizar transacciones de modo entrenamiento, las respuestas de vtolstore, restaurante y reparación de relojes, son simuladas, y se encuentran simuladas aquí
+			
+			Esta configuración se compone de 3 grupos.
+				1) Una configuración de respuestas de VtolStore 
+				2) Una configuración de respuesta de restaurante
+				3) Una configuración de respuesta de reparación de relojes
+			
+			Configuración de respuestas de VtolStore
+			
+				El tag <responsesVtol> contiene el tag <response>. Este tiene un atributo "id" que representa el código de mensaje a simular
+				Para la configuración, los campos obligatorios son:
+					1) <statusCode> .- Representa el código de respuesta del mensaje (1.- Aprobado, 2.- Rechazado, 4.- Sin sistema, 7.- Sin vtol, 9.- Sin respuesta).
+					2) <monto> .- Representa el monto de la respuesta 
+					3) <cuenta> .- Representa la cuenta que simulara
+					4) <printMessage> .- Representa el mensaje a mostrar
+					5) <lengthPrintMessage> .- Representa la longitud del printMessage  
+					6) <optionalData> .- Representa datos adicionales (si no se tiene este dato, se agrega el campo vacío)
+					
+				Los campos no obligatorios son:
+					1) <valorCheque> .- Representa el código adicional para identificar si el cheque franquea
+					2) <numeroItems> .- Representa el número de items a mostrar
+					3) <numeroEvento> .- Representa número de evento asociado al mensaje
+					4) <numeroEmple> .- Representa el número de empleado asociado al mensaje
+					5) <itemsResponse> .- Representa los items a mostrar en algunos mensajes  
+					6) <beneficiario1> .- Representa el nombre del primer beneficiario en mesa de regalos
+					7) <beneficiario2> .- Representa el nombre del segundo beneficiario en mesa de regalos
+					
+				
+			Configuración de respuestas de restaurante
+				
+				La simulación de la respuesta se realiza adentro del tag <responseRestaurante>
+				Para la configuración, se configuran los siguientes campos obligatorios
+					1) <totalComanda> .- Representa el monto de la comanda, tiene una longitud de 10 números, si el monto es menor a esa longitud 
+										se rellena con ceros a la izquierda
+					2) <comensal> .- Representa el número de comensales 
+					3) <mesero> .- Representa el número del mesero
+
+			Configuración de respuestas de reparación de relojes
+				
+				La simulacion de la respuesta se realiza adentro del tag <responseRelojes>
+				Para la configuración, se configuran los siguientes campos obligatorios
+					1) <itemSku> .- Representa el sku a simular 
+					2) <itemPrice> .- Representa el monto del item a simular
+					
+			
+			Configuración de respuestas de venta cobro de llantas
+				
+				La simulacion de la respuesta se realiza adentro del tag <responseLlantas>
+				Para la configuración, se configuran los siguientes campos obligatorios
+					1) <skuLlantas> .- Representa el sku de llantas a simular 
+					2) <precioLlantas> .- Representa el monto del item de llantas a simular
+					3) <skuRines> .- Representa el sku de rines a simular
+					4) <precioRines> .- Representa el monto del item de rines a simular
+					5) <skuServicios> .- Representa el sku de servicios a simular
+					6) <precioServicios> .- Representa el monto del item de servicios a simular
+					7) <datosCentroServ> .- Representa los datos del centro de serivicios a simular
+					8) <datosCliente> .- Representa los datos del cliente a simular
+					9) <codigoError> .- Representa el codigo de error a simular 
+					10) <descripcionError> .- Representa la descripcion del error a simular
+		
+	-->
+<modoEntrenamiento>
+	<responsesVtol>
+		<response id="0">
+			<statusCode>01</statusCode>
+			<monto>0</monto>
+			<cuenta>1</cuenta>
+			<printMessage>00 00000019        APROBADA           </printMessage>
+			<lengthPrintMessage>38</lengthPrintMessage>
+			<optionalData></optionalData>
+			<valorCheque>10</valorCheque>
+		</response>
+		<response id="2">
+			<statusCode>01</statusCode>
+			<monto>10000</monto>
+			<cuenta></cuenta>
+			<printMessage>00 00000019        APROBADA           </printMessage>
+			<optionalData></optionalData>
+			<lengthPrintMessage>33</lengthPrintMessage>
+		</response>
+		<response id="8">
+			<statusCode>01</statusCode>
+			<monto>0</monto>
+			<cuenta></cuenta>
+			<printMessage>00 00000019        APROBADA           </printMessage>
+			<optionalData></optionalData>
+			<lengthPrintMessage>33</lengthPrintMessage>
+		</response>
+		<response id="10">
+			<statusCode>01</statusCode>
+			<monto>0</monto>
+			<cuenta></cuenta>
+			<printMessage>00 00000019        APROBADA           </printMessage>
+			<lengthPrintMessage>33</lengthPrintMessage>
+			<optionalData></optionalData>
+		</response>
+		<response id="11">
+			<statusCode>01</statusCode>
+			<monto>0</monto>
+			<cuenta></cuenta>
+			<printMessage>00 00000019        APROBADA           </printMessage>
+			<lengthPrintMessage>33</lengthPrintMessage>
+			<optionalData></optionalData>
+		</response>
+		<response id="14">
+			<statusCode>01</statusCode>
+			<monto>0</monto>
+			<cuenta></cuenta>
+			<printMessage>00 00000019        APROBADA           </printMessage>
+			<lengthPrintMessage>33</lengthPrintMessage>
+			<optionalData></optionalData>
+		</response>
+		<response id="15">
+			<statusCode>01</statusCode>
+			<monto>0</monto>
+			<cuenta></cuenta>
+			<printMessage>00 00000019        APROBADA           </printMessage>
+			<lengthPrintMessage>33</lengthPrintMessage>
+			<optionalData></optionalData>
+		</response>
+		<response id="20">
+			<statusCode>01</statusCode>
+			<monto>0</monto>
+			<cuenta></cuenta>
+			<printMessage>00 00000019        APROBADA           </printMessage>
+			<lengthPrintMessage>33</lengthPrintMessage>
+			<optionalData></optionalData>
+		</response>
+		<response id="22">
+			<statusCode>01</statusCode>
+			<monto>50000</monto>
+			<cuenta></cuenta>
+			<printMessage>00 00000019        APROBADA           </printMessage>
+			<lengthPrintMessage>33</lengthPrintMessage>
+			<optionalData></optionalData>
+		</response>
+		<response id="28">
+			<statusCode>01</statusCode>
+			<monto>0</monto>
+			<cuenta></cuenta>
+			<printMessage>00 00000019        APROBADA           </printMessage>
+			<lengthPrintMessage>33</lengthPrintMessage>
+			<optionalData></optionalData>
+		</response>
+		<response id="29">
+			<statusCode>01</statusCode>
+			<monto>0</monto>
+			<cuenta></cuenta>
+			<printMessage>00 00000019        APROBADA           </printMessage>
+			<lengthPrintMessage>33</lengthPrintMessage>
+			<optionalData></optionalData>
+		</response>
+		<response id="32">
+			<statusCode>01</statusCode>
+			<monto>20000</monto>
+			<cuenta></cuenta>
+			<printMessage>00 00000019        APROBADA           </printMessage>
+			<lengthPrintMessage>33</lengthPrintMessage>
+			<optionalData></optionalData>
+		</response>
+		<response id="38">
+			<statusCode>01</statusCode>
+			<monto>25000</monto>
+			<cuenta></cuenta>
+			<printMessage>00 00000019        APROBADA           </printMessage>
+			<lengthPrintMessage>33</lengthPrintMessage>
+			<optionalData></optionalData>
+		</response>
+		<response id="39">
+			<statusCode>01</statusCode>
+			<monto>0</monto>
+			<cuenta></cuenta>
+			<printMessage>00 00000019        APROBADA           </printMessage>
+			<lengthPrintMessage>33</lengthPrintMessage>
+			<optionalData></optionalData>
+		</response>
+		<response id="40">
+			<statusCode>01</statusCode>
+			<monto>0</monto>
+			<cuenta></cuenta>
+			<printMessage>00 00000019        APROBADA           </printMessage>
+			<lengthPrintMessage>33</lengthPrintMessage>
+			<optionalData></optionalData>
+		</response>
+		<response id="50">
+			<statusCode>01</statusCode>
+			<monto>50000</monto>
+			<cuenta></cuenta>
+			<printMessage>00 00000019        APROBADA           </printMessage>
+			<lengthPrintMessage>33</lengthPrintMessage>
+			<optionalData>6100000000316601        9900085226962</optionalData>
+		</response>
+		<response id="52">
+			<statusCode>01</statusCode>
+			<monto>100000</monto>
+			<cuenta></cuenta>
+			<printMessage>00 00000019        APROBADA           </printMessage>
+			<lengthPrintMessage>33</lengthPrintMessage>
+			<optionalData></optionalData>
+		</response>
+		<response id="56">
+			<statusCode>01</statusCode>
+			<monto>1</monto>
+			<cuenta></cuenta>
+			<printMessage>00 00000019        APROBADA           </printMessage>
+			<lengthPrintMessage>33</lengthPrintMessage>
+			<optionalData></optionalData>
+		</response>
+		<response id="60">
+			<statusCode>01</statusCode>
+			<monto>500000</monto>
+			<cuenta></cuenta>
+			<printMessage>00 00000019        APROBADA           </printMessage>
+			<lengthPrintMessage>33</lengthPrintMessage>
+			<optionalData></optionalData>
+		</response>
+		<response id="61">
+			<statusCode>01</statusCode>
+			<monto>1</monto>
+			<cuenta></cuenta>
+			<printMessage>00 00000019        APROBADA           </printMessage>
+			<lengthPrintMessage>33</lengthPrintMessage>
+			<optionalData></optionalData>
+		</response>
+		<response id="69">
+			<statusCode>01</statusCode>
+			<monto>0</monto>
+			<cuenta></cuenta>
+			<printMessage>00 00000019        APROBADA           </printMessage>
+			<lengthPrintMessage>33</lengthPrintMessage>
+			<optionalData></optionalData>
+		</response>
+		<response id="72">
+			<statusCode>01</statusCode>
+			<monto>1</monto>
+			<cuenta></cuenta>
+			<printMessage>00014033        APROBADA           </printMessage>
+			<lengthPrintMessage>38</lengthPrintMessage>
+			<numeroItems>02</numeroItems>
+			<numeroEvento>00000000000000000000000000</numeroEvento>
+			<itemsResponse>
+				<itemResponse>
+					<sku>0072814541</sku>
+					<cantidadEntera>0002</cantidadEntera>
+					<cantidadDecimal>00</cantidadDecimal>
+				</itemResponse>
+				<itemResponse>
+					<sku>0069654029</sku>
+					<cantidadEntera>0001</cantidadEntera>
+					<cantidadDecimal>00</cantidadDecimal>
+				</itemResponse>
+			</itemsResponse>
+		</response>
+		<response id="73">
+			<statusCode>01</statusCode>
+			<monto>432</monto>
+			<cuenta></cuenta>
+			<printMessage>00 00000019        APROBADA           </printMessage>
+			<lengthPrintMessage>33</lengthPrintMessage>
+			<optionalData></optionalData>
+		</response>
+		<response id="74">
+			<statusCode>01</statusCode>
+			<monto>1</monto>
+			<cuenta></cuenta>
+			<printMessage>00014033        APROBADA           </printMessage>
+			<lengthPrintMessage>37</lengthPrintMessage>
+			<optionalData></optionalData>
+			<numeroItems>01</numeroItems>
+			<tipoOrden>00000000</tipoOrden>
+			<numeroEvento>000000000000</numeroEvento>
+			<numeroEmple>00009245</numeroEmple>
+			<itemsResponse>
+				<itemResponse>
+					<sku>0072814541</sku>
+					<cantidadEntera>0002</cantidadEntera>
+					<cantidadDecimal>00</cantidadDecimal>
+					<precio>0000064500</precio>
+				</itemResponse>
+			</itemsResponse>
+		</response>
+		<response id="75">
+			<statusCode>01</statusCode>
+			<monto>432</monto>
+			<cuenta></cuenta>
+			<printMessage>00 00000019        APROBADA           </printMessage>
+			<lengthPrintMessage>33</lengthPrintMessage>
+			<optionalData></optionalData>
+		</response>
+		<response id="76">
+			<statusCode>01</statusCode>
+			<monto>432</monto>
+			<cuenta></cuenta>
+			<printMessage>00 00000019        APROBADA           </printMessage>
+			<lengthPrintMessage>33</lengthPrintMessage>
+			<optionalData></optionalData>
+		</response>
+		<response id="77">
+			<statusCode>01</statusCode>
+			<monto>432</monto>
+			<cuenta></cuenta>
+			<printMessage>00 00000019        APROBADA           </printMessage>
+			<lengthPrintMessage>33</lengthPrintMessage>
+			<optionalData></optionalData>
+		</response>
+		<response id="84">
+			<statusCode>01</statusCode>
+			<monto>100</monto>
+			<cuenta>0412733461</cuenta>
+			<printMessage>00 00000019        APROBADA           </printMessage>
+			<lengthPrintMessage>33</lengthPrintMessage>
+			<optionalData></optionalData>
+		</response>
+		<response id="86">
+			<statusCode>01</statusCode>
+			<monto>432</monto>
+			<cuenta></cuenta>
+			<printMessage>00 00000019        APROBADA           </printMessage>
+			<lengthPrintMessage>33</lengthPrintMessage>
+			<optionalData></optionalData>
+		</response>
+		<response id="87">
+			<statusCode>01</statusCode>
+			<monto>1</monto>
+			<cuenta></cuenta>
+			<printMessage>00 00000019        APROBADA           </printMessage>
+			<lengthPrintMessage>33</lengthPrintMessage>
+			<optionalData></optionalData>
+		</response>
+		<response id="88">
+			<statusCode>01</statusCode>
+			<monto>1</monto>
+			<cuenta></cuenta>
+			<printMessage>00 00000019        APROBADA           </printMessage>
+			<lengthPrintMessage>33</lengthPrintMessage>
+			<optionalData></optionalData>
+		</response>
+		<response id="89">
+			<statusCode>01</statusCode>
+			<monto>1</monto>
+			<cuenta></cuenta>
+			<printMessage>00 00000019        APROBADA           </printMessage>
+			<lengthPrintMessage>33</lengthPrintMessage>
+			<optionalData></optionalData>
+			<itemsResponse>
+				<itemResponse>
+					<sku>790000002501</sku>
+					<cantidadEntera>0100</cantidadEntera>
+					<precio>000000025000</precio>
+					<descripcion>CERTIFICADO   $250</descripcion>
+				</itemResponse>
+			</itemsResponse>
+		</response>
+		<response id="90">
+			<statusCode>01</statusCode>
+			<monto>0</monto>
+			<cuenta>0</cuenta>
+			<printMessage>00 00000019        APROBADA           </printMessage>
+			<lengthPrintMessage>33</lengthPrintMessage>
+			<optionalData></optionalData>
+			<beneficiario1>SANDRA LOPEZ</beneficiario1>
+			<beneficiario2>DANIEL VARGAS LOPEZ</beneficiario2>
+		</response>
+		<response id="92">
+			<statusCode>01</statusCode>
+			<monto>432</monto>
+			<cuenta></cuenta>
+			<printMessage>00 00000019        APROBADA           </printMessage>
+			<lengthPrintMessage>33</lengthPrintMessage>
+			<optionalData></optionalData>
+		</response>
+		<response id="93">
+			<statusCode>01</statusCode>
+			<monto>1</monto>
+			<cuenta></cuenta>
+			<printMessage>00014033        APROBADA           </printMessage>
+			<lengthPrintMessage>38</lengthPrintMessage>
+			<numeroItems>02</numeroItems>
+			<numeroEvento>0000000000000000</numeroEvento>
+			<itemsResponse>
+				<itemResponse>
+					<sku>0000056111</sku>
+					<cantidadEntera>0002</cantidadEntera>
+					<cantidadDecimal>00</cantidadDecimal>
+				</itemResponse>
+				<itemResponse>
+					<sku>1003202034</sku>
+					<cantidadEntera>0001</cantidadEntera>
+					<cantidadDecimal>00</cantidadDecimal>
+				</itemResponse>
+			</itemsResponse>
+		</response>
+		<response id="94">
+			<statusCode>01</statusCode>
+			<monto>1</monto>
+			<cuenta></cuenta>
+			<printMessage>00 00000019        APROBADA           </printMessage>
+			<lengthPrintMessage>33</lengthPrintMessage>
+			<optionalData></optionalData>
+		</response>
+		<response id="95">
+			<statusCode>01</statusCode>
+			<monto>1</monto>
+			<cuenta></cuenta>
+			<printMessage>00014033        APROBADA           </printMessage>
+			<lengthPrintMessage>37</lengthPrintMessage>
+			<optionalData></optionalData>
+			<numeroItems>01</numeroItems>
+			<tipoOrden>00000003</tipoOrden>
+			<numeroEvento>0000000000</numeroEvento>
+			<numeroEmple>00009245</numeroEmple>
+			<itemsResponse>
+				<itemResponse>
+					<sku>0000056111</sku>
+					<cantidadEntera>0002</cantidadEntera>
+					<cantidadDecimal>00</cantidadDecimal>
+					<precio>0000353400</precio>
+				</itemResponse>
+			</itemsResponse>
+		</response>
+		<response id="96">
+			<statusCode>01</statusCode>
+			<monto>1</monto>
+			<cuenta>960000008</cuenta>
+			<printMessage>00014033        APROBADA           </printMessage>
+			<lengthPrintMessage>38</lengthPrintMessage>
+			<numeroItems>02</numeroItems>
+			<numeroEvento>0000000000000000</numeroEvento>
+			<itemsResponse>
+				<itemResponse>
+					<sku>0000056111</sku>
+					<cantidadEntera>0002</cantidadEntera>
+					<cantidadDecimal>00</cantidadDecimal>
+				</itemResponse>
+				<itemResponse>
+					<sku>1003202034</sku>
+					<cantidadEntera>0001</cantidadEntera>
+					<cantidadDecimal>00</cantidadDecimal>
+				</itemResponse>
+			</itemsResponse>
+		</response>
+		<response id="97">
+			<statusCode>01</statusCode>
+			<monto>1</monto>
+			<cuenta></cuenta>
+			<printMessage>00 00000019        APROBADA           </printMessage>
+			<lengthPrintMessage>33</lengthPrintMessage>
+			<optionalData></optionalData>
+		</response>
+	</responsesVtol>
+	<responseRestaurante>
+		<totalComanda>0000120000</totalComanda>
+		<comensal>01</comensal>
+		<mesero>00000001</mesero>
+	</responseRestaurante>
+	<responseRelojes>
+		<itemSku>0052277892</itemSku>
+		<itemPrice>0000010000</itemPrice>
+	</responseRelojes>
+	<responseLlantas>
+		<skuLlantas>1036966358</skuLlantas>
+		<precioLlantas>3995</precioLlantas>
+		<skuRines>1036967133</skuRines>
+		<precioRines>1499</precioRines>
+		<skuServicios>1036967141</skuServicios>
+		<precioServicios>500</precioServicios>
+		<datosCentroServ>Nombre:Centro de servicio Jasman Domicilio: Av. Vasco de Quiroga, 407 Col. Santa Fe Teléfono: 5555 5555 E-mail: prueba@jasman.com</datosCentroServ>
+		<datosCliente>Nombre:José Vasconcelos Email: josev@liverpool.com.mx Teléfono: 9999 9999</datosCliente>
+		<codigoError>0</codigoError>
+		<descripcionError>no error</descripcionError>
+	</responseLlantas>
+</modoEntrenamiento>

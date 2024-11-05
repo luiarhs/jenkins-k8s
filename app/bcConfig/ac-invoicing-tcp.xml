@@ -1,0 +1,2569 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<bean id="xmlToRequestTranslator" 
+		class="com.synthesis.invoicing.client.translation.request.XStreamXmlToRequestTranslator"
+		scope="prototype">
+	</bean>
+
+	<bean id="responseToXmlTranslator" 
+		class="com.synthesis.invoicing.client.translation.response.XStreamResponseToXmlTranslator"
+		scope="prototype">
+	</bean>
+
+	<bean id="invoicingCommunication" 
+		class="com.synthesis.fwk.communication.impl.JavaDirectCommunication"
+		init-method="initialize">
+	</bean>
+
+	<bean id="invoicingFacade" 
+		class="com.synthesis.invoicing.client.InvoicingFacade" 
+		scope="singleton">
+	</bean>
+
+	<bean id="simpleRequestBuilder" class="com.synthesis.webServices.client.SimpleWSRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:ifac=&quot;http://www.liverpool.com.mx/wbi/ifactc/&quot;&gt; &lt;soapenv:Header/&gt; &lt;soapenv:Body&gt;" />
+		<property name="footer"		value="&lt;/soapenv:Body&gt;&lt;/soapenv:Envelope&gt;" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderCrm" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;crm:CRMPOSRequest&gt;" />
+		<property name="footer"		value="&lt;/crm:CRMPOSRequest&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderCrmLoyalty" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;crm:CRMLoyaltyPOSRequest&gt;" />
+		<property name="footer"		value="&lt;/crm:CRMLoyaltyPOSRequest&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderVella" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;vella:VellaRequest&gt;" />
+		<property name="footer"		value="&lt;/vella:VellaRequest&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderMesa" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;mesa:MesaPOSRequest&gt;" />
+		<property name="footer"		value="&lt;/mesa:MesaPOSRequest&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderMesaConfirma" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;mesa:ConfirmaRequest&gt;" />
+		<property name="footer"		value="&lt;/mesa:ConfirmaRequest&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderMesaOrdenVenta" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;mesa:GeneraOrdenSomsRequest&gt;" />
+		<property name="footer"		value="&lt;/mesa:GeneraOrdenSomsRequest&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderMesaCancela" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;mesa:CancelaRequest&gt;" />
+		<property name="footer"		value="&lt;/mesa:CancelaRequest&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderVariantes" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;omnicanal:VariantesRequest&gt;" />
+		<property name="footer"		value="&lt;/omnicanal:VariantesRequest&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderClientes" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;omnicanal:ClientesRequest&gt;" />
+		<property name="footer"		value="&lt;/omnicanal:ClientesRequest&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderCrearClientes" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;omnicanal:ClientesCreate&gt;" />
+		<property name="footer"		value="&lt;/omnicanal:ClientesCreate&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderConsultaCodigoPostal" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;omnicanal:ConsultaCodigoPostal&gt;" />
+		<property name="footer"		value="&lt;/omnicanal:ConsultaCodigoPostal&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderConsultaCalles" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;omnicanal:ConsultaCalles&gt;" />
+		<property name="footer"		value="&lt;/omnicanal:ConsultaCalles&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderConsultaItr" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;omnicanal:ConsultaItr&gt;" />
+		<property name="footer"		value="&lt;/omnicanal:ConsultaItr&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderCreaActualizaOVREM" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;omnicanal:CreaActualizaOVREM&gt;" />
+		<property name="footer"		value="&lt;/omnicanal:CreaActualizaOVREM&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderDireccionCliente" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;omnicanal:DireccionClienteRequest&gt;" />
+		<property name="footer"		value="&lt;/omnicanal:DireccionClienteRequest&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderCrearDireccion" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;omnicanal:CrearCalleRequest&gt;" />
+		<property name="footer"		value="&lt;/omnicanal:CrearCalleRequest&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderActualizaItr" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;omnicanal:ActualizaItr&gt;" />
+		<property name="footer"		value="&lt;/omnicanal:ActualizaItr&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderMsgMQ" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;omnicanal:CreaMsgMQ&gt;" />
+		<property name="footer"		value="&lt;/omnicanal:CreaMsgMQ&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="false" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuildergetEstimatedDateWSConfig" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;omnicanal:getEstimatedDate&gt;" />
+		<property name="footer"		value="&lt;/omnicanal:getEstimatedDate&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderVariantesPDPMarketplace" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;marketplace:VariantesPDPMarketplace&gt;" />
+		<property name="footer"		value="&lt;/marketplace:VariantesPDPMarketplace&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderGenericoPLPMarketplace" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;marketplace:GenericoPLPMarketplace&gt;" />
+		<property name="footer"		value="&lt;/marketplace:GenericoPLPMarketplace&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderGetSellerOfferMarketplace" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;marketplace:GetSellerOfferMarketplace&gt;" />
+		<property name="footer"		value="&lt;/marketplace:GetSellerOfferMarketplace&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderInventoryMarketplace" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;marketplace:BuilderInventoryMarketplace&gt;" />
+		<property name="footer"		value="&lt;/marketplace:BuilderInventoryMarketplace&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderCreaActualizaOVREMMarketplace" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;marketplace:CreaActualizaOVREMMarketplace&gt;" />
+		<property name="footer"		value="&lt;/marketplace:CreaActualizaOVREMMarketplace&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderCreateMMarketplace" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;marketplace:CreateMarketplace&gt;" />
+		<property name="footer"		value="&lt;/marketplace:CreateMarketplace&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestChangeInventoryMarketplace" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;marketplace:ChangeInventoryMarketplace&gt;" />
+		<property name="footer"		value="&lt;/marketplace:ChangeInventoryMarketplace&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderConsultaPedidoMkp" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;marketPlace:ConsultaPedidoRequest&gt;" />
+		<property name="footer"		value="&lt;/marketPlace:ConsultaPedidoRequest&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderConsultaIdDevMkp" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;marketPlace:ConsultaIdDevRequest&gt;" />
+		<property name="footer"		value="&lt;/marketPlace:ConsultaIdDevRequest&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderConsultaIdCancelMkp" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;marketPlace:ConsultaIdCancelRequest&gt;" />
+		<property name="footer"		value="&lt;/marketPlace:ConsultaIdCancelRequest&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderConfirmaDevMkp" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;marketPlace:ConfirmaDevRequest&gt;" />
+		<property name="footer"		value="&lt;/marketPlace:ConfirmaDevRequest&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderConfirmaCancelMkp" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;marketPlace:ConfirmaCancelRequest&gt;" />
+		<property name="footer"		value="&lt;/marketPlace:ConfirmaCancelRequest&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderChangeIndicatorMkp" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;mkp:getChangeIndicatorLevelOrder&gt;" />
+		<property name="footer"		value="&lt;/mkp:getChangeIndicatorLevelOrder&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuildergetStatusItemMKPWSConfig" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;mkp:getStatusItemRequest&gt;" />
+		<property name="footer"		value="&lt;/mkp:getStatusItemRequest&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuildercancelDevEcommerceMKPWSConfig" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;mkp:cancelDevEcommerceRequest&gt;" />
+		<property name="footer"		value="&lt;/mkp:cancelDevEcommerceRequest&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderConsultaOrdenVad" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;vad:ConsultaOrden&gt;" />
+		<property name="footer"		value="&lt;/vad:ConsultaOrden&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderConsultaOrdenSuburbiaVad" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;vad:ConsultaOrdenSuburbia&gt;" />
+		<property name="footer"		value="&lt;/vad:ConsultaOrdenSuburbia&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuildergetOnlineTokenWSConfig" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;cdp:getOnlineToken&gt;" />
+		<property name="footer"		value="&lt;/cdp:getOnlineToken&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+	
+	<bean id="removeHeadFootRequestBuildergetCustomerDataWSConfig" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;cdp:getCustomerData&gt;" />
+		<property name="footer"		value="&lt;/cdp:getCustomerData&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuildergetClienteContactoWSConfig" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;cdp:getClienteContacto&gt;" />
+		<property name="footer"		value="&lt;/cdp:getClienteContacto&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuildergetOrderSomsWSConfig" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;cdp:getOrderSoms&gt;" />
+		<property name="footer"		value="&lt;/cdp:getOrderSoms&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderaddClienteWSConfig" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;cdp:addCliente&gt;" />
+		<property name="footer"		value="&lt;/cdp:addCliente&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderupdateClienteWSConfig" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;cdp:updateCliente&gt;" />
+		<property name="footer"		value="&lt;/cdp:updateCliente&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderupdateEmailClienteWSConfig" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;cdp:updateEmailCliente&gt;" />
+		<property name="footer"		value="&lt;/cdp:updateEmailCliente&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuildersendVirtualTicketWSConfig" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;cdp:sendVirtualTicket&gt;" />
+		<property name="footer"		value="&lt;/cdp:sendVirtualTicket&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderingestaBoletasWSConfig" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;cdp:ingestaBoletas&gt;" />
+		<property name="footer"		value="&lt;/cdp:ingestaBoletas&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuildergetBoletasWSConfig" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;cdp:getBoletas&gt;" />
+		<property name="footer"		value="&lt;/cdp:getBoletas&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderCancelacionFactura" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;cancelacionFactura&gt;" />
+		<property name="footer"		value="&lt;/cancelacionFactura&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderConsultaSaldo" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;consultaSaldo&gt;" />
+		<property name="footer"		value="&lt;/consultaSaldo&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderSastreria" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;sastreria&gt;" />
+		<property name="footer"		value="&lt;/sastreria&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuildergetInfoTransaction" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;devProsa:getInfoTransaction&gt;" />
+		<property name="footer"		value="&lt;/devProsa:getInfoTransaction&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuildergetQRCodeWSConfig" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;getQRCode&gt;" />
+		<property name="footer"		value="&lt;/getQRCode&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderOmsRefund" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" value="&lt;oms:refund&gt;"/>
+		<property name="footer" value="&lt;/oms:refund&gt;"/>
+		<property name="replaceEscapeCharactersInBody" value="true"/>
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderOmsOrderLoad" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;oms:OrderLoad&gt;" />
+		<property name="footer"		value="&lt;/oms:OrderLoad&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+	
+	<bean id="removeHeadFootRequestBuilderOmsGetOrderDetail" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;oms:GetOrderDetail&gt;" />
+		<property name="footer"		value="&lt;/oms:GetOrderDetail&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+	
+	<bean id="removeHeadFootRequestBuilderOmsRefoundConfirmation" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;oms:RefoundConfirmation&gt;" />
+		<property name="footer"		value="&lt;/oms:RefoundConfirmation&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+	
+	<bean id="removeHeadFootRequestBuilderOmsOrderCancelation" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;oms:OrderCancelation&gt;" />
+		<property name="footer"		value="&lt;/oms:OrderCancelation&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+	
+	<bean id="removeHeadFootRequestBuilderOmsEstimatedDeliveryDate" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;oms:EstimatedDeliveryDate&gt;" />
+		<property name="footer"		value="&lt;/oms:EstimatedDeliveryDate&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuildergetDownloadableCodeWSConfig" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;desItm:getDownloadableCode&gt;" />
+		<property name="footer"		value="&lt;/desItm:getDownloadableCode&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderConsultaSaldoCCWSConfig" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;sbbCC:ConsultaSaldoCC&gt;" />
+		<property name="footer"		value="&lt;/sbbCC:ConsultaSaldoCC&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderSimConsultCitiesWSConfig" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;simTEL:ConsultCitiesByRegion&gt;" />
+		<property name="footer"		value="&lt;/simTEL:ConsultCitiesByRegion&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderSimConsultStatusWSConfig" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;simTEL:ConsultSimStatus&gt;" />
+		<property name="footer"		value="&lt;/simTEL:ConsultSimStatus&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderSimActivationWSConfig" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;simTEL:SimActivation&gt;" />
+		<property name="footer"		value="&lt;/simTEL:SimActivation&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderCdpRefoundGetOrderDetail" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;cdpRefound:GetOrderDetail&gt;" />
+		<property name="footer"		value="&lt;/cdpRefound:GetOrderDetail&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderCdpRefoundUpdateOrderDetail" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;cdpRefound:UpdateOrderDetail&gt;" />
+		<property name="footer"		value="&lt;/cdpRefound:UpdateOrderDetail&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderSOMSGetFoliosRemisiones" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;SOMS:GetFoliosRemision&gt;" />
+		<property name="footer"		value="&lt;/SOMS:GetFoliosRemision&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderVasGenerateRepairToken" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;VAS:GetRepairToken&gt;" />
+		<property name="footer"		value="&lt;/VAS:GetRepairToken&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderVasRequestPaymentInformation" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;VAS:GetPaymentInformation&gt;" />
+		<property name="footer"		value="&lt;/VAS:GetPaymentInformation&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderVasNotificationPaymentMade" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;VAS:GetNotificationPaymentMade&gt;" />
+		<property name="footer"		value="&lt;/VAS:GetNotificationPaymentMade&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderVasRequestSuit" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;VAS:GetPaymentSuitInformation&gt;" />
+		<property name="footer"		value="&lt;/VAS:GetPaymentSuitInformation&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderVasNotificationPaymentSuit" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;VAS:GetNotificationSuitPaymentMade&gt;" />
+		<property name="footer"		value="&lt;/VAS:GetNotificationSuitPaymentMade&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderVasRequestDress" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;VAS:GetPaymentDressInformation&gt;" />
+		<property name="footer"		value="&lt;/VAS:GetPaymentDressInformation&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderVasNotificationPaymentDress" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;VAS:GetNotificationDressPaymentMade&gt;" />
+		<property name="footer"		value="&lt;/VAS:GetNotificationDressPaymentMade&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderCargaLlaveMaestra" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;cargaLlaveMaestra:CargaLlaveMaestraPOSRequest&gt;" />
+		<property name="footer"		value="&lt;/cargaLlaveMaestra:CargaLlaveMaestraPOSRequest&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderCargaLlaveDeSession" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;cargaLlaveDeSession:CargaLlaveDeSessionPOSRequest&gt;" />
+		<property name="footer"		value="&lt;/cargaLlaveDeSession:CargaLlaveDeSessionPOSRequest&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderSamsungCareGetConsultaPlanes" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;SamsungCare:GetConsultaPlanes&gt;" />
+		<property name="footer"		value="&lt;/SamsungCare:GetConsultaPlanes&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+	
+	<bean id="removeHeadFootRequestBuilderAppleCareGetDevolucion" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;AppleCare:GetDevolucion&gt;" />
+		<property name="footer"		value="&lt;/AppleCare:GetDevolucion&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+	
+	<bean id="removeHeadFootRequestBuilderAppleSamsungCareGetAprovContractPlan" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;AppleSamsungCare:GetAprovContractPlan&gt;" />
+		<property name="footer"		value="&lt;/AppleSamsungCare:GetAprovContractPlan&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="simpleResponseTranslator" class="com.synthesis.webServices.client.SimpleWSResponseTranslator" scope="prototype">
+		<property name="elementToReturn" 			value="ResponseAdmon" />
+		<property name="replaceEscapeCharacters"	value="true" />
+	</bean>
+
+	<!-- VALORES LABORATORIO -->
+	
+	<!-- URL para alta de nueva factura --> <!-- Timeout en sg -->
+	<bean id="facturarPOSRequest" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.16.204.254:7096/wmb/femch" />
+		<property name="action" 			value="http://www.liverpool.com.mx/wbi/ifactc/NewOperation" />
+		<property name="timeout" 			value="30" />
+		<property name="requestBuilder"		ref="simpleRequestBuilder" />
+		<property name="responseTranslator"	ref="simpleResponseTranslator" />
+		<property name="wsType"	            value="SOAP" />
+	</bean>
+	
+	<!-- Configuración de WS para CRM Siebel --> <!-- Timeout en sg -->
+	<bean id="CRMWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.17.203.85:7093/CRM/realizaOperacion?" />
+		<property name="timeout" 			value="3" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderCrm" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="GET" />
+	</bean>
+	
+	<!-- Configuración de WS para CRM Loyalty --> <!-- Timeout en sg -->
+	<bean id="CRMLoyaltyWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.16.204.254:7093/CRMLoyalty?" />
+		<property name="timeout" 			value="3" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderCrmLoyalty" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="GET" />
+	</bean>
+	
+	<!-- Configuración de WS para Vella --> <!-- Timeout en sg -->
+	<bean id="VellaWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.16.204.254:7081/wbi/vella/consulta?Orden=" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderVella" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="GET" />
+	</bean>
+	
+	<!-- Configuración de WS para buscar evento/tarjeta Mesa de Regalos --> <!-- Timeout en sg -->
+	<bean id="MesaWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.16.215.169:7001/regalos/services/eventGiftList/getEventDetailsById" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderMesa" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+	</bean>
+	
+	<!-- Configuración de WS para confirmar la venta/devolución de Mesa de Regalos --> <!-- Timeout en sg -->
+	<bean id="MesaConfirmaWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.16.215.169:7001/regalos/services/purchretcanc/PurchaseReturnCancellation" />
+		<property name="timeout" 			value="10" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderMesaConfirma" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+	</bean>
+
+	<!-- Configuración de WS para generar órdenes de SOMS para Mesa de Regalos --> <!-- Timeout en sg -->
+	<bean id="MesaGeneraOrdenSomsWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.16.204.254:7281/wbi/atg/cicstran" />
+		<property name="timeout" 			value="10" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderMesaOrdenVenta" />
+		<property name="responseTranslator" ref="simpleResponseTranslator" />
+		<property name="wsType"	            value="SOAP" />
+	</bean>
+
+	<!-- Configuración de WS para confirmar la cancelación de Mesa de Regalos --> <!-- Timeout en sg -->
+	<bean id="MesaCancelaWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.16.215.169:7001/regalos/services/purchretcanc/PurchaseReturnCancellation" />
+		<property name="timeout" 			value="10" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderMesaCancela" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+	</bean>
+
+	<!-- Configuración de WS para consultar variantes en POS Sterling --> <!-- Timeout en sg -->
+	<bean id="VariantesWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.16.203.64:7083/wbi/skugenericos" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderVariantes" />
+		<property name="responseTranslator"	ref="simpleResponseTranslator" />
+		<property name="wsType"	            value="SOAP" />
+	</bean>
+
+	<!-- Configuración de WS para consultar clientes en POS Sterling --> <!-- Timeout en sg -->
+	<bean id="ConsultarClientesWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.16.204.54:7083/wbi/AVConsultaDatosClienteNW" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderClientes" />
+		<property name="responseTranslator"	ref="simpleResponseTranslator" />
+		<property name="wsType"	            value="SOAP" />
+	</bean>
+
+	<!-- Configuración de WS para crear clientes en POS Sterling --> <!-- Timeout en sg -->
+	<bean id="CrearClientesWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.16.204.54:7083/wbi/AVAltaClienteDireccion/" />
+		<property name="timeout" 			value="10" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderCrearClientes" />
+		<property name="responseTranslator"	ref="simpleResponseTranslator" />
+		<property name="wsType"	            value="SOAP" />
+	</bean>
+
+	<!-- Configuración de WS para consultar códigos postales en POS Sterling --> <!-- Timeout en sg -->
+	<bean id="ConsultaCodigoPostalWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.16.204.254:7082/wbi/DEM" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderConsultaCodigoPostal" />
+		<property name="responseTranslator"	ref="simpleResponseTranslator" />
+		<property name="wsType"	            value="SOAP" />
+	</bean>
+
+	<!-- Configuración de WS para consultar calles en POS Sterling --> <!-- Timeout en sg -->
+	<bean id="ConsultaCallesWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.16.204.254:7082/wbi/DEM" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderConsultaCalles" />
+		<property name="responseTranslator"	ref="simpleResponseTranslator" />
+		<property name="wsType"	            value="SOAP" />
+	</bean>
+
+	<!-- Configuración de WS para consultar inventario en POS Sterling --> <!-- Timeout en sg -->
+	<bean id="ConsultaItrWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.16.202.215:8030/liverpool/itr_online/oData/itr_pos_in.xsodata/" />
+		<property name="timeout" 			value="10" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderConsultaItr" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="GET" />
+		<property name="requestType"	    value="JSON" />
+		<property name="user"	    		value="POS_STERLING" />
+		<property name="pass"			    value="Liver12345" />
+	</bean>
+
+	<!-- Configuración de WS para crear/actualizar órdenes de venta/remisiones en POS Sterling --> <!-- Timeout en sg -->
+	<bean id="CreaActualizaOVREMWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.16.204.54:7083/wbi/RemisionesAV" />
+		<property name="timeout" 			value="10" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderCreaActualizaOVREM" />
+		<property name="responseTranslator"	ref="simpleResponseTranslator" />
+		<property name="wsType"	            value="SOAP" />
+	</bean>
+
+	<!-- Configuración de WS para consultar la dirección del cliente en POS Sterling --> <!-- Timeout en sg -->
+	<bean id="ConsultarDireccionClienteWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.16.204.54:7083/wbi/AVConsultaDatosClienteNW" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderDireccionCliente" />
+		<property name="responseTranslator"	ref="simpleResponseTranslator" />
+		<property name="wsType"	            value="SOAP" />
+	</bean>
+
+	<!-- Configuración de WS para crear calle en POS Sterling --> <!-- Timeout en sg -->
+	<bean id="CrearCalleWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.16.203.64:7082/wbi/DEM" />
+		<property name="timeout" 			value="10" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderCrearDireccion" />
+		<property name="responseTranslator"	ref="simpleResponseTranslator" />
+		<property name="wsType"	            value="SOAP" />
+	</bean>
+	
+	<!-- Configuración de WS para actualizar inventario en POS Sterling --> <!-- Timeout en sg -->
+	<bean id="ActualizaItrWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://shopappqa.liverpool.com.mx/appclienteservices/services/itr/change" />
+		<property name="connectionSSL"      value="true" />
+		<property name="timeout" 			value="10" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderActualizaItr" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+		<property name="useTlsv"            value="TLSv1.2"/>
+	</bean>
+
+	<!-- Configuración de la MQ de Sterling -->
+	<bean id="CreaMsgMQWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderMsgMQ" />
+		<property name="wsType"	            value="MQ" />
+		<property name="responseTranslator"	ref="simpleResponseTranslator" />
+		<property name="hostMq"	            value="172.16.204.99" />
+		<property name="portMq"	            value="1424" />
+		<property name="channelMq"	        value="CH.T.POS.SVRCONN" />
+		<property name="queueManagerMq"	    value="QM.GW.BRK.WBI.QA" />
+		<property name="userMq"	            value="tlog" />
+		<property name="passMq"	            value="" />
+		<property name="queueNameMq"	    value="QA.VAD.POS.STERLING.OUT" />
+	</bean>
+
+	<!-- Configuración de WS para fecha estimada de entrega Omnicanal --> <!-- Timeout en sg -->
+	<bean id="getEstimatedDateWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.16.213.72:3002/getFecha"/>
+		<property name="timeout" 			value="10" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuildergetEstimatedDateWSConfig" />
+		<property name="wsType"	            value="SOAP" />
+		<property name="responseTranslator"	ref="simpleResponseTranslator" />
+	</bean>
+
+	<!-- Configuración de WS para consultar las variantes del PDP de Marketplace --> <!-- Timeout en sg -->
+	<bean id="VariantesPDPMarketplace" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://appvendedorqa2.liverpool.com.mx/sellerapp-middleware/api/v1/shapp/marketplace/pdp?"/>
+		<property name="connectionSSL"      value="true" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderVariantesPDPMarketplace" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="GET" />
+		<property name="requestType"	    value="JSON" />
+		<property name="useTlsv"            value="TLSv1.2"/>
+	</bean>
+
+	<!-- Configuración de WS para consultar el genérico del PLP de Marketplace --> <!-- Timeout en sg -->
+	<bean id="GenericoPLPMarketplace" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://appvendedorqa2.liverpool.com.mx/sellerapp-middleware/api/v1/atg/plp?"/>
+		<property name="connectionSSL" 		value="true"/>
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderGenericoPLPMarketplace" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="GET" />
+		<property name="requestType"	    value="JSON" />
+		<property name="useTlsv" 			value="TLSv1.2"/>
+	</bean>
+
+	<!-- Configuración de WS para obtener la oferta del seller de Marketplace --> <!-- Timeout en sg -->
+	<bean id="GetSellerOfferMarketplace" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://appvendedorqa2.liverpool.com.mx/sellerapp-middleware/api/v1/shapp/getSellersOfferDetailsPdp?"/>
+		<property name="connectionSSL" 		value="true"/>
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderGetSellerOfferMarketplace" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="GET" />
+		<property name="requestType"	    value="JSON" />
+		<property name="useTlsv" 			value="TLSv1.2"/>
+	</bean>
+
+	<!-- Configuración de WS para obtener el inventario de Marketplace --> <!-- Timeout en sg -->
+	<bean id="BuilderInventoryMarketplace" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://appvendedorqa.liverpool.com.mx/sellerapp-middleware/api/v1/shapp/itr/statusMP"/>
+		<property name="connectionSSL" 		value="true"/>
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderInventoryMarketplace" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="GET" />
+		<property name="requestType"	    value="JSON" />
+		<property name="useTlsv" 			value="TLSv1.2"/>
+	</bean>
+
+	<!-- Configuración de WS para crear/actualizar órdenes de venta/remisiones en Marketplace --> <!-- Timeout en sg -->
+	<bean id="CreaActualizaOVREMMarketplace" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.16.204.254:7083/wbi/RemisionesAV"/>
+		<property name="timeout" 			value="10" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderCreaActualizaOVREMMarketplace" />
+		<property name="wsType"	            value="SOAP" />
+		<property name="responseTranslator"	ref="simpleResponseTranslator" />
+	</bean>
+
+	<!-- Configuración de WS para crear el Marketplace --> <!-- Timeout en sg -->
+	<bean id="CreateMarketplaceConf" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.16.203.142:7283/mp/brk/creaOrden"/>
+		<property name="timeout" 			value="10" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderCreateMMarketplace" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+	</bean>
+
+	<!-- Configuración de WS para actualizar el inventario de Marketplace --> <!-- Timeout en sg -->
+	<bean id="ChangeInventoryMarketplace" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://appvendedorqa2.liverpool.com.mx/sellerapp-middleware/api/v1/shapp/itr/inventoryMKP"/>
+		<property name="connectionSSL" 		value="true"/>
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestChangeInventoryMarketplace" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+		<property name="useTlsv" 			value="TLSv1.2"/>
+	</bean>
+
+	<!-- Configuración de WS para consultar remisiones de Marketplace --> <!-- Timeout en sg -->
+	<bean id="ConsultaPedidoMkpWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.16.203.142:7283/mp/brk/consultaOrden" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderConsultaPedidoMkp" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+	</bean>
+
+	<!-- Configuración de WS para devolver algún artículo de Marketplace --> <!-- Timeout en sg -->
+	<bean id="ConsultaIdDevMkpWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.16.203.142:7283/mp/brk/solDevOrden" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderConsultaIdDevMkp" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+	</bean>
+
+	<!-- Configuración de WS para realizar cancelaciones de Marketplace --> <!-- Timeout en sg -->
+	<bean id="ConsultaIdCancelMkpWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.16.203.142:7283/mp/brk/solDevOrden" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderConsultaIdCancelMkp" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+	</bean>
+
+	<!-- Configuración de WS para confirmar devoluciones de Marketplace --> <!-- Timeout en sg -->
+	<bean id="ConfirmaDevMkpWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.16.203.142:7283/api/payment/refund" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderConfirmaDevMkp" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+	</bean>
+
+	<!-- Configuración de WS para confirmar cancelaciones de Marketplace --> <!-- Timeout en sg -->
+	<bean id="ConfirmaCancelMkpWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.16.203.142:7283/api/orders" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderConfirmaCancelMkp" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+	</bean>
+
+	<!-- Configuración de WS para cambiar el indicador de Marketplace --> <!-- Timeout en sg -->
+	<bean id="ChangeIndicatorMkpWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.16.203.142:7283/cmbIndicadorDev/api/orders" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderChangeIndicatorMkp" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+	</bean>
+
+	<!-- Configuración de WS para saber estatus de órdenes de Marketplace enviadas desde Suburbia --> <!-- Timeout en sg -->
+	<bean id="getStatusItemMKPWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://qatapigee.liverpool.com.mx/generic/compras-services/getOrder"/>
+		<property name="connectionSSL" 		value="true"/>
+		<property name="apiKey" 			value="7hr4AmAOUZlhjDsVN6KRl76A7XW6PodWG5GboOd3xJid8WTL"/>
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuildergetStatusItemMKPWSConfig" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+		<property name="useTlsv"            value="TLSv1.2"/>
+	</bean>
+
+	<!-- Configuración de WS para cancelar órdenes de Marketplace enviadas desde Suburbia --> <!-- Timeout en sg -->
+	<bean id="cancelDevEcommerceWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://172.16.204.243/sap/bc/zcanc_dev_ecomm"/>
+		<property name="connectionSSL" 		value="true"/>
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuildercancelDevEcommerceMKPWSConfig" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+	</bean>
+
+	<!-- Configuración de WS para consultar órdenes de venta de VAD Liverpool --> <!-- Timeout en sg -->
+	<bean id="VadConsultaOrdenWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.16.213.142:8080/vposBcOmniChannelV3/vposBcRest/recognition-store/" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderConsultaOrdenVad" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="GET" />
+		<property name="requestType"	    value="JSON" />
+	</bean>
+
+	<!-- Configuración de WS para consultar órdenes de venta de VAD Suburbia --> <!-- Timeout en sg -->
+	<bean id="VadConsultaOrdenSuburbiaWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.16.213.248:8080/vposBcOmniChannelSuburbiaV2/vposBcRest/recognition-store-by-shipping-group/" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderConsultaOrdenSuburbiaVad" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="GET" />
+		<property name="requestType"	    value="JSON" />
+	</bean>
+
+	<!-- Configuración de WS para consulta de hash CDP --> <!-- Timeout en sg -->
+	<bean id="getOnlineTokenWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.17.208.254:80/get-online-token"/>
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuildergetOnlineTokenWSConfig" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+	</bean>
+
+	<!-- Configuración de WS para búsqueda de clientes por hash CDP --> <!-- Timeout en sg -->
+	<bean id="getCustomerDataWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://qatapigee.liverpool.com.mx/cdp-pos/ticket/v2/clientes/formapago?"/>
+		<property name="connectionSSL"      value="true" />
+		<property name="apiKey"             value="iKG1eWAZFkQ3AOgw4bWp5WXggSBodNDYmxLWXTkY1P8AOYhn" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuildergetCustomerDataWSConfig" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="GET" />
+		<property name="useTlsv"            value="TLSv1.2"/>
+	</bean>
+
+	<!-- Configuración de WS para búsqueda de clientes por datos de contacto CDP --> <!-- Timeout en sg -->
+	<bean id="getClienteContactoWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://qatapigee.liverpool.com.mx/cdp-pos/ticket/v2/clientes/mediocontacto/?"/>
+		<property name="connectionSSL"      value="true" />
+		<property name="apiKey"             value="iKG1eWAZFkQ3AOgw4bWp5WXggSBodNDYmxLWXTkY1P8AOYhn" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuildergetClienteContactoWSConfig" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="GET" />
+		<property name="useTlsv"            value="TLSv1.2"/>
+	</bean>
+
+	<!-- Configuración de WS para búsqueda de órdendes de SOMS CDP --> <!-- Timeout en sg -->
+	<bean id="getOrderSomsWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://qatapigee.liverpool.com.mx/cdp-pos/compras/v2/boletas/ordenSoms?"/>
+		<property name="connectionSSL"      value="true" />
+		<property name="apiKey"             value="iKG1eWAZFkQ3AOgw4bWp5WXggSBodNDYmxLWXTkY1P8AOYhn" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuildergetOrderSomsWSConfig" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="GET" />
+		<property name="useTlsv"            value="TLSv1.2"/>
+	</bean>
+
+	<!-- Configuración de WS para dar de alta un cliente CDP --> <!-- Timeout en sg -->
+	<bean id="addClienteWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://qatapigee.liverpool.com.mx/cdp-pos/ticket/v2/clientes"/>
+		<property name="connectionSSL"      value="true" />
+		<property name="apiKey"             value="iKG1eWAZFkQ3AOgw4bWp5WXggSBodNDYmxLWXTkY1P8AOYhn" />
+		<property name="timeout" 			value="10" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderaddClienteWSConfig" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+		<property name="useTlsv"            value="TLSv1.2"/>
+	</bean>
+
+	<!-- Configuración de WS para actualizar un cliente CDP --> <!-- Timeout en sg -->
+	<bean id="updateClienteWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://qatapigee.liverpool.com.mx/cdp-pos/ticket/v2/clientes"/>
+		<property name="connectionSSL"      value="true" />
+		<property name="apiKey"             value="iKG1eWAZFkQ3AOgw4bWp5WXggSBodNDYmxLWXTkY1P8AOYhn" />
+		<property name="timeout" 			value="10" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderupdateClienteWSConfig" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="PUT" />
+		<property name="requestType"	    value="JSON" />
+		<property name="useTlsv"            value="TLSv1.2"/>
+	</bean>
+
+	<!-- Configuración de WS para actualizar el email de un cliente CDP --> <!-- Timeout en sg -->
+	<bean id="updateEmailClienteWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://qatapigee.liverpool.com.mx/cdp-pos/ticket/v2/clientes/email"/>
+		<property name="connectionSSL"      value="true" />
+		<property name="apiKey"             value="iKG1eWAZFkQ3AOgw4bWp5WXggSBodNDYmxLWXTkY1P8AOYhn" />
+		<property name="timeout" 			value="10" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderupdateEmailClienteWSConfig" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="PUT" />
+		<property name="requestType"	    value="JSON" />
+		<property name="useTlsv"            value="TLSv1.2"/>
+	</bean>
+
+	<!-- Configuración de WS para envío de ticket digital CDP --> <!-- Timeout en sg -->
+	<bean id="sendVirtualTicketWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://dev-api.liverpool.com.mx/contactar-cliente/ticket-electronico"/>
+		<property name="connectionSSL"      value="true" />
+		<property name="apiKey"             value="1xhqfcVKqFQ0boEaZpwOxW8oWiByWqMNR2MCo3unGycdwtKZ" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuildersendVirtualTicketWSConfig" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+		<property name="useTlsv"            value="TLSv1.2"/>
+	</bean>
+
+	<!-- Configuración de WS para ingesta de boletas CDP --> <!-- Timeout en sg -->
+	<bean id="ingestaBoletasWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://qatapigee.liverpool.com.mx/cdp-pos/v2/boletas"/>
+		<property name="connectionSSL"      value="true" />
+		<property name="apiKey"             value="iKG1eWAZFkQ3AOgw4bWp5WXggSBodNDYmxLWXTkY1P8AOYhn" />
+		<property name="timeout" 			value="10" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderingestaBoletasWSConfig" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+		<property name="useTlsv"            value="TLSv1.2"/>
+	</bean>
+
+	<!-- Configuración de WS para búsqueda de boletas CDP --> <!-- Timeout en sg -->
+	<bean id="getBoletasWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://qatapigee.liverpool.com.mx/cdp-pos/compras/v2/boletas?"/>
+		<property name="connectionSSL"      value="true" />
+		<property name="apiKey"             value="iKG1eWAZFkQ3AOgw4bWp5WXggSBodNDYmxLWXTkY1P8AOYhn" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuildergetBoletasWSConfig" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="GET" />
+		<property name="useTlsv"            value="TLSv1.2"/>
+	</bean>
+
+	<!-- URL para baja de factura --> <!-- Timeout en sg -->
+	<bean id="CancelacionFacturaWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.16.204.254:7096/wbi/fec_cancelafactura" />
+		<property name="timeout" 			value="30" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderCancelacionFactura" />
+		<property name="wsType"	            value="SOAP" />
+		<property name="responseTranslator"	ref="simpleResponseTranslator" />
+	</bean>
+
+	<!-- Configuración de WS para consultar saldos de tarjetas DILISA/LPC --> <!-- Timeout en sg -->
+	<bean id="ConsultaSaldoWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.16.204.254:7091/wbi/cicstran" />
+		<property name="timeout" 			value="30" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderConsultaSaldo" />
+		<property name="wsType"	            value="SOAP" />
+		<property name="responseTranslator"	ref="simpleResponseTranslator" />
+	</bean>
+
+	<!-- Configuración de WS para devolución y cancelación de órdenes de Sastrería --> <!-- Timeout en sg -->
+	<bean id="SastreriaWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.16.204.200:7083/wbi/sa_servicioCambioEstatusOrdenes" />
+		<property name="timeout" 			value="30" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderSastreria" />
+		<property name="wsType"	            value="SOAP" />
+		<property name="responseTranslator"	ref="simpleResponseTranslator" />
+	</bean>
+
+	<!-- Configuración de WS para devolución a tarjetas Prosa --> <!-- Timeout en sg -->
+	<bean id="getInfoTransaction" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 				value="http://172.16.215.236:6000/ConsultaTransacciones/"/>
+		<property name="timeout" 				value="5" />
+		<property name="requestBuilder"			ref="removeHeadFootRequestBuildergetInfoTransaction" />
+		<property name="basicAuthenticationKey"	value="YWRtaW46YWRtaW4=" />
+		<property name="wsType"	            	value="REST" />
+		<property name="method"	            	value="POST" />
+		<property name="requestType"	    	value="JSON" />
+	</bean>
+
+	<!-- Configuración de WS para la generación de un código QR --> <!-- Timeout en sg -->
+	<bean id="getQRCodeWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.22.13.75:8080/getQRCode?"/>
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuildergetQRCodeWSConfig" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+		<property name="agentMsg"     		value="true" />
+	</bean>
+
+	<!-- Configuración de WS para devolución de OMS --> <!-- Timeout en sg -->
+	<bean id="OmsRefund" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://devapigee.liverpool.com.mx/oms-int-2002/v1/int2002-refund-confirmation"/>
+		<property name="connectionSSL" 		value="true"/>
+		<property name="apiKey" 			value="riwzy7OkQMgXcflJ4l1LVqGqvAIbfVVS1xYsACacyd8VhNsW"/>
+		<property name="timeout" 			value="5"/>
+		<property name="requestBuilder" 	ref="removeHeadFootRequestBuilderOmsRefund"/>
+		<property name="wsType" 			value="REST"/>
+		<property name="method" 			value="POST"/>
+		<property name="requestType" 		value="JSON"/>
+		<property name="useTlsv"            value="TLSv1.2"/>
+	</bean>
+
+	<!-- Configuración de WS para venta de OMS --> <!-- Timeout en sg -->
+	<bean id="OmsOrderLoadWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://qatapigee.liverpool.com.mx/oms/v2/int/200"/>
+		<property name="connectionSSL"      value="true" />
+		<property name="apiKey"             value="TRGl0Rvyd9KXDkeocnRRg3hObTXcYnv58nOvrsnGINj7fAPi" />
+		<property name="timeout" 			value="10" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderOmsOrderLoad" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+		<property name="useTlsv"            value="TLSv1.2"/>
+	</bean>
+
+	<!-- Configuración de WS para búsqueda de orden de OMS --> <!-- Timeout en sg -->
+	<bean id="OmsGetOrderDetailWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://qatapigee.liverpool.com.mx/oms/v1/int/2010"/>
+		<property name="connectionSSL"		value="true" />
+		<property name="apiKey"             value="TRGl0Rvyd9KXDkeocnRRg3hObTXcYnv58nOvrsnGINj7fAPi" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderOmsGetOrderDetail" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+		<property name="useTlsv"            value="TLSv1.2"/>
+	</bean>
+
+	<!-- Configuración de WS para confirmación devolución de OMS --> <!-- Timeout en sg -->
+	<bean id="OmsRefoundConfirmationWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://qatapigee.liverpool.com.mx/oms/v1/int/2002"/>
+		<property name="connectionSSL"		value="true" />
+		<property name="apiKey"             value="TRGl0Rvyd9KXDkeocnRRg3hObTXcYnv58nOvrsnGINj7fAPi" />
+		<property name="timeout" 			value="10" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderOmsRefoundConfirmation" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+		<property name="useTlsv"            value="TLSv1.2"/>
+	</bean>
+
+	<!-- Configuración de WS para cancelación de OMS --> <!-- Timeout en sg -->
+	<bean id="OmsOrderCancelationWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://qatapigee.liverpool.com.mx/oms/v1/int/2015"/>
+		<property name="connectionSSL"		value="true" />
+		<property name="apiKey"             value="TRGl0Rvyd9KXDkeocnRRg3hObTXcYnv58nOvrsnGINj7fAPi" />
+		<property name="timeout" 			value="10" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderOmsOrderCancelation" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+		<property name="useTlsv"            value="TLSv1.2"/>
+	</bean>
+
+	<!-- Configuración de WS para consulta de inventario y fecha estimada de entrega de OMS --> <!-- Timeout en sg -->
+	<bean id="OmsEstimatedDeliveryDateWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://fechaestimadaqa2.liverpool.com.mx:4008/api/V4/LP"/>
+		<property name="bearerAuthenticationKey"	    value="1234" />
+		<property name="timeout" 			value="10" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderOmsEstimatedDeliveryDate" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+	</bean>
+
+	<!-- Configuración de WS para la generación de un código descargable --> <!-- Timeout en sg -->
+	<bean id="getDownloadableCodeWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.16.202.206:9080/adapter/api/v2/orders"/>
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuildergetDownloadableCodeWSConfig" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+	</bean>
+
+	<!-- Configuración de WS para la consulta de saldo de crédito al consumo de Suburbia --> <!-- Timeout en sg -->
+	<bean id="ConsultaSaldoCCWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://bromqqas1.suburbia.com.mx:7247/credits/v1/saldos"/>
+		<property name="connectionSSL"      value="true" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderConsultaSaldoCCWSConfig" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+		<property name="useTlsv"            value="TLSv1.2"/>
+	</bean>
+
+	<!-- Configuración de WS para la consulta de ciudades por región para SIM Telcel --> <!-- Timeout en sg -->
+	<bean id="ConsultCitiesWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://qatapigee.liverpool.com.mx/servicios/activacionestelcel/ConsultarCiudadesPorRegionID"/>
+		<property name="connectionSSL"      value="true" />
+		<property name="apiKey"             value="DXcSi6HBJcmEN3GFhAulvysHUV4sCbRV0VZ8chJnM3u9DD5c" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderSimConsultCitiesWSConfig" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+		<property name="useTlsv"            value="TLSv1.2"/>
+	</bean>
+
+	<!-- Configuración de WS para la consulta del status de la SIM Telcel --> <!-- Timeout en sg -->
+	<bean id="ConsultSimStatusWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://qatapigee.liverpool.com.mx/servicios/activacionestelcel/ConsultarEstatusICCID"/>
+		<property name="connectionSSL"      value="true" />
+		<property name="apiKey"             value="DXcSi6HBJcmEN3GFhAulvysHUV4sCbRV0VZ8chJnM3u9DD5c" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderSimConsultStatusWSConfig" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+		<property name="useTlsv"            value="TLSv1.2"/>
+	</bean>
+
+	<!-- Configuración de WS para la activación de la SIM Telcel --> <!-- Timeout en sg -->
+	<bean id="SimActivationWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://qatapigee.liverpool.com.mx/servicios/activacionestelcel/ActivarLinea"/>
+		<property name="connectionSSL"      value="true" />
+		<property name="apiKey"             value="DXcSi6HBJcmEN3GFhAulvysHUV4sCbRV0VZ8chJnM3u9DD5c" />
+		<property name="timeout" 			value="30" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderSimActivationWSConfig" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+		<property name="useTlsv"            value="TLSv1.2"/>
+	</bean>
+
+	<!-- Configuración de WS para la consulta de la venta a devolver --> <!-- Timeout en sg -->
+	<bean id="CdpRefoundOrderDetail" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://qatapigee.liverpool.com.mx/devoluciones-cliente/v1/consulta"/>
+		<property name="connectionSSL"      value="true" />
+		<property name="apiKey"             value="33N32IJpqRi0NTG5nfGzrPweCcYUEvMCQalzGWh0lgxNNzGG" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderCdpRefoundGetOrderDetail" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+		<property name="useTlsv"            value="TLSv1.2"/>
+	</bean>
+
+	<!-- Configuración de WS para actualizar la venta devuelta --> <!-- Timeout en sg -->
+	<bean id="CdpRefoundUpdateOrderDetail" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://qatapigee.liverpool.com.mx/devoluciones-cliente/v1/registro"/>
+		<property name="connectionSSL"      value="true" />
+		<property name="apiKey"             value="33N32IJpqRi0NTG5nfGzrPweCcYUEvMCQalzGWh0lgxNNzGG" />
+		<property name="timeout" 			value="10" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderCdpRefoundUpdateOrderDetail" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+		<property name="useTlsv"            value="TLSv1.2"/>
+	</bean>
+
+	<!-- Configuración de WS para obtener la remisión --> <!-- Timeout en sg -->
+	<bean id="SOMSGetFoliosRemisiones" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.16.213.26:7010/ws_folios_offline/rest/api/v1/folios/give_folio"/>
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderSOMSGetFoliosRemisiones" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+	</bean>
+
+	<!-- Configuración de WS para obtener el token de reparación de accesorios o de renta de trajes y vestidos --> <!-- Timeout en sg -->
+	<bean id="VasGenerateRepairToken" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://qat-api.liverpool.com.mx/mkt/oauth2/v1/access_token?grant_type=client_credentials"/>
+		<property name="connectionSSL"      value="true" />
+		<property name="basicAuthenticationKey"	    value="OVFZa2pvVU40S0Q2TFVGTFV5cUpGSTdYSjZTckdMRjhjd3NkSzlQOTk3MnFBWUhiOnRZV0gzR0RzM2hKam1OTDc1WjRTZ0I1QVBKRDNtOU1VYnd4SThyMURHMmhwM09RUW5SQVljeUFhMW5KS2hmeTQ=" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderVasGenerateRepairToken" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+	</bean>
+
+	<!-- Configuración de WS para obtener la información de la orden de reparación de accesorios --> <!-- Timeout en sg -->
+	<bean id="VasRequestPaymentInformation" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://qat-api.liverpool.com.mx/mkt/api/repairs/v1/budgets/"/>
+		<property name="connectionSSL"      value="true" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderVasRequestPaymentInformation" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="GET" />
+		<property name="marketplaceId"		value="2" />
+		<property name="useTlsv"            value="TLSv1.2"/>
+	</bean>
+
+	<!-- Configuración de WS para confirmar el pago de la orden de reparación de accesorios --> <!-- Timeout en sg -->
+	<bean id="VasNotificationPaymentMade" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://qat-api.liverpool.com.mx/mkt/api/repairs/v1/orders/change/status"/>
+		<property name="connectionSSL"      value="true" />
+		<property name="timeout" 			value="10" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderVasNotificationPaymentMade" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="PUT" />
+		<property name="requestType"	    value="JSON" />
+		<property name="marketplaceId"		value="2" />
+		<property name="requestBodyType"	value="application/json"/>
+		<property name="useTlsv"            value="TLSv1.2"/>
+	</bean>
+
+	<!-- Configuración de WS para obtener la información de la orden de renta de trajes --> <!-- Timeout en sg -->
+	<bean id="VasRequestPaymentInformationSuit" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://qat-api.liverpool.com.mx/pos/v1/orders?"/>
+		<property name="connectionSSL"      value="true" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderVasRequestSuit" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="GET" />
+		<property name="marketplaceId"		value="4"/>
+		<property name="requestBodyType"	value="application/json"/>
+		<property name="useTlsv"            value="TLSv1.2"/>
+	</bean>
+
+	<!-- Configuración de WS para confirmar el pago de la orden de renta de trajes --> <!-- Timeout en sg -->
+	<bean id="VasNotificationPaymentSuit" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://qat-api.liverpool.com.mx/pos/v1/orders?"/>
+		<property name="connectionSSL"      value="true" />
+		<property name="timeout" 			value="10" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderVasNotificationPaymentSuit" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="PUT" />
+		<property name="requestType"	    value="JSON" />
+		<property name="marketplaceId"		value="4"/>
+		<property name="requestBodyType"	value="application/json"/>
+		<property name="useTlsv"            value="TLSv1.2"/>
+	</bean>
+
+	<!-- Configuración de WS para obtener la información de la orden de renta de vestidos --> <!-- Timeout en sg -->
+	<bean id="VasRequestPaymentInformationDress" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://qat-api.liverpool.com.mx/pos/v1/orders?"/>
+		<property name="connectionSSL"      value="true" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderVasRequestDress" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="GET" />
+		<property name="marketplaceId"		value="5"/>
+		<property name="requestBodyType"	value="application/json"/>
+		<property name="useTlsv"            value="TLSv1.2"/>
+	</bean>
+
+	<!-- Configuración de WS para confirmar el pago de la orden de renta de vestidos --> <!-- Timeout en sg -->
+	<bean id="VasNotificationPaymentDress" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://qat-api.liverpool.com.mx/pos/v1/orders?"/>
+		<property name="connectionSSL"      value="true" />
+		<property name="timeout" 			value="10" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderVasNotificationPaymentDress" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="PUT" />
+		<property name="requestType"	    value="JSON" />
+		<property name="marketplaceId"		value="5"/>
+		<property name="requestBodyType"	value="application/json"/>
+		<property name="useTlsv"            value="TLSv1.2"/>
+	</bean>
+
+	<!-- Configuración de WS para cargar la llave maestra --> <!-- Timeout en sg -->
+	<bean id="CargaLlaveMaestraWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.16.201.132:8081/Liverpool/ServicioPin.svc"/>
+		<property name="action" 			value="http://tempuri.org/IServicioPin/CargaLlaveMaestra" />
+		<property name="timeout" 			value="30" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderCargaLlaveMaestra" />
+		<property name="wsType"	            value="SOAP" />
+		<property name="method"	            value="POST" />
+		<property name="retryTimeOut"	    value="1" />
+		<property name="responseTranslator"	ref="simpleResponseTranslator" />
+	</bean>
+
+	<!-- Configuración de WS para cargar la llave de sesión --> <!-- Timeout en sg -->
+	<bean id="CargaLlaveDeSessionWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.16.201.132:8081/Liverpool/ServicioPin.svc"/>
+		<property name="action" 			value="http://tempuri.org/IServicioPin/CargaLlaveDeSesion" />
+		<property name="timeout" 			value="30" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderCargaLlaveDeSession" />
+		<property name="wsType"	            value="SOAP" />
+		<property name="method"	            value="POST" />
+		<property name="retryTimeOut"	    value="1" />
+		<property name="responseTranslator"	ref="simpleResponseTranslator" />
+	</bean>
+
+	<!-- Configuración de WS para consultar el listado de planes para Samsung Care+ --> <!-- Timeout en sg -->
+	<bean id="SamsungCareGetConsultaPlanes" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://qatapigee.liverpool.com.mx/livcare/samsung/product/list"/>
+		<property name="connectionSSL"      value="true" />
+		<property name="apiKey"             value="efCfbS8mKrlFi2gNeJa2hfBe6AZbz7MGJ99mzmgVZqCLXurz" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderSamsungCareGetConsultaPlanes" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+		<property name="useTlsv"            value="TLSv1.2"/>
+	</bean>
+
+	<!-- Configuración de WS para realizar devoluciones de Apple Care -->  <!-- Timeout en sg -->
+	<bean id="AppleCareGetDevolucion" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://qatapigee.liverpool.com.mx/livcare/general/cancelation"/>
+		<property name="connectionSSL"      value="true" />
+		<property name="apiKey"             value="efCfbS8mKrlFi2gNeJa2hfBe6AZbz7MGJ99mzmgVZqCLXurz" />
+		<property name="timeout" 			value="10" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderAppleCareGetDevolucion" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+		<property name="useTlsv"            value="TLSv1.2"/>
+	</bean>
+
+	<!-- Configuración de WS para validar el dispositivo y crear el contrato para Apple Care y Samsung Care+ --> <!-- Timeout en sg -->
+	<bean id="AppleSamsungCareGetAprovContractPlan" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://qatapigee.liverpool.com.mx/livcare/general/registration"/>
+		<property name="connectionSSL"      value="true" />
+		<property name="apiKey"             value="efCfbS8mKrlFi2gNeJa2hfBe6AZbz7MGJ99mzmgVZqCLXurz" />
+		<property name="timeout" 			value="10" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderAppleSamsungCareGetAprovContractPlan" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+		<property name="useTlsv"            value="TLSv1.2"/>
+	</bean>
+
+	<!-- VALORES PRODUCCION -->
+
+	<!-- URL para alta de nueva factura --> <!-- Timeout en sg -->
+	<!-- <bean id="facturarPOSRequest" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.17.203.158:7080/wmb/femch" />
+		<property name="action" 			value="http://www.liverpool.com.mx/wbi/ifactc/NewOperation" />
+		<property name="timeout" 			value="30" />
+		<property name="requestBuilder"		ref="simpleRequestBuilder" />
+		<property name="responseTranslator"	ref="simpleResponseTranslator" />
+		<property name="wsType"	            value="SOAP" />
+	</bean> -->
+
+	<!-- Configuración de WS para CRM Siebel --> <!-- Timeout en sg -->
+	<!-- <bean id="CRMWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.17.203.85:7093/CRM/realizaOperacion?" />
+		<property name="timeout" 			value="3" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderCrm" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="GET" />
+	</bean> -->
+
+	<!-- Configuración de WS para CRM Loyalty --> <!-- Timeout en sg -->
+	<!-- <bean id="CRMLoyaltyWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.17.203.85:7093/CRMLoyalty?" />
+		<property name="timeout" 			value="3" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderCrmLoyalty" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="GET" />
+	</bean> -->
+
+	<!-- Configuración de WS para Vella --> <!-- Timeout en sg -->
+	<!-- <bean id="VellaWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.17.203.85:7081/wbi/vella/consulta?Orden=" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderVella" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="GET" />
+	</bean> -->
+
+	<!-- Configuración de WS para buscar evento/tarjeta Mesa de Regalos --> <!-- Timeout en sg -->
+	<!-- <bean id="MesaWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.17.208.109:80/regalos/services/eventGiftList/getEventDetailsById?links=none" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderMesa" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+	</bean> -->
+
+	<!-- Configuración de WS para confirmar la venta/devolución de Mesa de Regalos --> <!-- Timeout en sg -->
+	<!-- <bean id="MesaConfirmaWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.17.208.109:80/regalos/services/purchretcanc/PurchaseReturnCancellation" />
+		<property name="timeout" 			value="15" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderMesaConfirma" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+	</bean> -->
+
+	<!-- Configuración de WS para generar órdenes de SOMS para Mesa de Regalos --> <!-- Timeout en sg -->
+	<!-- <bean id="MesaGeneraOrdenSomsWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.17.203.85:7281/wbi/atg/cicstran" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderMesaOrdenVenta" />
+		<property name="responseTranslator" ref="simpleResponseTranslator" />
+		<property name="wsType"	            value="SOAP" />
+	</bean> -->
+
+	<!-- Configuración de WS para confirmar la cancelación de Mesa de Regalos --> <!-- Timeout en sg -->
+	<!-- <bean id="MesaCancelaWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.17.208.109:80/regalos/services/purchretcanc/PurchaseReturnCancellation" />
+		<property name="timeout" 			value="15" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderMesaCancela" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+	</bean> -->
+
+	<!-- Configuración de WS para consultar variantes en POS Sterling --> <!-- Timeout en sg -->
+	<!-- <bean id="VariantesWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.17.203.85:7083/wbi/skugenericos" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderVariantes" />
+		<property name="responseTranslator"	ref="simpleResponseTranslator" />
+		<property name="wsType"	            value="SOAP" />
+	</bean> -->
+
+	<!-- Configuración de WS para consultar clientes en POS Sterling --> <!-- Timeout en sg -->
+	<!-- <bean id="ConsultarClientesWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.17.203.85:7083/wbi/AVConsultaDatosClienteNW" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderClientes" />
+		<property name="responseTranslator"	ref="simpleResponseTranslator" />
+		<property name="wsType"	            value="SOAP" />
+	</bean> -->
+
+	<!-- Configuración de WS para crear clientes en POS Sterling --> <!-- Timeout en sg -->
+	<!-- <bean id="CrearClientesWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.17.203.85:7083/wbi/AVAltaClienteDireccion/" />
+		<property name="timeout" 			value="10" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderCrearClientes" />
+		<property name="responseTranslator"	ref="simpleResponseTranslator" />
+		<property name="wsType"	            value="SOAP" />
+	</bean> -->
+
+	<!-- Configuración de WS para consultar códigos postales en POS Sterling --> <!-- Timeout en sg -->
+	<!-- <bean id="ConsultaCodigoPostalWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.17.203.85:7082/wbi/DEM" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderConsultaCodigoPostal" />
+		<property name="responseTranslator"	ref="simpleResponseTranslator" />
+		<property name="wsType"	            value="SOAP" />
+	</bean> -->
+
+	<!-- Configuración de WS para consultar calles en POS Sterling --> <!-- Timeout en sg -->
+	<!-- <bean id="ConsultaCallesWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.17.203.85:7082/wbi/DEM" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderConsultaCalles" />
+		<property name="responseTranslator"	ref="simpleResponseTranslator" />
+		<property name="wsType"	            value="SOAP" />
+	</bean> -->
+
+	<!-- Configuración de WS para consultar inventario en POS Sterling --> <!-- Timeout en sg -->
+	<!-- <bean id="ConsultaItrWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.17.202.178:8000/liverpool/itr_online/oData/itr_pos_in.xsodata/" />
+		<property name="timeout" 			value="10" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderConsultaItr" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="GET" />
+		<property name="requestType"	    value="JSON" />
+		<property name="user"	    		value="pos_sterling" />
+		<property name="pass"			    value="Liv12345" />
+	</bean> -->
+
+	<!-- Configuración de WS para crear/actualizar órdenes de venta/remisiones en POS Sterling --> <!-- Timeout en sg -->
+	<!-- <bean id="CreaActualizaOVREMWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.17.203.85:7083/wbi/RemisionesAV" />
+		<property name="timeout" 			value="10" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderCreaActualizaOVREM" />
+		<property name="responseTranslator"	ref="simpleResponseTranslator" />
+		<property name="wsType"	            value="SOAP" />
+	</bean> -->
+
+	<!-- Configuración de WS para consultar la dirección del cliente en POS Sterling --> <!-- Timeout en sg -->
+	<!-- <bean id="ConsultarDireccionClienteWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.17.203.85:7083/wbi/AVConsultaDatosClienteNW" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderDireccionCliente" />
+		<property name="responseTranslator"	ref="simpleResponseTranslator" />
+		<property name="wsType"	            value="SOAP" />
+	</bean> -->
+
+	<!-- Configuración de WS para crear calle en POS Sterling --> <!-- Timeout en sg -->
+	<!-- <bean id="CrearCalleWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.17.203.85:7082/wbi/DEM" />
+		<property name="timeout" 			value="10" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderCrearDireccion" />
+		<property name="responseTranslator"	ref="simpleResponseTranslator" />
+		<property name="wsType"	            value="SOAP" />
+	</bean> -->
+	
+	<!-- Configuración de WS para actualizar inventario en POS Sterling --> <!-- Timeout en sg -->
+	<!-- <bean id="ActualizaItrWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://shoppapp.liverpool.com.mx/appclienteservices/services/itr/change" />
+		<property name="connectionSSL"      value="true" />
+		<property name="timeout" 			value="10" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderActualizaItr" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+	</bean> -->
+
+	<!-- Configuración de la MQ de Sterling -->
+	<!-- <bean id="CreaMsgMQWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderMsgMQ" />
+		<property name="wsType"	            value="MQ" />
+		<property name="responseTranslator"	ref="simpleResponseTranslator" />
+		<property name="hostMq"	            value="172.17.203.154" />
+		<property name="portMq"	            value="1424" />
+		<property name="channelMq"	        value="CH.P.POS.SVRCONN" />
+		<property name="queueManagerMq"	    value="QM.GW.BRK.WBI.PROD" />
+		<property name="userMq"	            value="tlog" />
+		<property name="passMq"	            value="" />
+		<property name="queueNameMq"	    value="QA.VAD.POS.STERLING.OUT" />
+	</bean> -->
+
+	<!-- Configuración de WS para fecha estimada de entrega Omnicanal --> <!-- Timeout en sg -->
+	<!-- <bean id="getEstimatedDateWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.17.208.35:80/getFecha"/>
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuildergetEstimatedDateWSConfig" />
+		<property name="wsType"	            value="SOAP" />
+		<property name="responseTranslator"	ref="simpleResponseTranslator" />
+	</bean> -->
+
+	<!-- Configuración de WS para consultar las variantes del PDP de Marketplace --> <!-- Timeout en sg -->
+	<!-- <bean id="VariantesPDPMarketplace" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://appvendedor.liverpool.com.mx:443/sellerapp-middleware/api/v1/shapp/marketplace/pdp?"/>
+		<property name="connectionSSL"      value="true" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderVariantesPDPMarketplace" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="GET" />
+		<property name="requestType"	    value="JSON" />
+		<property name="useTlsv"            value="TLSv1.2"/>
+	</bean> -->
+
+	<!-- Configuración de WS para consultar el genérico del PLP de Marketplace --> <!-- Timeout en sg -->
+	<!-- <bean id="GenericoPLPMarketplace" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://appvendedor.liverpool.com.mx:443/sellerapp-middleware/api/v1/atg/plp?"/>
+		<property name="connectionSSL" 		value="true"/>
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderGenericoPLPMarketplace" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="GET" />
+		<property name="requestType"	    value="JSON" />
+		<property name="useTlsv" 			value="TLSv1.2"/>
+	</bean> -->
+
+	<!-- Configuración de WS para obtener la oferta del seller de Marketplace --> <!-- Timeout en sg -->
+	<!-- <bean id="GetSellerOfferMarketplace" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://appvendedor.liverpool.com.mx:443/sellerapp-middleware/api/v1/shapp/getSellersOfferDetailsPdp?"/>
+		<property name="connectionSSL" 		value="true"/>
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderGetSellerOfferMarketplace" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="GET" />
+		<property name="requestType"	    value="JSON" />
+		<property name="useTlsv" 			value="TLSv1.2"/>
+	</bean> -->
+
+	<!-- Configuración de WS para obtener el inventario de Marketplace --> <!-- Timeout en sg -->
+	<!-- <bean id="BuilderInventoryMarketplace" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://appvendedor.liverpool.com.mx:443/sellerapp-middleware/api/v1/shapp/itr/statusMP?"/>
+		<property name="connectionSSL" 		value="true"/>
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderInventoryMarketplace" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="GET" />
+		<property name="requestType"	    value="JSON" />
+		<property name="useTlsv" 			value="TLSv1.2"/>
+	</bean> -->
+
+	<!-- Configuración de WS para crear/actualizar órdenes de venta/remisiones en Marketplace --> <!-- Timeout en sg -->
+	<!-- <bean id="CreaActualizaOVREMMarketplace" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.17.203.85:7083/wbi/RemisionesAV"/>
+		<property name="timeout" 			value="10" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderCreaActualizaOVREMMarketplace" />
+		<property name="wsType"	            value="SOAP" />
+		<property name="responseTranslator"	ref="simpleResponseTranslator" />
+	</bean> -->
+
+	<!-- Configuración de WS para crear el Marketplace --> <!-- Timeout en sg -->
+	<!-- <bean id="CreateMarketplaceConf" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.17.203.85:7287/mp/brk/creaOrden"/>
+		<property name="timeout" 			value="10" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderCreateMMarketplace" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+	</bean> -->
+
+	<!-- Configuración de WS para actualizar el inventario de Marketplace --> <!-- Timeout en sg -->
+	<!-- <bean id="ChangeInventoryMarketplace" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://appvendedor.liverpool.com.mx:443/sellerapp-middleware/api/v1/shapp/itr/inventoryMKP"/>
+		<property name="connectionSSL" 		value="true"/>
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestChangeInventoryMarketplace" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+		<property name="useTlsv" 			value="TLSv1.2"/>
+	</bean> -->
+
+	<!-- Configuración de WS para consultar remisiones de Marketplace --> <!-- Timeout en sg -->
+	<!-- <bean id="ConsultaPedidoMkpWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.17.203.85:7287/mp/brk/consultaOrden" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderConsultaPedidoMkp" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+	</bean> -->
+
+	<!-- Configuración de WS para devolver algún artículo de Marketplace --> <!-- Timeout en sg -->
+	<!-- <bean id="ConsultaIdDevMkpWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.17.203.85:7287/mp/brk/solDevOrden" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderConsultaIdDevMkp" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+	</bean> -->
+
+	<!-- Configuración de WS para realizar cancelaciones de Marketplace --> <!-- Timeout en sg -->
+	<!-- <bean id="ConsultaIdCancelMkpWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.17.203.85:7287/mp/brk/solDevOrden" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderConsultaIdCancelMkp" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+	</bean> -->
+
+	<!-- Configuración de WS para confirmar devoluciones de Marketplace --> <!-- Timeout en sg -->
+	<!-- <bean id="ConfirmaDevMkpWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.17.203.85:7287/api/payment/refund" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderConfirmaDevMkp" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+	</bean> -->
+
+	<!-- Configuración de WS para confirmar cancelaciones de Marketplace --> <!-- Timeout en sg -->
+	<!-- <bean id="ConfirmaCancelMkpWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.17.203.85:7287/api/orders" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderConfirmaCancelMkp" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+	</bean> -->
+
+	<!-- Configuración de WS para cambiar el indicador de Marketplace --> <!-- Timeout en sg -->
+	<!-- <bean id="ChangeIndicatorMkpWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.17.203.85:7287/cmbIndicadorDev/api/orders" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderChangeIndicatorMkp" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+	</bean> -->
+
+	<!-- Configuración de WS para saber estatus de órdenes de Marketplace enviadas desde Suburbia --> <!-- Timeout en sg -->
+	<!-- <bean id="getStatusItemMKPWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://apigee-pro.liverpool.com.mx/generic/compras-services/getOrder"/>
+		<property name="connectionSSL" 		value="true"/>
+		<property name="apiKey" 			value="aHpngnrth6u4tQO4sDAS3YtSZcNCCQZDYpF2UuIPsoMclHA6"/>
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuildergetStatusItemMKPWSConfig" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+		<property name="useTlsv" 			value="TLSv1.2"/>
+	</bean> -->
+
+	<!-- Configuración de WS para cancelar órdenes de Marketplace enviadas desde Suburbia --> <!-- Timeout en sg -->
+	<!-- <bean id="cancelDevEcommerceWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://sapprodb.liverpool.com.mx/sap/bc/zcanc_dev_ecomm"/>
+		<property name="connectionSSL" 		value="false"/>
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuildercancelDevEcommerceMKPWSConfig" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+	</bean> -->
+
+	<!-- Configuración de WS para consultar órdenes de venta de VAD Liverpool --> <!-- Timeout en sg -->
+	<!-- <bean id="VadConsultaOrdenWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.17.208.243:8080/vposBcOmniChannelV3/vposBcRest/recognition-store/" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderConsultaOrdenVad" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="GET" />
+		<property name="requestType"	    value="JSON" />
+	</bean> -->
+
+	<!-- Configuración de WS para consultar órdenes de venta de VAD Suburbia --> <!-- Timeout en sg -->
+	<!-- <bean id="VadConsultaOrdenSuburbiaWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.17.208.244:8080/vposBcOmniChannelSuburbiaV2/vposBcRest/recognition-store/" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderConsultaOrdenSuburbiaVad" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="GET" />
+		<property name="requestType"	    value="JSON" />
+	</bean> -->
+
+	<!-- Configuración de WS para consulta de hash CDP --> <!-- Timeout en sg -->
+	<!-- <bean id="getOnlineTokenWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.17.208.254:80/get-online-token"/>
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuildergetOnlineTokenWSConfig" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+	</bean> -->
+
+	<!-- Configuración de WS para búsqueda de clientes por hash CDP --> <!-- Timeout en sg -->
+	<!-- <bean id="getCustomerDataWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://apigee-pro.liverpool.com.mx/cdp-pos/ticket/v2/clientes/formapago?"/>
+		<property name="connectionSSL"      value="true" />
+		<property name="apiKey"             value="GaTTZAqSSJL2u3GmLqdLzwTkfejhGpIl09kLVHZva00dV8bs" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuildergetCustomerDataWSConfig" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="GET" />
+		<property name="useTlsv" 			value="TLSv1.2"/>
+	</bean> -->
+
+	<!-- Configuración de WS para búsqueda de clientes por datos de contacto CDP --> <!-- Timeout en sg -->
+	<!-- <bean id="getClienteContactoWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://apigee-pro.liverpool.com.mx/cdp-pos/ticket/v2/clientes/mediocontacto/?"/>
+		<property name="connectionSSL"      value="true" />
+		<property name="apiKey"             value="GaTTZAqSSJL2u3GmLqdLzwTkfejhGpIl09kLVHZva00dV8bs" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuildergetClienteContactoWSConfig" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="GET" />
+		<property name="useTlsv" 			value="TLSv1.2"/>
+	</bean> -->
+
+	<!-- Configuración de WS para búsqueda de órdendes de SOMS CDP --> <!-- Timeout en sg -->
+	<!-- <bean id="getOrderSomsWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://apigee-pro.liverpool.com.mx/cdp-pos/compras/v2/boletas/ordenSoms?"/>
+		<property name="connectionSSL"      value="true" />
+		<property name="apiKey"             value="GaTTZAqSSJL2u3GmLqdLzwTkfejhGpIl09kLVHZva00dV8bs" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuildergetOrderSomsWSConfig" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="GET" />
+		<property name="useTlsv" 			value="TLSv1.2"/>
+	</bean> -->
+
+	<!-- Configuración de WS para dar de alta un cliente CDP --> <!-- Timeout en sg -->
+	<!-- <bean id="addClienteWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://apigee-pro.liverpool.com.mx/cdp-pos/ticket/v2/clientes"/>
+		<property name="connectionSSL"      value="true" />
+		<property name="apiKey"             value="GaTTZAqSSJL2u3GmLqdLzwTkfejhGpIl09kLVHZva00dV8bs" />
+		<property name="timeout" 			value="10" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderaddClienteWSConfig" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+		<property name="useTlsv" 			value="TLSv1.2"/>
+	</bean> -->
+
+	<!-- Configuración de WS para actualizar un cliente CDP --> <!-- Timeout en sg -->
+	<!-- <bean id="updateClienteWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://apigee-pro.liverpool.com.mx/cdp-pos/ticket/v2/clientes/"/>
+		<property name="connectionSSL"      value="true" />
+		<property name="apiKey"             value="GaTTZAqSSJL2u3GmLqdLzwTkfejhGpIl09kLVHZva00dV8bs" />
+		<property name="timeout" 			value="10" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderupdateClienteWSConfig" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="PUT" />
+		<property name="requestType"	    value="JSON" />
+		<property name="useTlsv" 			value="TLSv1.2"/>
+	</bean> -->
+
+	<!-- Configuración de WS para actualizar el email de un cliente CDP --> <!-- Timeout en sg -->
+	<!-- <bean id="updateEmailClienteWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://apigee-pro.liverpool.com.mx/cdp-pos/ticket/v2/clientes/email"/>
+		<property name="connectionSSL"      value="true" />
+		<property name="apiKey"             value="GaTTZAqSSJL2u3GmLqdLzwTkfejhGpIl09kLVHZva00dV8bs" />
+		<property name="timeout" 			value="10" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderupdateEmailClienteWSConfig" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="PUT" />
+		<property name="requestType"	    value="JSON" />
+		<property name="useTlsv" 			value="TLSv1.2"/>
+	</bean> -->
+
+	<!-- Configuración de WS para envío de ticket digital CDP --> <!-- Timeout en sg -->
+	<!-- <bean id="sendVirtualTicketWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://pro-api.liverpool.com.mx/contactar-cliente/ticket-electronico"/>
+		<property name="connectionSSL"      value="true" />
+		<property name="apiKey"             value="TpJnVxEp0A3yTGnYM4Cx8sVAieGt2VM8cANMTNNl9cMrsMfR" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuildersendVirtualTicketWSConfig" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+		<property name="useTlsv"            value="TLSv1.2"/>
+	</bean> -->
+
+	<!-- Configuración de WS para ingesta de boletas CDP --> <!-- Timeout en sg -->
+	<!-- <bean id="ingestaBoletasWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://apigee-pro.liverpool.com.mx/cdp-pos/v2/boletas/"/>
+		<property name="connectionSSL"      value="true" />
+		<property name="apiKey"             value="GaTTZAqSSJL2u3GmLqdLzwTkfejhGpIl09kLVHZva00dV8bs" />
+		<property name="timeout" 			value="10" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderingestaBoletasWSConfig" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+		<property name="useTlsv" 			value="TLSv1.2"/>
+	</bean> -->
+
+	<!-- Configuración de WS para búsqueda de boletas CDP --> <!-- Timeout en sg -->
+	<!-- <bean id="getBoletasWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://apigee-pro.liverpool.com.mx/cdp-pos/compras/v2/boletas?"/>
+		<property name="connectionSSL"      value="true" />
+		<property name="apiKey"             value="GaTTZAqSSJL2u3GmLqdLzwTkfejhGpIl09kLVHZva00dV8bs" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuildergetBoletasWSConfig" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="GET" />
+		<property name="useTlsv" 			value="TLSv1.2"/>
+	</bean> -->
+
+	<!-- URL para baja de factura --> <!-- Timeout en sg -->
+	<!-- <bean id="CancelacionFacturaWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.17.203.158:7080/wbi/fec_cancelafactura" />
+		<property name="timeout" 			value="30" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderCancelacionFactura" />
+		<property name="wsType"	            value="SOAP" />
+		<property name="responseTranslator"	ref="simpleResponseTranslator" />
+	</bean> -->
+
+	<!-- Configuración de WS para consultar saldos de tarjetas DILISA/LPC --> <!-- Timeout en sg -->
+	<!-- <bean id="ConsultaSaldoWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.17.203.85:7091/wbi/cicstran" />
+		<property name="timeout" 			value="30" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderConsultaSaldo" />
+		<property name="wsType"	            value="SOAP" />
+		<property name="responseTranslator"	ref="simpleResponseTranslator" />
+	</bean> -->
+
+	<!-- Configuración de WS para devolución y cancelación de órdenes de Sastrería --> <!-- Timeout en sg -->
+	<!-- <bean id="SastreriaWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.27.203.25:7083/wbi/sa_servicioCambioEstatusOrdenes" />
+		<property name="timeout" 			value="30" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderSastreria" />
+		<property name="wsType"	            value="SOAP" />
+		<property name="responseTranslator"	ref="simpleResponseTranslator" />
+	</bean> -->
+
+	<!-- Configuración de WS para devolución a tarjetas Prosa --> <!-- Timeout en sg -->
+	<!-- <bean id="getInfoTransaction" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 				value="http://172.17.203.231:6000/ConsultaTransacciones/"/>
+		<property name="timeout" 				value="5" />
+		<property name="requestBuilder"			ref="removeHeadFootRequestBuildergetInfoTransaction" />
+		<property name="basicAuthenticationKey"	value="YWRtaW46YWRtaW4=" />
+		<property name="wsType"	            	value="REST" />
+		<property name="method"	            	value="POST" />
+		<property name="requestType"	    	value="JSON" />
+	</bean> -->
+
+	<!-- Configuración de WS para la generación de un código QR --> <!-- Timeout en sg -->
+	<!-- <bean id="getQRCodeWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.22.13.75:8080/getQRCode?"/>
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuildergetQRCodeWSConfig" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+		<property name="agentMsg"     		value="true" />
+	</bean> -->
+
+	<!-- Configuración de WS para devolución de OMS --> <!-- Timeout en sg -->
+	<!-- <bean id="OmsRefund" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://apigee-pro.liverpool.com.mx/oms-int-2002/v1/int2002-refund-confirmation"/>
+		<property name="connectionSSL" 		value="true"/>
+		<property name="apiKey" 			value="GaTTZAqSSJL2u3GmLqdLzwTkfejhGpIl09kLVHZva00dV8bs"/>
+		<property name="timeout" 			value="5"/>
+		<property name="requestBuilder" 	ref="removeHeadFootRequestBuilderOmsRefund"/>
+		<property name="wsType" 			value="REST"/>
+		<property name="method" 			value="POST"/>
+		<property name="requestType" 		value="JSON"/>
+		<property name="useTlsv" 			value="TLSv1.2"/>
+	</bean> -->
+
+	<!-- Configuración de WS para venta de OMS --> <!-- Timeout en sg -->
+	<!-- <bean id="OmsOrderLoadWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://apigee-pro.liverpool.com.mx/oms/v2/int/200"/>
+		<property name="connectionSSL"      value="true" />
+		<property name="apiKey"             value="FomhGJSGyWpTm4MMEDAl77l2Ki9s9jCoW1xDGemD1gerMzC9" />
+		<property name="timeout" 			value="10" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderOmsOrderLoad" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+		<property name="useTlsv" 			value="TLSv1.2"/>
+	</bean> -->
+
+	<!-- Configuración de WS para búsqueda de orden de OMS --> <!-- Timeout en sg -->
+	<!-- <bean id="OmsGetOrderDetailWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://apigee-pro.liverpool.com.mx/oms/v1/int/2010"/>
+		<property name="connectionSSL"		value="true" />
+		<property name="apiKey"             value="FomhGJSGyWpTm4MMEDAl77l2Ki9s9jCoW1xDGemD1gerMzC9" />
+		<property name="timeout" 			value="10" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderOmsGetOrderDetail" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+		<property name="useTlsv" 			value="TLSv1.2"/>
+	</bean> -->
+
+	<!-- Configuración de WS para confirmación devolución de OMS --> <!-- Timeout en sg -->
+	<!-- <bean id="OmsRefoundConfirmationWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://apigee-pro.liverpool.com.mx/oms/v1/int/2002"/>
+		<property name="connectionSSL"		value="true" />
+		<property name="apiKey"             value="FomhGJSGyWpTm4MMEDAl77l2Ki9s9jCoW1xDGemD1gerMzC9" />
+		<property name="timeout" 			value="10" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderOmsRefoundConfirmation" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+		<property name="useTlsv" 			value="TLSv1.2"/>
+	</bean> -->
+
+	<!-- Configuración de WS para cancelación de OMS --> <!-- Timeout en sg -->
+	<!-- <bean id="OmsOrderCancelationWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://apigee-pro.liverpool.com.mx/oms/v1/int/2015"/>
+		<property name="connectionSSL"		value="true" />
+		<property name="apiKey"             value="FomhGJSGyWpTm4MMEDAl77l2Ki9s9jCoW1xDGemD1gerMzC9" />
+		<property name="timeout" 			value="10" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderOmsOrderCancelation" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+		<property name="useTlsv" 			value="TLSv1.2"/>
+	</bean> -->
+	
+    <!-- Configuración de WS para consulta de inventario y fecha estimada de entrega de OMS --> <!-- Timeout en sg -->
+	<!-- <bean id="OmsEstimatedDeliveryDateWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://fechaestimadaqa2.liverpool.com.mx:4007/api/V4/LP"/>
+		<property name="connectionSSL"		value="true" />
+		<property name="bearerAuthenticationKey"	    value="1234" />
+		<property name="timeout" 			value="10" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderOmsEstimatedDeliveryDate" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+	</bean> -->
+
+	<!-- Configuración de WS para la generación de un código descargable --> <!-- Timeout en sg -->
+	<!-- <bean id="getDownloadableCodeWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.17.208.67:9080/adapter/api/v1/orders"/>
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuildergetDownloadableCodeWSConfig" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+	</bean> -->
+
+	<!-- Configuración de WS para la consulta de saldo de crédito al consumo de Suburbia --> <!-- Timeout en sg -->
+	<!-- <bean id="ConsultaSaldoCCWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.16.203.203:7090/credits/v1/clients/saldos"/>
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderConsultaSaldoCCWSConfig" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+	</bean> -->
+
+	<!-- Configuración de WS para la consulta de ciudades por región para SIM Telcel --> <!-- Timeout en sg -->
+	<!-- <bean id="ConsultCitiesWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://apigee-pro.liverpool.com.mx/servicios/activacionestelcel/ConsultarCiudadesPorRegionID"/>
+		<property name="connectionSSL"      value="true" />
+		<property name="apiKey"             value="SGebpbzCv5m3pprEtHXuSPQiRw6gY0p58Hag5y82CR8wIqVe" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderSimConsultCitiesWSConfig" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+		<property name="useTlsv" 			value="TLSv1.2"/>
+	</bean> -->
+
+	<!-- Configuración de WS para la consulta del status de la SIM Telcel --> <!-- Timeout en sg -->
+	<!-- <bean id="ConsultSimStatusWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://apigee-pro.liverpool.com.mx/servicios/activacionestelcel/ConsultarEstatusICCID"/>
+		<property name="connectionSSL"      value="true" />
+		<property name="apiKey"             value="SGebpbzCv5m3pprEtHXuSPQiRw6gY0p58Hag5y82CR8wIqVe" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderSimConsultStatusWSConfig" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+		<property name="useTlsv" 			value="TLSv1.2"/>
+	</bean> -->
+
+	<!-- Configuración de WS para la activación de la SIM Telcel --> <!-- Timeout en sg -->
+	<!-- <bean id="SimActivationWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://apigee-pro.liverpool.com.mx/servicios/activacionestelcel/ActivarLinea"/>
+		<property name="connectionSSL"      value="true" />
+		<property name="apiKey"             value="SGebpbzCv5m3pprEtHXuSPQiRw6gY0p58Hag5y82CR8wIqVe" />
+		<property name="timeout" 			value="30" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderSimActivationWSConfig" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+		<property name="useTlsv" 			value="TLSv1.2"/>
+	</bean> -->
+
+	<!-- Configuración de WS para la consulta de la venta a devolver --> <!-- Timeout en sg -->
+	<!-- <bean id="CdpRefoundOrderDetail" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://apigee-pro.liverpool.com.mx/devoluciones-cliente/v1/consulta"/>
+		<property name="connectionSSL"      value="true" />
+		<property name="apiKey"             value="yC5OvScO2qiRuZva6oFuGgHACSMH8BN9a79M8mju1o6YaTGG" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderCdpRefoundGetOrderDetail" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+		<property name="useTlsv" 			value="TLSv1.2"/>
+	</bean> -->
+
+	<!-- Configuración de WS para actualizar la venta devuelta --> <!-- Timeout en sg -->
+	<!-- <bean id="CdpRefoundUpdateOrderDetail" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://apigee-pro.liverpool.com.mx/devoluciones-cliente/v1/registro"/>
+		<property name="connectionSSL"      value="true" />
+		<property name="apiKey"             value="yC5OvScO2qiRuZva6oFuGgHACSMH8BN9a79M8mju1o6YaTGG" />
+		<property name="timeout" 			value="10" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderCdpRefoundUpdateOrderDetail" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+		<property name="useTlsv" 			value="TLSv1.2"/>
+	</bean> -->
+
+	<!-- Configuración de WS para obtener la remisión --> <!-- Timeout en sg -->
+	<!-- <bean id="SOMSGetFoliosRemisiones" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.17.218.214:7010/ws_folios_offline/rest/api/v1/folios/give_folio"/>
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderSOMSGetFoliosRemisiones" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+	</bean> -->
+
+	<!-- Configuración de WS para obtener el token de reparación de accesorios o renta de trajes y vestidos --> <!-- Timeout en sg -->
+	<!-- <bean id="VasGenerateRepairToken" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://pro-api.liverpool.com.mx/mkt/oauth2/v1/access_token?grant_type=client_credentials"/>
+		<property name="connectionSSL"      value="true" />
+		<property name="basicAuthenticationKey"	    value="R3YzUFM3MmhBMkFJQ1RJUW5ZZ2dXYkpDRlR3T2RsNW9VcngxdUtzbTl1RVZVMjRlOnFHUGRyZ05IWEdUa2EwT2NyZURPRXUxcWlvenVvcU15UTIwMFp0SDhJTGdyQnVTZkU0d09XT1VRYlloTEtmR3c=" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderVasGenerateRepairToken" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+	</bean> -->
+
+	<!-- Configuración de WS para obtener la información de la orden de reparación de accesorios --> <!-- Timeout en sg -->
+	<!-- <bean id="VasRequestPaymentInformation" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://pro-api.liverpool.com.mx/mkt/api/repairs/v1/budgets/"/>
+		<property name="connectionSSL"      value="true" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderVasRequestPaymentInformation" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="GET" />
+		<property name="marketplaceId"		value="2" />
+	</bean> -->
+
+	<!-- Configuración de WS para confirmar el pago de la orden de reparación de accesorios --> <!-- Timeout en sg -->
+	<!-- <bean id="VasNotificationPaymentMade" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://pro-api.liverpool.com.mx/mkt/api/repairs/v1/orders/change/status"/>
+		<property name="connectionSSL"      value="true" />
+		<property name="timeout" 			value="10" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderVasNotificationPaymentMade" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="PUT" />
+		<property name="requestType"	    value="JSON" />
+		<property name="marketplaceId"		value="2" />
+		<property name="requestBodyType"	value="application/json"/>
+	</bean> -->
+
+	<!-- Configuración de WS para obtener la información de la orden de renta de trajes --> <!-- Timeout en sg -->
+	<!-- <bean id="VasRequestPaymentInformationSuit" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://qat-api.liverpool.com.mx/pos/v1/orders?"/>
+		<property name="connectionSSL"      value="true" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderVasRequestSuit" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="GET" />
+		<property name="marketplaceId"		value="4"/>
+		<property name="requestBodyType"	value="application/json"/>
+	</bean> -->
+
+	<!-- Configuración de WS para confirmar el pago de la orden de renta de trajes --> <!-- Timeout en sg -->
+	<!-- <bean id="VasNotificationPaymentSuit" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://qat-api.liverpool.com.mx/pos/v1/orders?"/>
+		<property name="connectionSSL"      value="true" />
+		<property name="timeout" 			value="10" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderVasNotificationPaymentSuit" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="PUT" />
+		<property name="requestType"	    value="JSON" />
+		<property name="marketplaceId"		value="4"/>
+		<property name="requestBodyType"	value="application/json"/>
+	</bean> -->
+
+	<!-- Configuración de WS para obtener la información de la orden de renta de vestidos --> <!-- Timeout en sg -->
+	<!-- <bean id="VasRequestPaymentInformationDress" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://qat-api.liverpool.com.mx/pos/v1/orders?"/>
+		<property name="connectionSSL"      value="true" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderVasRequestDress" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="GET" />
+		<property name="marketplaceId"		value="5"/>
+		<property name="requestBodyType"	value="application/json"/>
+	</bean> -->
+
+	<!-- Configuración de WS para confirmar el pago de la orden de renta de vestidos --> <!-- Timeout en sg -->
+	<!-- <bean id="VasNotificationPaymentDress" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://qat-api.liverpool.com.mx/pos/v1/orders?"/>
+		<property name="connectionSSL"      value="true" />
+		<property name="timeout" 			value="10" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderVasNotificationPaymentDress" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="PUT" />
+		<property name="requestType"	    value="JSON" />
+		<property name="marketplaceId"		value="5"/>
+		<property name="requestBodyType"	value="application/json"/>
+	</bean> -->
+
+	<!-- Configuración de WS para cargar la llave maestra --> <!-- Timeout en sg -->
+	<!-- <bean id="CargaLlaveMaestraWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.16.201.132:8081/Liverpool/ServicioPin.svc"/>
+		<property name="action" 			value="http://tempuri.org/IServicioPin/CargaLlaveMaestra" />
+		<property name="timeout" 			value="30" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderCargaLlaveMaestra" />
+		<property name="wsType"	            value="SOAP" />
+		<property name="method"	            value="POST" />
+		<property name="retryTimeOut"	    value="1" />
+		<property name="responseTranslator"	ref="simpleResponseTranslator" />
+	</bean> -->
+
+	<!-- Configuración de WS para cargar la llave de sesión --> <!-- Timeout en sg -->
+	<!-- <bean id="CargaLlaveDeSessionWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://172.16.201.132:8081/Liverpool/ServicioPin.svc"/>
+		<property name="action" 			value="http://tempuri.org/IServicioPin/CargaLlaveDeSesion" />
+		<property name="timeout" 			value="30" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderCargaLlaveDeSession" />
+		<property name="wsType"	            value="SOAP" />
+		<property name="method"	            value="POST" />
+		<property name="retryTimeOut"	    value="1" />
+		<property name="responseTranslator"	ref="simpleResponseTranslator" />
+	</bean> -->
+
+	<!-- Configuración de WS para consultar el listado de planes para Samsung Care+ --> <!-- Timeout en sg -->
+	<!-- <bean id="SamsungCareGetConsultaPlanes" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://apigee-pro.liverpool.com.mx/livcare/samsung/product/list"/>
+		<property name="connectionSSL"      value="true" />
+		<property name="apiKey"             value="xal1LOyaRfQIsEagOB3Qrtl0BCDe20gU5I7PLXusr36IoFAt" />
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderSamsungCareGetConsultaPlanes" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+		<property name="useTlsv" 			value="TLSv1.2"/>
+	</bean> -->
+
+	<!-- Configuración de WS para realizar devoluciones de Apple Care -->  <!-- Timeout en sg -->
+	<!-- <bean id="AppleCareGetDevolucion" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://apigee-pro.liverpool.com.mx/livcare/general/cancelation"/>
+		<property name="connectionSSL"      value="true" />
+		<property name="apiKey"             value="xal1LOyaRfQIsEagOB3Qrtl0BCDe20gU5I7PLXusr36IoFAt" />
+		<property name="timeout" 			value="10" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderAppleCareGetDevolucion" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+		<property name="useTlsv" 			value="TLSv1.2"/>
+	</bean> -->
+
+	<!-- Configuración de WS para validar el dispositivo y crear el contrato para Apple Care y Samsung Care+ --> <!-- Timeout en sg -->
+	<!-- <bean id="AppleSamsungCareGetAprovContractPlan" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="https://apigee-pro.liverpool.com.mx/livcare/general/registration"/>
+		<property name="connectionSSL"      value="true" />
+		<property name="apiKey"             value="xal1LOyaRfQIsEagOB3Qrtl0BCDe20gU5I7PLXusr36IoFAt" />
+		<property name="timeout" 			value="10" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderAppleSamsungCareGetAprovContractPlan" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+		<property name="useTlsv" 			value="TLSv1.2"/>
+	</bean> -->
+
+	<!-- wsConfiguration contiene un mapa de objetos del tipo com.synthesis.webServices.client.WebServiceConfiguration -->
+	<bean id="configurationUtil" class="com.synthesis.invoicing.client.util.ConfigurationUtil" scope="singleton">
+		<property name="wsConfiguration">
+			<map>
+				<entry>
+					<key><value>ifac:FacturarPOSRequest</value></key>
+					<ref bean="facturarPOSRequest"/>
+				</entry>
+				<entry>
+					<key><value>crm:CRMPOSRequest</value></key>
+					<ref bean="CRMWSConfig"/>
+				</entry>
+				<entry>
+					<key><value>crm:CRMLoyaltyPOSRequest</value></key>
+					<ref bean="CRMLoyaltyWSConfig"/>
+				</entry>
+				<entry>
+					<key><value>vella:VellaRequest</value></key>
+					<ref bean="VellaWSConfig"/>
+				</entry>
+				<entry>
+					<key><value>mesa:MesaPOSRequest</value></key>
+					<ref bean="MesaWSConfig"/>
+				</entry>
+				<entry>				  
+					<key><value>mesa:ConfirmaRequest</value></key>
+					<ref bean="MesaConfirmaWSConfig"/>
+				</entry>
+				<entry>
+					<key><value>mesa:GeneraOrdenSomsRequest</value></key>
+					<ref bean="MesaGeneraOrdenSomsWSConfig"/>
+				</entry>
+				<entry>
+					<key><value>mesa:CancelaRequest</value></key>
+					<ref bean="MesaCancelaWSConfig"/>
+				</entry>
+				<entry>
+					<key><value>omnicanal:VariantesRequest</value></key>
+					<ref bean="VariantesWSConfig"/>
+				</entry>
+				<entry>
+					<key><value>omnicanal:ClientesRequest</value></key>
+					<ref bean="ConsultarClientesWSConfig"/>
+				</entry>
+				<entry>
+					<key><value>omnicanal:ClientesCreate</value></key>
+					<ref bean="CrearClientesWSConfig"/>
+				</entry>
+				<entry>
+					<key><value>omnicanal:ConsultaCodigoPostal</value></key>
+					<ref bean="ConsultaCodigoPostalWSConfig"/>
+				</entry>
+				<entry>
+					<key><value>omnicanal:ConsultaCalles</value></key>
+					<ref bean="ConsultaCallesWSConfig"/>
+				</entry>
+				<entry>
+					<key><value>omnicanal:ConsultaItr</value></key>
+					<ref bean="ConsultaItrWSConfig"/>
+				</entry>
+				<entry>
+					<key><value>omnicanal:CreaActualizaOVREM</value></key>
+					<ref bean="CreaActualizaOVREMWSConfig"/>
+				</entry>
+				<entry>
+					<key><value>omnicanal:DireccionClienteRequest</value></key>
+					<ref bean="ConsultarDireccionClienteWSConfig"/>
+				</entry>
+				<entry>
+					<key><value>omnicanal:CrearCalleRequest</value></key>
+					<ref bean="CrearCalleWSConfig"/>
+				</entry>
+				<entry>
+					<key><value>omnicanal:ActualizaItr</value></key>
+					<ref bean="ActualizaItrWSConfig"/>
+				</entry>
+				<entry>
+					<key><value>omnicanal:CreaMsgMQ</value></key>
+					<ref bean="CreaMsgMQWSConfig"/>
+				</entry>
+				<entry>
+					<key><value>omnicanal:getEstimatedDate</value></key>
+					<ref bean="getEstimatedDateWSConfig"/>
+				</entry>
+				<entry>
+					<key><value>marketplace:VariantesPDPMarketplace</value></key>
+					<ref bean="VariantesPDPMarketplace"/>
+				</entry>
+				<entry>
+					<key><value>marketplace:GenericoPLPMarketplace</value></key>
+					<ref bean="GenericoPLPMarketplace"/>
+				</entry>
+				<entry>
+					<key><value>marketplace:GetSellerOfferMarketplace</value></key>
+					<ref bean="GetSellerOfferMarketplace"/>
+				</entry>
+				<entry>
+					<key><value>marketplace:BuilderInventoryMarketplace</value></key>
+					<ref bean="BuilderInventoryMarketplace"/>
+				</entry>
+				<entry>
+					<key><value>marketplace:CreaActualizaOVREMMarketplace</value></key>
+					<ref bean="CreaActualizaOVREMMarketplace"/>
+				</entry>
+				<entry>
+					<key><value>marketplace:CreateMarketplace</value></key>
+					<ref bean="CreateMarketplaceConf"/>
+				</entry>
+				<entry>
+					<key><value>marketplace:ChangeInventoryMarketplace</value></key>
+					<ref bean="ChangeInventoryMarketplace"/>
+				</entry>
+				<entry>
+					<key><value>marketPlace:ConsultaPedidoRequest</value></key>
+					<ref bean="ConsultaPedidoMkpWSConfig"/>
+				</entry>
+				<entry>
+					<key><value>marketPlace:ConsultaIdDevRequest</value></key>
+					<ref bean="ConsultaIdDevMkpWSConfig"/>
+				</entry>
+				<entry>
+					<key><value>marketPlace:ConsultaIdCancelRequest</value></key>
+					<ref bean="ConsultaIdCancelMkpWSConfig"/>
+				</entry>
+				<entry>
+					<key><value>marketPlace:ConfirmaDevRequest</value></key>
+					<ref bean="ConfirmaDevMkpWSConfig"/>
+				</entry>
+				<entry>
+					<key><value>marketPlace:ConfirmaCancelRequest</value></key>
+					<ref bean="ConfirmaCancelMkpWSConfig"/>
+				</entry>
+				<entry>
+					<key><value>mkp:getChangeIndicatorLevelOrder</value></key>
+					<ref bean="ChangeIndicatorMkpWSConfig"/>
+				</entry>
+				<entry>
+					<key><value>mkp:getStatusItemRequest</value></key>
+					<ref bean="getStatusItemMKPWSConfig"/>
+				</entry>
+				<entry>
+					<key><value>mkp:cancelDevEcommerceRequest</value></key>
+					<ref bean="cancelDevEcommerceWSConfig"/>
+				</entry>
+				<entry>
+					<key><value>vad:ConsultaOrden</value></key>
+					<ref bean="VadConsultaOrdenWSConfig"/>
+				</entry>
+				<entry>
+					<key><value>vad:ConsultaOrdenSuburbia</value></key>
+					<ref bean="VadConsultaOrdenSuburbiaWSConfig"/>
+				</entry>
+				<entry>
+					<key><value>cdp:getOnlineToken</value></key>
+					<ref bean="getOnlineTokenWSConfig"/>
+				</entry>
+				<entry>
+					<key><value>cdp:getCustomerData</value></key>
+					<ref bean="getCustomerDataWSConfig"/>
+				</entry>
+				<entry>
+					<key><value>cdp:getClienteContacto</value></key>
+					<ref bean="getClienteContactoWSConfig"/>
+				</entry>
+				<entry>
+					<key><value>cdp:getOrderSoms</value></key>
+					<ref bean="getOrderSomsWSConfig"/>
+				</entry>
+				<entry>
+					<key><value>cdp:addCliente</value></key>
+					<ref bean="addClienteWSConfig"/>
+				</entry>
+				<entry>
+					<key><value>cdp:updateCliente</value></key>
+					<ref bean="updateClienteWSConfig"/>
+				</entry>
+				<entry>
+					<key><value>cdp:updateEmailCliente</value></key>
+					<ref bean="updateEmailClienteWSConfig"/>
+				</entry>
+				<entry>
+					<key><value>cdp:sendVirtualTicket</value></key>
+					<ref bean="sendVirtualTicketWSConfig"/>
+				</entry>
+				<entry>
+					<key><value>cdp:ingestaBoletas</value></key>
+					<ref bean="ingestaBoletasWSConfig"/>
+				</entry>
+				<entry>
+					<key><value>cdp:getBoletas</value></key>
+					<ref bean="getBoletasWSConfig"/>
+				</entry>
+				<entry>
+					<key><value>cancelacionFactura</value></key>
+					<ref bean="CancelacionFacturaWSConfig"/>
+				</entry>
+				<entry>
+					<key><value>consultaSaldo</value></key>
+					<ref bean="ConsultaSaldoWSConfig"/>
+				</entry>
+				<entry>
+					<key><value>sastreria</value></key>
+					<ref bean="SastreriaWSConfig"/>
+				</entry>
+				<entry>
+					<key><value>devProsa:getInfoTransaction</value></key>
+					<ref bean="getInfoTransaction"/>
+				</entry>
+				<entry>
+					<key><value>getQRCode</value></key>
+					<ref bean="getQRCodeWSConfig"/>
+				</entry>
+				<entry>
+					<key><value>oms:refund</value></key>
+					<ref bean="OmsRefund"/>
+				</entry>
+				<entry>
+					<key><value>oms:OrderLoad</value></key>
+					<ref bean="OmsOrderLoadWSConfig"/>
+				</entry>
+				<entry>
+					<key><value>oms:GetOrderDetail</value></key>
+					<ref bean="OmsGetOrderDetailWSConfig"/>
+				</entry>
+				<entry>
+					<key><value>oms:RefoundConfirmation</value></key>
+					<ref bean="OmsRefoundConfirmationWSConfig"/>
+				</entry>
+				<entry>
+					<key><value>oms:OrderCancelation</value></key>
+					<ref bean="OmsOrderCancelationWSConfig"/>
+				</entry>
+				<entry>
+					<key><value>oms:EstimatedDeliveryDate</value></key>
+					<ref bean="OmsEstimatedDeliveryDateWSConfig"/>
+				</entry>
+				<entry>
+					<key><value>desItm:getDownloadableCode</value></key>
+					<ref bean="getDownloadableCodeWSConfig"/>
+				</entry>
+				<entry>
+					<key><value>sbbCC:ConsultaSaldoCC</value></key>
+					<ref bean="ConsultaSaldoCCWSConfig"/>
+				</entry>
+				<entry>
+					<key><value>simTEL:ConsultCitiesByRegion</value></key>
+					<ref bean="ConsultCitiesWSConfig"/>
+				</entry>
+				<entry>
+					<key><value>simTEL:ConsultSimStatus</value></key>
+					<ref bean="ConsultSimStatusWSConfig"/>
+				</entry>
+				<entry>
+					<key><value>simTEL:SimActivation</value></key>
+					<ref bean="SimActivationWSConfig"/>
+				</entry>
+				<entry>
+					<key><value>cdpRefound:GetOrderDetail</value></key>
+					<ref bean="CdpRefoundOrderDetail"/>
+				</entry>
+				<entry>
+					<key><value>cdpRefound:UpdateOrderDetail</value></key>
+					<ref bean="CdpRefoundUpdateOrderDetail"/>
+				</entry>
+				<entry>
+					<key><value>SOMS:GetFoliosRemision</value></key>
+					<ref bean="SOMSGetFoliosRemisiones"/>
+				</entry>
+				<entry>
+					<key><value>VAS:GetRepairToken</value></key>
+					<ref bean="VasGenerateRepairToken"/>
+				</entry>
+				<entry>
+					<key><value>VAS:GetPaymentInformation</value></key>
+					<ref bean="VasRequestPaymentInformation"/>
+				</entry>
+				<entry>
+					<key><value>VAS:GetNotificationPaymentMade</value></key>
+					<ref bean="VasNotificationPaymentMade"/>
+				</entry>
+				<entry>
+					<key><value>VAS:GetPaymentSuitInformation</value></key>
+					<ref bean="VasRequestPaymentInformationSuit"/>
+				</entry>
+				<entry>
+					<key><value>VAS:GetNotificationSuitPaymentMade</value></key>
+					<ref bean="VasNotificationPaymentSuit"/>
+				</entry>
+				<entry>
+					<key><value>VAS:GetPaymentDressInformation</value></key>
+					<ref bean="VasRequestPaymentInformationDress"/>
+				</entry>
+				<entry>
+					<key><value>VAS:GetNotificationDressPaymentMade</value></key>
+					<ref bean="VasNotificationPaymentDress"/>
+				</entry>
+				<entry>
+					<key><value>cargaLlaveMaestra:CargaLlaveMaestraPOSRequest</value></key>
+					<ref bean="CargaLlaveMaestraWSConfig"/>
+				</entry>
+				<entry>
+					<key><value>cargaLlaveDeSession:CargaLlaveDeSessionPOSRequest</value></key>
+					<ref bean="CargaLlaveDeSessionWSConfig"/>
+				</entry>
+				<entry>
+					<key><value>SamsungCare:GetConsultaPlanes</value></key>
+					<ref bean="SamsungCareGetConsultaPlanes"/>
+				</entry>
+				<entry>
+					<key><value>AppleCare:GetDevolucion</value></key>
+					<ref bean="AppleCareGetDevolucion"/>
+				</entry>
+				<entry>
+					<key><value>AppleSamsungCare:GetAprovContractPlan</value></key>
+					<ref bean="AppleSamsungCareGetAprovContractPlan"/>
+				</entry>
+			</map>
+		</property>
+	</bean>
+</beans>

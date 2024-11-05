@@ -1,0 +1,57 @@
+#############################################################
+# This is the default JavaPOS property file.   It is        #
+# based on SAMPLE.PRP however, JPOS.PRP may be changed by   #
+# the user and therefore will not change in future          #
+# 4690 maintenance packages.  SAMPLE.PRP may change and     #
+# should not be changed by the user.                        #
+#############################################################
+
+#############################################################
+#                                                           #
+# LOCATION OF XML FILE SPECIFYING OEM SERVICES TO BE LOADED #
+#                                                           #
+#############################################################
+
+#[OEMJPOS]               c:\java\oemjpos.xml
+[OEMJPOS]               q:/OEMSTS.XML
+
+
+######################################################################
+#                                                                    #
+# RENAMES MAPPING NEW LOGICAL NAMES TO OLD (v2r2/v2r3) LOGICAL NAMES #
+#                                                                    #
+######################################################################
+
+[MSR]                   defaultMSR
+[MSR_DB]                MSR_DB
+
+[HandHeldScanner]       defaultScanner
+
+[FlatBedScanner]        IBM4696Scanner
+
+[IBM4610Printer]        IBM4610Printer
+[MICR]                  defaultMICR
+
+[Display]               ADXPIA0:
+[DisplayOperator]       ADXPIE0:
+
+[POSKeyboard]           ADXPIK0:
+
+[ToneIndicator]         RS485ToneIndicator
+[Keylock]               defaultKeylock
+
+[CashDrawer]            ADXPID0:
+
+[Scale]                 defaultScale
+
+[HardTotals]            ADXPIT0:
+
+
+############################################
+#                                          #
+# DEFAULT KEY TRANSLATION FILE DEFINITIONS #
+#                                          #
+############################################
+
+[KEY_TRANSLATION]       q:/bconnkbd.dat
+#[KEY_TRANSLATION]       c:\java\adxkeyjp.dat

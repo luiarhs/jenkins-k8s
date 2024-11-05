@@ -1,0 +1,136 @@
+<?xml version="1.0"?>
+
+<!--
+	$Header: /usr/local/cvs_ssf/Promo_V2.4/rs-promo-framework/conf/v2.3/conf-rules/session-layer-rules.xml,v 1.1 2006/05/30 16:34:56 christianbohm Exp $
+-->
+
+<digester-rules>
+
+<pattern value="collection">
+
+	<factory-create-rule classname="ar.com.retailsolutions.common.configuration.DigesterObjectCreationFactory"/>
+
+	<pattern value="parameter">
+		<object-create-rule classname="ar.com.retailsolutions.common.configuration.SingleParameter"/>
+		<set-properties-rule/>
+		<set-next-rule methodname="addParameter" />
+	</pattern>
+
+	<pattern value="data-set">
+
+		<factory-create-rule classname="ar.com.retailsolutions.common.configuration.DigesterObjectCreationFactory"/>
+      
+		<pattern value="parameter">
+	   		<object-create-rule classname="ar.com.retailsolutions.common.configuration.SingleParameter"/>
+	   		<set-properties-rule/>
+	   		<set-next-rule methodname="addParameter" />
+   		</pattern>
+	
+	
+		<pattern value="content">
+		
+			<factory-create-rule classname="com.synthesis.promo.engine.session.config.ContentCollectionObjectCreationFactory"/>
+		
+			<pattern value="action-fields">
+
+				<factory-create-rule classname="com.synthesis.promo.engine.session.config.ActionFieldCollectionObjectCreationFactory"/>
+					
+				<pattern value="field">
+					<object-create-rule classname="com.synthesis.promo.engine.session.config.FieldParameter"/>
+	  				<set-properties-rule/>
+	 				<set-properties-rule>
+	  					<alias attr-name="trigger-method" prop-name="triggerMethod"/>
+	 				</set-properties-rule>	  				
+					<set-next-rule methodname="addParameter" />
+				</pattern>
+	   			
+		   		<set-top-rule  methodname="setTransversalParameterCollection"/>			
+	   	
+		   	</pattern>
+	   	
+		   	<pattern value="execute-fields">
+		   	
+		   		<factory-create-rule classname="com.synthesis.promo.engine.session.config.FieldParameterCollectionObjectCreationFactory"/>
+		   		
+				<pattern value="field">
+					<object-create-rule classname="com.synthesis.promo.engine.session.config.FieldParameter"/>
+	   				<set-properties-rule/>
+	   				<set-properties-rule>
+	   					<alias attr-name="trigger-method" prop-name="triggerMethod"/>
+	   				</set-properties-rule>
+	  				<set-next-rule methodname="addParameter" />
+				</pattern>
+	   			
+		   		<set-top-rule  methodname="setTransversalParameterCollection"/>
+		   	
+		   	</pattern>
+
+
+		   	<pattern value="collection">
+		   	
+		   		<factory-create-rule classname="com.synthesis.promo.engine.session.config.FieldStructureCollectionObjectCreationFactory"/>
+		   		
+				<pattern value="field">
+	   				<object-create-rule classname="com.synthesis.promo.engine.session.config.FieldParameter"/>
+	     			<set-properties-rule/>
+	     			<set-properties-rule>
+	     				<alias attr-name="default-value" prop-name="defaultValue"/>
+	     				<alias attr-name="included-for-remove" prop-name="includedForRemove"/> 
+	     				<alias attr-name="initialize-with" prop-name="initializeWith"/>
+	     			</set-properties-rule>	  				
+	     			<set-next-rule methodname="addParameter" />
+	   			</pattern>
+	
+				<pattern value="index">
+	
+					<factory-create-rule classname="com.synthesis.promo.engine.session.config.IndexFieldCollectionObjectCreationFactory"/>
+						
+					<pattern value="field">
+						<object-create-rule classname="com.synthesis.promo.engine.session.config.FieldParameter"/>
+		  				<set-properties-rule/>
+		 				<set-properties-rule>
+		     				<alias attr-name="default-value" prop-name="defaultValue"/>
+		     				<alias attr-name="included-for-remove" prop-name="includedForRemove"/>
+		 				</set-properties-rule>	  				
+						<set-next-rule methodname="addParameter" />
+					</pattern>
+		   			
+			   		<set-top-rule  methodname="setTransversalParameterCollection"/>			
+		   	
+			   	</pattern>
+   			
+		   		<set-top-rule  methodname="setTransversalParameterCollection"/>			
+		   	
+		   	</pattern>
+		   
+		   
+	   		<set-top-rule  methodname="setTransversalParameterCollection"/>	
+		   
+		</pattern>
+
+	
+		<pattern value="element">
+		
+			<factory-create-rule classname="com.synthesis.promo.engine.session.config.FieldElementCollectionObjectCreationFactory"/>
+			
+   				<pattern value="field">
+					<object-create-rule classname="com.synthesis.promo.engine.session.config.FieldParameter"/>
+	  				<set-properties-rule/>
+	 				<set-properties-rule>
+	     				<alias attr-name="default-value" prop-name="defaultValue"/>
+	 				</set-properties-rule>	  				
+					<set-next-rule methodname="addParameter" />
+				</pattern>
+   			
+	   		<set-top-rule  methodname="setTransversalParameterCollection"/>			
+		   	
+	   	</pattern>
+		
+		
+		<set-top-rule  methodname="setTransversalParameterCollection"/>
+		
+	</pattern>
+	
+</pattern>
+		
+</digester-rules>

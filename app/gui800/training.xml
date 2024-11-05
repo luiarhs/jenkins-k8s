@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<component name="TRAINING_FORM" class="ar.com.synthesis.pos.component.FormComponent" producer="SuiteProducer">
+
+      <component name = "TRAINING_1" class="ar.com.synthesis.pos.component.InputTextComponent">
+         <property key = "size"      x = "600"  y = "50" />
+         <property key = "location"  x = "50"  y = "80"  />
+         <property key = "visible"   value = "true"       />
+         <property key = "color"     color = "0xFF0000"   />
+         <property key = "font"      value = "HELVETICA-BOLD-45"/>
+         <property key = "forecolor" color = "0xAAAAAA"  />
+         <property key = "opaque"    value = "false"     />
+         <property key = "editable"  value = "false"     />
+         <property key = "align"     value = "center"      />
+         <property key = "alpha"     value = "100" />
+         
+         <!-- EVENTO DEL AREA DE TEXTO DE SALIDA -->
+         <event id = "TEXT">
+            <handler name = "ar.com.synthesis.pos.handler.InputTextHandler"/>
+         </event>
+      </component>
+      
+      <component name = "TRAINING_2" class="ar.com.synthesis.pos.component.InputTextComponent">
+         <property key = "size"      x = "600"  y = "50" />
+         <property key = "location"  x = "50"  y = "275"  />
+         <property key = "visible"   value = "true"       />
+         <property key = "color"     color = "0xFF0000"   />
+         <property key = "font"      value = "HELVETICA-BOLD-45"/>
+         <property key = "forecolor" color = "0xAAAAAA"  />
+         <property key = "opaque"    value = "false"     />
+         <property key = "editable"  value = "false"     />
+         <property key = "align"     value = "center"      />
+         <property key = "alpha"     value = "100" />
+         
+         <!-- EVENTO DEL AREA DE TEXTO DE SALIDA -->
+         <event id = "TEXT">
+            <handler name = "ar.com.synthesis.pos.handler.InputTextHandler"/>
+         </event>
+      </component>
+      
+      <component name = "TRAINING_3" class="ar.com.synthesis.pos.component.InputTextComponent">
+         <property key = "size"      x = "600"  y = "50" />
+         <property key = "location"  x = "50"  y = "495"  />
+         <property key = "visible"   value = "true"       />
+         <property key = "color"     color = "0xFF0000"   />
+         <property key = "font"      value = "HELVETICA-BOLD-45"/>
+         <property key = "forecolor" color = "0xAAAAAA"  />
+         <property key = "opaque"    value = "false"     />
+         <property key = "editable"  value = "false"     />
+         <property key = "align"     value = "center"      />
+         <property key = "alpha"     value = "100" />
+         
+         <!-- EVENTO DEL AREA DE TEXTO DE SALIDA -->
+         <event id = "TEXT">
+            <handler name = "ar.com.synthesis.pos.handler.InputTextHandler"/>
+         </event>
+      </component>
+
+</component>

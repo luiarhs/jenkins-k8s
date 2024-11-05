@@ -1,0 +1,611 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<facturacionConfiguration>
+    <regimenesFiscales>
+        <regimen code="601" description="(601) General de Ley Personas Morales" fisica="No" moral="Sí"/>
+        <regimen code="603" description="(603) Personas Morales con Fines no Lucrativos" fisica="No" moral="Sí"/>
+        <regimen code="605" description="(605) Sueldos y Salarios e Ingresos Asimilados a Salarios" fisica="Sí" moral="No"/>
+        <regimen code="606" description="(606) Arrendamiento" fisica="Sí" moral="No"/>
+        <regimen code="607" description="(607) Régimen de Enajenación o Adquisición de Bienes" fisica="Sí" moral="No"/>
+        <regimen code="608" description="(608) Demás ingresos" fisica="Sí" moral="No"/>
+        <regimen code="610" description="(610) Residentes en el Extranjero sin Establecimiento Permanente en México" fisica="Sí" moral="Sí"/>
+        <regimen code="611" description="(611) Ingresos por Dividendos (socios y accionistas)" fisica="Sí" moral="No"/>
+        <regimen code="612" description="(612) Personas Físicas con Actividades Empresariales y Profesionales" fisica="Sí" moral="No"/>
+        <regimen code="614" description="(614) Ingresos por intereses" fisica="Sí" moral="No"/>
+        <regimen code="615" description="(615) Régimen de los ingresos por obtención de premios" fisica="Sí" moral="No"/>
+        <regimen code="616" description="(616) Sin obligaciones fiscales" fisica="Sí" moral="No"/>
+        <regimen code="620" description="(620) Sociedades Cooperativas de Producción que optan por diferir sus ingresos" fisica="No" moral="Sí"/>
+        <regimen code="621" description="(621) Incorporación Fiscal" fisica="Sí" moral="No"/>
+        <regimen code="622" description="(622) Actividades Agrícolas, Ganaderas, Silvícolas y Pesqueras" fisica="No" moral="Sí"/>
+        <regimen code="623" description="(623) Opcional para Grupos de Sociedades" fisica="No" moral="Sí"/>
+        <regimen code="624" description="(624) Coordinados" fisica="No" moral="Sí"/>
+        <regimen code="625" description="(625) Régimen de las Actividades Empresariales con ingresos a través de Plataformas Tecnológicas" fisica="Sí" moral="No"/>
+        <regimen code="626" description="(626) Régimen Simplificado de Confianza" fisica="Sí" moral="Sí"/>
+    </regimenesFiscales>
+    <usoComprobantes>
+        <usoCFDI code="G01" description="(G01) Adquisición de mercancías" fisica="Sí" moral="Sí">
+            <regimenFiscalList>
+                <receptor code="601"/>
+                <receptor code="603"/>
+                <receptor code="606"/>
+                <receptor code="612"/>
+                <receptor code="620"/>
+                <receptor code="621"/>
+                <receptor code="622"/>
+                <receptor code="623"/>
+                <receptor code="624"/>
+                <receptor code="625"/>
+                <receptor code="626"/>
+            </regimenFiscalList>
+        </usoCFDI>
+        <usoCFDI code="G02" description="(G02) Devoluciones, descuentos o bonificaciones" fisica="Sí" moral="Sí">
+            <regimenFiscalList>
+                <receptor code="601"/>
+                <receptor code="603"/>
+                <receptor code="606"/>
+                <receptor code="612"/>
+                <receptor code="620"/>
+                <receptor code="621"/>
+                <receptor code="622"/>
+                <receptor code="623"/>
+                <receptor code="624"/>
+                <receptor code="625"/>
+                <receptor code="626"/>
+            </regimenFiscalList>
+        </usoCFDI>
+        <usoCFDI code="G03" description="(G03) Gastos en general" fisica="Sí" moral="Sí">
+            <regimenFiscalList>
+                <receptor code="601"/>
+                <receptor code="603"/>
+                <receptor code="606"/>
+                <receptor code="612"/>
+                <receptor code="620"/>
+                <receptor code="621"/>
+                <receptor code="622"/>
+                <receptor code="623"/>
+                <receptor code="624"/>
+                <receptor code="625"/>
+                <receptor code="626"/>
+            </regimenFiscalList>
+        </usoCFDI>
+        <usoCFDI code="I01" description="(I01) Construcciones" fisica="Sí" moral="Sí">
+            <regimenFiscalList>
+                <receptor code="601"/>
+                <receptor code="603"/>
+                <receptor code="606"/>
+                <receptor code="612"/>
+                <receptor code="620"/>
+                <receptor code="621"/>
+                <receptor code="622"/>
+                <receptor code="623"/>
+                <receptor code="624"/>
+                <receptor code="625"/>
+                <receptor code="626"/>
+            </regimenFiscalList>
+        </usoCFDI>
+        <usoCFDI code="I02" description="(I02) Mobiliario y equipo de oficina por inversiones" fisica="Sí" moral="Sí">
+            <regimenFiscalList>
+                <receptor code="601"/>
+                <receptor code="603"/>
+                <receptor code="606"/>
+                <receptor code="612"/>
+                <receptor code="620"/>
+                <receptor code="621"/>
+                <receptor code="622"/>
+                <receptor code="623"/>
+                <receptor code="624"/>
+                <receptor code="625"/>
+                <receptor code="626"/>
+            </regimenFiscalList>
+        </usoCFDI>
+        <usoCFDI code="I03" description="(I03) Equipo de transporte" fisica="Sí" moral="Sí">
+            <regimenFiscalList>
+                <receptor code="601"/>
+                <receptor code="603"/>
+                <receptor code="606"/>
+                <receptor code="612"/>
+                <receptor code="620"/>
+                <receptor code="621"/>
+                <receptor code="622"/>
+                <receptor code="623"/>
+                <receptor code="624"/>
+                <receptor code="625"/>
+                <receptor code="626"/>
+            </regimenFiscalList>
+        </usoCFDI>
+        <usoCFDI code="I04" description="(I04) Equipo de cómputo y accesorios" fisica="Sí" moral="Sí">
+            <regimenFiscalList>
+                <receptor code="601"/>
+                <receptor code="603"/>
+                <receptor code="606"/>
+                <receptor code="612"/>
+                <receptor code="620"/>
+                <receptor code="621"/>
+                <receptor code="622"/>
+                <receptor code="623"/>
+                <receptor code="624"/>
+                <receptor code="625"/>
+                <receptor code="626"/>
+            </regimenFiscalList>
+        </usoCFDI>
+        <usoCFDI code="I05" description="(I05) Dados, troqueles, moldes, matrices y herramental" fisica="Sí" moral="Sí">
+            <regimenFiscalList>
+                <receptor code="601"/>
+                <receptor code="603"/>
+                <receptor code="606"/>
+                <receptor code="612"/>
+                <receptor code="620"/>
+                <receptor code="621"/>
+                <receptor code="622"/>
+                <receptor code="623"/>
+                <receptor code="624"/>
+                <receptor code="625"/>
+                <receptor code="626"/>
+            </regimenFiscalList>
+        </usoCFDI>
+        <usoCFDI code="I06" description="(I06) Comunicaciones telefónicas" fisica="Sí" moral="Sí">
+            <regimenFiscalList>
+                <receptor code="601"/>
+                <receptor code="603"/>
+                <receptor code="606"/>
+                <receptor code="612"/>
+                <receptor code="620"/>
+                <receptor code="621"/>
+                <receptor code="622"/>
+                <receptor code="623"/>
+                <receptor code="624"/>
+                <receptor code="625"/>
+                <receptor code="626"/>
+            </regimenFiscalList>
+        </usoCFDI>
+        <usoCFDI code="I07" description="(I07) Comunicaciones satelitales" fisica="Sí" moral="Sí">
+            <regimenFiscalList>
+                <receptor code="601"/>
+                <receptor code="603"/>
+                <receptor code="606"/>
+                <receptor code="612"/>
+                <receptor code="620"/>
+                <receptor code="621"/>
+                <receptor code="622"/>
+                <receptor code="623"/>
+                <receptor code="624"/>
+                <receptor code="625"/>
+                <receptor code="626"/>
+            </regimenFiscalList>
+        </usoCFDI>
+        <usoCFDI code="I08" description="(I08) Otra maquinaria y equipo" fisica="Sí" moral="Sí">
+            <regimenFiscalList>
+                <receptor code="601"/>
+                <receptor code="603"/>
+                <receptor code="606"/>
+                <receptor code="612"/>
+                <receptor code="620"/>
+                <receptor code="621"/>
+                <receptor code="622"/>
+                <receptor code="623"/>
+                <receptor code="624"/>
+                <receptor code="625"/>
+                <receptor code="626"/>
+            </regimenFiscalList>
+        </usoCFDI>
+        <usoCFDI code="D01" description="(D01) Honorarios médicos, dentales y gastos hospitalarios" fisica="Sí" moral="No">
+            <regimenFiscalList>
+                <receptor code="605"/>
+                <receptor code="606"/>
+                <receptor code="608"/>
+                <receptor code="611"/>
+                <receptor code="612"/>
+                <receptor code="614"/>
+                <receptor code="607"/>
+                <receptor code="615"/>
+                <receptor code="625"/>
+            </regimenFiscalList>
+        </usoCFDI>
+        <usoCFDI code="D02" description="(D02) Gastos médicos por incapacidad o discapacidad" fisica="Sí" moral="No">
+            <regimenFiscalList>
+                <receptor code="606"/>
+                <receptor code="607"/>
+				<receptor code="608"/>
+                <receptor code="611"/>
+                <receptor code="612"/>
+                <receptor code="614"/>
+                <receptor code="615"/>
+                <receptor code="625"/>
+            </regimenFiscalList>
+        </usoCFDI>
+        <usoCFDI code="D03" description="(D03) Gastos funerales" fisica="Sí" moral="No">
+            <regimenFiscalList>
+                <receptor code="606"/>
+                <receptor code="607"/>
+				<receptor code="608"/>
+                <receptor code="611"/>
+                <receptor code="612"/>
+                <receptor code="614"/>
+                <receptor code="615"/>
+                <receptor code="625"/>
+            </regimenFiscalList>
+        </usoCFDI>
+        <usoCFDI code="D04" description="(D04) Donativos" fisica="Sí" moral="No">
+            <regimenFiscalList>
+                <receptor code="606"/>
+                <receptor code="607"/>
+				<receptor code="608"/>
+                <receptor code="611"/>
+                <receptor code="612"/>
+                <receptor code="614"/>
+                <receptor code="615"/>
+                <receptor code="625"/>
+            </regimenFiscalList>
+        </usoCFDI>
+        <usoCFDI code="D05" description="(D05) Intereses reales efectivamente pagados por créditos hipotecarios (casa habitación)" fisica="Sí" moral="No">
+            <regimenFiscalList>
+                <receptor code="606"/>
+                <receptor code="607"/>
+				<receptor code="608"/>
+                <receptor code="611"/>
+                <receptor code="612"/>
+                <receptor code="614"/>
+                <receptor code="615"/>
+                <receptor code="625"/>
+            </regimenFiscalList>
+        </usoCFDI>
+        <usoCFDI code="D06" description="(D06) Aportaciones voluntarias al SAR" fisica="Sí" moral="No">
+            <regimenFiscalList>
+                <receptor code="606"/>
+                <receptor code="607"/>
+				<receptor code="608"/>
+                <receptor code="611"/>
+                <receptor code="612"/>
+                <receptor code="614"/>
+                <receptor code="615"/>
+                <receptor code="625"/>
+            </regimenFiscalList>
+        </usoCFDI>
+        <usoCFDI code="D07" description="(D07) Primas por seguros de gastos médicos" fisica="Sí" moral="No">
+            <regimenFiscalList>
+                <receptor code="606"/>
+                <receptor code="607"/>
+				<receptor code="608"/>
+                <receptor code="611"/>
+                <receptor code="612"/>
+                <receptor code="614"/>
+                <receptor code="615"/>
+                <receptor code="625"/>
+            </regimenFiscalList>
+        </usoCFDI>
+        <usoCFDI code="D08" description="(D08) Gastos de transportación escolar obligatoria" fisica="Sí" moral="No">
+            <regimenFiscalList>
+                <receptor code="606"/>
+                <receptor code="607"/>
+				<receptor code="608"/>
+                <receptor code="611"/>
+                <receptor code="612"/>
+                <receptor code="614"/>
+                <receptor code="615"/>
+                <receptor code="625"/>
+            </regimenFiscalList>
+        </usoCFDI>
+        <usoCFDI code="D09" description="(D09) Depósitos en cuentas para el ahorro, primas que tengan como base planes de pensiones" fisica="Sí" moral="No">
+            <regimenFiscalList>
+                <receptor code="606"/>
+                <receptor code="607"/>
+				<receptor code="608"/>
+                <receptor code="611"/>
+                <receptor code="612"/>
+                <receptor code="614"/>
+                <receptor code="615"/>
+                <receptor code="625"/>
+            </regimenFiscalList>
+        </usoCFDI>
+        <usoCFDI code="D10" description="(D10) Pagos por servicios educativos (colegiaturas)" fisica="Sí" moral="No">
+            <regimenFiscalList>
+                <receptor code="606"/>
+                <receptor code="607"/>
+				<receptor code="608"/>
+                <receptor code="611"/>
+                <receptor code="612"/>
+                <receptor code="614"/>
+                <receptor code="615"/>
+                <receptor code="625"/>
+            </regimenFiscalList>
+        </usoCFDI>
+        <usoCFDI code="S01" description="(S01) Sin efectos fiscales" fisica="Sí" moral="Sí">
+            <regimenFiscalList>
+                <receptor code="601"/>
+                <receptor code="603"/>
+                <receptor code="605"/>
+                <receptor code="606"/>
+                <receptor code="607"/>
+				<receptor code="608"/>
+                <receptor code="610"/>
+                <receptor code="611"/>
+                <receptor code="612"/>
+                <receptor code="614"/>
+                <receptor code="615"/>
+				<receptor code="616"/>
+                <receptor code="620"/>
+                <receptor code="621"/>
+                <receptor code="622"/>
+                <receptor code="623"/>
+                <receptor code="624"/>
+                <receptor code="625"/>
+                <receptor code="626"/>
+            </regimenFiscalList>
+        </usoCFDI>
+        <usoCFDI code="CP01" description="(CP01) Pagos" fisica="Sí" moral="Sí">
+            <regimenFiscalList>
+                <receptor code="601"/>
+                <receptor code="603"/>
+                <receptor code="608"/>
+                <receptor code="610"/>
+                <receptor code="611"/>
+                <receptor code="612"/>
+                <receptor code="614"/>
+                <receptor code="615"/>
+				<receptor code="616"/>
+                <receptor code="620"/>
+                <receptor code="621"/>
+                <receptor code="622"/>
+                <receptor code="623"/>
+                <receptor code="624"/>
+                <receptor code="625"/>
+                <receptor code="626"/>
+            </regimenFiscalList>
+        </usoCFDI>
+    </usoComprobantes>
+    <paises>
+        <pais code="AFG" description="Afganistán" />
+        <pais code="ALA" description="Islas Åland" />
+        <pais code="ALB" description="Albania" />
+        <pais code="DEU" description="Alemania" />
+        <pais code="AND" description="Andorra" />
+        <pais code="AGO" description="Angola" />
+        <pais code="AIA" description="Anguila" />
+        <pais code="ATA" description="Antártida" />
+        <pais code="ATG" description="Antigua y Barbuda" />
+        <pais code="SAU" description="Arabia Saudita" />
+        <pais code="DZA" description="Argelia" />
+        <pais code="ARG" description="Argentina" />
+        <pais code="ARM" description="Armenia" />
+        <pais code="ABW" description="Aruba" />
+        <pais code="AUS" description="Australia" />
+        <pais code="AUT" description="Austria" />
+        <pais code="AZE" description="Azerbaiyán" />
+        <pais code="BHS" description="Bahamas (las)" />
+        <pais code="BGD" description="Bangladés" />
+        <pais code="BRB" description="Barbados" />
+        <pais code="BHR" description="Baréin" />
+        <pais code="BEL" description="Bélgica" />
+        <pais code="BLZ" description="Belice" />
+        <pais code="BEN" description="Benín" />
+        <pais code="BMU" description="Bermudas" />
+        <pais code="BLR" description="Bielorrusia" />
+        <pais code="MMR" description="Myanmar" />
+        <pais code="BOL" description="Bolivia, Estado Plurinacional de" />
+        <pais code="BIH" description="Bosnia y Herzegovina" />
+        <pais code="BWA" description="Botsuana" />
+        <pais code="BRA" description="Brasil" />
+        <pais code="BRN" description="Brunéi Darussalam" />
+        <pais code="BGR" description="Bulgaria" />
+        <pais code="BFA" description="Burkina Faso" />
+        <pais code="BDI" description="Burundi" />
+        <pais code="BTN" description="Bután" />
+        <pais code="CPV" description="Cabo Verde" />
+        <pais code="KHM" description="Camboya" />
+        <pais code="CMR" description="Camerún" />
+        <pais code="CAN" description="Canadá" />
+        <pais code="QAT" description="Catar" />
+        <pais code="BES" description="Bonaire, San Eustaquio y Saba" />
+        <pais code="TCD" description="Chad" />
+        <pais code="CHL" description="Chile" />
+        <pais code="CHN" description="China" />
+        <pais code="CYP" description="Chipre" />
+        <pais code="COL" description="Colombia" />
+        <pais code="COM" description="Comoras" />
+        <pais code="PRK" description="Corea (la República Democrática Popular de)    " />
+        <pais code="KOR" description="Corea (la República de)" />
+        <pais code="CIV" description="Côte d'Ivoire" />
+        <pais code="CRI" description="Costa Rica" />
+        <pais code="HRV" description="Croacia" />
+        <pais code="CUB" description="Cuba" />
+        <pais code="CUW" description="Curaçao" />
+        <pais code="DNK" description="Dinamarca" />
+        <pais code="DMA" description="Dominica" />
+        <pais code="ECU" description="Ecuador" />
+        <pais code="EGY" description="Egipto" />
+        <pais code="SLV" description="El Salvador" />
+        <pais code="ARE" description="Emiratos Árabes Unidos (los)" />
+        <pais code="ERI" description="Eritrea" />
+        <pais code="SVK" description="Eslovaquia" />
+        <pais code="SVN" description="Eslovenia" />
+        <pais code="ESP" description="España" />
+        <pais code="USA" description="Estados Unidos (los)" />
+        <pais code="EST" description="Estonia" />
+        <pais code="ETH" description="Etiopía" />
+        <pais code="PHL" description="Filipinas (las)" />
+        <pais code="FIN" description="Finlandia" />
+        <pais code="FJI" description="Fiyi" />
+        <pais code="FRA" description="Francia" />
+        <pais code="GAB" description="Gabón" />
+        <pais code="GMB" description="Gambia (La)" />
+        <pais code="GEO" description="Georgia" />
+        <pais code="GHA" description="Ghana" />
+        <pais code="GIB" description="Gibraltar" />
+        <pais code="GRD" description="Granada" />
+        <pais code="GRC" description="Grecia" />
+        <pais code="GRL" description="Groenlandia" />
+        <pais code="GLP" description="Guadalupe" />
+        <pais code="GUM" description="Guam" />
+        <pais code="GTM" description="Guatemala" />
+        <pais code="GUF" description="Guayana Francesa" />
+        <pais code="GGY" description="Guernsey" />
+        <pais code="GIN" description="Guinea" />
+        <pais code="GNB" description="Guinea-Bisáu" />
+        <pais code="GNQ" description="Guinea Ecuatorial" />
+        <pais code="GUY" description="Guyana" />
+        <pais code="HTI" description="Haití" />
+        <pais code="HND" description="Honduras" />
+        <pais code="HKG" description="Hong Kong" />
+        <pais code="HUN" description="Hungría" />
+        <pais code="IND" description="India" />
+        <pais code="IDN" description="Indonesia" />
+        <pais code="IRQ" description="Irak" />
+        <pais code="IRN" description="Irán (la República Islámica de)" />
+        <pais code="IRL" description="Irlanda" />
+        <pais code="BVT" description="Isla Bouvet" />
+        <pais code="IMN" description="Isla de Man" />
+        <pais code="CXR" description="Isla de Navidad" />
+        <pais code="NFK" description="Isla Norfolk" />
+        <pais code="ISL" description="Islandia" />
+        <pais code="CYM" description="Islas Caimán (las)" />
+        <pais code="CCK" description="Islas Cocos (Keeling)" />
+        <pais code="COK" description="Islas Cook (las)" />
+        <pais code="FRO" description="Islas Feroe (las)" />
+        <pais code="SGS" description="Georgia del sur y las islas sandwich del sur " />
+        <pais code="HMD" description="Isla Heard e Islas McDonald" />
+        <pais code="FLK" description="Islas Malvinas [Falkland] (las)" />
+        <pais code="MNP" description="Islas Marianas del Norte (las)" />
+        <pais code="MHL" description="Islas Marshall (las)" />
+        <pais code="PCN" description="Pitcairn" />
+        <pais code="SLB" description="Islas Salomón (las)" />
+        <pais code="TCA" description="Islas Turcas y Caicos (las)" />
+        <pais code="UMI" description="Islas de Ultramar Menores de Estados Unidos (las) " />
+        <pais code="VGB" description="Islas Vírgenes (Británicas)" />
+        <pais code="VIR" description="Islas Vírgenes (EE.UU.)" />
+        <pais code="ISR" description="Israel" />
+        <pais code="ITA" description="Italia" />
+        <pais code="JAM" description="Jamaica" />
+        <pais code="JPN" description="Japón" />
+        <pais code="JEY" description="Jersey" />
+        <pais code="JOR" description="Jordania" />
+        <pais code="KAZ" description="Kazajistán" />
+        <pais code="KEN" description="Kenia" />
+        <pais code="KGZ" description="Kirguistán" />
+        <pais code="KIR" description="Kiribati" />
+        <pais code="KWT" description="Kuwait" />
+        <pais code="LAO" description="Lao, (la) República Democrática Popular " />
+        <pais code="LSO" description="Lesoto" />
+        <pais code="LVA" description="Letonia" />
+        <pais code="LBN" description="Líbano" />
+        <pais code="LBR" description="Liberia" />
+        <pais code="LBY" description="Libia" />
+        <pais code="LIE" description="Liechtenstein" />
+        <pais code="LTU" description="Lituania" />
+        <pais code="LUX" description="Luxemburgo" />
+        <pais code="MAC" description="Macao" />
+        <pais code="MDG" description="Madagascar" />
+        <pais code="MYS" description="Malasia" />
+        <pais code="MWI" description="Malaui" />
+        <pais code="MDV" description="Maldivas" />
+        <pais code="MLI" description="Malí" />
+        <pais code="MLT" description="Malta" />
+        <pais code="MAR" description="Marruecos" />
+        <pais code="MTQ" description="Martinica" />
+        <pais code="MUS" description="Mauricio" />
+        <pais code="MRT" description="Mauritania" />
+        <pais code="MYT" description="Mayotte" />
+        <pais code="MEX" description="México" />
+        <pais code="FSM" description="Micronesia (los Estados Federados de)    " />
+        <pais code="MDA" description="Moldavia (la República de)" />
+        <pais code="MCO" description="Mónaco" />
+        <pais code="MNG" description="Mongolia" />
+        <pais code="MNE" description="Montenegro" />
+        <pais code="MSR" description="Montserrat" />
+        <pais code="MOZ" description="Mozambique" />
+        <pais code="NAM" description="Namibia" />
+        <pais code="NRU" description="Nauru" />
+        <pais code="NPL" description="Nepal" />
+        <pais code="NIC" description="Nicaragua" />
+        <pais code="NER" description="Níger (el)" />
+        <pais code="NGA" description="Nigeria" />
+        <pais code="NIU" description="Niue" />
+        <pais code="NOR" description="Noruega" />
+        <pais code="NCL" description="Nueva Caledonia" />
+        <pais code="NZL" description="Nueva Zelanda" />
+        <pais code="OMN" description="Omán" />
+        <pais code="NLD" description="Países Bajos (los)" />
+        <pais code="PAK" description="Pakistán" />
+        <pais code="PLW" description="Palaos" />
+        <pais code="PSE" description="Palestina, Estado de" />
+        <pais code="PAN" description="Panamá" />
+        <pais code="PNG" description="Papúa Nueva Guinea" />
+        <pais code="PRY" description="Paraguay" />
+        <pais code="PER" description="Perú" />
+        <pais code="PYF" description="Polinesia Francesa" />
+        <pais code="POL" description="Polonia" />
+        <pais code="PRT" description="Portugal" />
+        <pais code="PRI" description="Puerto Rico" />
+        <pais code="GBR" description="Reino Unido (el)" />
+        <pais code="CAF" description="República Centroafricana (la)" />
+        <pais code="CZE" description="República Checa (la)" />
+        <pais code="MKD" description="Macedonia (la antigua República Yugoslava de)    " />
+        <pais code="COG" description="Congo" />
+        <pais code="COD" description="Congo (la República Democrática del)    " />
+        <pais code="DOM" description="República Dominicana (la)" />
+        <pais code="REU" description="Reunión" />
+        <pais code="RWA" description="Ruanda" />
+        <pais code="ROU" description="Rumania" />
+        <pais code="RUS" description="Rusia, (la) Federación de" />
+        <pais code="ESH" description="Sahara Occidental" />
+        <pais code="WSM" description="Samoa" />
+        <pais code="ASM" description="Samoa Americana" />
+        <pais code="BLM" description="San Bartolomé" />
+        <pais code="KNA" description="San Cristóbal y Nieves" />
+        <pais code="SMR" description="San Marino" />
+        <pais code="MAF" description="San Martín (parte francesa)" />
+        <pais code="SPM" description="San Pedro y Miquelón" />
+        <pais code="VCT" description="San Vicente y las Granadinas" />
+        <pais code="SHN" description="Santa Helena, Ascensión y Tristán de Acuña " />
+        <pais code="LCA" description="Santa Lucía" />
+        <pais code="STP" description="Santo Tomé y Príncipe" />
+        <pais code="SEN" description="Senegal" />
+        <pais code="SRB" description="Serbia" />
+        <pais code="SYC" description="Seychelles" />
+        <pais code="SLE" description="Sierra leona" />
+        <pais code="SGP" description="Singapur" />
+        <pais code="SXM" description="Sint Maarten (parte holandesa)" />
+        <pais code="SYR" description="Siria, (la) República Árabe" />
+        <pais code="SOM" description="Somalia" />
+        <pais code="LKA" description="Sri Lanka" />
+        <pais code="SWZ" description="Suazilandia" />
+        <pais code="ZAF" description="Sudáfrica" />
+        <pais code="SDN" description="Sudán (el)" />
+        <pais code="SSD" description="Sudán del Sur" />
+        <pais code="SWE" description="Suecia" />
+        <pais code="CHE" description="Suiza" />
+        <pais code="SUR" description="Surinam" />
+        <pais code="SJM" description="Svalbard y Jan Mayen" />
+        <pais code="THA" description="Tailandia" />
+        <pais code="TWN" description="Taiwán (Provincia de China)" />
+        <pais code="TZA" description="Tanzania, República Unida de" />
+        <pais code="TJK" description="Tayikistán" />
+        <pais code="IOT" description="Territorio Británico del Océano Índico (el) " />
+        <pais code="ATF" description="Territorios Australes Franceses (los) " />
+        <pais code="TLS" description="Timor-Leste" />
+        <pais code="TGO" description="Togo" />
+        <pais code="TKL" description="Tokelau" />
+        <pais code="TON" description="Tonga" />
+        <pais code="TTO" description="Trinidad y Tobago" />
+        <pais code="TUN" description="Túnez" />
+        <pais code="TKM" description="Turkmenistán" />
+        <pais code="TUR" description="Turquía" />
+        <pais code="TUV" description="Tuvalu" />
+        <pais code="UKR" description="Ucrania" />
+        <pais code="UGA" description="Uganda" />
+        <pais code="URY" description="Uruguay" />
+        <pais code="UZB" description="Uzbekistán" />
+        <pais code="VUT" description="Vanuatu" />
+        <pais code="VAT" description="Santa Sede[Estado de la Ciudad del Vaticano] (la)" />
+        <pais code="VEN" description="Venezuela, República Bolivariana de" />
+        <pais code="VNM" description="Viet Nam" />
+        <pais code="WLF" description="Wallis y Futuna" />
+        <pais code="YEM" description="Yemen" />
+        <pais code="DJI" description="Yibuti" />
+        <pais code="ZMB" description="Zambia" />
+        <pais code="ZWE" description="Zimbabue" />
+        <pais code="ZZZ" description="Países no declarados" />
+    </paises>
+
+    // CFDIDisable = TRUE -> VERSION ANTERIOR
+    // CFDIDisable = FALSE -> VERSION CFDI 4
+    <CFDIDisable>false</CFDIDisable>
+</facturacionConfiguration>

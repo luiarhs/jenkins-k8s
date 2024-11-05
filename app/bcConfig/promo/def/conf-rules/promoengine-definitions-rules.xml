@@ -1,0 +1,136 @@
+<?xml version="1.0"?>
+
+<!--
+	$Header: /usr/local/cvs_ssf/Promo_V2.4/rs-promo-framework/conf/v2.3/conf-rules/promoengine-definitions-rules.xml,v 1.1 2006/05/30 16:34:56 christianbohm Exp $
+-->
+
+<digester-rules>
+
+<pattern value="collection">
+
+	<factory-create-rule classname="ar.com.retailsolutions.common.configuration.DigesterObjectCreationFactory"/>
+
+	<pattern value="parameter">
+		<object-create-rule classname="ar.com.retailsolutions.common.configuration.SingleParameter"/>
+		<set-properties-rule/>
+		<set-next-rule methodname="addParameter" />
+	</pattern>
+	
+	<pattern value="predicates">
+	
+		<factory-create-rule classname="com.synthesis.promo.engine.config.ClauseParameterCollectionObjectCreationFactory"/>
+	
+		<pattern value="predicate">
+			<object-create-rule classname="com.synthesis.promo.engine.config.ClauseParameter"/>
+			<set-properties-rule/>
+			<set-next-rule methodname="addParameter"/>
+		</pattern>
+		
+		<set-top-rule methodname="setTransversalParameterCollection"/>
+
+	</pattern>
+
+
+	<pattern value="operators">
+	
+		<factory-create-rule classname="com.synthesis.promo.engine.config.ClauseParameterCollectionObjectCreationFactory"/>
+		
+		<pattern value="operator">	
+			<object-create-rule classname="com.synthesis.promo.engine.config.ClauseParameter"/>
+			<set-properties-rule/>
+			<set-next-rule methodname="addParameter"/>
+		</pattern>	
+		
+		<set-top-rule  methodname="setTransversalParameterCollection"/>
+
+	</pattern>
+
+	<pattern value="conditions">
+	
+		<factory-create-rule classname="com.synthesis.promo.engine.config.ClauseParameterCollectionObjectCreationFactory"/>
+		
+		<pattern value="condition">	
+			<object-create-rule classname="com.synthesis.promo.engine.config.ClauseParameter"/>
+			<set-properties-rule/>
+			<set-next-rule methodname="addParameter"/>
+		</pattern>	
+		
+		<set-top-rule  methodname="setTransversalParameterCollection"/>
+
+	</pattern>
+	
+	<pattern value="benefits">
+	
+		<factory-create-rule classname="com.synthesis.promo.engine.config.ClauseParameterCollectionObjectCreationFactory"/>	
+	
+		<pattern value="benefit">		
+			<object-create-rule classname="com.synthesis.promo.engine.config.ClauseParameter"/>
+			<set-properties-rule/>
+			<set-next-rule methodname="addParameter"/>
+		</pattern>
+			
+		<set-top-rule  methodname="setTransversalParameterCollection"/>
+
+	</pattern>
+	
+	<pattern value="element-sets">
+	
+		<factory-create-rule classname="com.synthesis.promo.engine.config.ClauseParameterCollectionObjectCreationFactory"/>	
+	
+		<pattern value="element-set">		
+			<object-create-rule classname="com.synthesis.promo.engine.config.ClauseParameter"/>
+			<set-properties-rule/>
+			<set-next-rule methodname="addParameter"/>
+		</pattern>
+			
+		<set-top-rule  methodname="setTransversalParameterCollection"/>
+
+	</pattern>
+	
+	<pattern value="order-criterias">
+	
+		<factory-create-rule classname="com.synthesis.promo.engine.config.ClauseParameterCollectionObjectCreationFactory"/>	
+	
+		<pattern value="order-criteria">		
+			<object-create-rule classname="com.synthesis.promo.engine.config.ClauseParameter"/>
+			<set-properties-rule>
+				<alias attr-name="by-combo" prop-name="byCombo" />
+			</set-properties-rule>
+			<set-next-rule methodname="addParameter"/>
+		</pattern>
+			
+		<set-top-rule  methodname="setTransversalParameterCollection"/>
+
+	</pattern>
+	
+	<pattern value="functions">
+	
+		<factory-create-rule classname="com.synthesis.promo.engine.config.ClauseParameterCollectionObjectCreationFactory"/>	
+	
+		<pattern value="function">		
+			<object-create-rule classname="com.synthesis.promo.engine.config.ClauseParameter"/>
+			<set-properties-rule/>
+			<set-next-rule methodname="addParameter"/>
+		</pattern>
+			
+		<set-top-rule  methodname="setTransversalParameterCollection"/>
+
+	</pattern>
+
+	<pattern value="proration-methods">
+	
+		<factory-create-rule classname="com.synthesis.promo.engine.config.ClauseParameterCollectionObjectCreationFactory"/>	
+	
+		<pattern value="proration-method">		
+			<object-create-rule classname="com.synthesis.promo.engine.config.ClauseParameter"/>
+			<set-properties-rule/>
+			<set-next-rule methodname="addParameter"/>
+		</pattern>
+			
+		<set-top-rule  methodname="setTransversalParameterCollection"/>
+
+	</pattern>
+
+</pattern>	
+
+</digester-rules>

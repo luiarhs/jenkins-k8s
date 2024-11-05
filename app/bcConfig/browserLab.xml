@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!--
+		Archivo de configuración de las URLS que se visualizarán desde el browser de la aplicación
+	  NOTA: para utilizar en una URL el caracter ampersand (separador de parametros) sera necesario reemplazarlo por &amp; como en HTML en 
+	  vez de  este, para poder como se puede ver en la URL que utiliza parametros de tienda y vendedor
+	  Las key del 1 al 99 se encuentran reservadas para teclas motoras.
+	  La Key 201 y 999, se encuentran reservadas para manejo de tabla del browser.
+	  El atributo offFocus, se ocupa para que NO ponga en foco el browser
+	-->
+	     
+<urls>
+	<urlButtons>
+		<urlButton key="100" name="Servicio Interno">
+			<browserUrls>
+				<browserUrl name="browser_imprime2" url="http://10.3.5.102:8080/impresion/browser_imprime2.html" />
+				<browserUrl name="browser_imprime_FASE_1" url="http://10.3.5.102:8080/impresion/browser_imprime_FASE_1.html" />
+				<browserUrl name="Imprimir" url="http://10.3.5.102:8080/impresion/Imprimir.html" />
+			</browserUrls>
+		</urlButton>
+		<urlButton key="101" name="Servicio Externo">
+			<browserUrls>
+				<browserUrl name="browser_imprime2" url="http://10.3.5.102:8080/impresion/browser_imprime2.html" />
+				<browserUrl name="browser_imprime_FASE_1" url="http://10.3.5.102:8080/impresion/browser_imprime_FASE_1.html" />
+				<browserUrl name="Imprimir" url="http://10.3.5.102:8080/impresion/Imprimir.html" />
+			</browserUrls>
+		</urlButton>
+		<urlButton key="102" name="Status de transferencias">
+			<browserUrls>
+				<browserUrl name="STATUS DE TRANSFERENCIAS" url="http://172.16.204.66/STAM/seguimiento/seguimiento.action" />
+			</browserUrls>
+		</urlButton>
+		<urlButton key="103" name="Registro de tiempos">
+			<browserUrls>
+				<browserUrl name="REGISTRO DE TIEMPOS" url="http://172.16.204.66/WBII/RegT/regtf-inicio.action" />
+			</browserUrls>
+		</urlButton>
+		
+		<!-- El ID de la URL para sastrería se inicia en 998 para no afectar a los botones laterales.
+		Sastrería es una transacción que llama un browser al finalizar, no una -->
+		<urlButton key="998" name="Sastreria">
+			<browserUrls>
+				<browserUrl name="SASTRERIA" url="http://10.3.5.102:8080/impresion/browser_imprime2.html?boleta={BOLETA}&amp;noTienda={TIENDA}&amp;noTerminal={TERMINAL}&amp;fecha={FECHA}&amp;noEmpleado={ID_VENDEDOR}&amp;noTarjeta={TARJETA}" />
+			</browserUrls>
+		</urlButton>
+		<urlButton key="997" name="Relojes Cobro">
+			<browserUrls>
+				<browserUrl name="URL COBRO" url="http://10.3.5.102:8080/relojes/relojes.html?orden={ORDEN}" />
+			</browserUrls>
+		</urlButton>
+		<urlButton key="996" name="Presupuesto Reparacion Relojes">
+			<browserUrls>
+				<browserUrl name="URL PRESUPUESTO" url="http://10.3.5.102:8080/relojes/PresupuestoRelojes.html?vendedor={ID_VENDEDOR}" />
+			</browserUrls>
+		</urlButton>
+		<urlButton key="995" name="Mercancia Display">
+			<browserUrls>
+				<browserUrl name="URL MERCANCIA DISPLAY" url="http://10.3.5.102:8080/mercanciaDisp/mercanciaDisplay.html?noTienda={TIENDA}&amp;noTerminal={TERMINAL}&amp;boleta={BOLETA}&amp;fecha={FECHA}" offFocus="true" />
+			</browserUrls>
+		</urlButton>
+	</urlButtons>
+</urls>

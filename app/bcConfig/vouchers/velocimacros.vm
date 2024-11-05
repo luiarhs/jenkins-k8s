@@ -1,0 +1,85 @@
+## Librería de velocimacros con funcionalidad común
+
+#macro (fmt $pattern $value)
+$FormatUtils.escapeQuotes($FormatUtils.format($pattern, $value))#end
+
+#macro (dateFmt $pattern $value)
+$FormatUtils.formatDate($pattern, $value)#end
+
+#macro (trunk $text $lenght)
+$FormatUtils.trunk($text, $lenght)#end
+
+#macro (absPath $relativePath)
+$FormatUtils.getAbsolutePath($relativePath)#end
+
+#macro (vclTexts $text)
+$FormatUtils.parseIntoTextCommands($text)#end
+
+#macro (convertToText $amount $charLimit)
+$FormatUtils.convertTotalToText($amount, $charLimit)#end
+
+#macro (formatFecha $value)
+$FormatUtils.formatearFecha($value)#end
+
+#macro (formatFechaCrt $value)
+$FormatUtils.formatearFechaCorta($value)#end
+
+#macro (prTot $amount1 $amount2 $amount3 $amount4 $amount5)
+$FormatUtils.printTotals($amount1, $amount2, $amount3, $amount4, $amount5)#end
+
+#macro (cfData $value)
+$FormatUtils.convertCFData($value)#end
+
+#macro (maskAcc $value)
+$FormatUtils.maskAccount($value)#end
+
+#macro (fmtDec $value $value2)
+$FormatUtils.formatDec($value, $value2)#end
+
+#macro (fmtDecNoSign $value)
+$FormatUtils.formatDecNoSign($value)#end
+
+#macro (centerL $value $length)
+$FormatUtils.centerL($value, $length)#end
+
+#macro (centerTC $value $length $character)
+$FormatUtils.centerTextChar($value, $length, $character)#end
+
+#macro (center $value)
+$FormatUtils.center($value)#end
+
+#macro (gSign $value $value2)
+$FormatUtils.getSign($value, $value2)#end
+
+#macro (gLet $value $value2)
+$FormatUtils.getLetter($value, $value2)#end
+
+#macro (ngt $value)
+$FormatUtils.negate($value)#end
+
+#macro (fmtCNum $value)
+$FormatUtils.formatCtrlNum($value)#end
+
+#macro (fmtLft $value $length)
+$FormatUtils.formatLeftPad($value, $length)#end
+
+#macro (isTrxType $value $compareType)
+$FormatUtils.isTrxType($value, $compareType)#end
+
+#macro (fmtWhtChar $value $length $value2)
+$FormatUtils.addCharacterToText($value, $length, $value2)#end
+
+#macro (fmtBarCode $value $length $value2)
+$FormatUtils.formatBarCode($value, $length, $value2)#end
+
+#macro (fmtLftWthFill $value $length $value2)
+$FormatUtils.formatLeftPad($value, $length, $value2)#end
+
+#macro (divStr $value $length)
+$FormatUtils.divideString($value, $length)#end
+
+#macro (parseDinamicCoupon $value)
+$FormatUtils.parseDinamicCoupon($value)#end
+
+#macro (underlineNumber $value $length $value2)
+$FormatUtils.underlineNumber($value, $length, $value2)#end

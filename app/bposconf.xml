@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Configuración de Propiedades adicionales de bridge POS -->
+<bposConfigurator>
+	<!-- Configuración de path del logo a configurar en la impresora -->
+	<logoPath></logoPath>
+	<!-- Configuración de color para sugeridas -->
+	<suggestedColor>0xDD0000</suggestedColor>
+
+	<!-- Configuración de color para sugeridas Hipoteca Verde -->
+	<suggestedColorHv>0x07DD00</suggestedColorHv>
+
+	<!-- Configuración de tienda: 0 Liverpool, 1 Suburbia -->
+	<storeType>0</storeType>
+
+	<!-- Campos para Reconocimiento de Ventas -->
+	<canalVenta>10</canalVenta>
+	<subCanalVenta>11</subCanalVenta>
+	<campoLibreReconocimiento>0</campoLibreReconocimiento>
+
+	<!-- Campo para definir el tipo de devolucion VAD/Tienda-->
+	<!-- Si se requiere que la aplicacion muestre ambos botones se debe comentar este tag-->
+	<!-- 0 Devoluciones VAD -->
+	<!-- 1 Devoluciones Tienda -->
+	<tipoOperacionDevolucion>0</tipoOperacionDevolucion>
+
+	<!-- Indicador para habilitar teclado virtual -->
+	<tecladoVirtual>false</tecladoVirtual>
+
+	<!-- Lista de terminales para habilitar el franqueo -->
+	<listTerminalFranqueo>1,4</listTerminalFranqueo>
+
+	<!-- Indicador para habilitar tipo de browser -->
+	<disabledNewBrowserFx>true</disabledNewBrowserFx>
+
+	<!-- Indicador para habilitar el franqueo en la terminal si está disponible -->
+	<printFranqueo>true</printFranqueo>
+</bposConfigurator>

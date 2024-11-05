@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!--
+	$Header: /usr/local/cvs_ssf/Promo_V2.4/rs-console-promo/conf/base/session-layer.xml,v 1.6 2006/06/15 11:38:35 christianbohm Exp $
+-->
+
+<collection name="SessionLayer">
+
+   <parameter key="cleanUpFrecuency" value="30001" />
+   <parameter key="ResultDataBuilder" value="com.synthesis.promo.engine.session.ResultDataBuilder" />
+
+   <data-set name="InputData">
+
+        <!-- Every session element (item,payment,etc...) will have all the specified properties
+             plus the following properties: 
+             
+             seq    : POS identifier for each ticket line.
+             beanId : internal identifier for each ticket line.
+        -->
+        
+      <content identifier="ItemAddMessage" root-collection="items" collection-class="com.synthesis.promo.engine.session.ElementCollection"
+      	helper-classname="com.synthesis.promo.engine.session.ItemSessionHelper" >
+<!--
+         <action-fields field-name="action">
+            <field name="add"		trigger-method="add" />
+            <field name="void"		trigger-method="remove" />
+         </action-fields>
+-->
+         <collection name="items" content-type="item">
+            <field name="seq"			    type="com.synthesis.promo.utils.DecimalNumber"	default-value="0" displayable="false"/>
+            <field name="consumed"			type="com.synthesis.promo.utils.DecimalNumber"	default-value="0"  displayable="false"/>
+
+            
+            <field name="actual"			type="com.synthesis.promo.utils.DecimalNumber"		default-value="100"  displayable="false"/>
+            
+            <field name="type"				type="java.lang.String"		default-value="qty"  displayable="false" displayNameKey="item.type"/>            
+            
+            <field name="qty"				type="com.synthesis.promo.utils.DecimalNumber"		default-value="1"  displayable="true" displayNameKey="item.qty"/>
+            <field name="magnitude"			type="com.synthesis.promo.utils.DecimalNumber"		default-value="0"  displayable="true" displayNameKey="item.magnitude"/>
+            <field name="xprice"			type="com.synthesis.promo.utils.DecimalNumber"		initialize-with="1" default-value="1"  displayable="true" displayNameKey="item.xprice"/>
+            <field name="originalXprice"	type="com.synthesis.promo.utils.DecimalNumber"		initialize-with="xprice"  displayable="false"/>
+                                        	
+            <field name="returned"			type="java.lang.Boolean"	default-value="false"  displayable="false"/>
+                                        	
+            <field name="code"				type="java.lang.String"		default-value="-"  displayable="true" displayNameKey="item.code"/>
+            <!--FG-->
+            <field name="category"			type="java.lang.String"		default-value="-"  displayable="true" displayNameKey="item.category"/>
+            <field name="dept"				type="java.lang.String"		default-value="-"  displayable="true" displayNameKey="item.dept"/>
+            <!--<field name="family"			type="java.lang.String"		default-value="-"  displayable="true" displayNameKey="item.family"/>-->
+            <!-- El atributo family no está para la configuración de Liverpool, en cambio van los atributos:
+            	 group, generic, product, tag, affected -->
+            <!-- LIVERPOOL -->
+            <field name="group"				type="java.lang.String"		default-value="-" 		displayable="true" displayNameKey="item.group"/>
+            <field name="generic"			type="java.lang.String"		default-value="-" 		displayable="true" displayNameKey="item.generic"/>
+            <field name="product"			type="java.lang.String"		default-value="-" 		displayable="true" displayNameKey="item.product"/>
+            <field name="tag"				type="java.lang.String"		default-value="6" 		displayable="true" displayNameKey="item.tag"/>
+            <field name="affected" 			type="java.lang.Boolean" 	default-value="false" 	displayable="true" displayNameKey="item.affected"/>
+            <field name="promotioncode" 	type="java.lang.String" 	default-value="-" 		displayable="true" displayNameKey="item.promotioncode"/>
+			<field name="tagPromo"		 	type="java.lang.String" 	default-value="-" 		displayable="true" displayNameKey="item.tagPromo"/>
+            <!-- FIN LIVERPOOL -->
+            <field name="supplier"			type="java.lang.String"		default-value="-"  displayable="true" displayNameKey="item.supplier"/>
+            <field name="brand"				type="java.lang.String"		default-value="-"  displayable="true" displayNameKey="item.brand"/>
+            <field name="discountable"		type="java.lang.Boolean"     default-value="false"  displayable="true" displayNameKey="item.discountable"/>
+            <field name="unitprice"			type="com.synthesis.promo.utils.DecimalNumber"		default-value="0"  displayable="true" displayNameKey="item.unitprice"/>
+            <field name="modifiedAmount"	type="com.synthesis.promo.utils.DecimalNumber"		default-value="0"  displayable="false" />
+	    <field name="amount"	type="com.synthesis.promo.utils.DecimalNumber"		default-value="0"  displayable="false" />            
+            <field name="lists"				type="java.lang.String"		default-value="-"  displayable="false" />
+         </collection>
+
+      </content>
+	
+	      <content identifier="ItemVoidMessage" root-collection="items" collection-class="com.synthesis.promo.engine.session.ElementCollection"
+      	helper-classname="com.synthesis.promo.engine.session.ItemSessionHelper" >
+<!--
+         <action-fields field-name="action">
+            <field name="add"		trigger-method="add" />
+            <field name="void"		trigger-method="remove" />
+         </action-fields>
+-->
+         <collection name="items" content-type="item">
+
+            <field name="consumed"			type="com.synthesis.promo.utils.DecimalNumber"		default-value="0" />
+            <field name="actual"			type="com.synthesis.promo.utils.DecimalNumber"		default-value="100" />
+            
+            <field name="type"				type="java.lang.String"		default-value="qty" />            
+            
+            <field name="qty"				type="com.synthesis.promo.utils.DecimalNumber"		default-value="1" />
+            <field name="magnitude"			type="com.synthesis.promo.utils.DecimalNumber"		default-value="0" />
+            <field name="xprice"			type="com.synthesis.promo.utils.DecimalNumber"		default-value="1" />
+            <field name="originalXprice"	type="com.synthesis.promo.utils.DecimalNumber"		initialize-with="xprice" />
+                                        	
+            <field name="returned"			type="java.lang.Boolean"	default-value="false" />
+                                        	
+            <field name="code"				type="java.lang.String"		default-value="-" />
+            <!--FG-->
+            <field name="category"			type="java.lang.String"		default-value="-"/>
+            <field name="dept"				type="java.lang.String"		default-value="-" />
+            <!-- <field name="family"			type="java.lang.String"		default-value="-" />-->
+            <!-- El atributo family no está para la configuración de Liverpool, en cambio van los atributos:
+            	 group, generic, product, tag, affected -->
+            <!-- LIVERPOOL -->
+            <field name="group"			type="java.lang.String"		default-value="-" />
+            <field name="generic"		type="java.lang.String"		default-value="-" />
+            <field name="product"		type="java.lang.String"		default-value="-" />
+            <field name="tag"			type="java.lang.String"		default-value="6" />
+            <field name="affected" 		type="java.lang.Boolean" 	default-value="false"/>
+            <field name="promotioncode" 	type="java.lang.String" 	default-value="-"/>
+			<field name="tagPromo"		type="java.lang.String" 	default-value="-"/>
+            <!-- LIVERPOOL -->
+            
+            <field name="supplier"			type="java.lang.String"		default-value="-" />
+            <field name="brand"				type="java.lang.String"		default-value="-" />
+            <field name="discountable"		type="java.lang.Boolean" 	default-value="false" />
+            <field name="unitprice"			type="com.synthesis.promo.utils.DecimalNumber"		default-value="0" />
+            <field name="modifiedAmount"	type="com.synthesis.promo.utils.DecimalNumber"		default-value="0" />
+            <field name="amount"	type="com.synthesis.promo.utils.DecimalNumber"		default-value="0"  />
+            <field name="lists"				type="java.lang.String"		default-value="-" />
+         </collection>
+
+      </content>
+	
+	
+	
+      <content identifier="CouponAddMessage" root-collection="coupons" collection-class="com.synthesis.promo.engine.session.ElementCollection"
+      	helper-classname="com.synthesis.promo.engine.session.CouponSessionHelper" >
+<!--
+         <action-fields field-name="action">
+            <field name="add"	trigger-method="add" />
+            <field name="void"		trigger-method="remove" />
+         </action-fields>
+-->
+         <collection name="coupons" content-type="coupon">
+
+            <field name="seq"			    type="com.synthesis.promo.utils.DecimalNumber"	default-value="0" displayable="false"/>
+            <field name="consumed"	type="com.synthesis.promo.utils.DecimalNumber"	default-value="0"  displayable="false" />
+            <field name="actual"	type="com.synthesis.promo.utils.DecimalNumber"	default-value="100"  displayable="false" />
+			
+			<field name="type"	    type="java.lang.String"		default-value="-"  displayable="true" displayNameKey="coupon.type"/>
+			<field name="id"		type="java.lang.String"		default-value="-"  displayable="true" displayNameKey="coupon.id"/>
+            <field name="qty"		type="com.synthesis.promo.utils.DecimalNumber"		default-value="1"  displayable="true" displayNameKey="coupon.qty"/>
+            <field name="amount"	type="com.synthesis.promo.utils.DecimalNumber"		default-value="0"  displayable="true" displayNameKey="coupon.amount"/>
+
+			<index by="id" />
+			<index by="type" />
+
+         </collection>
+
+      </content>
+	
+	
+	  <content identifier="CouponVoidMessage" root-collection="coupons" collection-class="com.synthesis.promo.engine.session.ElementCollection"
+      	helper-classname="com.synthesis.promo.engine.session.CouponSessionHelper" >
+<!--
+         <action-fields field-name="action">
+            <field name="add"	trigger-method="add" />
+            <field name="void"		trigger-method="remove" />
+         </action-fields>
+-->
+         <collection name="coupons" content-type="coupon">
+
+            <field name="consumed"	type="com.synthesis.promo.utils.DecimalNumber"	default-value="0" />
+            <field name="actual"	type="com.synthesis.promo.utils.DecimalNumber"	default-value="100"/>
+			
+			<field name="type"	    type="java.lang.String"		default-value="-" />
+			<field name="id"		type="java.lang.String"		default-value="-" />
+            <field name="qty"		type="com.synthesis.promo.utils.DecimalNumber"		default-value="1" />
+            <field name="amount"	type="com.synthesis.promo.utils.DecimalNumber"		default-value="0" />
+
+			<index by="id" />
+			<index by="type" />
+
+         </collection>
+
+      </content>
+	
+	
+	
+      <content identifier="CustomerAddMessage" root-collection="customers" collection-class="com.synthesis.promo.engine.session.ElementCollection"
+		helper-classname="com.synthesis.promo.engine.session.CustomerSessionHelper" >
+
+<!--         <action-fields field-name="action">
+            <field name="add"	trigger-method="add" />
+            <field name="void"		trigger-method="remove" />
+         </action-fields>
+-->
+		<collection name="customers" content-type="customer">
+
+			<field name="seq"		type="com.synthesis.promo.utils.DecimalNumber"	default-value="0" displayable="false"/>
+			<field name="consumed"	type="com.synthesis.promo.utils.DecimalNumber"	default-value="0"  displayable="false"/>
+			<field name="actual"	type="com.synthesis.promo.utils.DecimalNumber"	initialize-with="points"  displayable="false" />
+			   
+			<field name="type"		type="java.lang.String"		default-value="-"  displayable="true" displayNameKey="customer.type" />
+			
+            
+			<field name="points"	type="com.synthesis.promo.utils.DecimalNumber"	default-value="0"  displayable="true" displayNameKey="customer.points"/>
+			<field name="remainingAmount"	type="com.synthesis.promo.utils.DecimalNumber"		default-value="0"  displayable="true" displayNameKey="customer.remainingAmount"/>
+            <field name="id"		type="java.lang.String"		default-value="-"  displayable="true" displayNameKey="customer.id"/>
+			<index by="id" />
+			<index by="type" />
+			<index by="points" />
+
+		</collection>
+
+      </content>
+	
+	  <content identifier="CustomerVoidMessage" root-collection="customers" collection-class="com.synthesis.promo.engine.session.ElementCollection"
+		helper-classname="com.synthesis.promo.engine.session.CustomerSessionHelper" >
+
+<!--         <action-fields field-name="action">
+            <field name="add"	trigger-method="add" />
+            <field name="void"		trigger-method="remove" />
+         </action-fields>
+-->
+		<collection name="customers" content-type="customer">
+
+			<field name="consumed"	type="com.synthesis.promo.utils.DecimalNumber"	default-value="0" />
+			<field name="actual"	type="com.synthesis.promo.utils.DecimalNumber"	initialize-with="points" />
+			   
+			<field name="type"		type="java.lang.String"		default-value="-" />
+			<field name="id"		type="java.lang.String"		default-value="-" />
+            
+			<field name="points"	type="com.synthesis.promo.utils.DecimalNumber"	default-value="1" />
+			<field name="remainingAmount"	type="com.synthesis.promo.utils.DecimalNumber"		default-value="0" />
+
+			<index by="id" />
+			<index by="type" />
+			<index by="points" />
+		</collection>
+
+      </content>
+	 
+	
+      <content identifier="PaymentAddMessage" root-collection="payments" collection-class="com.synthesis.promo.engine.session.ElementCollection"
+		helper-classname="com.synthesis.promo.engine.partialPayment.session.PaymentSessionHelper" >
+
+<!--         <action-fields field-name="action">
+            <field name="add"	trigger-method="add" />
+            <field name="void"		trigger-method="remove" />
+         </action-fields>
+-->
+         <collection name="payments" content-type="payment">
+
+            <field name="seq"		type="com.synthesis.promo.utils.DecimalNumber"	default-value="0" displayable="false" />
+            <field name="consumed"	type="com.synthesis.promo.utils.DecimalNumber"		default-value="0"  displayable="false"/>
+            <field name="actual"	type="com.synthesis.promo.utils.DecimalNumber"		default-value="100"  displayable="false" />
+			   
+			<field name="id"		type="java.lang.String"	default-value="-"  displayable="true" displayNameKey="payment.id"/>
+			<field name="type"		type="java.lang.String"	default-value="-"  displayable="true" displayNameKey="payment.type" />
+			<!-- payment amount (pa)  monto de pago -->
+            <field name="amount"	type="com.synthesis.promo.utils.DecimalNumber"	default-value="1"  displayable="true" displayNameKey="payment.amount"/>
+            <field name="plan"		type="java.lang.String"	default-value="-"  displayable="true" displayNameKey="payment.plan"/>
+            <field name="bank"	type="java.lang.String"	default-value="-"  displayable="true" displayNameKey="payment.bank"/>
+            <field name="installments"	type="java.lang.String"	default-value="-"  displayable="true" displayNameKey="payment.installments"/>
+            <!-- por pagos parciales -->
+            <!-- payment item amount (pia)  monto de los items que se desea pagar -->
+            <field name="itemamount"	type="com.synthesis.promo.utils.DecimalNumber"	default-value="0"  displayable="true" displayNameKey="payment.item.amount"/>
+            <!-- saldo -->
+			<field name="balance"	type="java.lang.Boolean"	default-value="false" displayable="true" displayNameKey="payment.balance"/>
+			<index by="id" />
+			<index by="type" />
+
+         </collection>
+
+      </content>
+
+      <content identifier="PaymentVoidMessage" root-collection="payments" collection-class="com.synthesis.promo.engine.session.ElementCollection"
+		helper-classname="com.synthesis.promo.engine.partialPayment.session.PaymentSessionHelper" >
+
+<!--         <action-fields field-name="action">
+            <field name="add"	trigger-method="add" />
+            <field name="void"		trigger-method="remove" />
+         </action-fields>
+-->
+         <collection name="payments" content-type="payment">
+
+            <field name="consumed"	type="com.synthesis.promo.utils.DecimalNumber"		default-value="0" />
+            <field name="actual"	type="com.synthesis.promo.utils.DecimalNumber"		default-value="100"/>
+			   
+			<field name="id"		type="java.lang.String"	default-value="-" />
+			<field name="type"		type="java.lang.String"	default-value="-" />
+			<!-- payment amount (pa)  monto de pago -->
+            <field name="amount"	type="com.synthesis.promo.utils.DecimalNumber"	default-value="0" />
+            <field name="plan"		type="java.lang.String"	default-value="-" />
+            <field name="bank"	type="java.lang.String"	default-value="-" />
+            <field name="installments"	type="java.lang.String"	default-value="-" />
+			<!-- por pagos parciales -->
+            <!-- payment item amount (pia)  monto de los items que se desea pagar -->
+            <field name="itemamount"	type="com.synthesis.promo.utils.DecimalNumber"	default-value="0"/>
+            <!-- saldo -->
+            <field name="balance"	type="java.lang.Boolean"	default-value="false"/>
+
+			<index by="id" />
+			<index by="type" />
+
+         </collection>
+
+      </content>
+
+
+      <content identifier="EventAddMessage" root-collection="events" collection-class="com.synthesis.promo.engine.session.ElementCollection"
+		helper-classname="com.synthesis.promo.engine.session.EventSessionHelper" >
+
+<!--         <action-fields field-name="action">
+            <field name="add"	trigger-method="add" />
+            <field name="void"		trigger-method="remove" />
+         </action-fields>
+-->
+         <collection name="events" content-type="event">
+
+            <field name="seq"   	type="com.synthesis.promo.utils.DecimalNumber"	default-value="0" displayable="false" />
+            <field name="consumed"	type="com.synthesis.promo.utils.DecimalNumber" default-value="0"  displayable="false" />
+            <field name="actual"	type="com.synthesis.promo.utils.DecimalNumber"	default-value="100"  displayable="false" />
+			   
+			<field name="type"	type="java.lang.String"	default-value="-"  displayable="true" displayNameKey="event.type"/>
+			<field name="id"	type="java.lang.String"	default-value="-"  displayable="true" displayNameKey="event.id"/>
+			<field name="value"	type="java.lang.String"	default-value=""  displayable="true" displayNameKey="event.value"/>			
+ 
+			<index by="id" />
+
+         </collection>
+
+      </content>
+	
+      <content identifier="EventVoidMessage" root-collection="events" collection-class="com.synthesis.promo.engine.session.ElementCollection"
+		helper-classname="com.synthesis.promo.engine.session.EventSessionHelper" >
+
+<!--         <action-fields field-name="action">
+            <field name="add"	trigger-method="add" />
+            <field name="void"		trigger-method="remove" />
+         </action-fields>
+-->
+         <collection name="events" content-type="event">
+
+            <field name="consumed"	type="com.synthesis.promo.utils.DecimalNumber"	default-value="0" />
+            <field name="actual"	type="com.synthesis.promo.utils.DecimalNumber"	default-value="100" />
+			   
+			<field name="type"	type="java.lang.String"	default-value="-" />
+			<field name="id"	type="java.lang.String"	default-value="-" />
+			<field name="value"	type="java.lang.String"	default-value="" />			
+
+			<index by="id" />
+
+         </collection>
+
+      </content>
+
+       <content identifier="BenefitAddMessage" root-collection="benefits" collection-class="com.synthesis.promo.engine.session.ElementCollection"
+		helper-classname="com.synthesis.promo.engine.session.BenefitSessionHelper" >
+
+         <collection name="benefits" content-type="benefit">
+
+            <field name="seq"   	type="com.synthesis.promo.utils.DecimalNumber"	default-value="0" displayable="false" />
+            <field name="consumed"	type="com.synthesis.promo.utils.DecimalNumber" default-value="0"  displayable="false" />
+            <field name="actual"	type="com.synthesis.promo.utils.DecimalNumber"	default-value="100"  displayable="false" />
+			<field name="amount"	type="com.synthesis.promo.utils.DecimalNumber"	default-value="0" displayable="true" displayNameKey="benefit.amount"/>			   
+			<field name="type"	type="java.lang.String"	default-value="-"  displayable="true" displayNameKey="benefit.type"/>
+			<field name="id"	type="java.lang.String"	default-value="-"  displayable="true" displayNameKey="benefit.id"/>
+			<field name="benefitType"	type="java.lang.String"	default-value=""  displayable="true" displayNameKey="benefit.benefitType"/>			
+			<field name="seqItem"	type="java.lang.String"	default-value=""  displayable="true" displayNameKey="benefit.seqItem"/>
+ 
+			<index by="id" />
+         </collection>
+      </content>
+	
+      <content identifier="BenefitVoidMessage" root-collection="benefits" collection-class="com.synthesis.promo.engine.session.ElementCollection"
+		helper-classname="com.synthesis.promo.engine.session.BenefitSessionHelper" >
+		 <collection name="benefits" content-type="benefit">            
+            <field name="consumed"	type="com.synthesis.promo.utils.DecimalNumber" default-value="0"  displayable="false" />
+            <field name="actual"	type="com.synthesis.promo.utils.DecimalNumber"	default-value="100"  displayable="false" />
+			<field name="amount"	type="com.synthesis.promo.utils.DecimalNumber"	default-value="0" displayable="true" displayNameKey="benefit.amount"/>			   
+			<field name="type"	type="java.lang.String"	default-value="-"  displayable="true" displayNameKey="benefit.type"/>
+			<field name="id"	type="java.lang.String"	default-value="-"  displayable="true" displayNameKey="benefit.id"/>
+			<field name="benefitType"	type="java.lang.String"	default-value=""  displayable="true" displayNameKey="benefit.benefitType"/>			
+			<field name="seqItem"	type="java.lang.String"	default-value=""  displayable="true" displayNameKey="benefit.seqItem"/>
+	
+			<index by="id" />
+         </collection>
+      </content>	
+   </data-set>
+
+
+   <data-set name="ResultData">
+   
+      <element type="items">
+         <field name="type"				type="java.lang.String"		default-value="qty" />
+         <field name="qty"				type="com.synthesis.promo.utils.DecimalNumber"		default-value="1" />
+         <field name="magnitude"			type="com.synthesis.promo.utils.DecimalNumber"		default-value="1" />
+         <field name="xprice"				type="com.synthesis.promo.utils.DecimalNumber"		default-value="1" />
+         <field name="code"				type="java.lang.String"		default-value="-" />
+         <field name="seq"				type="java.lang.String"		default-value="-" />
+         <field name="dept"				type="java.lang.String"		default-value="-" />
+         <!--<field name="family"			type="java.lang.String"		default-value="-" />-->
+         <!-- El atributo family no está para la configuración de Liverpool, en cambio van los atributos:
+            	 group, generic, product, tag, affected -->
+         <!-- LIVERPOOL -->
+         <field name="group"			type="java.lang.String"		default-value="-" />
+         <field name="generic"			type="java.lang.String"		default-value="-" />
+         <field name="product"			type="java.lang.String"		default-value="-" />
+         <field name="tag"				type="java.lang.String"		default-value="6" />
+         <field name="affected" 		type="java.lang.Boolean" 	default-value="false"/>
+         <field name="promotioncode" 	type="java.lang.String" 	default-value="-"/>
+		 <field name="tagPromo"		 	type="java.lang.String" 	default-value="-"/>
+         <!--LIVERPOOL--> 
+         <field name="supplier"			type="java.lang.String"		default-value="-" />
+         <field name="brand"				type="java.lang.String"		default-value="-" />
+         <field name="category"			type="java.lang.String"		default-value="-"/>
+		 <field name="discountable"		type="java.lang.Boolean" 	default-value="false" />
+		 <field name="amount"	type="com.synthesis.promo.utils.DecimalNumber"		default-value="0"  />
+      </element>
+	
+	  <element type="coupons">
+    	 <field name="type"	    type="java.lang.String"		default-value="-" />
+		 <field name="id"		type="java.lang.String"		default-value="-" />
+		 <field name="seq"		type="java.lang.String"		default-value="-" />
+         <field name="qty"		type="com.synthesis.promo.utils.DecimalNumber"		default-value="1" />
+         <field name="amount"	type="com.synthesis.promo.utils.DecimalNumber"		default-value="0" />
+	  </element>   
+	  
+	  <element type="customers">
+ 		 <field name="type"		type="java.lang.String"		default-value="-" />
+		 <field name="id"		type="java.lang.String"		default-value="-" />
+		 <field name="seq"		type="java.lang.String"		default-value="-" />
+		 <field name="points"	type="com.synthesis.promo.utils.DecimalNumber"	default-value="0" />
+		 <field name="remainingAmount"	type="com.synthesis.promo.utils.DecimalNumber"		default-value="0" />
+	  </element>   
+	  
+	  <element type="payments">
+		 <field name="type"		type="java.lang.String"	default-value="-" />
+		 <field name="id"		type="java.lang.String"	default-value="-" />
+  		 <field name="seq"		type="java.lang.String"	default-value="-" />
+         <field name="plan"		type="java.lang.String"	default-value="-" />
+         <field name="bank"	type="java.lang.String"	default-value="-" />
+         <field name="installments"	type="java.lang.String"	default-value="-"/>
+         <!-- por pagos parciales -->
+         <!-- payment item amount (pia)  monto de los items que se desea pagar -->
+         <field name="itemamount"	type="com.synthesis.promo.utils.DecimalNumber"	default-value="0"/>
+         <!-- payment amount (pa)  monto de pago -->
+         <field name="amount"	type="com.synthesis.promo.utils.DecimalNumber"	default-value="0"/>
+         <!-- saldo -->
+         <field name="balance"	type="java.lang.Boolean"	default-value="false"/>
+	  </element>	  
+
+	  <element type="events">	  
+		 <field name="type"	type="java.lang.String"	default-value="-" />
+		 <field name="id"	type="java.lang.String"	default-value="-" />
+		 <field name="seq"	type="java.lang.String"	default-value="-" />
+		 <field name="value"	type="java.lang.String"	default-value="" />			
+	  </element>
+	  	  	  	  
+	  <element type="benefits">	  	
+     	<field name="seq"   	type="java.lang.String"	default-value="0" displayable="false" />
+		<field name="amount"	type="com.synthesis.promo.utils.DecimalNumber"	default-value="0" />			   
+		<field name="type"	type="java.lang.String"	default-value="-"  />
+		<field name="id"	type="java.lang.String"	default-value="-"  />
+		<field name="benefitType"	type="java.lang.String"	default-value=""  />			
+		<field name="seqItem"	type="java.lang.String"	default-value=""  />		 	
+	  </element>	  	  	  	  
+   </data-set>
+
+
+</collection>

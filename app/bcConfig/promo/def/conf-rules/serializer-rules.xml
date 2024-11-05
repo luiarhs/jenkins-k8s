@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+
+<!--
+	$Header: /usr/local/cvs_ssf/Promo_V2.4/rs-promo-framework/conf/v2.3/conf-rules/serializer-rules.xml,v 1.1 2006/05/30 16:34:56 christianbohm Exp $
+-->
+
+<digester-rules>
+
+
+<pattern value="collection">
+
+	<factory-create-rule classname="ar.com.retailsolutions.common.configuration.DigesterObjectCreationFactory"/>
+	
+	<pattern value="element">
+	
+		<factory-create-rule classname="com.synthesis.promo.serializer.config.AttributeCollectionObjectCreationFactory"/>
+
+		<pattern value="attribute">
+			<object-create-rule classname="com.synthesis.promo.serializer.config.AttributeParameter"/>
+			<set-properties-rule/>
+			<set-next-rule methodname="addParameter"/>		
+		</pattern>
+			
+		<set-top-rule methodname="setTransversalParameterCollection"/>
+
+	</pattern>
+	
+	
+</pattern>	
+
+
+</digester-rules>

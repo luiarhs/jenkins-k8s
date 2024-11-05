@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- ********************** Archivo de configuracion de la BridgeSuite ****************************** -->
+
+<suite terminal="@terminalID">
+
+	<!-- Bridge Suite Recorder -->
+	<property key="recorderStart" value="false" /> <!-- opciones: true | false (default) -->
+	<property key="recorderFolder" value="m:/rsTestFramework/recorder" />
+
+	<!-- Configured images groups -->
+	<!-- <property key="imagesGroups" value="q:/gui800/,800,600,q:/img800/;q:/gui1024/,1024,768,q:/img1024/"/> -->
+	<property key="imagesGroups" value="q:/gui1024/,1024,768,q:/img1024/;q:/gui800/,800,600,q:/img800/" />
+
+	<!-- POS Adapter -->
+	<posadapter>
+		<comunication name="JavaComunicator"
+			class="com.synthesis.bridge.conn.adapter.comunication.JavaComunicator" />
+		<interpreter name="JavaInterpreter"
+			class="com.synthesis.bridge.conn.adapter.interpreter.JavaInterpreter" />
+	</posadapter>
+
+	<!-- Device Manager -->
+	<devicemanager>
+		<bridge-gui required="true" /> <!-- opciones: true | false -->
+
+		<!--************************************* -->
+		<!-- Dispositivos emulados por BridgeGUI -->
+		<!--************************************* -->
+		<device name="GUIDisplay"
+			class="com.synthesis.bridge.conn.devicemanager.deviceadapter.GUIDisplay">
+			<property key="type" value="DISPLAY_DEVICE" />
+			<property key="synchronous" value="false" /> <!-- true: sincronico | false: asincronico -->
+		</device>
+
+		<device name="GUIKeyboard"
+			class="com.synthesis.bridge.conn.devicemanager.deviceadapter.GUIKeyboard">
+			<property key="type" value="KEYBOARD_DEVICE" />
+			<property key="synchronous" value="false" /> <!-- true: sincronico | false: asincronico -->
+			<property key="iovalidator" value="false" />
+			<property key="keyconfig" value="2" /> <!-- 0: SMA | 1: GSA | 2:Custom -->
+		</device>
+
+		<device name="GUIEvents"
+			class="com.synthesis.bridge.conn.devicemanager.deviceadapter.GUIBussinessEvents">
+			<property key="type" value="GUI_DEVICE" />
+			<property key="synchronous" value="false" /> <!-- true: sincronico | false: asincronico -->
+		</device>
+
+		<!--********************** -->
+		<!-- Dispositivos JavaPos -->
+		<!--********************** -->
+		<device name="POSKeyboard"
+			class="com.synthesis.bridge.conn.devicemanager.deviceadapter.POSKeyboardAdapter">
+			<property key="type" value="KEYBOARD_DEVICE" />
+			<property key="synchronous" value="false" />
+			<property key="driver" value="ADXPIK0:" />
+			<property key="testdevice" value="false" />
+		</device>
+
+		<device name="POSCashdrawer"
+			class="com.synthesis.bridge.conn.devicemanager.deviceadapter.POSCashdrawerAdapter">
+			<property key="type" value="CASHDRAWER_DEVICE" />
+			<property key="synchronous" value="false" />
+			<property key="driver" value="ADXPID0:" />
+			<property key="secondDriver" value="CashDrawer2" />
+			<property key="testdevice" value="false" />
+		</device>
+
+		<device name="POSScanner"
+			class="com.synthesis.bridge.conn.devicemanager.deviceadapter.POSScannerAdapter">
+			<property key="type" value="SCANNER_DEVICE" />
+			<property key="synchronous" value="true" />
+			<property key="driver" value="defaultScanner" />
+			<property key="secondDriver" value="IBM4696Scanner" />
+			<property key="testdevice" value="false" />
+		</device>
+
+		<device name="POSMSR"
+			class="com.synthesis.bridge.conn.devicemanager.deviceadapter.POSMSRAdapter">
+			<property key="type" value="MSR_DEVICE" />
+			<property key="synchronous" value="false" />
+			<property key="driver" value="defaultMSR" />
+			<property key="testdevice" value="false" />
+		</device>
+
+		<!--************************************************************************************* -->
+		<!--********************** -->
+		<!-- Driver de Impresora Toshiba -->
+		<!--********************** -->
+		<!--<device name= "POSPrinter" class= "com.synthesis.bridge.conn.devicemanager.deviceadapter.POSPrinterAdapter"> 
+			<property key="type" value="PRINTER_DEVICE"/> <property key="synchronous" 
+			value="false"/> <property key="driver" value="IBM4610Printer"/> </device> -->
+		<!--************************************************************************************* -->
+		<!--********************** -->
+		<!-- Driver de Impresora Synthesis -->
+		<!--********************** -->
+		<device name="POSPrinter"
+			class="com.synthesis.bridge.conn.devicemanager.deviceadapter.POSPrinterAdapterSts">
+			<property key="type" value="PRINTER_DEVICE" />
+			<property key="synchronous" value="false" />
+			<property key="driver" value="q:/sts4610.dll" />
+			<property key="trace" value="false" />
+			<property key="maxLineBufferDI" value="800" />
+			<property key="numberMaxLineBufferDI" value="62" />
+		</device>
+		<!--************************************************************************************* -->
+
+		<!--************************************************************************************* -->
+		<!--*********************** -->
+		<!-- Driver de Micr Toshiba -->
+		<!--*********************** -->
+		<!--<device name="POSMICR" class="com.synthesis.bridge.conn.devicemanager.deviceadapter.POSMICRAdapter"> 
+			<property key="type" value="MICR_DEVICE"/> <property key="synchronous" value="false"/> 
+			<property key="driver" value="defaultMICR"/> </device> -->
+		<!--************************************************************************************* -->
+		<!--************************* -->
+		<!-- Driver de Micr Synthesis -->
+		<!--************************* -->
+		<device name="POSMICR"
+			class="com.synthesis.bridge.conn.devicemanager.deviceadapter.POSMICRAdapterSts">
+			<property key="type" value="MICR_DEVICE" />
+			<property key="synchronous" value="false" />
+			<property key="driver" value="defaultMICR" />
+		</device>
+
+		<!--********************** -->
+		<!-- Dispositivos Seriales -->
+		<!--********************** -->
+
+		<!-- <device name="POSPinPadEMVBancomerAdapter"
+			class="com.synthesis.bridge.conn.devicemanager.deviceadapter.POSPinPadEMVBancomerAdapterEncryption">
+			<property key="type" value="PINPAD_DEVICE" />
+			<property key="synchronous" value="false" />
+			<property key="welcomeMessage" value=" LIVERPOOL EMV      BANCOMER    " />
+			<property key="binesID" value="A0927152" /> -->
+
+			<!-- Parametros para serial -->
+			<!-- <property key="adapterType1" value="Serial" />
+			<property key="configuration1" value="pinpad1" />
+			<property key="name1" value="Verifon Nurit293" />
+			<property key="serialPort1" value="COM4" />
+			<property key="baultRate1" value="19200" />
+			<property key="parity1" value="N" />
+			<property key="dataBits1" value="8" />
+			<property key="stopBits1" value="1" /> -->
+
+			<!-- Parametros para USB -->
+			<!-- <property key="adapterType2" value="USB" />
+			<property key="vendor2" value="079b" />
+			<property key="product2" value="0028" /> -->
+
+			<!-- Parametros para serial en modo mejorado, usamos COM3 -->
+			<!-- <property key="adapterType3" value="Serial" />
+			<property key="configuration3" value="pinpad3" />
+			<property key="name3" value="Verifon Nurit293" />
+			<property key="serialPort3" value="COM3" />
+			<property key="baultRate3" value="19200" />
+			<property key="parity3" value="N" />
+			<property key="dataBits3" value="8" />
+			<property key="stopBits3" value="1" />
+
+		</device> -->
+
+		<device name="POSScale"
+			class="com.synthesis.bridge.conn.devicemanager.deviceadapter.POSSerialScaleAdapter">
+			<property key="type" value="SCALE_DEVICE" />
+			<property key="name" value="SCALE" />
+			<property key="configuration" value="default" />
+			<property key="synchronous" value="false" />
+			<property key="serialPort" value="COM2" />
+			<property key="baultRate" value="2400" />
+			<property key="parity" value="E" />
+			<property key="dataBits" value="7" />
+			<property key="stopBits" value="1" />
+		</device>
+
+		<!--********************** -->
+		<!-- Dispositivos remotos -->
+		<!--********************** -->
+
+		<!-- Se deshabilita el dispositivo ya que no tiene uso <remotedevice name= 
+			"RemoteDispatcher" class= "com.synthesis.bridge.conn.devicemanager.deviceadapter.RemoteDevice"> 
+			<property key="port" value="7777"/> <property key="baselineevent" value="LOGIN_EVENT"/> 
+			<property key="uselessevent" value="SLEEP_EVENT"/> </remotedevice> -->
+
+		<!-- AutoTest (TIP lala) -->
+		<!-- <device name= "TesterAdapter" class= "com.synthesis.bridge.conn.devicemanager.deviceadapter.TesterAdapter"> 
+			<property key="port" value="7572"/> </device> -->
+
+	</devicemanager>
+</suite>
+<!-- ********************** Fin de Archivo de configuracion de la BridgeSuite 
+	****************************** -->

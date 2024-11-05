@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<banksConfiguration>
+    <bancos>
+        <servicioCps clave="01"
+                     skuGuga="7779860002129"
+                     nombre="BBVA"
+                     dolares="1"
+                     funcionCorresponsales="si"
+                     formatoVoucherCorresponsales="si"
+                     comision="10.00"
+                     idBank="2"/>
+    </bancos>
+</banksConfiguration>

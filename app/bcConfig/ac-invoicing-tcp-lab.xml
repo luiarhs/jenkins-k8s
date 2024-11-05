@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<bean id="xmlToRequestTranslator"
+		class="com.synthesis.invoicing.client.translation.request.XStreamXmlToRequestTranslator"
+		scope="prototype">
+	</bean>
+
+	<bean id="responseToXmlTranslator"
+		class="com.synthesis.invoicing.client.translation.response.XStreamResponseToXmlTranslator"
+		scope="prototype">
+	</bean>
+
+	<bean id="invoicingCommunication"
+		class="com.synthesis.fwk.communication.impl.JavaDirectCommunication"
+		init-method="initialize">
+	</bean>
+
+	<!--
+	<bean id="invoicingCommunicationWriter"
+	class="com.synthesis.fwk.communication.io.impl.HeaderWriter"
+	scope="singleton">
+	</bean>
+
+	<bean id="invoicingCommunicationReader"
+	class="com.synthesis.fwk.communication.io.impl.HeaderReader"
+	scope="singleton">
+	<property name="maxMessageSize" value="50000" />
+	</bean>
+
+	<bean id="threadPool"
+	class="com.synthesis.fwk.threading.impl.ApacheThreadPool">
+	<property name="maxIdle" value="2" />
+	<property name="maxActive" value="5" />
+	</bean>
+
+	<bean id="invoicingCommunication"
+	class="com.synthesis.fwk.communication.impl.tcpip.TcpIpCommunication"
+	init-method="initialize">
+	<constructor-arg type="boolean" value="false" />
+
+	<property name="name" value="InvoiceThread" />
+	<property name="port" value="19999" />
+	<property name="soTimeOut" value="10000" />
+	<property name="reader" ref="invoicingCommunicationReader" />
+	<property name="writer" ref="invoicingCommunicationWriter" />
+	<property name="threadPool" ref="threadPool" />
+	</bean>
+	-->
+
+	<bean id="invoicingFacade"
+		class="com.synthesis.invoicing.client.InvoicingFacade"
+		scope="singleton">
+	</bean>
+
+	<!-- Mock client beans. -->
+	<!--
+	<bean id="readerInterpreterManager"
+	class="com.synthesis.fwk.interpreter.impl.SimpleInterpreterManager">
+	<property name="interpreters">
+	<list>
+	</list>
+	</property>
+	</bean>
+
+	<bean id="writerInterpreterManager"
+	class="com.synthesis.fwk.interpreter.impl.SimpleInterpreterManager">
+	<property name="interpreters">
+	<list>
+	</list>
+	</property>
+	</bean>
+
+	<bean id="writerMarker"
+	class="com.synthesis.fwk.communication.io.impl.HeaderWriter"
+	scope="prototype">
+	</bean>
+
+	<bean id="readerMarker"
+	class="com.synthesis.fwk.communication.io.impl.HeaderReader"
+	scope="prototype">
+	</bean>
+
+	<bean id="invoicingCommunicationClient"
+	class="com.synthesis.fwk.communication.impl.tcpip.TcpIpSyncClientCommunication"
+	scope="prototype">
+	<property name="socketTimeout" value="2000" />
+	<property name="port" value="19999" />
+	<property name="hostName" value="localhost" />
+	<property name="respondingMessage" value="true" />
+	<property name="readerInterpreterManager" ref="readerInterpreterManager" />
+	<property name="writerInterpreterManager" ref="writerInterpreterManager" />
+	<property name="reader" ref="readerMarker" />
+	<property name="writer" ref="writerMarker" />
+	</bean>
+
+	-->
+
+	<bean id="simpleRequestBuilder" class="com.synthesis.webServices.client.SimpleWSRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:ifac=&quot;http://www.liverpool.com.mx/wbi/ifactc/&quot;&gt; &lt;soapenv:Header/&gt; &lt;soapenv:Body&gt;" />
+		<property name="footer"		value="&lt;/soapenv:Body&gt;&lt;/soapenv:Envelope&gt;" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderCrm" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;crm:CRMPOSRequest&gt;" />
+		<property name="footer"		value="&lt;/crm:CRMPOSRequest&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderCrmLoyalty" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;crm:CRMLoyaltyPOSRequest&gt;" />
+		<property name="footer"		value="&lt;/crm:CRMLoyaltyPOSRequest&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderVella" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;vella:VellaRequest&gt;" />
+		<property name="footer"		value="&lt;/vella:VellaRequest&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderMesa" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;mesa:MesaPOSRequest&gt;" />
+		<property name="footer"		value="&lt;/mesa:MesaPOSRequest&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderMesaConfirma" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;mesa:ConfirmaRequest&gt;" />
+		<property name="footer"		value="&lt;/mesa:ConfirmaRequest&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderMesaOrdenVenta" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;mesa:GeneraOrdenSomsRequest&gt;" />
+		<property name="footer"		value="&lt;/mesa:GeneraOrdenSomsRequest&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="removeHeadFootRequestBuilderMesaCancela" class="com.synthesis.webServices.client.RemoveHeaderAndFooterRequestBuilder" scope="prototype">
+		<property name="header" 	value="&lt;mesa:CancelaRequest&gt;" />
+		<property name="footer"		value="&lt;/mesa:CancelaRequest&gt;" />
+		<property name="replaceEscapeCharactersInBody"		value="true" />
+	</bean>
+
+	<bean id="simpleResponseTranslator" class="com.synthesis.webServices.client.SimpleWSResponseTranslator" scope="prototype">
+		<property name="elementToReturn" 			value="ResponseAdmon" />
+		<property name="replaceEscapeCharacters"	value="true" />
+	</bean>
+
+	<!-- INICIA URLS PARA FACTURA ELECTRONICA -->
+
+	<!-- VALORES LABORATORIO LIVERPOOL comentados para entrega -->
+
+	<!-- URL PARA BUSCAR DATOS FISCALES -->
+	<!-- Timeout en segundos -->
+	<!--
+	<bean id="buscaDtsFiscal" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+	<property name="endPoint" 			value="http://172.16.204.254:7080/wmb/femch" />
+	<property name="action" 			value="http://www.liverpool.com.mx/wbi/ifactc/NewOperation" />
+	<property name="timeout" 			value="30" />
+	<property name="requestBuilder"		ref="simpleRequestBuilder" />
+	<property name="responseTranslator"	ref="simpleResponseTranslator" />
+	<property name="wsType"	            value="SOAP" />
+	</bean>
+	-->
+
+	<!-- URL PARA ALTA DE NUEVA FACTURA -->
+	<!-- Timeout en segundos -->
+	<!--
+	<bean id="facturarPOSRequest" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+	<property name="endPoint" 			value="http://172.16.204.254:7080/wmb/femch" />
+	<property name="action" 			value="http://www.liverpool.com.mx/wbi/ifactc/NewOperation" />
+	<property name="timeout" 			value="30" />
+	<property name="requestBuilder"		ref="simpleRequestBuilder" />
+	<property name="responseTranslator"	ref="simpleResponseTranslator" />
+	<property name="wsType"	            value="SOAP" />
+	</bean>
+	-->
+
+	<!-- Configuracion de WS para CRM Siebel -->
+	<!-- Timeout en sg -->
+	<!--
+	<bean id="CRMWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+	<property name="endPoint" 			value="http://172.16.204.254:7093/CRM/realizaOperacion?" />
+	<property name="timeout" 			value="3" />
+	<property name="requestBuilder"		ref="removeHeadFootRequestBuilderCrm" />
+	<property name="wsType"	            value="REST" />
+	<property name="method"	            value="GET" />
+	</bean>
+	-->
+	<!-- Configuracion de WS para CRM Loyalty -->
+	<!-- Timeout en sg -->
+	<bean id="CRMLoyaltyWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://10.3.5.102:8088/CRMRealizaOperacionLoyalty?" />
+		<property name="timeout" 			value="3" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderCrmLoyalty" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="GET" />
+	</bean>
+
+	<!-- Configuracion de WS para Vella cobro de Llantas -->
+	<!-- Timeout en sg -->
+
+	<bean id="VellaWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://10.3.5.102:8088/Vella?"/>
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderVella" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="GET" />
+	</bean>
+
+
+	<!--
+	<bean id="configurationUtil" class="com.synthesis.invoicing.client.util.ConfigurationUtil" scope="singleton">
+
+	<property name="cancelacion" value="http://172.16.204.254:7080/wbi/fec_cancelafactura" />
+	-->
+
+	<!-- VALORES PRODUCCION LIVERPOOL -->
+
+	<!-- URL PARA BUSCAR DATOS FISCALES -->
+	<!-- Timeout en segundos -->
+	<bean id="buscaDtsFiscal" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" value="http://10.3.5.102:8088/mockifactcSOAP" />
+		<property name="action" 			value="http://www.liverpool.com.mx/wbi/ifactc/NewOperation" />
+		<property name="timeout" 			value="30" />
+		<property name="requestBuilder"		ref="simpleRequestBuilder" />
+		<property name="responseTranslator"	ref="simpleResponseTranslator" />
+		<property name="wsType"	            value="SOAP" />
+	</bean>
+
+	<!-- URL PARA ALTA DE NUEVA FACTURA -->
+	<!-- Timeout en segundos -->
+	<bean id="facturarPOSRequest" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" value="http://10.3.5.102:8088/mockifactcSOAP" />
+		<property name="action" 			value="http://www.liverpool.com.mx/wbi/ifactc/NewOperation" />
+		<property name="timeout" 			value="30" />
+		<property name="requestBuilder"		ref="simpleRequestBuilder" />
+		<property name="responseTranslator"	ref="simpleResponseTranslator" />
+		<property name="wsType"	            value="SOAP" />
+	</bean>
+
+	<!-- Configuracion de WS para CRM Siebel -->
+	<!-- Timeout en sg -->
+	<bean id="CRMWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://10.3.5.102:8088/CRMRealizaOperacion?" />
+		<property name="timeout" 			value="3" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderCrm" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="GET" />
+	</bean>
+
+	<bean id="MesaWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://10.3.4.29:8080/getEventDetailsById?"/>
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderMesa" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+	</bean>
+
+	<bean id="MesaConfirmaWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://10.3.4.29:8080/getEventSpecificAddresses?"/>
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderMesaConfirma" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+	</bean>
+	
+	<bean id="MesaCancelaWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://10.3.4.29:8080/getEventSpecificAddresses?"/>
+		<property name="timeout" 			value="5" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderMesaCancela" />
+		<property name="wsType"	            value="REST" />
+		<property name="method"	            value="POST" />
+		<property name="requestType"	    value="JSON" />
+	</bean>
+
+	<bean id="MesaGeneraOrdenSomsWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+		<property name="endPoint" 			value="http://10.3.5.102:8081/wbi/cicstran"/>
+		<property name="timeout" 			value="30" />
+		<property name="requestBuilder"		ref="removeHeadFootRequestBuilderMesaOrdenVenta" />
+		<property name="wsType"	            value="SOAP" />
+		<property name="responseTranslator"	ref="simpleResponseTranslator" />
+	</bean>
+
+	<!-- bean id="MesaWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+	<property name="endPoint" 			value="http://10.3.4.29:8080/getEventSpecificAddresses?"/>
+	<property name="timeout" 			value="5" />
+	<property name="requestBuilder"		ref="removeHeadFootRequestBuilderMesa" />
+	<property name="wsType"	            value="REST" />
+	<property name="method"	            value="GET" />
+	</bean
+	-->
+	<!-- Configuracion de WS para CRM Loyalty -->
+	<!-- Timeout en sg -->
+	<!-- <bean id="CRMLoyaltyWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+	<property name="endPoint" 			value="http://172.17.203.85:7093/CRMLoyalty?" />
+	<property name="timeout" 			value="3" />
+	<property name="requestBuilder"		ref="removeHeadFootRequestBuilderCrmLoyalty" />
+	<property name="wsType"	            value="REST" />
+	<property name="method"	            value="GET" />
+	</bean>
+	-->
+	<!-- Configuracion de WS para Vella cobro de Llantas -->
+	<!-- Timeout en sg -->
+	<!-- <bean id="VellaWSConfig" class="com.synthesis.webServices.client.WebServiceConfiguration" scope="prototype">
+	<property name="endPoint" 			value="http://172.17.203.85:7081/wbi/vella/consulta?Orden=" />
+	<property name="timeout" 			value="5" />
+	<property name="requestBuilder"		ref="removeHeadFootRequestBuilderVella" />
+	<property name="wsType"	            value="REST" />
+	<property name="method"	            value="GET" />
+	</bean>
+	-->
+	<bean id="configurationUtil" class="com.synthesis.invoicing.client.util.ConfigurationUtil" scope="singleton">
+
+
+		<property name="cancelacion" value="http://172.17.203.158:7080/wbi/fec_cancelafactura" />
+
+		<!-- FIN URLS PARA FACTURA ELECTRONICA -->
+
+		<!-- INICIA URLS PARA CONSULTA DE SALDO -->
+
+		<!-- VALORES LABORATORIO LIVERPOOL comentados para entrega -->
+		<!--
+		<property name="consultaSaldo" value="http://172.16.204.254:7080/wbi/cicstran" />
+		<property name="consultaSaldoSegmento" value="http://172.16.204.254:7080/wbi/cicstran" />
+		-->
+
+		<!-- VALORES PRODUCCION LIVERPOOL -->
+		<property name="consultaSaldo" value="http://10.3.5.102:8081/wbi/cicstran" />
+		<property name="consultaSaldoSegmento" value="http://10.3.5.102:8081/wbi/cicstran" />
+
+		<!-- FIN URLS PARA CONSULTA DE SALDO -->
+
+		<!-- INICIA URL PARA SASTRERIA DEVOLUCION Y CANCELACION -->
+
+		<!-- VALORES LABORATORIO LIVERPOOL comentados para entrega -->
+		<!--
+		<property name="cambioEstatus" value="http://172.16.204.200:7083/wbi/sa_servicioCambioEstatusOrdenes" />
+		-->
+		<!-- VALORES LABORATORIO PROPIOS comentados para entrega -->
+		<!--
+		<property name="cambioEstatus" value="http://172.27.203.25:7083/wbi/sa_servicioCambioEstatusOrdenes" />
+		-->
+		<!-- VALORES PRODUCCION LIVERPOOL -->
+		<property name="cambioEstatus" value="http://10.3.5.102:8081/axis/services/CambioEstatusOrden" />
+
+		<!-- FIN URL PARA SASTRERIA DEVOLUCION Y CANCELACION -->
+
+		<property name="facturacionTimeout" value="30000" />
+		<!-- Timeout en ms -->
+		<property name="cancelacionTimeout" value="30000" />
+		<!-- Timeout en ms -->
+		<property name="consultaSaldoTimeout" value="30" />
+		<!-- Timeout en segundos -->
+		<property name="consultaSaldoSegmentoTimeout" value="30" />
+		<!-- Timeout en segundos -->
+		<property name="cambioEstatusTimeout" value="30" />
+		<!-- Timeout en segundos -->
+
+		<!-- wsConfiguration contiene un mapa de objetos del tipo com.synthesis.webServices.client.WebServiceConfiguration -->
+		<property name="wsConfiguration">
+			<map>
+				<entry>
+					<key>
+						<value>ifac:BuscaDtsFiscalRequest</value>
+					</key>
+					<ref bean="buscaDtsFiscal"/>
+				</entry>
+				<entry>
+					<key>
+						<value>ifac:FacturarPOSRequest</value>
+					</key>
+					<ref bean="facturarPOSRequest"/>
+				</entry>
+				<entry>
+					<key>
+						<value>crm:CRMPOSRequest</value>
+					</key>
+					<ref bean="CRMWSConfig"/>
+				</entry>
+				<entry>
+					<key>
+						<value>crm:CRMLoyaltyPOSRequest</value>
+					</key>
+					<ref bean="CRMLoyaltyWSConfig"/>
+				</entry>
+				<entry>
+					<key>
+						<value>vella:VellaRequest</value>
+					</key>
+					<ref bean="VellaWSConfig"/>
+				</entry>
+				<entry>
+					<key>
+						<value>mesa:MesaPOSRequest</value>
+					</key>
+					<ref bean="MesaWSConfig"/>
+				</entry>
+				<entry>
+					<key>
+						<value>mesa:ConfirmaRequest</value>
+					</key>
+					<ref bean="MesaConfirmaWSConfig"/>
+				</entry>
+				<entry>
+					<key>
+						<value>mesa:GeneraOrdenSomsRequest</value>
+					</key>
+					<ref bean="MesaGeneraOrdenSomsWSConfig"/>
+				</entry>
+				<entry>
+					<key>
+						<value>mesa:CancelaRequest</value>
+					</key>
+					<ref bean="MesaCancelaWSConfig"/>
+				</entry>
+			</map>
+		</property>
+	</bean>
+
+</beans>

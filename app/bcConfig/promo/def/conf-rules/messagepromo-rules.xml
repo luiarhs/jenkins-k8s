@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+
+<digester-rules>
+
+<pattern value="message">
+
+	<set-properties-rule/>
+	<set-properties-rule>
+		<alias attr-name="date-time" prop-name="dateTime" />
+		<alias attr-name="message-id" prop-name="messageId" />
+		<alias attr-name="trx-id" prop-name="trxId" />
+		<alias attr-name="last-entry" prop-name="lastEntry" />
+		<alias attr-name="void-trx" prop-name="voidTrx" />
+		<alias attr-name="init-tck" prop-name="initTrx" />
+		<alias attr-name="msg-version" prop-name="msgVersion" />
+		<alias attr-name="map-version" prop-name="mapVersion" />
+		<alias attr-name="suggest-seq" prop-name="suggestSeq" />
+		<alias attr-name="suggest-seq-type" prop-name="suggestSeqType" />
+		<alias attr-name="suggest-per-type" prop-name="suggestPerType" /> 
+		<alias attr-name="suggest-filter-type" prop-name="suggestFilterType" />
+		<alias attr-name="suggest-extended" prop-name="suggestExtended" />
+		<alias attr-name="evaluateOptionGroup" prop-name="evaluateOptionGroup" />
+	</set-properties-rule>
+
+		<pattern value="item-add">
+			<factory-create-rule classname="com.synthesis.promo.core.messaging.ItemAddMessageObjectCreationFactory" />
+			<set-properties-rule/>
+			<set-next-rule methodname="addMessage"/>
+		</pattern>
+		
+		<pattern value="item-void">
+			<factory-create-rule classname="com.synthesis.promo.core.messaging.ItemVoidMessageObjectCreationFactory" />
+			<set-properties-rule/>
+			<set-next-rule methodname="addMessage"/>
+		</pattern>
+				
+		<pattern value="item-change">
+			<factory-create-rule classname="com.synthesis.promo.core.messaging.ItemChangeMessageObjectCreationFactory" />
+			<set-properties-rule/>
+			<set-next-rule methodname="addMessage"/>
+		</pattern>
+		
+		<pattern value="customer-add">
+			<factory-create-rule classname="com.synthesis.promo.core.messaging.CustomerAddMessageObjectCreationFactory" />
+			<set-properties-rule/>
+			<set-next-rule methodname="addMessage"/>
+		</pattern>
+		
+		<pattern value="customer-void">
+			<factory-create-rule classname="com.synthesis.promo.core.messaging.CustomerVoidMessageObjectCreationFactory" />
+			<set-properties-rule/>
+			<set-next-rule methodname="addMessage"/>
+		</pattern>
+		
+
+		<pattern value="coupon-add">
+			<factory-create-rule classname="com.synthesis.promo.core.messaging.CouponAddMessageObjectCreationFactory" />
+			<set-properties-rule/>
+			<set-next-rule methodname="addMessage"/>
+		</pattern>
+		
+		<pattern value="coupon-void">
+			<factory-create-rule classname="com.synthesis.promo.core.messaging.CouponVoidMessageObjectCreationFactory" />
+			<set-properties-rule/>
+			<set-next-rule methodname="addMessage"/>
+		</pattern>
+		
+
+		<pattern value="payment-add">
+			<factory-create-rule classname="com.synthesis.promo.core.messaging.PaymentAddMessageObjectCreationFactory" />
+			<set-properties-rule/>
+			<set-next-rule methodname="addMessage"/>
+		</pattern>
+		
+		<pattern value="payment-void">
+			<factory-create-rule classname="com.synthesis.promo.core.messaging.PaymentVoidMessageObjectCreationFactory" />
+			<set-properties-rule/>
+			<set-next-rule methodname="addMessage"/>
+		</pattern>
+		
+		
+		<pattern value="event-add">
+			<factory-create-rule classname="com.synthesis.promo.core.messaging.EventAddMessageObjectCreationFactory" />
+			<set-properties-rule/>
+			<set-next-rule methodname="addMessage"/>
+		</pattern>
+		
+		<pattern value="event-void">
+			<factory-create-rule classname="com.synthesis.promo.core.messaging.EventVoidMessageObjectCreationFactory" />
+			<set-properties-rule/>
+			<set-next-rule methodname="addMessage"/>
+		</pattern>
+		
+		<pattern value="benefit-add">
+			<factory-create-rule classname="com.synthesis.promo.core.messaging.BenefitAddMessageObjectCreationFactory" />
+			<set-properties-rule/>
+			<set-next-rule methodname="addMessage"/>
+		</pattern>
+		
+		<pattern value="benefit-void">
+			<factory-create-rule classname="com.synthesis.promo.core.messaging.BenefitVoidMessageObjectCreationFactory" />
+			<set-properties-rule/>
+			<set-next-rule methodname="addMessage"/>
+		</pattern>
+</pattern>	
+
+</digester-rules>

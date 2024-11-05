@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+		Configuración de Impuestos.
+
+			Para configurar un impuesto se realiza lo siguiente:
+
+			El tag <tax> contiene:
+
+				1) El tag <taxID> es el número consecutivo para identificar el impuesto.
+				2) El tag <taxPosicion> es el número de byte que se leerá para ese tipo de impuesto.
+				3) El tag <taxDescription> es el nombre del impuesto.
+				4) El tag <taxMethod> es el método de aplicación para el impuesto (fijo ó porcentual)
+				5) El tag <taxIncludeBase> si un impuesto depende de otro ya configurado para su aplicacion, aqui se escribe el id del impuesto que depende.
+				   De esta manera, el base de este impuesto será utilizado para el cálculo del impuesto configurado aquí.
+				6) El tag <taxCategories> aquí se configuran las distintas categorías que puede tener el impuesto y contiene:
+					6.1) El tag <taxCategoryID> es el id	de la categoría.
+					6.2) El tag <taxCategoryDescriptor> es el nombre de la categoría.
+					6.3) El tag <taxCategoryValue> es el valor que se le aplicara al impuesto.
+	-->
+<taxSettings>
+	<taxes>
+		<tax>
+			<taxID>1</taxID>
+			<taxPosicion>1</taxPosicion>
+			<taxDescription>IVA</taxDescription>
+			<taxMethod>Percentage</taxMethod>
+			<taxIncludeBase>2,3,4</taxIncludeBase>
+			<taxCategories>
+				<taxCategory>
+					<taxCategoryID>1</taxCategoryID>
+					<taxCategoryDescriptor>EXENTO</taxCategoryDescriptor>
+					<taxCategoryValue>0</taxCategoryValue>
+				</taxCategory>
+				<taxCategory>
+					<taxCategoryID>2</taxCategoryID>
+					<taxCategoryDescriptor>TASA 0%</taxCategoryDescriptor>
+					<taxCategoryValue>0</taxCategoryValue>
+				</taxCategory>
+				<taxCategory>
+					<taxCategoryID>3</taxCategoryID>
+					<taxCategoryDescriptor>IVA 16%</taxCategoryDescriptor>
+					<taxCategoryValue>16.00</taxCategoryValue>
+				</taxCategory>
+			</taxCategories>
+		</tax>
+		<tax>
+			<taxID>2</taxID>
+			<taxPosicion>2,3</taxPosicion>
+			<taxDescription>IEPS</taxDescription>
+			<taxMethod>Percentage</taxMethod>
+			<taxIncludeBase/>
+			<taxCategories>
+				<taxCategory>
+					<taxCategoryID>1</taxCategoryID>
+					<taxCategoryDescriptor>IEPS 26.50%</taxCategoryDescriptor>
+					<taxCategoryValue>26.50</taxCategoryValue>
+				</taxCategory>
+				<taxCategory>
+					<taxCategoryID>2</taxCategoryID>
+					<taxCategoryDescriptor>IEPS 25%</taxCategoryDescriptor>
+					<taxCategoryValue>25</taxCategoryValue>
+				</taxCategory>
+				<taxCategory>
+					<taxCategoryID>3</taxCategoryID>
+					<taxCategoryDescriptor>IEPS 30%</taxCategoryDescriptor>
+					<taxCategoryValue>30</taxCategoryValue>
+				</taxCategory>
+				<taxCategory>
+					<taxCategoryID>4</taxCategoryID>
+					<taxCategoryDescriptor>IEPS 53%</taxCategoryDescriptor>
+					<taxCategoryValue>53</taxCategoryValue>
+				</taxCategory>
+				<taxCategory>
+					<taxCategoryID>5</taxCategoryID>
+					<taxCategoryDescriptor>IEPS 6%</taxCategoryDescriptor>
+					<taxCategoryValue>6</taxCategoryValue>
+				</taxCategory>
+				<taxCategory>
+					<taxCategoryID>6</taxCategoryID>
+					<taxCategoryDescriptor>IEPS 7%</taxCategoryDescriptor>
+					<taxCategoryValue>7</taxCategoryValue>
+				</taxCategory>
+				<taxCategory>
+					<taxCategoryID>7</taxCategoryID>
+					<taxCategoryDescriptor>IEPS 9%</taxCategoryDescriptor>
+					<taxCategoryValue>9</taxCategoryValue>
+				</taxCategory>
+				<taxCategory>
+					<taxCategoryID>8</taxCategoryID>
+					<taxCategoryDescriptor>IEPS 8%</taxCategoryDescriptor>
+					<taxCategoryValue>8</taxCategoryValue>
+				</taxCategory>
+				<taxCategory>
+					<taxCategoryID>9</taxCategoryID>
+					<taxCategoryDescriptor>IEPS 26.50%</taxCategoryDescriptor>
+					<taxCategoryValue>26.50</taxCategoryValue>
+				</taxCategory>
+				<taxCategory>
+					<taxCategoryID>10</taxCategoryID>
+					<taxCategoryDescriptor>IEPS 25%</taxCategoryDescriptor>
+					<taxCategoryValue>25</taxCategoryValue>
+				</taxCategory>
+				<taxCategory>
+					<taxCategoryID>11</taxCategoryID>
+					<taxCategoryDescriptor>IEPS 30%</taxCategoryDescriptor>
+					<taxCategoryValue>30</taxCategoryValue>
+				</taxCategory>
+				<taxCategory>
+					<taxCategoryID>12</taxCategoryID>
+					<taxCategoryDescriptor>IEPS 53%</taxCategoryDescriptor>
+					<taxCategoryValue>53</taxCategoryValue>
+				</taxCategory>
+				<taxCategory>
+					<taxCategoryID>13</taxCategoryID>
+					<taxCategoryDescriptor>IEPS 6%</taxCategoryDescriptor>
+					<taxCategoryValue>6</taxCategoryValue>
+				</taxCategory>
+				<taxCategory>
+					<taxCategoryID>14</taxCategoryID>
+					<taxCategoryDescriptor>IEPS 7%</taxCategoryDescriptor>
+					<taxCategoryValue>7</taxCategoryValue>
+				</taxCategory>
+				<taxCategory>
+					<taxCategoryID>15</taxCategoryID>
+					<taxCategoryDescriptor>IEPS 9%</taxCategoryDescriptor>
+					<taxCategoryValue>9</taxCategoryValue>
+				</taxCategory>
+				<taxCategory>
+					<taxCategoryID>16</taxCategoryID>
+					<taxCategoryDescriptor>IEPS 8%</taxCategoryDescriptor>
+					<taxCategoryValue>8</taxCategoryValue>
+				</taxCategory>
+			</taxCategories>
+		</tax>
+		<tax>
+			<taxID>3</taxID>
+			<taxPosicion>4</taxPosicion>
+			<taxDescription>SUNTUARIO</taxDescription>
+			<taxMethod>Percentage</taxMethod>
+			<taxIncludeBase></taxIncludeBase>
+			<taxCategories>
+				<taxCategory>
+					<taxCategoryID>1</taxCategoryID>
+					<taxCategoryDescriptor>5% IMP. SUNTUAR</taxCategoryDescriptor>
+					<taxCategoryValue>5</taxCategoryValue>
+				</taxCategory>
+			</taxCategories>
+		</tax>
+	</taxes>
+
+	<!-- Configuración de impuestos adicionales o de reemplazo por tienda -->
+	<!-- Se toman los impuestos tal cual están configurados como base -->
+	<!-- Si el taxID/taxCategoryID existen en la configuración base, se reemplazan, en caso contrario, se agregan -->
+	<taxesByStore>
+		<taxStore>
+			<!-- Agregar el número de tienda al cual va a aplicar la configuración -->
+			<storeNum>19,79,110,312,688,821,1034</storeNum>
+			<!-- Agregar las secciones a las que no se va a aplicar el impuesto -->
+			<sections>911,913,914,930,931,933,934,936,938</sections>
+			<taxes>
+				<tax>
+					<taxID>1</taxID>
+					<taxCategories>
+						<taxCategory>
+							<taxCategoryID>3</taxCategoryID>
+							<taxCategoryDescriptor>IVA 8%</taxCategoryDescriptor>
+							<taxCategoryValue>8.00</taxCategoryValue>
+						</taxCategory>
+					</taxCategories>
+				</tax>
+			</taxes>
+		</taxStore>
+		<taxStore>
+			<storeNum>1,2,3,4,5,6,7,29,34,37,41,42,44,47,54,57,58,61,71,74,75,76,79,80,81,83,86,87,88,89,102,103,104,105,110,126,140,166,170,173,175,176,178,180,186,194,195,199,302,304,307,310,311,312,454,455,456,458,688,766</storeNum>
+			<taxes>
+				<tax>
+					<taxID>4</taxID>
+					<taxPosicion>5</taxPosicion>
+					<taxDescription>ESTATAL</taxDescription>
+					<taxMethod>Percentage</taxMethod>
+					<taxIncludeBase/>
+					<taxCategories>
+						<taxCategory>
+							<taxCategoryID>1</taxCategoryID>
+							<taxCategoryDescriptor>4.5% IMP. ESTAT</taxCategoryDescriptor>
+							<taxCategoryValue>4.5</taxCategoryValue>
+						</taxCategory>
+					</taxCategories>
+				</tax>
+			</taxes>
+		</taxStore>
+	</taxesByStore>
+</taxSettings>

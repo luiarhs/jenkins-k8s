@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<consumers>
+  <consumer name="GUIConsumer" class="ar.com.synthesis.communication.TCPXMLConsumer" >
+    <property key="port" value="2153"/>
+    <property key="unlockiop" value="27,8" />
+    <reader name="TCPReader" class="ar.com.synthesis.communication.TCPReader" />
+    <interpreter name="TCPInterpreter" class="ar.com.synthesis.communication.SAXInterpreter" />
+    <message id="FOCUS" class="ar.com.synthesis.pos.message.FocusInputMessage" />
+    <message id="TEXT"  class="ar.com.synthesis.pos.message.TextInputMessage" />
+    <message id="GRAPHICS"  class="ar.com.synthesis.pos.message.GraphicsInputMessage" />
+    <message id="TABLE"  class="ar.com.synthesis.pos.message.TableInputMessage" />
+    <message id="MENU"  class="ar.com.synthesis.pos.message.MenuInputMessage" />
+    <message id="PRESSUP"  class="ar.com.synthesis.pos.message.PressUpInputMessage" />
+    <message id="PRESSDOWN"  class="ar.com.synthesis.pos.message.PressDownInputMessage" />
+    <message id="PRESSEND" class="ar.com.synthesis.pos.message.PressEndInputMessage" />
+    <message id="PRESSHOME" class="ar.com.synthesis.pos.message.PressHomeInputMessage" />
+    <message id="CONFIG" class="ar.com.synthesis.pos.message.ConfigInputMessage" />
+    <message id="DESTINATION" class="ar.com.synthesis.pos.message.DestinationInputMessage" />
+    <message id="SOUND" class="ar.com.synthesis.pos.message.SoundInputMessage" />
+    <message id="VIDEO" class="ar.com.synthesis.pos.message.VideoInputMessage" />
+    <message id="EVENT" class="ar.com.synthesis.pos.message.MessageEventMessage" />    
+ </consumer>
+</consumers>

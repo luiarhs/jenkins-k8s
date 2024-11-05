@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="ISO-8859-1"?>
+	<!-- 
+		Configuración Venta de Garantía Extendida.
+			
+			Al vender artículos estos pueden tener una opción de venta de garantía, los sku de venta de garantía extendida se encuentran configurados aquí.
+			Esta configuración se compone de 2 grupos.
+				1) Una configuración de garantía aplicable en todas las tiendas, para la cual se ocupa el tag <garantiaEsquema>. 
+				2) Una configuración de filtro para que una garantía sea aplicable a una tienda en particular. Para esta, se ocupa el tag <garantiaEsquemaTienda>.
+			
+			El tag <garantiaEsquema> contiene el tag <esquema>. Este tiene un atributo "id" que representa el esquema de garantía que está asociado
+			al SKU del artículo original.(Este número se encuentra en la extensión del maestro de artículos por cada artículo que pueda tener garantía extendida.)
+			Para la configuración, se necesita agregar la descripción de la garantía. (El nombre del item de la garantía.) Esto se pone en el tag <descripción>.
+			Se debe agregar el costo (porcentaje para determinar el valor de la garantía en base al precio del artículo al cual se desea agregar la garantía extendida)
+			y se agrega en el tag <costo>.
+			Se deberá agregar el sku con el cual se llevara a cabo la venta de la garantía y se configura en el tag <sku>.
+			
+			El tag <garantiaEsquemaTienda> se configura únicamente si alguna garantía es aplicable a una sola tienda. Se compone por el tag <esquema> que
+			contiene un atributo "id". "id" representa el esquema de garantía del artículo base que solo aplicará en la tienda configurada.
+			Contiene también el tag <tienda> en el cual lleva el número de tienda donde aplica la garantía.
+	  
+	-->
+<garantia>
+	<garantiaEsquema>
+		<esquema id="011">
+			<descripcion>REEMP. 1 APARATOS</descripcion>
+			<costo>15</costo>
+			<sku>000000001030467074</sku>
+		</esquema>
+		<esquema id="012">
+			<descripcion>EXT. 2 AÑOS APARATOS</descripcion>
+			<costo>15</costo>
+			<sku>000000001011523621</sku>
+		</esquema>
+		<esquema id="013">
+			<descripcion>REEMP. 1 AÑO FERRET.</descripcion>
+			<costo>15</costo>
+			<sku>000000001026191153</sku>
+		</esquema>
+		<esquema id="014">
+			<descripcion>REEMP. 1 AÑO JARDIN.</descripcion>
+			<costo>15</costo>
+			<sku>000000001030466795</sku>
+		</esquema>
+		<esquema id="015">
+			<descripcion>EXT. 2 AÑOS JUEGOS</descripcion>
+			<costo>14</costo>
+			<sku>000000001030466795</sku>
+		</esquema>
+		<esquema id="016">
+			<descripcion>REEMP. 1 AÑO JUEGOS</descripcion>
+			<costo>15</costo>
+			<sku>000000001030466850</sku>
+		</esquema>
+		<esquema id="017">
+			<descripcion>EXT. 2 AÑOS JUGUETES</descripcion>
+			<costo>14</costo>
+			<sku>000000001030466787</sku>
+		</esquema>
+		<esquema id="018">
+			<descripcion>REEMP. 1 AÑO JUGUET.</descripcion>
+			<costo>15</costo>
+			<sku>000000001030466841</sku>
+		</esquema>
+		<esquema id="019">
+			<descripcion>EXT. 2 AÑOS COCINA</descripcion>
+			<costo>14</costo>
+			<sku>000000001030466817</sku>
+		</esquema>
+		<esquema id="020">
+			<descripcion>REEMP. 1 AÑO COCINA</descripcion>
+			<costo>15</costo>
+			<sku>000000001030466876</sku>
+		</esquema>
+		<esquema id="021">
+			<descripcion>EXT. 2 AÑOS ELEC.</descripcion>
+			<costo>14</costo>
+			<sku>000000001078904361</sku>
+		</esquema>
+		<esquema id="022">
+			<descripcion>REEMP. 1 AÑO ELECTR.</descripcion>
+			<costo>15</costo>
+			<sku>000000001030980251</sku>
+		</esquema>
+		<esquema id="023">
+			<descripcion>REEMP. 1 AÑO FOTOCI.</descripcion>
+			<costo>15</costo>
+			<sku>000000001030466825</sku>
+		</esquema>
+		<esquema id="024">
+			<descripcion>EXT. 2 AÑOS FOTOCINE</descripcion>
+			<costo>14</costo>
+			<sku>000000001030466906</sku>
+		</esquema>
+		<esquema id="024">
+			<descripcion>EXT. 3 AÑOS FOTOCINE</descripcion>
+			<costo>19</costo>
+			<sku>000000001078906495</sku>
+		</esquema>
+		<esquema id="025">
+			<descripcion>EXT. 2 AÑOS COMPUTA.</descripcion>
+			<costo>14</costo>
+			<sku>000000001030467023</sku>
+		</esquema>
+		<esquema id="026">
+			<descripcion>REEMP. 1 AÑO COMPUT.</descripcion>
+			<costo>15</costo>
+			<sku>000000001030466868</sku>
+		</esquema>
+		<esquema id="027">
+			<descripcion>REEMP. 1 AÑO TV</descripcion>
+			<costo>15</costo>
+			<sku>000000001030466833</sku>
+		</esquema>
+		<esquema id="028">
+			<descripcion>EXT. 2 AÑOS ELECTRÓ.</descripcion>
+			<costo>14</costo>
+			<sku>000000001081951353</sku>
+		</esquema>
+	  <esquema id="028">
+			<descripcion>EXT. 3 AÑOS ELECTRÓ.</descripcion>
+			<costo>19</costo>
+			<sku>000000001081951361</sku>
+		</esquema>
+		<esquema id="029">
+			<descripcion>REEMP. 1 AÑO SONIDO</descripcion>
+			<costo>15</costo>
+			<sku>000000001030467066</sku>
+		</esquema>
+		<esquema id="030">
+			<descripcion>EXT. 2 AÑOS SONIDO</descripcion>
+			<costo>14</costo>
+			<sku>000000001078906487</sku>
+		</esquema>
+		<esquema id="030">
+			<descripcion>EXT. 3 AÑOS SONIDO</descripcion>
+			<costo>19</costo>
+			<sku>000000001078907220</sku>
+		</esquema>
+		<esquema id="031">
+			<descripcion>EXT. 2 AÑOS LB</descripcion>
+			<costo>14</costo>
+			<sku>000000001081951329</sku>
+		</esquema>
+		<esquema id="031">
+			<descripcion>EXT. 3 AÑOS LB</descripcion>
+			<costo>19</costo>
+			<sku>000000001081951337</sku>
+		</esquema>
+		<esquema id="032">
+			<descripcion>REEMP. 1 AÑO L. BLA.</descripcion>
+			<costo>15</costo>
+			<sku>000000001030467040</sku>
+		</esquema>
+		<esquema id="033">
+			<descripcion>EXT. 2 AÑOS EQ. EMP.</descripcion>
+			<costo>14</costo>
+			<sku>000000001078903798</sku>
+		</esquema>
+		<esquema id="033">
+			<descripcion>EXT. 3 AÑOS EQ. EMP.</descripcion>
+			<costo>19</costo>
+			<sku>000000001078903801</sku>
+		</esquema>
+		<esquema id="034">
+			<descripcion>REEMP. 1 AÑO EQ. EM.</descripcion>
+			<costo>15</costo>
+			<sku>000000001030467058</sku>
+		</esquema>
+		<esquema id="035">
+			<descripcion>EXT. 2 AÑOS BELLEZA</descripcion>
+			<costo>14</costo>
+			<sku>000000001030467031</sku>
+		</esquema>
+		<esquema id="036">
+			<descripcion>REEMP. 1 AÑO BELLEZA</descripcion>
+			<costo>15</costo>
+			<sku>000000001030467082</sku>
+		</esquema>
+		<esquema id="037">
+			<descripcion>COB. 1 AÑO DISCOS</descripcion>
+			<costo>10</costo>
+			<sku>000000001098280029</sku>
+		</esquema>
+		<esquema id="038">
+			<descripcion>REEMP. 1 AÑO C. PER.</descripcion>
+			<costo>15</costo>
+			<sku>000000001104244668</sku>
+		</esquema>
+		<esquema id="039">
+			<descripcion>EXT. 2 AÑOS C. PERS.</descripcion>
+			<costo>14</costo>
+			<sku>000000001104244684</sku>
+		</esquema>
+		<esquema id="090">
+			<descripcion>WS +GARANTIA 1 AÑO</descripcion>
+			<costo>15</costo>
+			<sku>000000001031836243</sku>
+		</esquema>
+		<esquema id="091">
+			<descripcion>WS +GARANTIA 2 AÑOS</descripcion>
+			<costo>14</costo>
+			<sku>000000001031836251</sku>
+		</esquema>
+	</garantiaEsquema>
+</garantia>

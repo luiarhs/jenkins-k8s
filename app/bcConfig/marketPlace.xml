@@ -1,0 +1,66 @@
+<marketPlace>
+	<refundCausesMkp>
+		<refundCauseMkp id="1" description="Calidad de producto">
+			<refundCausesMkpSub>
+			  <refundCauseSub id="8" description="Mal funcionamiento / Baja calidad"/>
+			  <refundCauseSub id="9" description="El producto está dañado pero el embalaje está bien"/>
+			  <refundCauseSub id="10" description="Faltan partes o accesorios"/>
+			</refundCausesMkpSub>
+		</refundCauseMkp>
+		<refundCauseMkp id="2" description="Compra no deseada">
+			<refundCausesMkpSub>
+				<refundCauseSub id="11" description="Pedido accidental"/>
+				<refundCauseSub id="12" description="Ya no lo necesito"/>
+				<refundCauseSub id="13" description="Compra no autorizada"/>
+			</refundCausesMkpSub>
+		</refundCauseMkp>
+		<refundCauseMkp id="3" description="Descripción incorrecta del producto">
+			<refundCausesMkpSub>
+				<refundCauseSub id="14" description="Incompatible o inadecuado"/>
+				<refundCauseSub id="15" description="Descripción incorrecta en la página web"/>
+			</refundCausesMkpSub>
+		</refundCauseMkp>
+		<refundCauseMkp id="4" description="Error en envío">
+			<refundCausesMkpSub>
+				<refundCauseSub id="16" description="Llegó demasiado tarde"/>
+				<refundCauseSub id="17" description="Entrega no reconocida C&amp;C"/>
+				<refundCauseSub id="18" description="Entrega no reconocida casa del cliente"/>
+				<refundCauseSub id="19" description="No es el producto que pedí"/>
+				<refundCauseSub id="20" description="El producto y el empaque están dañados"/>
+				<refundCauseSub id="21" description="Recibí un producto adicional a lo que pedí"/>
+			</refundCausesMkpSub>
+		</refundCauseMkp>
+		<refundCauseMkp id="5" description="Error en talla/color">
+			<refundCausesMkpSub>
+				<refundCauseSub id="22" description="No es la talla que pedí"/>
+				<refundCauseSub id="23" description="Es demasiado grande"/>
+				<refundCauseSub id="24" description="Es demasiado chico"/>
+				<refundCauseSub id="25" description="No es el color que pedí"/>
+				<refundCauseSub id="26" description="El color no es de mi agrado"/>
+			</refundCausesMkpSub>
+		</refundCauseMkp>
+		<refundCauseMkp id="6" description="Lo adquirí en otro lugar">
+			<refundCausesMkpSub>
+				<refundCauseSub id="27" description="Lo adquirí en tienda Liverpool"/>
+				<refundCauseSub id="28" description="Lo adquirí en Amazon"/>
+				<refundCauseSub id="29" description="Lo adquirí en LINIO"/>
+				<refundCauseSub id="30" description="Lo adquirí en Mercado Libre"/>
+				<refundCauseSub id="31" description="Lo adquirí en Walmart"/>
+				<refundCauseSub id="32" description="Lo adquirí en El Palacio de Hierro"/>
+				<refundCauseSub id="33" description="Lo adquirí en otro lugar"/>
+			</refundCausesMkpSub>
+		</refundCauseMkp>
+		<refundCauseMkp id="7" description="Lo encontré a mejor precio">
+			<refundCausesMkpSub>
+				<refundCauseSub id="34" description="Tenía mejor precio en tienda Liverpool"/>
+				<refundCauseSub id="35" description="Tenía mejor precio en liverpool.com"/>
+				<refundCauseSub id="36" description="Tenía mejor precio en Amazon"/>
+				<refundCauseSub id="37" description="Tenía mejor precio en LINIO"/>
+				<refundCauseSub id="38" description="Tenía mejor precio en Mercado Libre"/>
+				<refundCauseSub id="39" description="Tenía mejor precio en Walmart"/>
+				<refundCauseSub id="40" description="Tenía mejor precio en El Palacio de Hierro"/>
+				<refundCauseSub id="41" description="Tenía mejor precio en otro lugar"/>
+			</refundCausesMkpSub>
+		</refundCauseMkp>
+	</refundCausesMkp>
+</marketPlace>

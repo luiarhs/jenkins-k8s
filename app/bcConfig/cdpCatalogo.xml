@@ -1,0 +1,98 @@
+<cdpCatalogo>
+	<!--
+	channelCode - Canal de ventas
+	channelCodeMsg - Valor que se enviara por el web service
+	-->
+	<salesChannel>
+		<channel channelCode="10" descripcion="Físico" channelCodeMsg="1"/>
+		<channel channelCode="30" descripcion="Virtual" channelCodeMsg="2"/>
+	</salesChannel>
+
+	<!--
+	eventTypeCode - Tipo de evento CDI o Mesa de regalos
+	eventTypeCodeMsg - Valor que se enviara por el web service
+	-->
+	<eventTypes>
+		<eventType eventTypeCode="BODA" eventTypeCodeMsg="1"/>
+		<eventType eventTypeCode="Despedida" eventTypeCodeMsg="2"/>
+		<eventType eventTypeCode="Aniversario" eventTypeCodeMsg="3"/>
+		<eventType eventTypeCode="Bebes" eventTypeCodeMsg="4"/>
+		<eventType eventTypeCode="Quinceañeras" eventTypeCodeMsg="5"/>
+		<eventType eventTypeCode="Primera comunión" eventTypeCodeMsg="6"/>
+		<eventType eventTypeCode="Bautizo" eventTypeCodeMsg="7"/>
+		<eventType eventTypeCode="Cumpleaños" eventTypeCodeMsg="8"/>
+		<eventType eventTypeCode="Servicios de diseño interior" eventTypeCodeMsg="9"/>
+	</eventTypes>
+
+	<!--
+	type - Tipo de articulo Fisico o Virtual
+	typeCode - Valor que se enviara por el web service
+	-->
+	<itemTypes>
+		<itemType type="Fisico" typeCode="1"/>
+		<itemType type="Virtual" typeCode="2"/>
+	</itemTypes>
+
+	<!--
+	gsaId - Id GSA
+	paymentCode - Valor que se enviara por el web service
+	-->
+	<payments>
+		<payment gsaId="0" descripcion="Cheque" paymentCode="1"/>
+		<payment gsaId="1" descripcion="Cupon" paymentCode="2"/>
+		<payment gsaId="2" descripcion="Monedero" paymentCode="3"/>
+		<payment gsaId="8" descripcion="Dilisa" paymentCode="4"/>
+		<payment gsaId="10" descripcion="Tarjeta Externa" paymentCode="5"/>
+		<payment gsaId="11" descripcion="LPC" paymentCode="6"/>
+		<payment gsaId="15" descripcion="Efectivo" paymentCode="7"/>
+		<payment gsaId="19" descripcion="Suburbia Departamental" paymentCode="8"/>
+		<payment gsaId="20" descripcion="Suburbia Visa" paymentCode="9"/>
+		<payment gsaId="26" descripcion="Dolar Belice" paymentCode="10"/>
+		<payment gsaId="27" descripcion="Euro" paymentCode="11"/>
+		<payment gsaId="28" descripcion="Dolar Canadiense" paymentCode="12"/>
+		<payment gsaId="30" descripcion="Dolar" paymentCode="13"/>
+		<payment gsaId="31" descripcion="Quetzal" paymentCode="14"/>
+		<payment gsaId="10" descripcion="CoDi" isCodi="true" paymentCode="15"/>
+	</payments>
+
+	<!--
+	entryMethod - Método de ingreso
+	entryMethodMsg - Valor que se enviara por el web service
+	-->
+	<entryModes>
+		<entryMode entryMethod="Keyed" entryMethodMsg="1"/>
+		<entryMode entryMethod="Scanned" entryMethodMsg="2"/>
+		<entryMode entryMethod="MSR" entryMethodMsg="3"/>
+		<entryMode entryMethod="MICR" entryMethodMsg="4"/>
+		<entryMode entryMethod="PPAD" entryMethodMsg="5"/>
+	</entryModes>
+
+	<!--
+	typesCancel - Tipo de cancelación
+	11 Venta Premium Card
+	39 Devolución Premium Card
+	29 Pago Premium Card
+	08 Venta DILISA
+	38 Devolución DILISA
+	28 Pago DILISA
+	typeCodeMsg - Valor que se enviara por el web service
+	-->
+	<typesCancel>
+		<typeCancel typeCode="11" typeCodeMsg="1"/>
+		<typeCancel typeCode="39" typeCodeMsg="2"/>
+		<typeCancel typeCode="29" typeCodeMsg="3"/>
+		<typeCancel typeCode="08" typeCodeMsg="4"/>
+		<typeCancel typeCode="38" typeCodeMsg="5"/>
+		<typeCancel typeCode="28" typeCodeMsg="6"/>
+	</typesCancel>
+
+	<!--
+	type - Tipo de entrega
+	typeCode - Valor que se enviara por el web service
+	-->
+	<codeTypesDelivery>
+		<codeTypeDelivery type="DEFAULT" typeCode="0"/>
+		<codeTypeDelivery type="ED" typeCode="1"/>
+		<codeTypeDelivery type="CC" typeCode="2"/>
+	</codeTypesDelivery>
+</cdpCatalogo>

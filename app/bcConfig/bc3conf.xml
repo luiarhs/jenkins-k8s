@@ -1,0 +1,2831 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Configuración de Propiedades adicionales de bridge core 3. -->
+<!-- Este archivo es compatible con las siguientes versiones  -->
+<!-- POS Unificado 1.0.10 -->
+<!-- BC3 2.0.13 -->
+<!-- POS Productivo 1.26.09 -->
+<bc3Configuration>
+	<!-- Configuración de nombre de tienda -->
+	<!-- <storeName>SYNTHESIS RS</storeName> -->
+	<!-- Configuración de numero de tienda -->
+	<storeCode>0060</storeCode>
+	<!-- Configuración de ruta de Promo -->
+	<promoConfigurationPath>promo/</promoConfigurationPath>
+	<!-- Configuración de item de servicio -->
+	<serviceItemGroup>SERVIC</serviceItemGroup>
+	<!-- Configuración de grupo bianni -->
+	<biaaniItemGroup>063352</biaaniItemGroup>
+	<!-- Configuración de numero de número de comanda desayuno empleado -->
+	<comandaDesayunoEmpleado>1000000</comandaDesayunoEmpleado>
+	<!-- Configuración de codigo de propina -->
+	<codigoPropina>2000000000000009999990</codigoPropina>
+	<!-- Configuración de descripcion de alimentos -->
+	<descriptorAlimentos>Consumo</descriptorAlimentos>
+	<!-- Configuración de descripcion de propina -->
+	<descriptorPropina>Propina</descriptorPropina>
+	<!-- Configuración de descripcion generica -->
+	<descriptorGenerico>DEPARTAMENTO 9'S</descriptorGenerico>
+	<!-- Configuración de descripción genérica 8 -->
+	<descriptorGenerico8>DEPARTAMENTO 8'S</descriptorGenerico8>
+	<!-- codeDepartment1 -->
+	<codeDepartmentInput1>2000000000000008888884</codeDepartmentInput1>
+	<!-- codeDepartment2 -->
+	<codeDepartmentInput2>2000000000000009999990</codeDepartmentInput2>
+	<!-- Configuración de presupuesto -->
+	<maxBudgetLength>13</maxBudgetLength>
+	<maxBudgetAmount>10000000</maxBudgetAmount>
+	<minBudgetAmount>10</minBudgetAmount>
+	<!-- Configuración de referencia de servicios -->
+	<maxServiceReferenceLength>11</maxServiceReferenceLength>
+	<!-- Configuración para pinpad -->
+	<binesId>A0927152</binesId>
+	<!-- Configuración para directorio de interfaces (propiedad compatibilidad BD) -->
+	<importationDirectory>/usr/local/bridge-server-rest-liverpool/interface/</importationDirectory>
+	<!-- Configuración para directorio de bkp de interfaces (propiedad compatibilidad BD) -->
+	<importationBackupDirectory>/usr/local/bridge-server-rest-liverpool/interfaceBkp/</importationBackupDirectory>
+	<!-- Días que permanecerán los archivos xml TLOG en el directorio de respaldo. 3 por defecto si se deja vacío -->
+	<tlogDays>60</tlogDays>
+	<!-- Configuración para impresora -->
+	<logoPath>TCKTLOGO.JPG</logoPath>
+
+	<!-- banco Amex -->
+	<!-- <bankAmex>4</bankAmex> -->
+	<!-- tenderId tarjetas -->
+	<!-- <cardTender>5</cardTender> -->
+
+	<!-- dilisa admite pinpad -->
+	<dilisaPinpadAllowed>true</dilisaPinpadAllowed>
+	<!-- TRUE para deshabilitar cuentas enmascaradas-->
+	<notSecureAccount>false</notSecureAccount>
+	<!-- <terminalGroups> -->
+	<!-- <terminalGroup id="1" from="1" to="999" /> -->
+	<!-- </terminalGroups> -->
+
+	<!-- Activación de cupones CRM enriquecidos - Rediseño de ticket -->
+	<showExtendedRepresentation>true</showExtendedRepresentation>
+
+	<!--
+	La siguiente estructura contiene parámetros para modificar algunos comportamientos generales de
+	las diferentes transacciones que ofrece BC3.
+	La estructura se define como una lista de transacciones, cada transaccion esta definida por un
+	atributo id y type, el atributo type hace refeferencia al valor definido en la clase TransactionSubtypeLiverpool.
+	A continuación se describen comportamientos de cada elemento.
+	discountsAllowed - Atributo que almacena un valor boolean, la cual habilita/deshabilita la opción
+						para permitir descuentos en la transacción.
+	  -->
+	<transactions>
+		<transaction id="1" type="1">
+			<!-- <name>MENU VENTA</name> -->
+			<enabled>true</enabled>
+			<optionNumber>1</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<requiredRole>pos-ventas</requiredRole>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!-- <asociatedIds></asociatedIds> -->
+			<!-- </transaction> -->
+		</transaction>
+		<transaction id="2" type="2">
+			<!-- <name>MENU DEVOLUCION</name> -->
+			<enabled>true</enabled>
+			<optionNumber>2</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>true</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<requiredRole>pos-devoluciones</requiredRole>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="3" type="5">
+			<!-- <name>MENU PAGOS</name> -->
+			<enabled>true</enabled>
+			<optionNumber>3</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>true</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!-- <requiredRole></requiredRole> -->
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="4" type="100">
+			<!-- <name>MENU ESPECIALES</name> -->
+			<enabled>true</enabled>
+			<optionNumber>4</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>true</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!--<requiredRole></requiredRole> -->
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="5" type="101">
+			<!-- <name>VENTA NORMAL</name> -->
+			<idParent>1</idParent>
+			<enabled>true</enabled>
+			<optionNumber>1</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<requiredRole>pos-ventas</requiredRole>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="5" type="136">
+			<!-- <name>VENTA INSTITUCIONAL</name> -->
+			<idParent>1</idParent>
+			<enabled>true</enabled>
+			<optionNumber>1</optionNumber>
+			<discountsAllowed>false</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<requiredRole>pos-ventas</requiredRole>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="6" type="102">
+			<!-- <name>VENTA SOMS</name> -->
+			<idParent>1</idParent>
+			<enabled>true</enabled>
+			<optionNumber>2</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<requiredRole>pos-ventas</requiredRole>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="7" type="103">
+			<!-- <name>VENTA DULCERIA</name> -->
+			<idParent>1</idParent>
+			<enabled>true</enabled>
+			<optionNumber>3</optionNumber>
+			<discountsAllowed>false</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<requiredRole>pos-ventas</requiredRole>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="8" type="104">
+			<!-- <name>VENTA RESTAURANTE</name> -->
+			<idParent>1</idParent>
+			<!-- <requiredRole>pos-ventas</requiredRole> -->
+			<enabled>true</enabled>
+			<optionNumber>4</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<requiredRole>pos-ventas</requiredRole>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="8" type="130">
+			<!-- <name>DESAYUNO EMPLEADOS</name> -->
+			<idParent>1</idParent>
+			<enabled>true</enabled>
+			<optionNumber>4</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<requiredRole>pos-ventas</requiredRole>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+		</transaction>
+		<transaction id="9" type="107">
+			<!-- <name>REGALO ELECTRONICO</name> -->
+			<idParent>1</idParent>
+			<enabled>true</enabled>
+			<optionNumber>5</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<requiredRole>pos-ventas</requiredRole>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="10" type="108">
+			<!-- <name>SERVICIOS</name> -->
+			<idParent>1</idParent>
+			<enabled>true</enabled>
+			<optionNumber>6</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<requiredRole>pos-ventas</requiredRole>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="11" type="109">
+			<!-- <name>VENTAS SEGUROS</name> -->
+			<idParent>1</idParent>
+			<enabled>true</enabled>
+			<optionNumber>7</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<requiredRole>pos-ventas</requiredRole>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="12" type="110">
+			<!-- <name>DISPOSICION DE EFECTIVO</name> -->
+			<idParent>1</idParent>
+			<enabled>true</enabled>
+			<optionNumber>8</optionNumber>
+			<discountsAllowed>false</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<requiredRole>pos-ventas</requiredRole>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="13" type="111">
+			<!-- <name>VENTA VW</name> -->
+			<idParent>1</idParent>
+			<enabled>true</enabled>
+			<optionNumber>9</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<requiredRole>pos-ventas</requiredRole>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="14" type="113">
+			<!-- <name>VENTA GARANTIA</name> -->
+			<idParent>1</idParent>
+			<enabled>true</enabled>
+			<optionNumber>10</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<requiredRole>pos-ventas</requiredRole>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="15" type="115">
+			<!-- <name>VENTA_MESA_REGALOS</name> -->
+			<idParent>1</idParent>
+			<enabled>true</enabled>
+			<optionNumber>11</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<requiredRole>pos-ventas</requiredRole>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="16" type="116">
+			<!-- <name>VENTA REGALO ELECTRONICO</name> -->
+			<idParent>1</idParent>
+			<enabled>true</enabled>
+			<optionNumber>12</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<requiredRole>pos-ventas</requiredRole>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="17" type="117">
+			<!-- <name>VENTA PAQUETERIA</name> -->
+			<!-- <idParent>1</idParent> -->
+			<idParent>1</idParent>
+			<enabled>true</enabled>
+			<optionNumber>13</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<requiredRole>pos-ventas</requiredRole>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="18" type="118">
+			<!-- <name>VENTA MONEDERO ELECTRONICO</name> -->
+			<idParent>1</idParent>
+			<enabled>true</enabled>
+			<optionNumber>14</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<requiredRole>pos-ventas</requiredRole>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!-- <transaction id="19" type="105"> -->
+		</transaction>
+		<transaction id="19" type="105">
+			<!-- <name>DEVOLUCION NORMAL</name> -->
+			<idParent>2</idParent>
+			<enabled>true</enabled>
+			<optionNumber>1</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<requiredRole>pos-devoluciones</requiredRole>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="20" type="106">
+			<!-- <name>DEVOLUCION SOMS</name> -->
+			<idParent>2</idParent>
+			<enabled>true</enabled>
+			<optionNumber>2</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<requiredRole>pos-devoluciones</requiredRole>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="21" type="119">
+			<!-- <name>PAGOS ABONO A TARJETA</name> -->
+			<idParent>3</idParent>
+			<enabled>true</enabled>
+			<optionNumber>1</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!--<requiredRole></requiredRole> -->
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="22" type="120">
+			<!-- <name>PAGOS ABONO POR SEGMENTOS</name> -->
+			<idParent>3</idParent>
+			<enabled>true</enabled>
+			<optionNumber>2</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!--<requiredRole></requiredRole> -->
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="23" type="7">
+			<!-- <name>ESPECIALES RETIRO</name> -->
+			<idParent>100</idParent>
+			<enabled>true</enabled>
+			<optionNumber>1</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!--<requiredRole></requiredRole> -->
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="24" type="112">
+			<!-- <name>ESPECIALES CANCELACION</name> -->
+			<idParent>100</idParent>
+			<!-- <idTerminalsGroup></idTerminalsGroup> -->
+			<enabled>true</enabled>
+			<optionNumber>2</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!--<requiredRole></requiredRole> -->
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="25" type="114">
+			<!-- <name>ESPECIALES CIERRE TERMINAL</name> -->
+			<idParent>100</idParent>
+			<enabled>true</enabled>
+			<optionNumber>3</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!--<requiredRole></requiredRole> -->
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="26" type="121">
+			<!-- <name>DEVOLUCION MESA</name> -->
+			<idParent>2</idParent>
+			<enabled>true</enabled>
+			<optionNumber>3</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<requiredRole>pos-devoluciones</requiredRole>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="27" type="122">
+			<!-- <name>DEVOLUCION SOMS LLEVA/DEVUELVE</name> -->
+			<idParent>2</idParent>
+			<enabled>true</enabled>
+			<optionNumber>4</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<requiredRole>pos-devoluciones</requiredRole>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="28" type="123">
+			<!-- <name>VENTA SOMS LLEVA/DEVUELVE</name> -->
+			<idParent>2</idParent>
+			<enabled>true</enabled>
+			<optionNumber>5</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<requiredRole>pos-devoluciones</requiredRole>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="29" type="124">
+			<!-- <name>ESPECIALES CANCELACION RECOGIDO</name> -->
+			<idParent>100</idParent>
+			<enabled>true</enabled>
+			<optionNumber>4</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!--<requiredRole></requiredRole> -->
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="30" type="125">
+			<!-- <name>CANCELACION DEVOLUCION SOMS LLEVA/DEVUELVE</name> -->
+			<!-- <idParent>100</idParent> -->
+			<idParent>100</idParent>
+			<enabled>true</enabled>
+			<optionNumber>5</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!--<requiredRole></requiredRole> -->
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="31" type="126">
+			<!-- <name>CANCELACION VENTA SOMS LLEVA/DEVUELVE</name> -->
+			<idParent>100</idParent>
+			<enabled>true</enabled>
+			<optionNumber>6</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!-- <requiredRole></requiredRole> -->
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="31" type="132">
+			<!-- <name>DEVOLUCION SASTRERIA</name> -->
+			<idParent>100</idParent>
+			<enabled>true</enabled>
+			<optionNumber>6</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<requiredRole>pos-devoluciones</requiredRole>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!-- <requiredRole></requiredRole> -->
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="31" type="133">
+			<!-- <name>REPARACION RELOJES</name> -->
+			<idParent>100</idParent>
+			<enabled>true</enabled>
+			<optionNumber>6</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!-- <requiredRole></requiredRole> -->
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="32" type="107">
+			<!-- <name>VENTA AGENCIA DE VIAJES</name> -->
+			<idParent>1</idParent>
+			<enabled>true</enabled>
+			<optionNumber>2</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<requiredRole>pos-ventas</requiredRole>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="32" type="128">
+			<!-- <name>VENTA OPTICA</name> -->
+			<idParent>1</idParent>
+			<enabled>true</enabled>
+			<optionNumber>2</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<requiredRole>pos-ventas</requiredRole>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="32" type="138">
+			<!-- <name>DEVOLUCION AGENCIA DE VIAJES</name> -->
+			<idParent>1</idParent>
+			<enabled>true</enabled>
+			<optionNumber>2</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<requiredRole>pos-ventas</requiredRole>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="33" type="129">
+			<!-- <name>DEVOLUCION OPTICA</name> -->
+			<idParent>2</idParent>
+			<enabled>true</enabled>
+			<optionNumber>2</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<requiredRole>pos-devoluciones</requiredRole>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="34" type="131">
+			<!-- <name>VENTA SASTRERIA</name> -->
+			<idParent>100</idParent>
+			<enabled>true</enabled>
+			<optionNumber>6</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!-- <requiredRole></requiredRole> -->
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="35" type="134">
+			<!-- <name>VENTA CENTRO DE DISEÑO INTERIOR</name> -->
+			<idParent>1</idParent>
+			<enabled>true</enabled>
+			<optionNumber>11</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<requiredRole>pos-ventas</requiredRole>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="36" type="135">
+			<!-- <name>DEVOLUCION CENTRO DE DISEÑO INTERIOR</name> -->
+			<idParent>2</idParent>
+			<enabled>true</enabled>
+			<optionNumber>2</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<requiredRole>pos-devoluciones</requiredRole>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="37" type="127">
+			<!-- <name>TIEMPO AIRE</name> -->
+			<idParent>1</idParent>
+			<enabled>true</enabled>
+			<optionNumber>12</optionNumber>
+			<discountsAllowed>false</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<requiredRole>pos-ventas</requiredRole>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!-- <asociatedIds></asociatedIds> -->
+			<!-- </transaction> -->
+		</transaction>
+		<transaction id="46" type="137">
+			<!-- <name>VENTA PLANES TARIFARIOS</name> -->
+			<idParent>1</idParent>
+			<enabled>true</enabled>
+			<optionNumber>1</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<requiredRole>pos-ventas</requiredRole>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="47" type="139">
+			<!-- <name>VENTA LLANTAS</name> -->
+			<idParent>1</idParent>
+			<enabled>true</enabled>
+			<optionNumber>1</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<requiredRole>pos-ventas</requiredRole>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="48" type="140">
+			<!-- <name>DEVOLUCION LLANTAS</name> -->
+			<idParent>2</idParent>
+			<enabled>true</enabled>
+			<optionNumber>1</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<requiredRole>pos-devoluciones</requiredRole>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="49" type="141">
+			<!-- <name>VENTA MONEDERO PROMASS</name> -->
+			<idParent>1</idParent>
+			<enabled>true</enabled>
+			<optionNumber>49</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<requiredRole>pos-ventas</requiredRole>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+		</transaction>
+		<transaction id="50" type="142">
+			<!-- <name>VENTA PROMASS EMPLEADO</name> -->
+			<idParent>1</idParent>
+			<enabled>true</enabled>
+			<optionNumber>50</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<requiredRole>pos-ventas</requiredRole>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+		</transaction>
+		<transaction id="51" type="143">
+			<!-- <name>PROMASS EMPLEADO A LA CUENTA</name> -->
+			<idParent>50</idParent>
+			<enabled>true</enabled>
+			<optionNumber>1</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<requiredRole>pos-ventas</requiredRole>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+		</transaction>
+		<transaction id="52" type="144">
+			<!-- <name>PROMASS EMPLEADO SEGMENTOS</name> -->
+			<idParent>50</idParent>
+			<enabled>true</enabled>
+			<optionNumber>2</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<requiredRole>pos-ventas</requiredRole>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+		</transaction>
+		<transaction id="53" type="145">
+			<!-- <name>ESPECIALES CANCELACION SASTRERIA</name> -->
+			<idParent>100</idParent>
+			<!-- <idTerminalsGroup></idTerminalsGroup> -->
+			<enabled>true</enabled>
+			<optionNumber>2</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!--<requiredRole></requiredRole> -->
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="54" type="146">
+			<!-- <name>VENTA OMNICANAL</name> -->
+			<idParent>1</idParent>
+			<enabled>true</enabled>
+			<optionNumber>1</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<requiredRole>pos-ventas</requiredRole>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="55" type="147">
+			<!-- <name>VENTA DE FLORES</name> -->
+			<idParent>1</idParent>
+			<enabled>true</enabled>
+			<optionNumber>1</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<requiredRole>pos-ventas</requiredRole>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="56" type="148">
+			<!-- <name>VENTA DE MARKETPLACE</name> -->
+			<idParent>1</idParent>
+			<enabled>true</enabled>
+			<optionNumber>1</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<requiredRole>pos-ventas</requiredRole>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="57" type="149">
+			<!-- <name>DEVOLUCION DE MARKETPLACE</name> -->
+			<idParent>2</idParent>
+			<enabled>true</enabled>
+			<optionNumber>1</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<requiredRole>pos-devoluciones</requiredRole>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="58" type="150">
+			<!-- <name>DEVOLUCION DELIVERY</name> -->
+			<idParent>2</idParent>
+			<enabled>true</enabled>
+			<optionNumber>1</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<requiredRole>pos-devoluciones</requiredRole>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="59" type="151">
+			<!-- <name>DEVOLUCION HIPOTECA VERDE</name> -->
+			<idParent>2</idParent>
+			<enabled>true</enabled>
+			<optionNumber>1</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<requiredRole>pos-devoluciones</requiredRole>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="60" type="152">
+			<!-- <name>VENTA OMS</name> -->
+			<idParent>2</idParent>
+			<enabled>true</enabled>
+			<optionNumber>1</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<requiredRole>pos-ventas</requiredRole>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="61" type="153">
+			<!-- <name>DEVOLUCION OMS</name> -->
+			<idParent>2</idParent>
+			<enabled>true</enabled>
+			<optionNumber>1</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<requiredRole>pos-devoluciones</requiredRole>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="62" type="154">
+			<!-- <name>PAGO DE SERVICIOS Y CORRESPONSALIA</name> -->
+			<idParent>3</idParent>
+			<enabled>true</enabled>
+			<optionNumber>3</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!--<requiredRole></requiredRole> -->
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="63" type="155">
+			<!-- <name>VENTA DELIVERY</name> -->
+			<idParent>1</idParent>
+			<!-- <requiredRole>pos-ventas</requiredRole> -->
+			<enabled>true</enabled>
+			<optionNumber>4</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<requiredRole>pos-ventas</requiredRole>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="64" type="156">
+			<!-- <name>DEVOLUCION DELIVERY</name> -->
+			<idParent>2</idParent>
+			<!-- <requiredRole>pos-ventas</requiredRole> -->
+			<enabled>true</enabled>
+			<optionNumber>4</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<requiredRole>pos-devoluciones</requiredRole>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="65" type="157">
+			<!-- <name>RETIRO TARJETAS EXTERNAS</name> -->
+			<idParent>100</idParent>
+			<!-- <requiredRole>pos-ventas</requiredRole> -->
+			<enabled>true</enabled>
+			<optionNumber>6</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!--<requiredRole></requiredRole> -->
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="66" type="158">
+			<!-- <name>ESPECIALES CANCELACION HIPOTECA VERDE</name> -->
+			<idParent>100</idParent>
+			<enabled>true</enabled>
+			<optionNumber>1</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!--<requiredRole></requiredRole> -->
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="67" type="159">
+			<!-- <name>VENTA EXTEMPORANEA</name> -->
+			<idParent>100</idParent>
+			<enabled>true</enabled>
+			<optionNumber>2</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+		</transaction>
+		<transaction id="68" type="160">
+			<!-- <name>SERVICIOS DE VALOR AGREGADO</name> -->
+			<idParent>1</idParent>
+			<enabled>true</enabled>
+			<optionNumber>1</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<requiredRole>pos-ventas</requiredRole>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="69" type="161">
+			<!-- <name>RENTA DE TRAJES Y VESTIDOS</name> -->
+			<idParent>1</idParent>
+			<enabled>true</enabled>
+			<optionNumber>1</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<requiredRole>pos-ventas</requiredRole>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+			<!-- <asociatedIds></asociatedIds> -->
+		</transaction>
+		<transaction id="70" type="162">
+			<!-- <name>VENTA MARKETPLACE POS</name> -->
+			<idParent>100</idParent>
+			<enabled>true</enabled>
+			<optionNumber>2</optionNumber>
+			<discountsAllowed>true</discountsAllowed>
+			<returnsAllowed>false</returnsAllowed>
+			<itemsVoidingAllowed>true</itemsVoidingAllowed>
+			<transactionVoidingAllowed>true</transactionVoidingAllowed>
+			<transactionSuspensionAllowed>true</transactionSuspensionAllowed>
+			<transactionWithLoyaltyCustomerAllowed>true</transactionWithLoyaltyCustomerAllowed>
+			<allowedTerminals></allowedTerminals>
+			<notAllowedTerminals></notAllowedTerminals>
+		</transaction>
+	</transactions>
+
+	<!-- Habilita el grabado del ticketData en la session -->
+	<automaticLoanParameter>true</automaticLoanParameter>
+
+	<!--
+		Configuración de planes de pagos:
+		Al ingresar un pago con tarjeta bancaria, LPC o dilisa, se presentan planes de pagos, todos ellos se encuentran configurados aquí o son planes
+		otorgados por promo.
+
+		El tag tenderPlan es la cabecera del plan, donde id es el identificador del Plan y tenderID indica el tipo de tarjeta (2=dilisa,3=externa)
+		El tag installments, se configuran las cuotas que tiene este plan.
+		En el tag transactions se configuran las transacciones, subtransacciones y aditional transaccion validas, se pueden configurar diferentes
+			transacciones que permitan este plan en particular, por ejemplo, si quiero solo permitir el plan en transacciones de mesa de regalo de paqueteria,
+			debo configurar: (id="1" subTransaction="6" aditionalTrx="8").
+		En el tag excludedTransaction se configuran las transacciones, subtransacciones y aditional transaccion que no son validas para el plan de pago,
+			por ejemplo, si nos encontramos en una transacción de mesa de regalos paqueteria (sus valores se definieron en el punto anterior), si se
+			configura aditionalTrx="8" en excludedTransaction, en las transacciones con aditionalTrx="8" no permitiran este Plan (mesa paqueteria). Si se
+			configura subTransaction="6" (mesa de regalos), ninguna transaccion de mesa de regalos presentará este plan.
+
+		El atributo id representa el número del tipo de transacción ej. Vta Cliente: id="1", el atributo subTransaction representa el número del tipo de
+		subtransaccion ej. Vta Cliente - Mesa de Regalos: id="1" subTransaction="6", el atributo aditionalTrx es para cuando lleva una subtransaccion mas
+		ej. Vta Cliente - Mesa de Regalos - Paqueteria: id="1" subTransaction="6" aditionalTrx="8".
+		NOTA: Existen varias formas de presentarse estos valores dependiendo de la transacción seleccionada.
+
+		El tag includedPrefixes se configuran los prefijos de las tarj. que se van a incluir en el plan de pago
+		El tag excludedPrefixes se configuran los prefijos de las tarj. que no son validos en el plan de pago
+		Si el tag interest se encuentra en SI, se presentarán cuotas con intereses.
+	-->
+	<tenderPlans>
+		<tenderPlan planId="200" tenderId="8,11,19,20">
+			<displayDescription>PRESUPUESTO</displayDescription>
+			<printDescription>PRESUPUESTO</printDescription>
+			<enabled>true</enabled>
+			<installments>1</installments>
+			<includedTransactions>101,102,103,104,105,106,107,109,110,111,113,115,117,118,121,122,123,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,146,147,148,149,150,151,152,153,154,155,156,159,161,162</includedTransactions>
+			<enabledEmployee>true</enabledEmployee>
+			<enabledCustomer>true</enabledCustomer>
+			<!-- <includedPrefixes></includedPrefixes> -->
+			<excludedPrefixes>37,67,70,77,80,87,95,96,97</excludedPrefixes>
+			<interest>false</interest>
+		</tenderPlan>
+		<tenderPlan planId="100" tenderId="8,11,19,20">
+			<displayDescription>CORRIENTE</displayDescription>
+			<printDescription>CORRIENTE</printDescription>
+			<enabled>true</enabled>
+			<installments>1</installments>
+			<includedTransactions>101,102,113,115,117,128,131,134,147</includedTransactions>
+			<enabledEmployee>false</enabledEmployee>
+			<enabledCustomer>true</enabledCustomer>
+			<includedPrefixes>37,67,70,77,80,87</includedPrefixes>
+			<!-- <excludedPrefixes></excludedPrefixes> -->
+			<interest>false</interest>
+		</tenderPlan>
+		<tenderPlan planId="400" tenderId="8,11,19,20">
+			<displayDescription>3 MESES SIN INTERES</displayDescription>
+			<printDescription>SIN INTERESES</printDescription>
+			<enabled>true</enabled>
+			<installments>3</installments>
+			<includedTransactions>138</includedTransactions>
+			<enabledEmployee>false</enabledEmployee>
+			<enabledCustomer>true</enabledCustomer>
+			<excludedPrefixes>37,67,70,77,80,87,95,96</excludedPrefixes>
+			<interest>false</interest>
+		</tenderPlan>
+		<tenderPlan planId="400" tenderId="8,11,19,20">
+			<displayDescription>6 MESES SIN INTERES</displayDescription>
+			<printDescription>SIN INTERESES</printDescription>
+			<enabled>true</enabled>
+			<installments>6</installments>
+			<includedTransactions>138</includedTransactions>
+			<enabledEmployee>false</enabledEmployee>
+			<enabledCustomer>true</enabledCustomer>
+			<excludedPrefixes>37,67,70,77,80,87,95,96</excludedPrefixes>
+			<interest>false</interest>
+		</tenderPlan>
+		<tenderPlan planId="400" tenderId="8,11,19,20">
+			<displayDescription>9 MESES SIN INTERES</displayDescription>
+			<printDescription>SIN INTERESES</printDescription>
+			<enabled>true</enabled>
+			<installments>9</installments>
+			<includedTransactions>138</includedTransactions>
+			<enabledEmployee>false</enabledEmployee>
+			<enabledCustomer>true</enabledCustomer>
+			<excludedPrefixes>37,67,70,77,80,87,95,96</excludedPrefixes>
+			<interest>false</interest>
+		</tenderPlan>
+		<tenderPlan planId="400" tenderId="8,11,19,20">
+			<displayDescription>13 MESES SIN INTERES</displayDescription>
+			<printDescription>SIN INTERESES</printDescription>
+			<enabled>true</enabled>
+			<installments>13</installments>
+			<includedTransactions>138</includedTransactions>
+			<enabledEmployee>false</enabledEmployee>
+			<enabledCustomer>true</enabledCustomer>
+			<excludedPrefixes>37,67,70,77,80,87,95,96</excludedPrefixes>
+			<interest>false</interest>
+		</tenderPlan>
+		<tenderPlan planId="1" tenderId="8,11,19,20">
+			<displayDescription>CORP LOGO 96</displayDescription>
+			<printDescription></printDescription>
+			<enabled>false</enabled>
+			<installments>1</installments>
+			<includedTransactions>101,102,103,104,105,106,109,111,113,115,117,121,122,123,127,128,129,130,131,132,133,147,149,150,151,152,153,154,155,156,159,161</includedTransactions>
+			<enabledEmployee>false</enabledEmployee>
+			<enabledCustomer>true</enabledCustomer>
+			<includedPrefixes>96</includedPrefixes>
+			<interest>false</interest>
+		</tenderPlan>
+		<tenderPlan planId="400" tenderId="8,11,19,20">
+			<displayDescription>MOTOFIN DEVOLUCION MOTO</displayDescription>
+			<printDescription>SIN INTERESES</printDescription>
+			<enabled>false</enabled>
+			<installments>13,17</installments>
+			<includedTransactions>105,106,121,122,149,153</includedTransactions>
+			<enabledEmployee>false</enabledEmployee>
+			<enabledCustomer>true</enabledCustomer>
+			<includedPrefixes>95</includedPrefixes>
+			<!-- <excludedPrefixes></excludedPrefixes> -->
+			<interest>false</interest>
+		</tenderPlan>
+		<tenderPlan planId="500" tenderId="8,11,19,20">
+			<displayDescription>ESPECIAL</displayDescription>
+			<printDescription>INTERES VARIABLE</printDescription>
+			<enabled>false</enabled>
+			<installments>3,6,13,15,18,24</installments>
+			<includedTransactions>105,106,121,122,129,132,135,138,140,149,150,151,153,156,159,161</includedTransactions>
+			<enabledEmployee>true</enabledEmployee>
+			<enabledCustomer>true</enabledCustomer>
+			<!-- <includedPrefixes></includedPrefixes> -->
+			<excludedPrefixes>37,67,70,77,80,87,95,96</excludedPrefixes>
+			<interest>false</interest>
+		</tenderPlan>
+		<tenderPlan planId="885" tenderId="8,11,19,20">
+			<displayDescription>PLAN DE PAGOS FIJOS</displayDescription>
+			<printDescription>PAGOS FIJOS</printDescription>
+			<enabled>true</enabled>
+			<installments>3,6,9,13,15,18,24,36,48</installments>
+			<includedTransactions>105,106,121,122,129,132,135,138,140,149,150,151,153,156,159,161</includedTransactions>
+			<enabledEmployee>false</enabledEmployee>
+			<enabledCustomer>true</enabledCustomer>
+			<!-- <includedPrefixes></includedPrefixes> -->
+			<excludedPrefixes>37,67,70,77,80,87,95,96</excludedPrefixes>
+			<interest>true</interest>
+		</tenderPlan>
+		<tenderPlan planId="886" tenderId="8,11,19,20">
+			<displayDescription>PLAN DE PAGOS FIJOS</displayDescription>
+			<printDescription>PAGOS FIJOS</printDescription>
+			<enabled>true</enabled>
+			<installments>3,6,9,13,15,18,24,36,48</installments>
+			<includedTransactions>105,106,121,122,129,132,135,138,140,149,150,151,153,156,159,161</includedTransactions>
+			<enabledEmployee>true</enabledEmployee>
+			<enabledCustomer>false</enabledCustomer>
+			<!-- <includedPrefixes></includedPrefixes> -->
+			<excludedPrefixes>95</excludedPrefixes>
+			<interest>true</interest>
+		</tenderPlan>
+		<tenderPlan planId="701" tenderId="8,11,19,20">
+			<displayDescription>CDI 60 PAGOS FIJOS</displayDescription>
+			<printDescription>PAGOS FIJOS</printDescription>
+			<enabled>true</enabled>
+			<installments>60</installments>
+			<includedTransactions>135</includedTransactions>
+			<enabledEmployee>false</enabledEmployee>
+			<enabledCustomer>true</enabledCustomer>
+			<!-- <includedPrefixes></includedPrefixes> -->
+			<excludedPrefixes>37,67,70,77,80,87,95,96</excludedPrefixes>
+			<interest>true</interest>
+		</tenderPlan>
+		<tenderPlan planId="711" tenderId="8,11,19,20">
+			<displayDescription>CDI 60 PAGOS FIJOS</displayDescription>
+			<printDescription>PAGOS FIJOS</printDescription>
+			<enabled>true</enabled>
+			<installments>60</installments>
+			<includedTransactions>135</includedTransactions>
+			<enabledEmployee>true</enabledEmployee>
+			<enabledCustomer>false</enabledCustomer>
+			<!-- <includedPrefixes></includedPrefixes> -->
+			<excludedPrefixes>95</excludedPrefixes>
+			<interest>true</interest>
+		</tenderPlan>
+		<tenderPlan planId="400" tenderId="8,11,19,20">
+			<displayDescription>MESES SIN INTERESES</displayDescription>
+			<printDescription>SIN INTERESES</printDescription>
+			<enabled>true</enabled>
+			<installments>3,6,9,10,13,15,18,20,24</installments>
+			<includedTransactions>105,106,121,122,129,132,135,138,140,149,150,151,153,156,159,161</includedTransactions>
+			<enabledEmployee>true</enabledEmployee>
+			<enabledCustomer>true</enabledCustomer>
+			<!-- <includedPrefixes></includedPrefixes> -->
+			<excludedPrefixes>37,67,70,77,80,87,95,96</excludedPrefixes>
+			<interest>false</interest>
+		</tenderPlan>
+		<tenderPlan planId="455" tenderId="8,11,19,20">
+			<displayDescription>6 MESES S/I VENTA ESPECIAL</displayDescription>
+			<printDescription>S/I VENTA ESPECIAL DAMAS</printDescription>
+			<enabled>false</enabled>
+			<installments>6</installments>
+			<includedTransactions>105,106,121,122,129,132,135,138,140,149,150,151,153,156,159,161</includedTransactions>
+			<enabledEmployee>false</enabledEmployee>
+			<enabledCustomer>true</enabledCustomer>
+			<!-- <includedPrefixes></includedPrefixes> -->
+			<excludedPrefixes>37,67,70,77,80,87,95,96</excludedPrefixes>
+			<interest>false</interest>
+		</tenderPlan>
+		<tenderPlan planId="300" tenderId="8,11,19,20">
+			<displayDescription>PAGOS FIJOS PREFERENCIAL</displayDescription>
+			<printDescription>PAGOS FIJOS PREFERENCIAL</printDescription>
+			<enabled>true</enabled>
+			<installments>13,18,24,36</installments>
+			<includedTransactions>105,106,121,122,129,132,135,138,140,149,150,151,153,156,159,161</includedTransactions>
+			<enabledEmployee>false</enabledEmployee>
+			<enabledCustomer>true</enabledCustomer>
+			<excludedPrefixes>37,67,70,77,80,87,95,96</excludedPrefixes>
+			<interest>true</interest>
+		</tenderPlan>
+		<tenderPlan planId="620" tenderId="8,11,19,20">
+			<displayDescription>PAGOS FIJOS PREFERENCIAL APPLE</displayDescription>
+			<printDescription>PAGOS FIJOS PREFERENCIAL APPLE</printDescription>
+			<enabled>true</enabled>
+			<installments>24,36,48</installments>
+			<includedTransactions>105,106,121,122,129,132,135,138,140,149,150,151,153,156,159,161</includedTransactions>
+			<enabledEmployee>false</enabledEmployee>
+			<enabledCustomer>true</enabledCustomer>
+			<excludedPrefixes>37,67,70,77,80,87,95,96</excludedPrefixes>
+			<interest>true</interest>
+		</tenderPlan>
+		<tenderPlan planId="624" tenderId="8,11,19,20">
+			<displayDescription>PAGOS FIJOS PREFERENCIAL MOTOS</displayDescription>
+			<printDescription>PAGOS FIJOS PREFERENCIAL MOTOS</printDescription>
+			<enabled>true</enabled>
+			<installments>24,36,48</installments>
+			<includedTransactions>105,106,121,122,129,132,135,138,140,149,150,151,153,156,159,161</includedTransactions>
+			<enabledEmployee>false</enabledEmployee>
+			<enabledCustomer>true</enabledCustomer>
+			<excludedPrefixes>37,67,70,77,80,87,95,96</excludedPrefixes>
+			<interest>true</interest>
+		</tenderPlan>
+		<tenderPlan planId="626" tenderId="8,11,19,20">
+			<displayDescription>PAGOS FIJOS PREFERENCIAL SAMSUNG</displayDescription>
+			<printDescription>PAGOS FIJOS PREFERENCIAL SAMSUNG</printDescription>
+			<enabled>true</enabled>
+			<installments>24,36,48</installments>
+			<includedTransactions>105,106,121,122,129,132,135,138,140,149,150,151,153,156,159,161</includedTransactions>
+			<enabledEmployee>false</enabledEmployee>
+			<enabledCustomer>true</enabledCustomer>
+			<excludedPrefixes>37,67,70,77,80,87,95,96</excludedPrefixes>
+			<interest>true</interest>
+		</tenderPlan>
+		<tenderPlan planId="630" tenderId="8,11,19,20">
+			<displayDescription>PAGOS FIJOS PREFERENCIAL MUEBLES</displayDescription>
+			<printDescription>PAGOS FIJOS PREFERENCIAL MUEBLES</printDescription>
+			<enabled>true</enabled>
+			<installments>24,36,48</installments>
+			<includedTransactions>105,106,121,122,129,132,135,138,140,149,150,151,153,156,159,161</includedTransactions>
+			<enabledEmployee>false</enabledEmployee>
+			<enabledCustomer>true</enabledCustomer>
+			<excludedPrefixes>37,67,70,77,80,87,95,96</excludedPrefixes>
+			<interest>true</interest>
+		</tenderPlan>
+		<tenderPlan planId="631" tenderId="8,11,19,20">
+			<displayDescription>PAGOS FIJOS PREFERENCIAL COLCHONES</displayDescription>
+			<printDescription>PAGOS FIJOS PREFERENCIAL COLCHONES</printDescription>
+			<enabled>true</enabled>
+			<installments>24,36,48</installments>
+			<includedTransactions>105,106,121,122,129,132,135,138,140,149,150,151,153,156,159,161</includedTransactions>
+			<enabledEmployee>false</enabledEmployee>
+			<enabledCustomer>true</enabledCustomer>
+			<excludedPrefixes>37,67,70,77,80,87,95,96</excludedPrefixes>
+			<interest>true</interest>
+		</tenderPlan>
+		<tenderPlan planId="752" tenderId="8,11,19,20">
+			<displayDescription>PAGUE EN SEPTIEMBRE INTERES FIJO</displayDescription>
+			<printDescription>PAGUE EN SEP. INTERES FIJO</printDescription>
+			<enabled>true</enabled>
+			<installments>3,6,9,13,18,24,36,48</installments>
+			<includedTransactions>105,106,121,122,129,132,135,138,140,149,150,151,153,156,159,161</includedTransactions>
+			<enabledEmployee>false</enabledEmployee>
+			<enabledCustomer>true</enabledCustomer>
+			<excludedPrefixes>37,67,70,77,80,87,95,96</excludedPrefixes>
+			<interest>true</interest>
+		</tenderPlan>
+		<tenderPlan planId="751" tenderId="8,11,19,20">
+			<displayDescription>PAGUE EN AGOSTO INTERES FIJO</displayDescription>
+			<printDescription>PAGUE EN AGOSTO INTERES FIJO</printDescription>
+			<enabled>true</enabled>
+			<installments>3,6,9,13,18,24,36,48</installments>
+			<includedTransactions>105,106,121,122,129,132,135,138,140,149,150,151,153,156,159,161</includedTransactions>
+			<enabledEmployee>false</enabledEmployee>
+			<enabledCustomer>true</enabledCustomer>
+			<excludedPrefixes>37,67,70,77,80,87,95,96</excludedPrefixes>
+			<interest>true</interest>
+		</tenderPlan>
+		<tenderPlan planId="750" tenderId="8,11,19,20">
+			<displayDescription>PAGUE EN JULIO INTERES FIJO</displayDescription>
+			<printDescription>PAGUE EN JULIO INTERES FIJO</printDescription>
+			<enabled>true</enabled>
+			<installments>3,6,9,13,18,24,36,48</installments>
+			<includedTransactions>105,106,121,122,129,132,135,138,140,149,150,151,153,156,159,161</includedTransactions>
+			<enabledEmployee>false</enabledEmployee>
+			<enabledCustomer>true</enabledCustomer>
+			<excludedPrefixes>37,67,70,77,80,87,95,96</excludedPrefixes>
+			<interest>true</interest>
+		</tenderPlan>
+		<tenderPlan planId="749" tenderId="8,11,19,20">
+			<displayDescription>PAGUE EN JUNIO INTERES FIJO</displayDescription>
+			<printDescription>PAGUE EN JUNIO INTERES FIJO</printDescription>
+			<enabled>true</enabled>
+			<installments>3,6,9,13,18,24,36,48</installments>
+			<includedTransactions>105,106,121,122,129,132,135,138,140,149,150,151,153,156,159,161</includedTransactions>
+			<enabledEmployee>false</enabledEmployee>
+			<enabledCustomer>true</enabledCustomer>
+			<excludedPrefixes>37,67,70,77,80,87,95,96</excludedPrefixes>
+			<interest>true</interest>
+		</tenderPlan>
+		<tenderPlan planId="748" tenderId="8,11,19,20">
+			<displayDescription>PAGUE EN MAYO INTERES FIJO</displayDescription>
+			<printDescription>PAGUE EN MAYO INTERES FIJO</printDescription>
+			<enabled>true</enabled>
+			<installments>3,6,9,13,18,24,36,48</installments>
+			<includedTransactions>105,106,121,122,129,132,135,138,140,149,150,151,153,156,159,161</includedTransactions>
+			<enabledEmployee>false</enabledEmployee>
+			<enabledCustomer>true</enabledCustomer>
+			<excludedPrefixes>37,67,70,77,80,87,95,96</excludedPrefixes>
+			<interest>true</interest>
+		</tenderPlan>
+		<tenderPlan planId="747" tenderId="8,11,19,20">
+			<displayDescription>PAGUE EN ABRIL INTERES FIJO</displayDescription>
+			<printDescription>PAGUE EN ABRIL INTERES FIJO</printDescription>
+			<enabled>true</enabled>
+			<installments>3,6,9,13,18,24,36,48</installments>
+			<includedTransactions>105,106,121,122,129,132,135,138,140,149,150,151,153,156,159,161</includedTransactions>
+			<enabledEmployee>false</enabledEmployee>
+			<enabledCustomer>true</enabledCustomer>
+			<excludedPrefixes>37,67,70,77,80,87,95,96</excludedPrefixes>
+			<interest>true</interest>
+		</tenderPlan>
+		<tenderPlan planId="746" tenderId="8,11,19,20">
+			<displayDescription>PAGUE EN MARZO INTERES FIJO</displayDescription>
+			<printDescription>PAGUE EN MARZO INTERES FIJO</printDescription>
+			<enabled>true</enabled>
+			<installments>3,6,9,13,18,24,36,48</installments>
+			<includedTransactions>105,106,121,122,129,132,135,138,140,149,150,151,153,156,159,161</includedTransactions>
+			<enabledEmployee>false</enabledEmployee>
+			<enabledCustomer>true</enabledCustomer>
+			<excludedPrefixes>37,67,70,77,80,87,95,96</excludedPrefixes>
+			<interest>true</interest>
+		</tenderPlan>
+		<tenderPlan planId="745" tenderId="8,11,19,20">
+			<displayDescription>PAGUE EN FEBRERO INTERES FIJO</displayDescription>
+			<printDescription>PAGUE EN FEBRERO INTERES FIJO</printDescription>
+			<enabled>true</enabled>
+			<installments>3,6,9,13,18,24,36,48</installments>
+			<includedTransactions>105,106,121,122,129,132,135,138,140,149,150,151,153,156,159,161</includedTransactions>
+			<enabledEmployee>false</enabledEmployee>
+			<enabledCustomer>true</enabledCustomer>
+			<excludedPrefixes>37,67,70,77,80,87,95,96</excludedPrefixes>
+			<interest>true</interest>
+		</tenderPlan>
+		<tenderPlan planId="744" tenderId="8,11,19,20">
+			<displayDescription>PAGUE EN ENERO INTERES FIJO</displayDescription>
+			<printDescription>PAGUE EN ENERO INTERES FIJO</printDescription>
+			<enabled>true</enabled>
+			<installments>3,6,9,13,18,24,36,48</installments>
+			<includedTransactions>105,106,121,122,129,132,135,138,140,149,150,151,153,156,159,161</includedTransactions>
+			<enabledEmployee>false</enabledEmployee>
+			<enabledCustomer>true</enabledCustomer>
+			<excludedPrefixes>37,67,70,77,80,87,95,96</excludedPrefixes>
+			<interest>true</interest>
+		</tenderPlan>
+		<tenderPlan planId="743" tenderId="8,11,19,20">
+			<displayDescription>PAGUE EN DICIEMBRE INTERES FIJO</displayDescription>
+			<printDescription>PAGUE EN DIC. INTERES FIJO</printDescription>
+			<enabled>true</enabled>
+			<installments>3,6,9,13,18,24,36,48</installments>
+			<includedTransactions>105,106,121,122,129,132,135,138,140,149,150,151,153,156,159,161</includedTransactions>
+			<enabledEmployee>false</enabledEmployee>
+			<enabledCustomer>true</enabledCustomer>
+			<excludedPrefixes>37,67,70,77,80,87,95,96</excludedPrefixes>
+			<interest>true</interest>
+		</tenderPlan>
+		<tenderPlan planId="742" tenderId="8,11,19,20">
+			<displayDescription>PAGUE EN NOVIEMBRE INTERES FIJO</displayDescription>
+			<printDescription>PAGUE EN NOV. INTERES FIJO</printDescription>
+			<enabled>true</enabled>
+			<installments>3,6,9,13,18,24,36,48</installments>
+			<includedTransactions>105,106,121,122,129,132,135,138,140,149,150,151,153,156,159,161</includedTransactions>
+			<enabledEmployee>false</enabledEmployee>
+			<enabledCustomer>true</enabledCustomer>
+			<excludedPrefixes>37,67,70,77,80,87,95,96</excludedPrefixes>
+			<interest>true</interest>
+		</tenderPlan>
+		<tenderPlan planId="741" tenderId="8,11,19,20">
+			<displayDescription>PAGUE EN OCTUBRE INTERES FIJO</displayDescription>
+			<printDescription>PAGUE EN OCTUBRE INTERES FIJO</printDescription>
+			<enabled>true</enabled>
+			<installments>3,6,9,13,18,24,36,48</installments>
+			<includedTransactions>105,106,121,122,129,132,135,138,140,149,150,151,153,156,159,161</includedTransactions>
+			<enabledEmployee>false</enabledEmployee>
+			<enabledCustomer>true</enabledCustomer>
+			<excludedPrefixes>37,67,70,77,80,87,95,96</excludedPrefixes>
+			<interest>true</interest>
+		</tenderPlan>
+		<tenderPlan planId="899" tenderId="8,11,19,20">
+			<displayDescription>VENTA ESPECIAL MUEBLES</displayDescription>
+			<printDescription>ESPECIAL MUEBLES</printDescription>
+			<enabled>false</enabled>
+			<installments>18,24,36,48</installments>
+			<includedTransactions>105,106,121,122,129,132,135,138,140,149,150,151,153,156,159,161</includedTransactions>
+			<enabledEmployee>false</enabledEmployee>
+			<enabledCustomer>true</enabledCustomer>
+			<!-- <includedPrefixes></includedPrefixes> -->
+			<excludedPrefixes>37,67,70,77,80,87,95,96</excludedPrefixes>
+			<interest>true</interest>
+		</tenderPlan>
+		<tenderPlan planId="497" tenderId="8,11,19,20">
+			<displayDescription>6 MESES SIN INT. PAGUE OCT</displayDescription>
+			<printDescription>SIN INT. PAGUE HASTA OCT</printDescription>
+			<enabled>false</enabled>
+			<installments>6</installments>
+			<includedTransactions>105,106,121,122,129,132,135,138,140,149,150,151,153,156,159,161</includedTransactions>
+			<enabledEmployee>true</enabledEmployee>
+			<enabledCustomer>true</enabledCustomer>
+			<!-- <includedPrefixes></includedPrefixes> -->
+			<excludedPrefixes>37,67,70,77,80,87,95,96</excludedPrefixes>
+			<interest>false</interest>
+		</tenderPlan>
+		<tenderPlan planId="811" tenderId="8,11,19,20">
+			<displayDescription>PRESUPUESTO DIFERIDO SEPTIEMBRE</displayDescription>
+			<printDescription>PRESUPUESTO DIFERIDO SEPTIEMBRE</printDescription>
+			<enabled>true</enabled>
+			<installments>16</installments>
+			<includedTransactions>105,106,121,122,129,132,135,138,140,149,150,151,153,156,159,161</includedTransactions>
+			<enabledEmployee>true</enabledEmployee>
+			<enabledCustomer>true</enabledCustomer>
+			<!-- <includedPrefixes></includedPrefixes> -->
+			<excludedPrefixes>37,67,70,77,80,87,95,96</excludedPrefixes>
+			<interest>false</interest>
+			<tipoPlan>Diferido</tipoPlan>
+		</tenderPlan>
+		<tenderPlan planId="811" tenderId="8,11,19,20">
+			<displayDescription>PRESUPUESTO DIFERIDO AGOSTO</displayDescription>
+			<printDescription>PRESUPUESTO DIFERIDO AGOSTO</printDescription>
+			<enabled>true</enabled>
+			<installments>15</installments>
+			<includedTransactions>105,106,121,122,129,132,135,138,140,149,150,151,153,156,159,161</includedTransactions>
+			<enabledEmployee>true</enabledEmployee>
+			<enabledCustomer>true</enabledCustomer>
+			<!-- <includedPrefixes></includedPrefixes> -->
+			<excludedPrefixes>37,67,70,77,80,87,95,96</excludedPrefixes>
+			<interest>false</interest>
+			<tipoPlan>Diferido</tipoPlan>
+		</tenderPlan>
+		<tenderPlan planId="811" tenderId="8,11,19,20">
+			<displayDescription>PRESUPUESTO DIFERIDO JULIO</displayDescription>
+			<printDescription>PRESUPUESTO DIFERIDO JULIO</printDescription>
+			<enabled>true</enabled>
+			<installments>14</installments>
+			<includedTransactions>105,106,121,122,129,132,135,138,140,149,150,151,153,156,159,161</includedTransactions>
+			<enabledEmployee>true</enabledEmployee>
+			<enabledCustomer>true</enabledCustomer>
+			<!-- <includedPrefixes></includedPrefixes> -->
+			<excludedPrefixes>37,67,70,77,80,87,95,96</excludedPrefixes>
+			<interest>false</interest>
+			<tipoPlan>Diferido</tipoPlan>
+		</tenderPlan>
+		<tenderPlan planId="811" tenderId="8,11,19,20">
+			<displayDescription>PRESUPUESTO DIFERIDO JUNIO</displayDescription>
+			<printDescription>PRESUPUESTO DIFERIDO JUNIO</printDescription>
+			<enabled>true</enabled>
+			<installments>12</installments>
+			<includedTransactions>105,106,121,122,129,132,135,138,140,149,150,151,153,156,159,161</includedTransactions>
+			<enabledEmployee>true</enabledEmployee>
+			<enabledCustomer>true</enabledCustomer>
+			<!-- <includedPrefixes></includedPrefixes> -->
+			<excludedPrefixes>37,67,70,77,80,87,95,96</excludedPrefixes>
+			<interest>false</interest>
+			<tipoPlan>Diferido</tipoPlan>
+		</tenderPlan>
+		<tenderPlan planId="811" tenderId="8,11,19,20">
+			<displayDescription>PRESUPUESTO DIFERIDO MAYO</displayDescription>
+			<printDescription>PRESUPUESTO DIFERIDO MAYO</printDescription>
+			<enabled>true</enabled>
+			<installments>11</installments>
+			<includedTransactions>105,106,121,122,129,132,135,138,140,149,150,151,153,156,159,161</includedTransactions>
+			<enabledEmployee>true</enabledEmployee>
+			<enabledCustomer>true</enabledCustomer>
+			<!-- <includedPrefixes></includedPrefixes> -->
+			<excludedPrefixes>37,67,70,77,80,87,95,96</excludedPrefixes>
+			<interest>false</interest>
+			<tipoPlan>Diferido</tipoPlan>
+		</tenderPlan>
+		<tenderPlan planId="811" tenderId="8,11,19,20">
+			<displayDescription>PRESUPUESTO DIFERIDO ABRIL</displayDescription>
+			<printDescription>PRESUPUESTO DIFERIDO ABRIL</printDescription>
+			<enabled>true</enabled>
+			<installments>10</installments>
+			<includedTransactions>105,106,121,122,129,132,135,138,140,149,150,151,153,156,159,161</includedTransactions>
+			<enabledEmployee>true</enabledEmployee>
+			<enabledCustomer>true</enabledCustomer>
+			<!-- <includedPrefixes></includedPrefixes> -->
+			<excludedPrefixes>37,67,70,77,80,87,95,96</excludedPrefixes>
+			<interest>false</interest>
+			<tipoPlan>Diferido</tipoPlan>
+		</tenderPlan>
+		<tenderPlan planId="811" tenderId="8,11,19,20">
+			<displayDescription>PRESUPUESTO DIFERIDO MARZO</displayDescription>
+			<printDescription>PRESUPUESTO DIFERIDO MARZO</printDescription>
+			<enabled>true</enabled>
+			<installments>08</installments>
+			<includedTransactions>105,106,121,122,129,132,135,138,140,149,150,151,153,156,159,161</includedTransactions>
+			<enabledEmployee>true</enabledEmployee>
+			<enabledCustomer>true</enabledCustomer>
+			<!-- <includedPrefixes></includedPrefixes> -->
+			<excludedPrefixes>37,67,70,77,80,87,95,96</excludedPrefixes>
+			<interest>false</interest>
+			<tipoPlan>Diferido</tipoPlan>
+		</tenderPlan>
+		<tenderPlan planId="811" tenderId="8,11,19,20">
+			<displayDescription>PRESUPUESTO DIFERIDO FEBRERO</displayDescription>
+			<printDescription>PRESUPUESTO DIFERIDO FEBRERO</printDescription>
+			<enabled>true</enabled>
+			<installments>07</installments>
+			<includedTransactions>105,106,121,122,129,132,135,138,140,149,150,151,153,156,159,161</includedTransactions>
+			<enabledEmployee>true</enabledEmployee>
+			<enabledCustomer>true</enabledCustomer>
+			<!-- <includedPrefixes></includedPrefixes> -->
+			<excludedPrefixes>37,67,70,77,80,87,95,96</excludedPrefixes>
+			<interest>false</interest>
+			<tipoPlan>Diferido</tipoPlan>
+		</tenderPlan>
+		<tenderPlan planId="811" tenderId="8,11,19,20">
+			<displayDescription>PRESUPUESTO DIFERIDO ENERO</displayDescription>
+			<printDescription>PRESUPUESTO DIFERIDO ENERO</printDescription>
+			<enabled>true</enabled>
+			<installments>06</installments>
+			<includedTransactions>105,106,121,122,129,132,135,138,140,149,150,151,153,156,159,161</includedTransactions>
+			<enabledEmployee>true</enabledEmployee>
+			<enabledCustomer>true</enabledCustomer>
+			<!-- <includedPrefixes></includedPrefixes> -->
+			<excludedPrefixes>37,67,70,77,80,87,95,96</excludedPrefixes>
+			<interest>false</interest>
+			<tipoPlan>Diferido</tipoPlan>
+		</tenderPlan>
+		<tenderPlan planId="811" tenderId="8,11,19,20">
+			<displayDescription>PRESUPUESTO DIFERIDO DICIEMBRE</displayDescription>
+			<printDescription>PRESUPUESTO DIFERIDO DICIEMBRE</printDescription>
+			<enabled>true</enabled>
+			<installments>05</installments>
+			<includedTransactions>105,106,121,122,129,132,135,138,140,149,150,151,153,156,159,161</includedTransactions>
+			<enabledEmployee>true</enabledEmployee>
+			<enabledCustomer>true</enabledCustomer>
+			<!-- <includedPrefixes></includedPrefixes> -->
+			<excludedPrefixes>37,67,70,77,80,87,95,96</excludedPrefixes>
+			<interest>false</interest>
+			<tipoPlan>Diferido</tipoPlan>
+		</tenderPlan>
+		<tenderPlan planId="811" tenderId="8,11,19,20">
+			<displayDescription>PRESUPUESTO DIFERIDO NOVIEMBRE</displayDescription>
+			<printDescription>PRESUPUESTO DIFERIDO NOVIEMBRE</printDescription>
+			<enabled>true</enabled>
+			<installments>04</installments>
+			<includedTransactions>105,106,121,122,129,132,135,138,140,149,150,151,153,156,159,161</includedTransactions>
+			<enabledEmployee>true</enabledEmployee>
+			<enabledCustomer>true</enabledCustomer>
+			<!-- <includedPrefixes></includedPrefixes> -->
+			<excludedPrefixes>37,67,70,77,80,87,95,96</excludedPrefixes>
+			<interest>false</interest>
+			<tipoPlan>Diferido</tipoPlan>
+		</tenderPlan>
+		<tenderPlan planId="811" tenderId="8,11,19,20">
+			<displayDescription>PRESUPUESTO DIFERIDO OCTUBRE</displayDescription>
+			<printDescription>PRESUPUESTO DIFERIDO OCTUBRE</printDescription>
+			<enabled>true</enabled>
+			<installments>03</installments>
+			<includedTransactions>105,106,121,122,129,132,135,138,140,149,150,151,153,156,159,161</includedTransactions>
+			<enabledEmployee>true</enabledEmployee>
+			<enabledCustomer>true</enabledCustomer>
+			<!-- <includedPrefixes></includedPrefixes> -->
+			<excludedPrefixes>37,67,70,77,80,87,95,96</excludedPrefixes>
+			<interest>false</interest>
+			<tipoPlan>Diferido</tipoPlan>
+		</tenderPlan>
+		<tenderPlan planId="420" tenderId="8,11,19,20">
+			<displayDescription>PROMOCION ESPECIAL</displayDescription>
+			<printDescription>SIN INTERESES PROM ESPECIAL</printDescription>
+			<enabled>false</enabled>
+			<installments>6,9,13</installments>
+			<includedTransactions>105,106,121,122,129,132,135,138,140,149,150,151,153,156,159,161</includedTransactions>
+			<enabledEmployee>false</enabledEmployee>
+			<enabledCustomer>true</enabledCustomer>
+			<!-- <includedPrefixes></includedPrefixes> -->
+			<excludedPrefixes>37,67,70,77,80,87,95,96</excludedPrefixes>
+			<interest>true</interest>
+		</tenderPlan>
+
+		<!-- Planes de pago para Tarj Bancaria -->
+		<tenderPlan planId="0" tenderId="10">
+			<displayDescription>REVOLVENTE</displayDescription>
+			<printDescription></printDescription>
+			<enabled>true</enabled>
+			<installments>0</installments>
+			<includedTransactions>101,102,103,104,105,106,107,109,110,111,113,115,117,118,119,120,121,122,123,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,146,147,148,149,150,151,152,153,154,155,156,159,161,162</includedTransactions>
+			<enabledEmployee>true</enabledEmployee>
+			<enabledCustomer>true</enabledCustomer>
+			<interest>false</interest>
+		</tenderPlan>
+		<!-- FIN Planes de pago para Tarj Bancaria -->
+	</tenderPlans>
+
+	<!-- id Tender de tarjetas -->
+	<cardTender>3</cardTender>
+	<dilisaTender>2</dilisaTender>
+	<lpcTender>8</lpcTender>
+
+	<!-- Configuracion para seleccionar las transacciones que pueden facturar, sino se encuentra en esta lista no solicitara ingresar datos para facturar -->
+	<invoiceTransaction>101,102,103,104,111,113,115,117,123,128,130,131,133,134,137,139,146,152,155,159,161</invoiceTransaction>
+
+	<excludedDeptosInTransaction>
+		<excludedDeptos id="358" transaction="105,106,121,122,129,132,135,138,140,149,150,151,153,156" printMessage="REALIZAR DEVOLUCION CON NUMERO DE ORDEN"/>
+	</excludedDeptosInTransaction>
+
+	<!--
+		El valor se configura en ms, el tiempo de borrado aplica a partir que es usado un articulo
+	-->
+	<timeOutCleanCache>14400000</timeOutCleanCache>
+
+	<!-- Lista de configuracion de terminales
+	Se pueden configurar parametros que solo apliquen por terminal-->
+	<!-- <terminalType> Tipo de terminal, Default=0, Movil=1, POS=2, WEB=3, Kiosko=4 -->
+	<!-- <promoByTransaction> Procesa promociones por transaccion true, si es false lo hara por item, true/false
+	<evaluateOptionGroup> Parametro para promo que evalua las OptionsGroups, true/false
+	Si ambos parametros promoByTransaction/evaluateOptionGroup se encuentran con el mismo valor true-true/false-false
+	se tomara la configuracion anterior-->
+	<!-- <automaticSignoff> Parametro para controlar si el usuario continua logueado siempre en false, true/false -->
+	<terminalsConfigurations>
+		<!-- Configuracion de terminal Default 0 -->
+		<terminalConfiguration>
+			<!-- Tipo de terminal -->
+			<terminalType>0</terminalType>
+			<!-- Procesa promociones por transaccion true, si es false lo hara por item -->
+			<promoByTransaction>true</promoByTransaction>
+			<!-- Parametro para promo que evalua las OptionsGroups -->
+			<evaluateOptionGroup>false</evaluateOptionGroup>
+			<!-- Parametro para controlar si el usuario continua logueado siempre en false -->
+			<automaticSignoff>true</automaticSignoff>
+		</terminalConfiguration>
+		<terminalConfiguration>
+			<terminalType>1</terminalType>
+			<promoByTransaction>false</promoByTransaction>
+			<evaluateOptionGroup>true</evaluateOptionGroup>
+			<automaticSignoff>false</automaticSignoff>
+		</terminalConfiguration>
+		<terminalConfiguration>
+			<terminalType>2</terminalType>
+			<promoByTransaction>true</promoByTransaction>
+			<evaluateOptionGroup>false</evaluateOptionGroup>
+			<automaticSignoff>true</automaticSignoff>
+		</terminalConfiguration>
+		<terminalConfiguration>
+			<terminalType>3</terminalType>
+			<promoByTransaction>true</promoByTransaction>
+			<evaluateOptionGroup>false</evaluateOptionGroup>
+			<automaticSignoff>true</automaticSignoff>
+		</terminalConfiguration>
+		<terminalConfiguration>
+			<terminalType>4</terminalType>
+			<promoByTransaction>false</promoByTransaction>
+			<evaluateOptionGroup>true</evaluateOptionGroup>
+			<automaticSignoff>false</automaticSignoff>
+		</terminalConfiguration>
+	</terminalsConfigurations>
+
+	<!-- Configuración de bancos que devuelve un mensaje Z4 con el código del banco y su descripción -->
+	<!-- <bankCode> Código del banco -->
+	<!-- <bankDesc> Descripción del banco tal cual viene en el mapa de "PROMO" -->
+	<banksConfigurations>
+		<bankConfiguration>
+			<bankCode>00</bankCode>
+			<bankDesc>EXTERNAS PARTICIPANTES</bankDesc>
+		</bankConfiguration>
+		<bankConfiguration>
+			<bankCode>4</bankCode>
+			<bankDesc>AMEX</bankDesc>
+		</bankConfiguration>
+		<!-- Configuración con el código de banco para tarjetas LPC -->
+		<bankConfiguration>
+			<bankCode>16</bankCode>
+			<bankDesc>DILISA</bankDesc>
+		</bankConfiguration>
+		<bankConfiguration>
+			<bankCode>17</bankCode>
+			<bankDesc>SUBURBIA VISA</bankDesc>
+		</bankConfiguration>
+		<bankConfiguration>
+			<bankCode>98</bankCode>
+			<bankDesc>SUBURBIA TD</bankDesc>
+		</bankConfiguration>
+		<bankConfiguration>
+			<bankCode>99</bankCode>
+			<bankDesc>DILISA</bankDesc>
+		</bankConfiguration>
+	</banksConfigurations>
+
+	<!-- Codigo de banco para identificar tarjetas Dilisa -->
+	<bankCodeDilisa>99</bankCodeDilisa>
+
+	<!-- Numero de mapas que se van a mantener, los mas antiguos se van a eliminar -->
+	<numberOfMapsToKeep>5</numberOfMapsToKeep>
+
+	<!-- Tiempo que puede transcurrir para esperar a que se cargue promo y obtener la version del mapa -->
+	<checkMapWaitTime>10</checkMapWaitTime>
+
+	<!-- Activar la nueva funcionalidad de Mesa de Regalo que interactúa con el sistema MES -->
+	<enabledMesaRegaloMES>true</enabledMesaRegaloMES>
+
+	<!-- Parámetros utilizados para identificar los tipos de productos de la nueva mesa de regalos -->
+	<productTypeCertificado>GC</productTypeCertificado>
+	<productTypeExperiencias>EX</productTypeExperiencias>
+	<giftTypeElectronic>electronic</giftTypeElectronic>
+	<giftTypePhysical>physical</giftTypePhysical>
+	<originChannelType>0</originChannelType>
+
+	<!-- Parámetro que valida el estatus de una mesa y verifica si se desactivan certificados y los virtuales se toman como físicos -->
+	<validateEventStatusMesa>Validity off active</validateEventStatusMesa>
+
+	<paymentsTypeCodeMesa>
+		<paymentTypeCodeMesa>
+			<paymentTypeCode>7</paymentTypeCode>
+			<gsaId>15</gsaId>
+			<desc>CASH</desc>
+		</paymentTypeCodeMesa>
+		<paymentTypeCodeMesa>
+			<paymentTypeCode>8</paymentTypeCode>
+			<gsaId>10</gsaId>
+			<desc>CARD</desc>
+		</paymentTypeCodeMesa>
+		<paymentTypeCodeMesa>
+			<paymentTypeCode>6</paymentTypeCode>
+			<gsaId>0</gsaId>
+			<desc>CHEQUE</desc>
+		</paymentTypeCodeMesa>
+		<paymentTypeCodeMesa>
+			<paymentTypeCode>7</paymentTypeCode>
+			<gsaId>1</gsaId>
+			<desc>COUPON</desc>
+		</paymentTypeCodeMesa>
+		<paymentTypeCodeMesa>
+			<paymentTypeCode>1</paymentTypeCode>
+			<gsaId>2</gsaId>
+			<desc>VALE_MONEDERO</desc>
+		</paymentTypeCodeMesa>
+		<paymentTypeCodeMesa>
+			<paymentTypeCode>4</paymentTypeCode>
+			<gsaId>8</gsaId>
+			<desc>DILISA</desc>
+		</paymentTypeCodeMesa>
+		<paymentTypeCodeMesa>
+			<paymentTypeCode>5</paymentTypeCode>
+			<gsaId>11</gsaId>
+			<desc>LPC</desc>
+		</paymentTypeCodeMesa>
+		<paymentTypeCodeMesa>
+			<paymentTypeCode>7</paymentTypeCode>
+			<gsaId>30</gsaId>
+			<desc>DOLAR</desc>
+		</paymentTypeCodeMesa>
+		<paymentTypeCodeMesa>
+			<paymentTypeCode>7</paymentTypeCode>
+			<gsaId>31</gsaId>
+			<desc>QUETZALES</desc>
+		</paymentTypeCodeMesa>
+		<paymentTypeCodeMesa>
+			<paymentTypeCode>7</paymentTypeCode>
+			<gsaId>27</gsaId>
+			<desc>EUROS</desc>
+		</paymentTypeCodeMesa>
+		<paymentTypeCodeMesa>
+			<paymentTypeCode>7</paymentTypeCode>
+			<gsaId>26</gsaId>
+			<desc>DOLAR_BELICENO</desc>
+		</paymentTypeCodeMesa>
+		<paymentTypeCodeMesa>
+			<paymentTypeCode>7</paymentTypeCode>
+			<gsaId>28</gsaId>
+			<desc>DOLAR_CANADIENSE</desc>
+		</paymentTypeCodeMesa>
+		<paymentTypeCodeMesa>
+			<paymentTypeCode>4</paymentTypeCode>
+			<gsaId>19</gsaId>
+			<desc>SUBURBIA TD</desc>
+		</paymentTypeCodeMesa>
+		<paymentTypeCodeMesa>
+			<paymentTypeCode>5</paymentTypeCode>
+			<gsaId>20</gsaId>
+			<desc>SUBURBIA VISA</desc>
+		</paymentTypeCodeMesa>
+	</paymentsTypeCodeMesa>
+
+	<!-- Parámetros migrados del archivo livConf.xml, se deben agregar las transacciones que puedan realizar descuentos por tecla -->
+	<!-- Transacciones permitidas para descuentos manuales porcentuales -->
+	<percentageDiscountTransactions>101,102,105,107,109,111,113,115,117,121,128,129,131,132,133,134,135,137,138,146,147,151,152,159</percentageDiscountTransactions>
+	<!-- Transacciones permitidas para descuentos fijos manuales -->
+	<fixedDiscountTransactions>101,102,105,107,109,111,113,115,117,121,128,129,131,132,133,134,135,137,138,146,147,151,152,159</fixedDiscountTransactions>
+
+	<!-- Parámetro que valida si una transacción permite descuentos en porcentaje al artículo -->
+	<percentageDiscountByItem>
+		<transactions>101,102,105,107,109,111,113,115,117,121,128,129,131,132,133,134,135,137,138,146,147,151,152,159</transactions>
+		<maxAllow>99</maxAllow>
+	</percentageDiscountByItem>
+
+	<!-- Parámetro que valida si una transacción permite descuentos por monto al artículo -->
+	<fixedDiscountByItem>
+		<transactions>101,102,105,107,109,111,113,115,117,121,128,129,131,132,133,134,135,137,138,146,147,151,152,159</transactions>
+		<maxAllow>99999</maxAllow>
+	</fixedDiscountByItem>
+
+	<!-- Validación para el ingreso manual de tarjeta de Débito -->
+	<tecleaDebito>false</tecleaDebito>
+
+	<!-- Parámetro para habilitar la aceptación de tarjetas Suburbia en Liverpool -->
+	<isVisaSuburbia>true</isVisaSuburbia>
+
+	<!-- Lista de prefijos de Tarjetas Departamentales Suburbia -->
+	<!--
+       <tarjetaSuburbia>: contiene los atributos
+		   prefix (número con el cual empieza la tarjeta)
+		   costumer (si la tarjeta será considerada de empleado)
+		   logo (con qué logo será identificada)
+		   wallet (si la tarjeta maneja monedero)
+		   firstDayDiscount (si la tarjeta aplica descuento de primer compra)
+	-->
+	<binesSuburbia>
+		<tarjetaSuburbia prefix="14" costumer="true" logo="32" bankCode="98" wallet="false" firstDayDiscount="false"/>
+		<tarjetaSuburbia prefix="64" costumer="false" logo="35" bankCode="98" wallet="false" firstDayDiscount="false"/>
+	</binesSuburbia>
+
+	<!-- Lista de prefijos de Tarjetas Visa Suburbia -->
+	<!--
+       <binesVisaSuburbia>: contiene los atributos
+		   prefix (número con el cual empieza la tarjeta)
+		   costumer (si la tarjeta será considerada de empleado)
+		   logo (con qué logo será identificada)
+		   wallet (si la tarjeta maneja monedero)
+		   firstDayDiscount (si la tarjeta aplica descuento de primer compra)
+	-->
+	<binesVisaSuburbia>
+		<tarjetaSuburbia prefix="405067" costumer="true" logo="32" bankCode="17" wallet="false" firstDayDiscount="false" ewallet="true"/>
+		<tarjetaSuburbia prefix="40506759" costumer="true" logo="32" bankCode="17" wallet="false" firstDayDiscount="false" ewallet="true"/>
+	</binesVisaSuburbia>
+
+	<binesValeSuburbia>
+		<tarjetaSuburbia prefix="60887500" logo="200" firstDayDiscount="false" excludeTransactions="118,141,142"/>
+	</binesValeSuburbia>
+
+	<operatorConnectedOnMultipleTerminals>false</operatorConnectedOnMultipleTerminals>
+
+	<transactionPriceLimits>9999999</transactionPriceLimits>
+
+	<!-- Lista de terminales de VAD Liverpool
+       El tag devolucionesVAD se agrega por cada de terminal y tienda a configurar
+       Si la tienda completa será VAD en el atributo idTerminal poner el caracter "*"
+       En los atributos idTienda y idTerminal los números de tienda y terminal podrán llevar ceros a la izquierda o no, la aplicación toma como válidos ambos -->
+	<devolucionesVADList>
+		<devolucionesVAD idTienda="9" idTerminal="*" />
+		<devolucionesVAD idTienda="39" idTerminal="*" />
+		<devolucionesVAD idTienda="362" idTerminal="*" />
+		<devolucionesVAD idTienda="364" idTerminal="*" />
+		<devolucionesVAD idTienda="366" idTerminal="*" />
+		<devolucionesVAD idTienda="370" idTerminal="*" />
+		<devolucionesVAD idTienda="850" idTerminal="*" />
+		<devolucionesVAD idTienda="998" idTerminal="*" />
+	</devolucionesVADList>
+
+	<!-- Campos por default cuando se encuentra el servicio offline en terminales Liverpool de VAD -->
+	<vadCanalVenta>30</vadCanalVenta>
+	<vadSubCanalVenta>31</vadSubCanalVenta>
+	<vadCampoLibreReconocimiento>0</vadCampoLibreReconocimiento>
+
+	<!-- Lista de terminales de VAD Suburbia
+       El tag devolucionesVAD se agrega por cada de terminal y tienda a configurar
+       Si la tienda completa será VAD en el atributo idTerminal poner el caracter "*"
+       En los atributos idTienda y idTerminal los números de tienda y terminal podrán llevar ceros a la izquierda o no, la aplicación toma como válidos ambos -->
+	<devolucionesVADSuburbiaList>
+		<devolucionesVAD idTienda="782" idTerminal="*" />
+	</devolucionesVADSuburbiaList>
+
+	<!-- Campos por default cuando se encuentra el servicio offline en terminales Suburbia de VAD -->
+	<vadSuburbiaCanalVenta>71</vadSuburbiaCanalVenta>
+	<vadSuburbiaSubCanalVenta>32</vadSuburbiaSubCanalVenta>
+	<vadSuburbiaCampoLibreReconocimiento>0</vadSuburbiaCampoLibreReconocimiento>
+
+	<!--  Lista de terminales de Ventas Corporativas
+        El tag ventasCorporativas se agrega por cada de terminal y tienda a configurar
+        Si la tienda completa será VAD en el atributo idTerminal poner el caracter "*"
+        En los atributos idTienda y idTerminal los números de tienda y terminal podrán llevar ceros a la izquierda o no, la aplicacion toma como válidos ambos
+        Si la terminal tiene habilitado Ventas Corporativas y VAD tendra prioridad la configuracion de ventasCorporativasList -->
+	<ventasCorporativasList>
+	</ventasCorporativasList>
+
+	<!-- Campos por default para Ventas Corporativas -->
+	<ventaCorporativaTiendaReconocimiento>2</ventaCorporativaTiendaReconocimiento>
+	<ventaCorporativaCanalVenta>30</ventaCorporativaCanalVenta>
+	<ventaCorporativaSubCanalVenta>31</ventaCorporativaSubCanalVenta>
+	<ventaCorporativaCampoLibreReconocimiento>0</ventaCorporativaCampoLibreReconocimiento>
+
+	<!-- Campos por default cuando el aplicativo no envía la información de Reconocimiento de Ventas -->
+	<canalVenta>30</canalVenta>
+	<subCanalVenta>31</subCanalVenta>
+	<campoLibreReconocimiento>0</campoLibreReconocimiento>
+
+	<!-- Configuración para descuentos automáticos -->
+	<automaticDiscount>
+		<discount>6.9</discount>
+		<stores>19,79,110,312,688,821,1034</stores>
+		<groupsItemExclusion>39454,39851,42351,42452,57151,63251,63351,63352,63353,63354,63355,90201,90202,91003,91005,91009,91010,91012,91101,91102,91103,92001,92101,93001,93002,93003,93101,93201,93301,93401,93402,93501,93502,93601,93602</groupsItemExclusion>
+		<transactionsExclusion>104,106,107,122,129,133,139,140,149,150,153,154,155,156,161</transactionsExclusion>
+	</automaticDiscount>
+
+	<!-- Parámetros para habilitar el enmascaramiento de cuentas por adquiriente -->
+	<enmascaramientoCuentasExternas>
+		<eglobal>true</eglobal>
+		<prosa>true</prosa>
+		<amex>false</amex>
+	</enmascaramientoCuentasExternas>
+
+	<!-- Parámetros para habilitar las devoluciones en línea por tienda y adquiriente -->
+	<devolucionesOnline>
+		<eglobal>*</eglobal>
+		<prosa></prosa>
+		<amex></amex>
+	</devolucionesOnline>
+
+	<!-- Parámetros para habilitar logueo del registro de artículo por departamento -->
+	<logRecordForItem>388</logRecordForItem>
+
+	<!-- Nuevos parámetros de configuración de seguridad para la definición de contraseñas de usuarios -->
+	<useNumericCharacter>3</useNumericCharacter>
+	<useAlphabeticalCharacter>0</useAlphabeticalCharacter>
+	<useSpecialCharacter>0</useSpecialCharacter>
+	<minPasswordSize>3</minPasswordSize>
+
+	<!-- Transacciones que no aplican garantia individual -->
+	<warrantyExcludeTransactions>115</warrantyExcludeTransactions>
+
+	<!-- Configuración para garantias PIF -->
+	<pifWarranty>
+		<!-- Activación de garantía gratuita para clientes PIF -->
+		<enabled>true</enabled>
+		<!-- Activación de garantía adicional a la garantía PIF -->
+		<sellWarrantyToPifCustomers>false</sellWarrantyToPifCustomers>
+		<!-- Secciones excluidas de garantía PIF -->
+		<excludeTransactions>113</excludeTransactions>
+		<!-- Porcentaje de pago mínimo requerido con tarjetas Liverpool para otorgar garantia PIF -->
+		<liverpoolCardPaymentPercentage>100</liverpoolCardPaymentPercentage>
+	</pifWarranty>
+
+	<!-- Departamentos que NO participan para descuento de primer día de compra con tarjetas Liverpool o Suburbia-->
+	<firstDayDiscountDepartmentsExclusion>202,394,633,701,702,897,898,903,913,930,931,932,933,934,935,937,938,965680,999999</firstDayDiscountDepartmentsExclusion>
+
+	<!-- Indica si se va a procesar monedero electrónico y eWallet -->
+	<electronicWallet>true</electronicWallet>
+
+	<!-- Lista de tiendas y terminales que pueden ingresar el monedero por teclado -->
+	<listStoreKeyedEWallet>
+		<storeKeyedEWallet idTienda="9" idTerminal="*" />
+		<storeKeyedEWallet idTienda="39" idTerminal="*" />
+		<storeKeyedEWallet idTienda="362" idTerminal="*" />
+		<storeKeyedEWallet idTienda="364" idTerminal="*" />
+		<storeKeyedEWallet idTienda="366" idTerminal="*" />
+		<storeKeyedEWallet idTienda="370" idTerminal="*" />
+		<storeKeyedEWallet idTienda="850" idTerminal="*" />
+		<storeKeyedEWallet idTienda="998" idTerminal="*" />
+	</listStoreKeyedEWallet>
+
+	<!-- Lista de prefijos de monederos que se permite ingresar por teclado -->
+	<listPrefixKeyedEWallet>879</listPrefixKeyedEWallet>
+
+	<!-- Habilita devoluciones en línea a débito e-Global -->
+	<devolucionesEglobalDebito>true</devolucionesEglobalDebito>
+
+	<!-- Habilita devoluciones en línea a débito Prosa -->
+	<devolucionesProsaDebito>true</devolucionesProsaDebito>
+
+	<!-- Máximo de días permitidos para realizar una devolución Prosa -->
+	<daysAllowedRefundProsa>45</daysAllowedRefundProsa>
+
+	<!-- Se configura el envío de mensajes ITR para ciertas transacciones excluyendo tipos de terminal, tipos de tienda y artículos con sección o proveedor específico -->
+	<itrMessage>
+		<!-- Lista de transacciones habilitadas para envío de mensajes ITR -->
+		<enabledTransactions>102</enabledTransactions>
+		<!-- Lista de tipos de terminal que no permiten el envío de mensajes ITR -->
+		<terminalTypesExclusion>1,3,3/1</terminalTypesExclusion>
+		<!-- Lista de tipos de tienda que no permiten el envío de mensajes ITR -->
+		<storeTypesExclusion>1</storeTypesExclusion>
+		<!-- Lista de secciones que no permiten el envío de mensajes ITR -->
+		<departmentsExclusion></departmentsExclusion>
+		<!-- Lista de proveedores que no permiten el envío de mensajes ITR -->
+		<suppliersExclusion></suppliersExclusion>
+	</itrMessage>
+
+	<!-- Lista de valores para grabar en el campo "tipo de SKU" del tlog -->
+	<tiposSKU>
+		<tipoSKU tipo="SL" valor="00" />
+		<tipoSKU tipo="BT" valor="01" />
+		<tipoSKU tipo="MKPSL" valor="03" />
+		<tipoSKU tipo="INTSLMKP" valor="03" />
+		<tipoSKU tipo="MKPBT" valor="04" />
+		<tipoSKU tipo="INTBTMKP" valor="04" />
+		<tipoSKU tipo="GC" valor="05" />
+		<tipoSKU tipo="MCEE" valor="06" />
+		<tipoSKU tipo="MBTE" valor="07" />
+		<tipoSKU tipo="MCE" valor="08" />
+		<tipoSKU tipo="MBT" valor="09" />
+		<tipoSKU tipo="MCC" valor="10" />
+		<tipoSKU tipo="MBTCC" valor="11" />
+	</tiposSKU>
+
+	<!-- Cuenta Puntos MasterCard -->
+	<cardNumberProsaTlog>8100000000000000</cardNumberProsaTlog>
+
+	<!--
+    Lista de monederos de Ventas corporativas, todos los monederos incluidos en la lista respetarán las reglas configuradas en cada registro.
+
+    <monederoCorporativo>: contiene los atributos
+    bin (primeros 3 dígitos del monedero)
+	  traspasoActivo (si el bin tiene permitido hacer y recibir traspasos, el valor default será true)
+	  traspasoSoloA (bines de monederos a los cuales se les puede realizar un traspaso)
+	  traspasoSoloDe (bines de monederos de los cuales se puede recibir un traspaso)
+	  promoActivo (si el bin puede recibir abonos por promoción, el valor default será true)
+	  devolucionActiva (si el bin puede recibir abonos por devolución, el valor default será true)
+
+    Si se combinan traspasos entre monederos de Ventas corporativas tiene que existir relación entre ambos bines en los atributos traspasoSoloA y traspasoSoloDe
+	-->
+	<monederosCorporativos>
+		<monederoCorporativo bin="812" traspasoActivo="true" traspasoSoloA="812" traspasoSoloDe="812" promoActivo="false" devolucionActiva="true"/>
+		<monederoCorporativo bin="820" traspasoActivo="true" traspasoSoloA="820" traspasoSoloDe="820" promoActivo="false" devolucionActiva="true"/>
+		<monederoCorporativo bin="879" traspasoActivo="true" traspasoSoloA="" traspasoSoloDe="801,803,810,815,816,872" promoActivo="true" devolucionActiva="true"/>
+	</monederosCorporativos>
+
+	<!-- Transacciones donde se permite el uso de CoDi -->
+	<useCODITransactions>101,102,103,104,107,109,113,115,117,118,119,120,123,127,128,130,131,133,134,136,137,139,141,142,143,144,146,147,148,152,154,155,159,161,162</useCODITransactions>
+
+	<!-- Monto máximo permitido en transacciones con CoDi -->
+	<useCODIMaxAmount>8000</useCODIMaxAmount>
+
+	<!-- Propiedades para imagen QR de CoDi (ruta donde se almacenarán los códigos QR, el alto y ancho de la imagen) -->
+	<propiedadesQRCoDi>
+		<alto>200</alto>
+		<ancho>200</ancho>
+	</propiedadesQRCoDi>
+
+	<!-- Cuenta CoDi -->
+	<cardNumberCODITlog>8200000012345678</cardNumberCODITlog>
+
+	<!-- Horarios CoDi (formato 24 horas), hora inicio y final -->
+	<horarioMatutinoCODI>9,14</horarioMatutinoCODI>
+	<horarioVespertinoCODI>14,18</horarioVespertinoCODI>
+	<horarioNocturnoCODI>18,1</horarioNocturnoCODI>
+
+	<!-- Código de pago CoDi para mensaje de Base24 -->
+	<paymentCodeCODI>28</paymentCodeCODI>
+
+	<!-- Número de reintentos que se realizará para una confirmación de pago CoDi -->
+	<reintentoCODI>15</reintentoCODI>
+
+	<!-- Tiempo en ms que se va a esperar entre reintentos de confirmación de pago CoDi -->
+	<tiempoEsperaReintentoCODI>15000</tiempoEsperaReintentoCODI>
+
+	<!-- Reporte de incidentes eWallet -->
+	<reporteIncidenteEwallet>true</reporteIncidenteEwallet>
+
+	<!-- Lista de errores de reporte de incidentes eWallet -->
+	<reporteIncidenteErrors>
+		<reporteIncidenteError code="00" msgResponse="APROBADA" />
+		<reporteIncidenteError code="01" msgResponse="01         NO EXISTE CUENTA   " />
+		<reporteIncidenteError code="02" msgResponse="02 0000000005 TRANSACCION DECL" />
+		<reporteIncidenteError code="03" msgResponse="02 0000000051 TRANSACCION DECL" />
+		<reporteIncidenteError code="04" msgResponse="12         PASAR A CREDITO    " />
+		<reporteIncidenteError code="05" msgResponse="19         CUENTA EXCEDIDA    " />
+		<reporteIncidenteError code="06" msgResponse="20         NO AUTORIZADO      " />
+		<reporteIncidenteError code="10" msgResponse="Debe ingresar un monto mayor a" />
+		<reporteIncidenteError code="11" msgResponse="Medio de pago no admite cambio" />
+		<reporteIncidenteError code="12" msgResponse="Se debe escanear la cuenta    " />
+		<reporteIncidenteError code="13" msgResponse="La cuenta es inválida         " />
+		<reporteIncidenteError code="14" msgResponse="Solo se permite ingreso por es" />
+		<reporteIncidenteError code="20" msgResponse="28 00000000SIN SISTEMA        " />
+		<reporteIncidenteError code="21" msgResponse="29          Sin CICS          " />
+		<reporteIncidenteError code="30" msgResponse="2800000000 TC Expirada o NO Ac" />
+	</reporteIncidenteErrors>
+
+	<!-- Cadena para eWallet + PIF -->
+	<cadenaSalt>L1verp001,.</cadenaSalt>
+
+	<!-- Configuración devolución en efectivo -->
+	<!-- Tipo de tienda: 0 = Liverpool ó 1 = Suburbia -->
+	<storeTypeCashBack>0</storeTypeCashBack>
+
+	<!-- Lista de tiendas y terminales que permiten devoluciones en efectivo -->
+	<listStoreCashBack>
+		<storeCashBack tienda="3" terminal="999" />
+	</listStoreCashBack>
+
+	<!-- Transacciones permitidas en CashBack -->
+	<useCaskBackTransactions>105,106,121,122,129,132,135,138,140,149,150,151,153,156</useCaskBackTransactions>
+
+	<!-- Lista de bines restringidos en venta por sección y grupo de artículos -->
+	<binsCreditCardAllowed>50640601,50640610</binsCreditCardAllowed>
+
+	<!-- Lista de secciones y grupos de artículos restringidos -->
+	<deptsCreditCardAllowed>
+		<deptCreditCardAllowed section="388" group="38801" />
+		<deptCreditCardAllowed section="388" group="38802" />
+		<deptCreditCardAllowed section="388" group="38803" />
+		<deptCreditCardAllowed section="388" group="38804" />
+		<deptCreditCardAllowed section="388" group="38805" />
+		<deptCreditCardAllowed section="388" group="38806" />
+		<deptCreditCardAllowed section="388" group="38807" />
+		<deptCreditCardAllowed section="388" group="38808" />
+		<deptCreditCardAllowed section="388" group="38809" />
+		<deptCreditCardAllowed section="388" group="38810" />
+		<deptCreditCardAllowed section="388" group="38811" />
+		<deptCreditCardAllowed section="388" group="38813" />
+		<deptCreditCardAllowed section="388" group="38814" />
+		<deptCreditCardAllowed section="388" group="38815" />
+		<deptCreditCardAllowed section="388" group="38816" />
+		<deptCreditCardAllowed section="388" group="38817" />
+		<deptCreditCardAllowed section="388" group="38819" />
+		<deptCreditCardAllowed section="388" group="38820" />
+		<deptCreditCardAllowed section="388" group="38821" />
+		<deptCreditCardAllowed section="388" group="38822" />
+		<deptCreditCardAllowed section="388" group="38823" />
+		<deptCreditCardAllowed section="388" group="38824" />
+		<deptCreditCardAllowed section="388" group="38827" />
+		<deptCreditCardAllowed section="391" group="39110" />
+	</deptsCreditCardAllowed>
+
+	<!-- Cálculo de dígito verificador alterno -->
+	<digitAlternateAllowed>true</digitAlternateAllowed>
+
+	<!-- Configuración de medios de pago para Ticket Digital -->
+	<uniqueCustomer>
+		<paymentsIdGsa>2,8,10,11,19,20</paymentsIdGsa>
+	</uniqueCustomer>
+
+	<keyLabelOnlineToken>saltpcicteux</keyLabelOnlineToken>
+
+	<!-- Parámetro para habilitar la ingesta de boletas -->
+	<habilitarIngestaBolestas>true</habilitarIngestaBolestas>
+
+	<!-- Habilita validación de NIP	en tarjetas Liverpool y Suburbia -->
+	<dilisaNip>true</dilisaNip>
+
+	<binesDilisaNip>
+		<binDilisaNip>130000</binDilisaNip>
+		<binDilisaNip>230000</binDilisaNip>
+		<binDilisaNip>231000</binDilisaNip>
+		<binDilisaNip>231010</binDilisaNip>
+		<binDilisaNip>330000</binDilisaNip>
+		<binDilisaNip>41784900</binDilisaNip>
+		<binDilisaNip>41784979</binDilisaNip>
+		<binDilisaNip>41784980</binDilisaNip>
+		<binDilisaNip>41784990</binDilisaNip>
+		<binDilisaNip>41784999</binDilisaNip>
+		<binDilisaNip>530000</binDilisaNip>
+		<binDilisaNip>630000</binDilisaNip>
+		<binDilisaNip>730000</binDilisaNip>
+	</binesDilisaNip>
+
+	<binesDilisaNipSuburbia>
+		<binDilisaNip>140000</binDilisaNip>
+		<binDilisaNip>40506759</binDilisaNip>
+		<binDilisaNip>640000</binDilisaNip>
+	</binesDilisaNipSuburbia>
+
+	<messagesDilisaNip>
+		<messageDilisaNip msgResponse="02 00000000DECLINADA                 " msgOperator="NIP bloqueado, favor de pasar a Crédito o a www.liverpool.com.mx para desbloquear su NIP" />
+		<messageDilisaNip msgResponse="03 00000000DECLINADA" msgOperator="NIP incorrecto, favor de intentar nuevamente" />
+		<messageDilisaNip msgResponse="05         BLOQUEO                   " msgOperator="Favor de pasar a Crédito o a www.liverpool.com.mx para desbloquear su NIP" />
+	</messagesDilisaNip>
+
+	<!-- Transacciones dígito verificador -->
+	<digitoVerificadorTrx>101,105,115,117,121,131,132,146,148,149,162</digitoVerificadorTrx>
+
+	<tipoEmpresaParaDevProsa>
+		<empresaDevProsa tipoEmpresa="BR" prefijoAEnviar="L" />
+		<empresaDevProsa tipoEmpresa="GP" prefijoAEnviar="L" />
+		<empresaDevProsa tipoEmpresa="KS" prefijoAEnviar="L" />
+		<empresaDevProsa tipoEmpresa="LV" prefijoAEnviar="L" />
+		<empresaDevProsa tipoEmpresa="MC" prefijoAEnviar="L" />
+		<empresaDevProsa tipoEmpresa="PB" prefijoAEnviar="W" />
+		<empresaDevProsa tipoEmpresa="PBK" prefijoAEnviar="W" />
+		<empresaDevProsa tipoEmpresa="PR" prefijoAEnviar="L" />
+		<empresaDevProsa tipoEmpresa="TR" prefijoAEnviar="W" />
+		<empresaDevProsa tipoEmpresa="SBB" prefijoAEnviar="S" />
+		<empresaDevProsa tipoEmpresa="WE" prefijoAEnviar="W" />
+		<empresaDevProsa tipoEmpresa="WS" prefijoAEnviar="W" />
+	</tipoEmpresaParaDevProsa>
+
+	<!-- Parámetro para habilitar el nuevo mensaje de fecha estimada de entrega -->
+	<fechaEstimadaEntregaNueva>false</fechaEstimadaEntregaNueva>
+
+	<!-- Departamentos permitidos para venta de Tiempo aire -->
+	<tiempoAireDept>633,875</tiempoAireDept>
+
+	<!-- Departamentos permitidos para venta de Seguros -->
+	<assuranceDptos>913,930,931,932,933,934,935,937,938</assuranceDptos>
+
+	<!-- Configuración de Hipoteca verde -->
+	<hipotecaVerdeConfig>
+		<!-- Lista de tiendas excluidas -->
+		<storeExcludedHV>9,39,362,364,366,370,850,998</storeExcludedHV>
+		<!-- Lista de transacciones permitidas -->
+		<trxValidasHipotecaverde>101,102,117,151</trxValidasHipotecaverde>
+		<!-- Mensaje que se pinta al dar la promoción -->
+		<promoPrinterMessage>HIPOTECAVERDE</promoPrinterMessage>
+		<!-- String 12 -->
+		<!-- BIN asociado por default al monedero -->
+		<hipotecaVerdeMonedero>7210000000000000</hipotecaVerdeMonedero>
+		<!-- BIN asociado por default al certificado -->
+		<hipotecaVerdeCertificado>7200000000000000</hipotecaVerdeCertificado>
+		<!-- String 15:21 -->
+		<!-- Número de autorización por default -->
+		<numberAuthorization>00000001</numberAuthorization>
+		<!-- Plan de crédito por default -->
+		<creditPlanId>20001</creditPlanId>
+		<!-- Dispositivo por default -->
+		<inputMode>1</inputMode>
+		<!-- Comisión en % por pagar con este medio de pago -->
+		<percentageCommission>2</percentageCommission>
+	</hipotecaVerdeConfig>
+
+	<!-- Lista de grupos de artículos descargables -->
+	<downloadableItemsGroup></downloadableItemsGroup>
+
+	<!-- Brand a enviar en ticket digital -->
+	<storeVirtualTicketIdBrand>
+		<storeVirtualTicketBrand idTicketTienda="261,275,276,340,383,393,831,840,845,926,970,1014,1015" idTicketBrand="BRE" />
+		<storeVirtualTicketBrand idTicketTienda="238,239,244,246,255,256,277,291,292,296,332,360,390,837,838,913,914,998,1113" idTicketBrand="GAP" />
+		<storeVirtualTicketBrand idTicketTienda="374,478,912" idTicketBrand="KIE" />
+		<storeVirtualTicketBrand idTicketTienda="242,274,764,769,778,783,785,929" idTicketBrand="MAC" />
+		<storeVirtualTicketBrand idTicketTienda="352,354,364,379,417,753,754" idTicketBrand="PBA" />
+		<storeVirtualTicketBrand idTicketTienda="353,357,366,462" idTicketBrand="PBK" />
+		<storeVirtualTicketBrand idTicketTienda="321" idTicketBrand="PRO" />
+		<storeVirtualTicketBrand idTicketTienda="693,850,1011" idTicketBrand="TRU" />
+		<storeVirtualTicketBrand idTicketTienda="349,359,370,378,418,460,461,755,756,757,760" idTicketBrand="WEL" />
+		<storeVirtualTicketBrand idTicketTienda="351,362,389,697" idTicketBrand="WSO" />
+	</storeVirtualTicketIdBrand>
+
+	<!-- Lista de bines restringidos en la transacción de abono a tarjeta -->
+	<binesValeras>230868,420831,427295,477130,506202,506208,506221,506254,506273,506302,506382,506406,506429,506437,506445,511747,511765,522794,523013,534548,534926,535072,603681,627318,627535,627636,636318,639484,639559</binesValeras>
+
+	<!-- Cantidad mínima y máxima permitida en una venta con LPC contactless -->
+	<minAllowedAmountContactLessLPC>1</minAllowedAmountContactLessLPC>
+	<maxAllowedAmountContactLessLPC>400</maxAllowedAmountContactLessLPC>
+
+    <!-- Cantidad mínima y máxima permitida en una venta con eGlobal contactless -->
+    <minAllowedAmountContactLessEGlobal>1</minAllowedAmountContactLessEGlobal>
+    <maxAllowedAmountContactLessEGlobal>400</maxAllowedAmountContactLessEGlobal>
+
+    <!-- Cantidad mínima y máxima permitida en una venta con Amex contactless -->
+    <minAllowedAmountContactLessAmex>1</minAllowedAmountContactLessAmex>
+    <maxAllowedAmountContactLessAmex>1500</maxAllowedAmountContactLessAmex>
+
+    <!-- Cantidad mínima y máxima permitida en una venta con Amex contactless MSR-->
+    <minAllowedAmountContactLessMSRAmex>1</minAllowedAmountContactLessMSRAmex>
+    <maxAllowedAmountContactLessMSRAmex>1500</maxAllowedAmountContactLessMSRAmex>
+
+    <!-- Cantidad mínima y máxima permitida en una venta con Prosa contactless -->
+    <minAllowedAmountContactLessProsa>1</minAllowedAmountContactLessProsa>
+    <maxAllowedAmountContactLessProsa>400</maxAllowedAmountContactLessProsa>
+
+	<!-- Permite el ingreso de tarjetas por medio de contactless de Amex, Prosa, Eglobal y/o LPC -->
+	<binContactLessEglobalEnabled>true</binContactLessEglobalEnabled>
+	<binContactLessProsaEnabled>false</binContactLessProsaEnabled>
+	<binContactLessAmexEnabled>true</binContactLessAmexEnabled>
+	<binContactLessLPCEnabled>true</binContactLessLPCEnabled>
+
+    <!-- Dispositivos contactless que no necesitan validación de montos -->
+    <allowedContactLessDevices>01</allowedContactLessDevices>
+
+	<!-- Inyección de llaves por rango de tiempo dependiendo del número de terminal -->
+	<rangosTiempoInyeccionLlaves>
+		<rangoTiempoInyeccionLlaves ms="100" noTerminales="1-100"/>
+		<rangoTiempoInyeccionLlaves ms="50" noTerminales="101-300"/>
+	</rangosTiempoInyeccionLlaves>
+
+	<!-- Días en los que se manda la inyección de llaves para DILISA (mensaje 19) -->
+	<daysInjectionKey></daysInjectionKey>
+
+	<!-- Habilita el enmascarado del plástico a 6 u 8 dígitos en el tlog -->
+	<numericsSeisPosiciones>false</numericsSeisPosiciones>
+
+	<!-- Habilita la búsqueda de corresponsal bancario -->
+	<isEnabledButtonSearchOnCorresponsales>true</isEnabledButtonSearchOnCorresponsales>
+
+	<!-- Mensajes de confirmación de devolución OMS -->
+	<messagesRefundConfirmation>
+		<message msgResponse="En espera de reembolso" intOrderCancel="N" intRefundConfirmation="Y"/>
+		<message msgResponse="Otro..." intOrderCancel="Y" intRefundConfirmation="Y"/>
+	</messagesRefundConfirmation>
+
+	<!-- Pop up de aviso para devolución de Mesa de regalos -->
+	<popUpAvisoDevolucionMesaDeRegalos>true</popUpAvisoDevolucionMesaDeRegalos>
+
+	<!-- Configuración del valor idOMS a enviar en el campo state del mensaje Order Load de OMS -->
+	<omsIdEstados>
+		<omsEstado idStrEstado="AGS" idEstado="01" idOms="AGS"/>
+		<omsEstado idStrEstado="BC" idEstado="02" idOms="BC"/>
+		<omsEstado idStrEstado="BCS" idEstado="03" idOms="BCS"/>
+		<omsEstado idStrEstado="CMP" idEstado="04" idOms="CMP"/>
+		<omsEstado idStrEstado="COA" idEstado="05" idOms="COA"/>
+		<omsEstado idStrEstado="COL" idEstado="06" idOms="COL"/>
+		<omsEstado idStrEstado="CHS" idEstado="07" idOms="CHS"/>
+		<omsEstado idStrEstado="CHI" idEstado="08" idOms="CHI"/>
+		<omsEstado idStrEstado="DF" idEstado="09" idOms="DF"/>
+		<omsEstado idStrEstado="CMX" idEstado="09" idOms="CMX"/>
+		<omsEstado idStrEstado="DGO" idEstado="10" idOms="DGO"/>
+		<omsEstado idStrEstado="GTO" idEstado="11" idOms="GTO"/>
+		<omsEstado idStrEstado="GRO" idEstado="12" idOms="GRO"/>
+		<omsEstado idStrEstado="HGO" idEstado="13" idOms="HGO"/>
+		<omsEstado idStrEstado="JAL" idEstado="14" idOms="JAL"/>
+		<omsEstado idStrEstado="MEX" idEstado="15" idOms="MEX"/>
+		<omsEstado idStrEstado="MCH" idEstado="16" idOms="MCH"/>
+		<omsEstado idStrEstado="MOR" idEstado="17" idOms="MOR"/>
+		<omsEstado idStrEstado="NAY" idEstado="18" idOms="NAY"/>
+		<omsEstado idStrEstado="NL" idEstado="19" idOms="NL"/>
+		<omsEstado idStrEstado="OAX" idEstado="20" idOms="OAX"/>
+		<omsEstado idStrEstado="PUE" idEstado="21" idOms="PUE"/>
+		<omsEstado idStrEstado="QRO" idEstado="22" idOms="QRO"/>
+		<omsEstado idStrEstado="QR" idEstado="23" idOms="QR"/>
+		<omsEstado idStrEstado="SLP" idEstado="24" idOms="SLP"/>
+		<omsEstado idStrEstado="SIN" idEstado="25" idOms="SIN"/>
+		<omsEstado idStrEstado="SON" idEstado="26" idOms="SON"/>
+		<omsEstado idStrEstado="TAB" idEstado="27" idOms="TAB"/>
+		<omsEstado idStrEstado="TMS" idEstado="28" idOms="TMS"/>
+		<omsEstado idStrEstado="TLX" idEstado="29" idOms="TLX"/>
+		<omsEstado idStrEstado="VER" idEstado="30" idOms="VER"/>
+		<omsEstado idStrEstado="YUC" idEstado="31" idOms="YUC"/>
+		<omsEstado idStrEstado="ZAC" idEstado="32" idOms="ZAC"/>
+	</omsIdEstados>
+
+	<!-- Configuración del valor idOMS a enviar en el campo EnterpriseCode del mensaje Order Load de OMS -->
+	<extnEnterpriseCodeIdOms>
+		<extnEnterpriseCodeOms idTienda="261,275,276,340,383,393,831,840,845,926,970,1014,1015" idOms="BRE"/>
+		<extnEnterpriseCodeOms idTienda="238,239,244,246,255,256,277,291,292,296,332,360,390,837,838,913,914,998,1113" idOms="GAP"/>
+		<extnEnterpriseCodeOms idTienda="374,478,912" idOms="KIE"/>
+		<extnEnterpriseCodeOms idTienda="242,274,764,769,778,783,785,929" idOms="MAC"/>
+		<extnEnterpriseCodeOms idTienda="352,354,364,379,417,753,754" idOms="PBA"/>
+		<extnEnterpriseCodeOms idTienda="353,357,366,462" idOms="PBK"/>
+		<extnEnterpriseCodeOms idTienda="321" idOms="PRO"/>
+		<extnEnterpriseCodeOms idTienda="693,850,1011" idOms="TRU"/>
+		<extnEnterpriseCodeOms idTienda="349,359,370,378,418,460,461,755,756,757,760" idOms="WEL"/>
+		<extnEnterpriseCodeOms idTienda="351,362,389,697" idOms="WSO"/>
+	</extnEnterpriseCodeIdOms>
+
+    <!-- Indica qué tiendas y terminales grabaran indicador em campo libre reconocimiento -->
+    <!-- Valores que van en codigoTienda, son numeros y si se quiere incluir a todas las tiendas agregar * -->
+    <!-- Valores que van en tipoTerminal, son numeros dependiendo del código de terminal, los valores que puede tener son: 0,1,2,3,4 y si se quiere incluir a todos los tipos de terminal agregar * -->
+    <transactionPaqueteria>
+        <indicadorPaqueteria codigoTienda="*" tipoTerminal="*" campoLibreReconocimiento="0011"/>
+    </transactionPaqueteria>
+
+    <!-- Número de reintentos para realizar la confirmación de OMS -->
+    <reintentoOms>1</reintentoOms>
+	
+    <!-- Tiempo en ms que se va a esperar entre reintentos de OMS -->
+    <tiempoEsperaReintentoOms>0</tiempoEsperaReintentoOms>
+
+    <!-- Terminales CAT para devoluciones OMS -->
+    <refundShipmentStores>9,39,362,364,366,370,850,998</refundShipmentStores>
+
+	<!-- Interruptores para deshabilitar transacciones de OMS -->
+	<switchOmsTrxList>
+		<softLine>false</softLine>
+		<bigTicket>true</bigTicket>
+		<mesaRegalo>true</mesaRegalo>
+		<mesaMercancia>false</mesaMercancia>
+		<mesaPaqueteria>false</mesaPaqueteria>
+		<mesaCertificado>false</mesaCertificado>
+		<mesaOrdenVenta>true</mesaOrdenVenta>
+		<devolucionNormal>true</devolucionNormal>
+		<devoMesaRegalo>true</devoMesaRegalo>
+		<devoMarketplace>false</devoMarketplace>
+	</switchOmsTrxList>
+
+	<!-- Secciones permitidas para venta SOMS -->
+	<deptoAllowedSoms>108,121,122</deptoAllowedSoms>
+
+	<!-- Secciones no permitidas para venta OMS Big Ticket -->
+	<deptoNotAllowedOms>108,121,122</deptoNotAllowedOms>
+
+	<!-- Interruptores para deshabilitar tipos de Mesa de Regalos -->
+	<switchSaleGiftsTrxList>
+		<mesaMercancia>true</mesaMercancia>
+		<mesaPaqueteria>true</mesaPaqueteria>
+		<mesaCertificado>true</mesaCertificado>
+		<mesaOrdenVenta>false</mesaOrdenVenta>
+		<mesaOmnicanal>false</mesaOmnicanal>
+	</switchSaleGiftsTrxList>
+
+	<!-- Estatus no permitidos para una devolución OMS -->
+	<statusNotAllowedRetunrOms>
+		<statusOms holdType="CANCEL_HOLD" status="1100"/>
+	</statusNotAllowedRetunrOms>
+
+	<!-- Diferenciación entre festejado e invitado en Mesa de Regalos OMS -->
+	<valoresFestejadoInvitadoOms>
+		<festejadoInvitadoOms festejado="00001" invitado="00002" tiendas="*" />
+	</valoresFestejadoInvitadoOms>
+
+	<!-- Bines de Ewallet LPC-->
+	<binesLpcEwallet>4178490,4178497,4178498,4178499</binesLpcEwallet>
+
+	<!-- Configuración de bancos para Suburbia -->
+	<!-- La propiedad idBank es un consecutivo único y no debe cambiar -->
+    <bankTenderSBB>
+        <bankTender>
+            <idBank>2</idBank>
+            <tenderCode>2</tenderCode>
+            <description>BBVA</description>
+        </bankTender>
+        <bankTender>
+            <idBank>3</idBank>
+            <tenderCode>3</tenderCode>
+			<description>CARNET</description>
+        </bankTender>
+        <bankTender>
+            <idBank>4</idBank>
+            <tenderCode>1</tenderCode>
+            <description>American express</description>
+        </bankTender>
+        <bankTender>
+            <idBank>5</idBank>
+            <tenderCode>4</tenderCode>
+            <description>CITIBANAMEX</description>
+        </bankTender>
+        <bankTender>
+            <idBank>6</idBank>
+            <tenderCode>5</tenderCode>
+            <description>INBURSA</description>
+        </bankTender>
+        <bankTender>
+            <idBank>7</idBank>
+            <tenderCode>6</tenderCode>
+            <description>PROSA</description>
+        </bankTender>
+        <bankTender>
+            <idBank>8</idBank>
+            <tenderCode>7</tenderCode>
+            <description>HSBC</description>
+        </bankTender>
+        <bankTender>
+            <idBank>9</idBank>
+            <tenderCode>8</tenderCode>
+            <description>CITIBANK</description>
+        </bankTender>
+        <bankTender>
+            <idBank>10</idBank>
+            <tenderCode>9</tenderCode>
+            <description>SCOTIABANK</description>
+        </bankTender>
+        <bankTender>
+            <idBank>11</idBank>
+            <tenderCode>10</tenderCode>
+            <description>BANJERCITO</description>
+        </bankTender>
+        <bankTender>
+            <idBank>12</idBank>
+            <tenderCode>11</tenderCode>
+            <description>SERFIN</description>
+        </bankTender>
+        <bankTender>
+            <idBank>13</idBank>
+            <tenderCode>12</tenderCode>
+            <description>SANTANDER</description>
+        </bankTender>
+        <bankTender>
+            <idBank>14</idBank>
+            <tenderCode>13</tenderCode>
+            <description>BANORTE</description>
+        </bankTender>
+        <bankTender>
+            <idBank>15</idBank>
+            <tenderCode>14</tenderCode>
+            <description>IXE</description>
+        </bankTender>
+        <bankTender>
+            <idBank>16</idBank>
+            <tenderCode>28</tenderCode>
+            <description>PREMIUMCARD</description>
+        </bankTender>
+        <bankTender>
+            <idBank>17</idBank>
+            <tenderCode>15</tenderCode>
+            <description>INVEX</description>
+        </bankTender>
+        <bankTender>
+            <idBank>18</idBank>
+            <tenderCode>17</tenderCode>
+            <description>PREMIUMCARD</description>
+        </bankTender>
+        <bankTender>
+            <idBank>19</idBank>
+            <tenderCode>18</tenderCode>
+            <description>SBB VISA</description>
+        </bankTender>
+        <bankTender>
+            <idBank>20</idBank>
+            <tenderCode>19</tenderCode>
+            <description>SANTANDER</description>
+        </bankTender>
+        <bankTender>
+            <idBank>21</idBank>
+            <tenderCode>00</tenderCode>
+            <description>TARJETA EXTERNA</description>
+        </bankTender>
+        <bankTender>
+            <idBank>99</idBank>
+            <tenderCode>16</tenderCode>
+            <description>Dilisa</description>
+        </bankTender>
+    </bankTenderSBB>
+
+	<!-- Si el banco no se encuentra en la lista se maneja como tarjeta externa -->
+	<tarjetaExtrerna>TARJETA EXTERNA</tarjetaExtrerna>
+
+    <!-- BINES de monederos SBB -->
+    <binMonederosSBB>700,701</binMonederosSBB>
+
+	<!-- Configuración de comercio para el grabado en el kiosko de Suburbia -->
+    <merchantMarkList>
+        <merchantMark planId="008" tipo="05" diferido="00"/>
+        <merchantMark planId="400" tipo="03" diferido="00"/>
+        <merchantMark planId="420" tipo="03" diferido="00"/>
+        <merchantMark planId="764" tipo="05" diferido="00"/>
+        <merchantMark planId="881" tipo="05" diferido="00"/>
+        <merchantMark planId="898" tipo="07" diferido="02"/>
+        <merchantMark planId="899" tipo="07" diferido="03"/>
+    </merchantMarkList>
+
+    <!-- Ruta donde se generan los archivos de las transacciones suspendidas para el kiosko de Suburbia -->
+    <pathTransactionSuspend>C:\Suspendida</pathTransactionSuspend>
+	
+    <!-- Nombre de archivo que contiene la impresion en Base64 -->
+    <fileNamePrintTicket>susPrinT</fileNamePrintTicket>
+
+	<!-- Grupos de telefonía móvil que requieren solicitar el IMEI -->
+	<groupActivationSIM>63201,63203,63207,63212</groupActivationSIM>
+
+	<!-- Proveedores de telefonía móvil que pueden solicitar la activación del SIM de Telcel -->
+	<supplierActivationSIM>120490</supplierActivationSIM>
+
+	<!-- Relación de tiendas y región a la que pertenecen -->
+	<storesRegionIdSIM>
+		<storeRegionIdSIM idTienda="212,308,312,688" idRegion="1" />
+		<storeRegionIdSIM idTienda="46,50,55,60,117,305,387" idRegion="2" />
+		<storeRegionIdSIM idTienda="34,42,43,89,110" idRegion="3" />
+		<storeRegionIdSIM idTienda="22,31,41,45,65,113,126,175,189,457,468" idRegion="4" />
+		<storeRegionIdSIM idTienda="25,51,52,53,54,57,61,62,64,70,78,84,88,135,168,178,398,615,642,819,844,878,882,967" idRegion="5" />
+		<storeRegionIdSIM idTienda="36,44,47,58,71,86,105,127,136,166,173,194,248,254,302,311,454,455,471" idRegion="6" />
+		<storeRegionIdSIM idTienda="10,11,15,16,17,27,28,37,72,73,82,85,106,121,165,169,177,187,300,303,306,310,386,463,469,815,848,877" idRegion="7" />
+		<storeRegionIdSIM idTienda="12,14,19,21,75,76,79,102,134,191,304,307,458,472,846,847,849,852,853,854,1029" idRegion="8" />
+		<storeRegionIdSIM idTienda="1,2,3,4,5,6,7,29,48,74,77,80,81,83,87,90,103,104,125,139,140,170,176,180,185,186,192,195,199,456,766,812,813,817,891,1032" idRegion="9" />
+	</storesRegionIdSIM>
+
+	<!-- Id de cliente Telcel -->
+	<telcelClienteId>6ecc0751-6784-4875-84d8-cdda7d085a64@sr9.telcel.com</telcelClienteId>
+
+	<!-- Id del esquema de cobro Telcel -->
+	<esquemaCobroIdTelcel>2</esquemaCobroIdTelcel>
+
+    <!-- Id del código de activación del SIM de Telcel -->
+    <simTelcelCodigoKit>1</simTelcelCodigoKit>
+
+    <!-- Habilita la comunicación con Base24 para tienda a 4 dígitos -->
+    <tienda4DigitosInfoGralTerminos>true</tienda4DigitosInfoGralTerminos>
+	
+    <!-- Habilita las devoluciones para tienda a 4 dígitos -->
+    <tienda4DigitosDevoluciones>true</tienda4DigitosDevoluciones>
+	
+    <!-- Habilita los vales del día para tienda a 4 dígitos -->
+    <tienda4DigitosVale1erDia>true</tienda4DigitosVale1erDia>
+
+    <!-- Duplica el ticket para la sección y el proveedor definido, es una sección con un proveedor únicamente por línea -->
+    <duplicateTicketSeccionSupplier>
+        <seccionProveedor seccion="632" proveedor="90547"/>
+    </duplicateTicketSeccionSupplier>
+	
+	<!-- Habilita las devoluciones robustecidas -->
+    <disableDevRobust>false</disableDevRobust>
+
+	<!-- Proyecto SKIP + MSI -->
+    <planSkipMsiList>
+        <planSkipMsi planId="40053" cuota="3" skip="3"/>
+        <planSkipMsi planId="40056" cuota="6" skip="3"/>
+        <planSkipMsi planId="40059" cuota="9" skip="3"/>
+        <planSkipMsi planId="40063" cuota="3" skip="2"/>
+        <planSkipMsi planId="40066" cuota="6" skip="2"/>
+        <planSkipMsi planId="40069" cuota="9" skip="2"/>
+        <planSkipMsi planId="40072" cuota="12" skip="2"/>
+        <planSkipMsi planId="40078" cuota="18" skip="2"/>
+        <planSkipMsi planId="40084" cuota="24" skip="2"/>
+        <planSkipMsi planId="40092" cuota="32" skip="2"/>
+    </planSkipMsiList>
+
+    <!-- Configuración de la generación de QR para +Garantía -->
+    <qrWarrantyConf>
+        <!-- Nombre de la imagen -->
+        <nameQR>QRWarranty</nameQR>
+        <!-- Ruta donde se va generar el QR y se va a guardar la imagen de +Garantía en 4690 -->
+        <path>q:/img800</path>
+		<!-- Ruta donde se va generar el QR y se va a guardar la imagen de +Garantía en linux -->
+		<pathFx>images</pathFx>
+		<!-- Ruta donde se va generar el QR y se va a guardar la imagen de +Garantía en REST -->
+		<pathRest>/usr/local/bridge-server-rest-liverpool/appserver/jboss-as-7.1.3.Final/standalone/configuration/</pathRest>
+        <!-- Contenido del QR -->
+        <valueQR>https://masgarantia.liverpool.com.mx</valueQR>
+        <!-- Ancho de la imagen -->
+        <ancho>185</ancho>
+        <!-- Alto de la imagen -->
+        <alto>185</alto>
+        <!-- Leyenda de +Garantía -->
+        <legend>¡Protege tus productos por más tiempo!</legend>
+		<!-- Icono de +Garantía -->
+		<masGarantia>MASGARANTIA.jpg</masGarantia>
+    </qrWarrantyConf>
+
+    <!-- Configuración para saber a qué tiendas aplicará la invocación para remisiones fuera de línea -->
+    <storeIdAplyRemission></storeIdAplyRemission>
+	
+	<!-- Indica el orden para obtener la remisión fuera de línea: secuenc será mediante el secuence del controlador, webserv será mediante la invocación del webservice -->
+    <invocationOrder>
+		<invocation name="secuenc" turnedOn="true" ordenExecuter="1" />
+		<invocation name="webserv" turnedOn="false" ordenExecuter="2" />
+    </invocationOrder>
+
+	<!-- Habilita la carga de llaves mediante el WS -->
+	<cargaLlavesWS>false</cargaLlavesWS>
+
+	<!-- Habilita la reparación de accesorios -->
+	<disableVas>false</disableVas>
+
+	<!-- Grupos y marcas que requieren ingresar el SN para Apple Care -->
+	<groupAppleCare>062801,062802,062811,062813,062823,063007,063013,063201,063207,063210</groupAppleCare>
+	<marcaAppleCare>4139,6829,7764,J850,J851,M883</marcaAppleCare>
+
+	<!-- Grupos y marcas que requieren ingresar el SN o el IMEI para Samsung Care+ -->
+	<groupSamsungCare>062802,063204,063205,063207,063210</groupSamsungCare>
+	<marcaSamsungCare>0924</marcaSamsungCare>
+
+	<!-- Configuración para listar los SKU´s en el PDP de Marketplace -->
+	<hasHybridSellerMarketplaceSale>false</hasHybridSellerMarketplaceSale>
+
+	<!-- Valores que se grabarán en el string 15:01 del tlog para Marketplace -->
+	<valoresStringCabeceraMkp>
+		<valores catExtendido="01" envioDomicilio="01" envioClickCollect="02"/>
+	</valoresStringCabeceraMkp>
+
+	<!-- Habilita el pago de comandas con el SKU de Gourmet-->
+	<gourmetSku>false</gourmetSku>
+
+	<!-- Controla que en REST se pueda volver a totalizar la transacción con un cambio de promoción aunque ya se tenga un pago parcial -->
+	<itemOptionSelected>false</itemOptionSelected>
+
+	<!-- Configuración para Venta Omnicanal Toys R Us -->
+	<fulfillmentTypeClickCollect>Toys_Liverpool_CNC_PICK_PACK</fulfillmentTypeClickCollect>
+	<fulfillmentTypeShipmentHome>Toys_Fulfillment_Type_Liverpool</fulfillmentTypeShipmentHome>
+</bc3Configuration>

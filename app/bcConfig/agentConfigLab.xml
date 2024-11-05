@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<nodes>
+	<fileVersion>001</fileVersion>
+			<!--cantidad de terminales a partir de las que el server sugiere a las terminales moverse a otro servidor.	-->
+	<minTerminalsBalanceQty>60</minTerminalsBalanceQty>
+	<!--tiempo desde la última operación ejecutada por una terminal a partir del cual deja de considerarse activa.
+		En milisegundos.	-->
+	<activeTerminalTime>60000</activeTerminalTime>
+	<!--tiempo desde el último ping recibido desde otro servidor, a partir del cual deja de considerarse activo.
+		En milisegundos.	-->
+	<activeServerTime>120000</activeServerTime>
+	<!-- Configuración de Agentes. Para configurar un nuevo Agente se realiza 
+		lo siguiente: El tag <agentNodes> contiene: 1) El tag <bridgeCoreAgents> 
+		es el listado de la configuracion. 1.1) El tag <agent> aqui se configura 
+		cada agente 1.1.1) El tag <ip> aqui se configura cada ip de agente, que dara 
+		servicio a bridge core 3 -->
+	<agentNodes>
+			<agent>
+				<ip>10.3.2.150</ip>
+			</agent>
+	</agentNodes>
+	<serverNodes>
+		<server>
+			<ip>10.3.4.34</ip>
+			<name>dsk-danielr</name>
+			<port>9091</port>
+		</server>
+		<server>
+			<ip>10.3.5.23</ip>
+			<name>linux-t29r</name>
+			<port>9090</port>
+		</server>
+	</serverNodes>
+</nodes>

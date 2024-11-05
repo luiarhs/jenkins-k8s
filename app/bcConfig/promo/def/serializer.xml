@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!--
+	$Id: serializer.xml 4936 2008-11-27 15:42:06Z flaviag $
+-->
+
+<collection name="Serializer">
+
+
+<!--
+	<elements>
+-->
+	
+		<element name="Message" mapping="message" empty-content="false" >
+			<attribute name="messageId"		mapping="message-id"	order="1"/>
+			<attribute name="options"		mapping="options"		order="2"/>
+			<attribute name="engine"		mapping="engine"		order="3"/>
+		</element>
+	 	
+		<element name="Result" mapping="result" empty-content="true" >
+			<attribute name="description"  mapping="description" order="1"/>
+		</element>
+		
+		<element name="Reset" mapping="reset" empty-content="true" >
+			<attribute name="resultCode"  mapping="result-code" order="1"/>
+		</element>
+
+		<element name="AddData" mapping="add-data" empty-content="true" >
+			<attribute name="resultCode"  mapping="result-code" order="1"/>
+		</element>
+		
+	
+		<element name="Execute" mapping="execute" empty-content="true" >
+			<attribute name="resultCode"  mapping="result-code" order="1"/>
+		</element>
+	
+		<element name="Choice" mapping="choice" empty-content="false" >
+		</element>
+	
+		<element name="Optional" mapping="optional" empty-content="false" >
+			<!-- <attribute name=""/> -->
+		</element>
+	
+		<element name="Promo" mapping="promo" empty-content="false" >
+			<attribute name="id" mapping="id" order="1"/>
+			<attribute name="descriptor" mapping="id" order="2"/>
+			<attribute name="item-seq" mapping="item-seq" order="3"/>
+			<attribute name="payment-seq" mapping="payment-seq" order="4"/>
+			<attribute name="customer-seq" mapping="customer-seq" order="5"/>
+			<attribute name="coupon-seq" mapping="coupon-seq" order="6"/>
+			<attribute name="event-seq" mapping="event-seq" order="7"/>
+		</element>
+	
+		<element name="Benefit" mapping="benefit" empty-content="true" >
+			<attribute name="type" 			mapping="type" 		order="1"/>
+			<attribute name="displayDescr"	mapping="displayDescr"	order="2"/>
+			<attribute name="amount"  		mapping="amount" 		order="3"/>
+			<attribute name="planId"  		mapping="plan-id" 	order="4"/>
+			<attribute name="printLine"  	mapping="print-line"	order="5"/>
+			<attribute name="tendType"  	mapping="tend-type"	order="6"/>
+			<attribute name="imagePath"  	mapping="image-path"	order="7"/>
+			<attribute name="imageFile"  	mapping="image-file"	order="8"/>
+			<attribute name="applicationMethod"  	mapping="application-method"	order="9"/>
+		</element>
+
+		<element name="ItemList" mapping="item-list" empty-content="false" >
+      </element>
+	
+		<element name="ComboList" mapping="combo-list" empty-content="false" >
+		</element>
+
+		<element name="UsedItem" mapping="item" empty-content="true" >
+			<attribute name="seq" mapping="seq" order="1"/>
+		   <attribute name="code" mapping="code" order="2" />
+		   <attribute name="qty" mapping="qty" order="3" />
+		</element>
+
+		<element name="CouponList" mapping="coupon-list" empty-content="false" >
+		</element>
+
+		<element name="UsedCoupon" mapping="coupon" empty-content="true" >
+		   <attribute name="seq" mapping="seq" order="1" />
+		   <attribute name="id" mapping="id" order="2" />
+		</element>
+
+<!--	
+		<element name="" empty-content="" >
+			<attribute name=""/>
+		</element>
+
+	</elements>
+-->
+
+</collection>

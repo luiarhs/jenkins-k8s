@@ -1,0 +1,54 @@
+#if($ticket.additionalSubType == 117)
+		newline;
+        #parse( "1003/templates/shortHeader.vcl" )
+		setAlignment center;
+		newline;
+		newline;
+		beginBold;
+		text "#fmt("No. ORDEN PAQUETERIA: %-s", "$ticket.nroOrdenPaqueteria")";
+		endBold;
+		newline;
+		newline;
+		  #parse( "1003/templates/itemsList.vcl")
+		newline;
+		newline;
+		setAlignment left;				
+		   text "#fmt("TIPO DE PAGO: %-s", "$ticket.paymentType")";
+		newline;
+		newline;
+		text "DESTINATARIO: _________________________";
+		text "_______________________________________";
+		newline;
+		text "E-MAIL: _______________________________";
+		text "_______________________________________";
+		newline;
+		text "DIRECCION: ____________________________";
+		text "_______________________________________";
+		newline;
+		text "COLONIA: ______________________________";
+		text "_______________________________________";
+		newline;
+		text "CP: ___________________________________";
+		newline;
+		text "DEL. O MUNICIPIO: _____________________";
+		text "_______________________________________";		
+		newline;
+		text "TELEFONO: _____________________________";
+		newline;
+		text "ENTRE QUE CALLES: _____________________";
+		text "_______________________________________";
+		text "_______________________________________";
+		newline;
+		text "NO. DE BULTOS: ________________________";
+		newline;
+		text "FECHA DE ENTREGA (EFU): _______________";
+		newline;
+		text "OBSERVACIONES: ________________________";
+		text "_______________________________________";
+		text "_______________________________________";
+		newline;
+		newline;
+  			text "FECHA:   #formatFecha($date)   $time";
+		newline;
+		newline;
+#end

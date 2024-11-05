@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!--
+	$Id $	
+-->
+
+<collection name="PromoEngineDefinitions">
+
+	<parameter key="Logging"							value="true" />
+	<parameter key="LogConfigurationFile"				value="logrsca.xml" />
+	<parameter key="LogConfigurationCategory"			value="com.synthesis.rsca.promo" />
+
+	<operators>
+		<operator name="NOT"		classname="com.synthesis.promo.engine.operations.NotOperation"/>
+		<operator name="AND"		classname="com.synthesis.promo.engine.operations.AndOperation"/>
+		<operator name="OR"			classname="com.synthesis.promo.engine.operations.OrOperation"/>
+		<operator name="XOR"		classname="com.synthesis.promo.engine.operations.XorOperation"/>
+	</operators>
+	
+	<element-sets>
+		<element-set name="item"	        classname="com.synthesis.promo.engine.elementsets.ItemSet" />
+		<element-set name="intersection"	classname="com.synthesis.promo.engine.elementsets.IntersectionSet" />
+		<element-set name="union"	        classname="com.synthesis.promo.engine.elementsets.UnionSet" />
+		<element-set name="difference"      classname="com.synthesis.promo.engine.elementsets.DifferenceSet" />
+		<element-set name="coupon"	        classname="com.synthesis.promo.engine.elementsets.CouponSet" />
+		<element-set name="customer"        classname="com.synthesis.promo.engine.elementsets.CustomerSet" />
+		<element-set name="event"           classname="com.synthesis.promo.engine.elementsets.EventSet" />		
+		<element-set name="payment"         classname="com.synthesis.promo.engine.partialPayment.elementsets.PaymentSet" />
+		<element-set name="inequivalence"   classname="com.synthesis.promo.engine.elementsets.AntiEquivalenceSet" />
+		<element-set name="benefit"         classname="com.synthesis.promo.engine.elementsets.BenefitSet" />
+	</element-sets>
+
+	<conditions>
+		<condition name="MoreThan"          classname="com.synthesis.promo.engine.conditions.MoreThanCondition"/>
+		<condition name="LessThan"          classname="com.synthesis.promo.engine.conditions.LessThanCondition"/>
+		<condition name="EqualOrMoreThan"   classname="com.synthesis.promo.engine.conditions.EqualOrMoreThanCondition"/>
+		<condition name="EqualOrLessThan"   classname="com.synthesis.promo.engine.conditions.EqualOrLessThanCondition"/>
+		<condition name="Exists"            classname="com.synthesis.promo.engine.conditions.ExistCondition"/>
+		<condition name="Not"               classname="com.synthesis.promo.engine.conditions.NotCondition"/>
+		<condition name="And"               classname="com.synthesis.promo.engine.conditions.AndCondition"/>
+		<condition name="Or"                classname="com.synthesis.promo.engine.conditions.OrCondition"/>
+		<condition name="After"				classname="com.synthesis.promo.engine.conditions.AfterCondition"/>
+		<condition name="Before"			classname="com.synthesis.promo.engine.conditions.BeforeCondition"/>
+		<condition name="Between"		  	classname="com.synthesis.promo.engine.conditions.DateTimeBetweenCondition"/>
+		<condition name="Header"			classname="com.synthesis.promo.engine.conditions.HeaderCondition"/>
+		<condition name="HeaderBetween"		classname="com.synthesis.promo.engine.conditions.RangeHeaderCondition"/>
+		<condition name="IsVoidTrx"			classname="com.synthesis.promo.engine.conditions.IsVoidTrxCondition"/>
+		<condition name="WeekDay"			classname="com.synthesis.promo.engine.conditions.WeekDayCondition"/>
+		<condition name="DayFrequence"			classname="com.synthesis.promo.engine.conditions.DayFrequenceCondition"/>
+		<condition name="WeekFrequence"			classname="com.synthesis.promo.engine.conditions.WeekFrequenceCondition"/>
+	</conditions>
+	
+	<benefits>
+		<benefit name="NewPrice"         classname="com.synthesis.promo.engine.benefits.ChangePriceBenefit"/>
+		<benefit name="FixedDiscount"      classname="com.synthesis.promo.engine.benefits.AmountDiscountBenefit"/>
+		<benefit name="PercentageDiscount"      classname="com.synthesis.promo.engine.benefits.PercentDiscountBenefit"/>				
+		<benefit name="LoyaltyBenefit"      classname="com.synthesis.promo.engine.benefits.BonusPointsBenefit"/>
+		<benefit name="FactorLoyaltyBenefit"      classname="com.synthesis.promo.engine.benefits.FactorBonusPointsBenefit"/>
+        <benefit name="PercentLoyaltyBenefit"      classname="com.synthesis.promo.engine.benefits.PercentBonusPointsBenefit"/>
+        <benefit name="ExternalBenefit"      classname="com.synthesis.promo.engine.benefits.ExternalBenefit"/>
+		<!-- LIVERPOOL BENEFITS -->
+		<benefit name="CouponBenefit"     		classname="mx.com.liverpool.promo.engine.benefits.MxCouponBenefit"/>
+		<benefit name="PaymentPlanBenefit"      classname="mx.com.liverpool.promo.engine.benefits.PaymentBenefit"/>
+		<benefit name="GiftBenefit"      classname="com.synthesis.promo.engine.benefits.PrizeBenefit"/>
+		<benefit name="TentativeBenefit"      classname="mx.com.liverpool.promo.engine.benefits.TentativeBenefit"/>
+	</benefits>
+
+	<promotions>
+		<promotion name="ModularPromotion"                  classname="com.synthesis.promo.engine.promotion.ModularPromotion"/>
+	</promotions>
+	
+	<order-criterias>
+		<order-criteria name="MoreExpensiveFirst"           classname="com.synthesis.promo.engine.promotion.MoreExpensiveFirst" by-combo="false"/>
+		<order-criteria name="OneMoreExpensive"             classname="com.synthesis.promo.engine.promotion.MoreExpensiveFirst" by-combo="true"/>
+		<order-criteria name="LessExpensiveFirst"           classname="com.synthesis.promo.engine.promotion.LessExpensiveFirst" by-combo="false"/>
+		<order-criteria name="OneLessExpensive"             classname="com.synthesis.promo.engine.promotion.LessExpensiveFirst" by-combo="true"/>
+	</order-criterias>
+
+	<functions>
+		<function name="CONSUME"	  classname="com.synthesis.promo.engine.evaluation.ConsumeEvaluator"/>
+		<function name="MAXDISCOUNT"  classname="com.synthesis.promo.engine.evaluation.MaxDiscountEvaluator"/>
+		<function name="MINDISCOUNT"  classname="com.synthesis.promo.engine.evaluation.MinDiscountEvaluator"/>
+		<function name="MAXPOINTS"  classname="com.synthesis.promo.engine.evaluation.MaxPointsEvaluator"/>
+		<function name="MINPOINTS"  classname="com.synthesis.promo.engine.evaluation.MinPointsEvaluator"/>
+		<function name="OPTION"		  classname="com.synthesis.promo.engine.evaluation.OptionEvaluator"/>
+		<function name="ALL"		  classname="com.synthesis.promo.engine.evaluation.AllEvaluator"/>
+		<function name="EXCLUDE"	  classname="com.synthesis.promo.engine.evaluation.ExcludeEvaluator"/>
+		<function name="IF"	  		  classname="com.synthesis.promo.engine.functions.IfEvaluator"/>
+		<function name="IFNOT" 		  classname="com.synthesis.promo.engine.functions.IfNotEvaluator"/>	
+	</functions>
+
+	<proration-methods>
+		<proration-method name="default"                     classname="com.synthesis.promo.engine.benefits.DefaultProrater" />
+		<proration-method name="proportional"                classname="com.synthesis.promo.engine.benefits.DefaultProrater" />
+		<proration-method name="most-expensive-first"        classname="com.synthesis.promo.engine.benefits.MoreExpensiveFirstProrater" />
+		<proration-method name="cheapest-first"              classname="com.synthesis.promo.engine.benefits.LessExpensiveFirstProrater" />
+	</proration-methods>
+
+</collection>

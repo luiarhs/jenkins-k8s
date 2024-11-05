@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<antilavado>
+<!-- 
+		Configuración de Montos permitidos por la Ley Anti Lavado de Dinero
+			
+		Al vender artículos de los rubros que por su actividad comercial y/o mercantil se deben reportar de acuerdo a la Lay Anti Lavado, se debe 
+		verificar que cumplan con el límite establecido por la misma.
+			
+		El tag <concepto> tiene un atributo "id" que representa el identificador del concepto y es un número entero consecutivo (este atributo es 
+		obligatorio), el atributo "total" que contiene el monto máximo de compra para ese concepto antes de enviar el Aviso al Vendedor (Este atributo
+		es obligatorio y no debe contener comas ni el símbolo "$").  El atriburo "descripcion" indica el concepto al que pertenecen las secciones.  
+			
+		Contiene el tag <secciones> donde se indican las secciones a acumular por concepto (este tag es obligatorio).  Se deberán agregar las secciones
+		por concepto y se configura cada una con el tag <seccion>.  El dato debe ser de tipo numérico y debe existir por lo menos uno.
+			
+		En el tag  <ventaMonedero> se configura el monto máximo para Venta de Monedero, antes de enviar el Aviso al Vendedor (Este valor es obligatorio
+		y no debe contener comas ni el símbolo "$"). 
+			
+		En el tag <ventaEnEfectivo> se configura el monto máximo para Pago en Efectivo, antes de enviar el Aviso de Monto Superado por la Ley (Este valor
+		es obligatorio y no debe contener comas ni el símbolo "$").
+-->
+   <conceptos>
+      <concepto id="1" total="70027.65" descripcion="Comercio Virtual"> 
+         <secciones>
+            <seccion>633</seccion>
+         </secciones>
+      </concepto>
+      <concepto id="2" total="87398.85" descripcion="Joyas y Relojes"> 
+         <secciones>
+            <seccion>374</seccion>
+            <seccion>375</seccion>
+            <seccion>376</seccion>
+            <seccion>377</seccion>
+            <seccion>566</seccion>
+            <seccion>567</seccion>
+            <seccion>571</seccion>
+            <seccion>572</seccion>
+            <seccion>766</seccion>
+            <seccion>767</seccion>
+            <seccion>771</seccion>
+         </secciones>
+      </concepto>
+      <concepto id="3" total="261653.70" descripcion="Obras de Arte"> 
+         <secciones>
+            <seccion>148</seccion>
+            <seccion>149</seccion>
+            <seccion>150</seccion>
+            <seccion>151</seccion>
+            <seccion>152</seccion>
+            <seccion>153</seccion>
+            <seccion>154</seccion>
+            <seccion>155</seccion>
+            <seccion>157</seccion>
+            <seccion>161</seccion>
+            <seccion>303</seccion>
+            <seccion>304</seccion>
+            <seccion>320</seccion>
+            <seccion>325</seccion>
+            <seccion>326</seccion>
+            <seccion>336</seccion>
+            <seccion>341</seccion>
+         </secciones>
+      </concepto>
+      <concepto id="4" total="348509.70" descripcion="Vehiculos"> 
+         <secciones>
+            <seccion>207</seccion>
+         </secciones>
+      </concepto>
+   </conceptos>
+
+   <ventaMonedero>51000.00</ventaMonedero>
+
+   <ventaEnEfectivo>250000.00</ventaEnEfectivo>
+</antilavado>

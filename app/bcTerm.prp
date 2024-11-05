@@ -1,0 +1,4 @@
+mainClassname=com.synthesis.bridge.liverpool.pos.views.gui.GuiBridgePosApplicationLiverpool
+appArgs=q:/ 800 600
+classpath=/lib/;q:/os4690.zip;q:/jpos4690.zip;q:/jpos14.jar;q:/poss4690.zip;q:/ibmjpos.jar;q:/jattach.jar;q:/comm4690.jar;q:/jusb4690.jar;q:/wrmatrix.dll
+resourcespath=/

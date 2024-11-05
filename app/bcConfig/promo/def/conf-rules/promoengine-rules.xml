@@ -1,0 +1,190 @@
+<?xml version="1.0"?>
+
+<!--
+	$Header: /usr/local/cvs_ssf/Promo_V2.4/rs-promo-framework/conf/v2.3/conf-rules/promoengine-rules.xml,v 1.1 2006/05/30 16:34:56 christianbohm Exp $
+-->
+
+<digester-rules>
+
+<pattern value="promo-engine">
+
+	<!--
+	<factory-create-rule classname="ar.com.retailsolutions.common.configuration.DigesterObjectCreationFactory"/>
+	-->
+	<factory-create-rule classname="com.synthesis.promo.engine.config.PromoEngineObjectCreationFactory"/>
+
+	<pattern value="parameter">
+		<object-create-rule classname="ar.com.retailsolutions.common.configuration.SingleParameter"/>
+		<set-properties-rule/>
+		<set-next-rule methodname="addParameter" />
+	</pattern>
+
+    <pattern value="promotions">
+		<factory-create-rule classname="com.synthesis.promo.engine.promotion.config.PromotionCollectionObjectCreationFactory"/>
+		
+		<pattern value="promotion">
+			<factory-create-rule classname="com.synthesis.promo.engine.promotion.config.PromotionObjectCreationFactory"/>
+			
+			<pattern value="sets">
+
+				<factory-create-rule classname="com.synthesis.promo.engine.promotion.config.SingleParameterCollectionObjectCreationFactory"/>
+				
+				<set-top-rule methodname="setTransversalParameterCollection"/>
+
+			</pattern>
+						
+			<pattern value="combo">
+				<factory-create-rule classname="com.synthesis.promo.engine.promotion.config.ComboObjectCreationFactory"/>
+						
+					<pattern value="combo-component">
+						<object-create-rule classname="com.synthesis.promo.engine.promotion.config.ComboComponentParameter"/>
+						<set-properties-rule>
+							<alias attr-name="equivalence-attribute" prop-name="equivalenceAttribute" />
+							<alias attr-name="inequivalence-attribute" prop-name="inequivalenceAttribute" />
+							<alias attr-name="order-criteria" prop-name="orderCriteria" /> 
+							<alias attr-name="use-set" prop-name="useSet" />
+						</set-properties-rule>
+						<set-next-rule methodname="addParameter" />
+					</pattern>
+						
+				<set-top-rule methodname="setTransversalParameterCollection" />
+			</pattern>
+				
+				
+			<pattern value="benefits">
+				<factory-create-rule classname="com.synthesis.promo.engine.promotion.config.SingleParameterCollectionObjectCreationFactory"/>
+				
+				<pattern value="benefit">
+					<factory-create-rule classname="com.synthesis.promo.engine.promotion.config.BenefitObjectCreationFactory"/>
+					
+						<pattern value="applied-elements">
+							<factory-create-rule classname="com.synthesis.promo.engine.promotion.config.BenefitConditionObjectCreationFactory"/>
+								
+								<pattern value="use-set">
+									<object-create-rule classname="com.synthesis.promo.engine.promotion.config.BenefitElementParameter"/>
+									<set-properties-rule>
+										<alias attr-name="order-criteria" prop-name="orderCriteria" /> 
+									</set-properties-rule>
+									<set-next-rule methodname="addParameter"/>
+								</pattern>
+																
+							<set-top-rule methodname="setTransversalParameterCollection" />
+						</pattern>
+						
+						<pattern value="parameter">
+							<object-create-rule classname="ar.com.retailsolutions.common.configuration.SingleParameter"/>
+							<set-properties-rule /> 
+	  						<set-next-rule methodname="addParameter" />
+						</pattern>
+						
+					<set-top-rule methodname="setTransversalParameterCollection" />
+				</pattern>
+				
+				<set-top-rule methodname="setTransversalParameterCollection" />
+			</pattern>
+			
+			<!--for the hardcoded promotion-->
+			
+			<pattern value="parameter">
+				<object-create-rule classname="ar.com.retailsolutions.common.configuration.SingleParameter"/>
+				<set-properties-rule /> 
+				<set-next-rule methodname="addParameter" />
+			</pattern>
+			
+			<pattern value="tables">
+			   <factory-create-rule classname="com.synthesis.promo.engine.promotion.config.TableCollectionObjectCreationFactory"/>
+			   
+			      <pattern value="table">
+			         <factory-create-rule classname="com.synthesis.promo.engine.promotion.config.RowCollectionObjectCreationFactory"/>
+			            
+			            <pattern value="row">
+			               <factory-create-rule classname="com.synthesis.promo.engine.promotion.config.CellCollectionObjectCreationFactory"/>
+			                  
+			                  <pattern value="cell">
+			                     <object-create-rule classname="com.synthesis.promo.engine.promotion.config.CellParameter"/>
+				                  <set-properties-rule/> 
+				                  <set-next-rule methodname="addParameter" />               
+			                  </pattern>			   
+			
+				            <set-top-rule methodname="setTransversalParameterCollection" />
+			            </pattern>	
+			   
+			
+				      <set-top-rule methodname="setTransversalParameterCollection" />
+			      </pattern>	
+			
+				<set-top-rule methodname="setTransversalParameterCollection" />
+			</pattern>	
+			<!-- end the hardcoded promotion rules definitions-->
+			<set-top-rule methodname="setTransversalParameterCollection" />
+		</pattern>
+		
+		<set-top-rule methodname="setTransversalParameterCollection" />
+	</pattern>
+		
+		
+
+	
+    <pattern value="evaluation-algorithm">
+	
+		<factory-create-rule classname="com.synthesis.promo.engine.algorithm.config.InStepEvaluationAlgorithmObjectCreationFactory"/>
+			
+		<pattern value="step">
+	
+			<factory-create-rule classname="com.synthesis.promo.engine.algorithm.config.StepObjectCreationFactory"/>				
+
+			<set-top-rule methodname="setTransversalParameterCollection"/>
+
+		</pattern>
+
+		<set-top-rule  methodname="setTransversalParameterCollection"/>
+	
+	</pattern>
+
+<pattern value="lists">
+	
+		<object-create-rule classname="com.synthesis.promo.engine.ListsSet"/>
+			
+		<pattern value="list">
+	
+		<object-create-rule classname="com.synthesis.promo.engine.List"/>
+		<set-properties-rule/>
+		<set-next-rule methodname="addList" />
+
+		</pattern>
+
+		<set-top-rule  methodname="setTransversalParameterCollection"/>
+	
+	</pattern>
+	
+</pattern>	
+
+
+<pattern value="*/function"> 
+	<factory-create-rule classname="com.synthesis.promo.engine.algorithm.config.FunctionObjectCreationFactory"/>
+		
+		<pattern value="promotion-usage">
+			<object-create-rule classname="com.synthesis.promo.engine.algorithm.config.PromotionUsageParameter"/>
+			<set-properties-rule/>
+			<set-next-rule methodname="addParameter"/>
+		</pattern>
+	
+	<set-top-rule methodname="setTransversalParameterCollection"/>
+</pattern>					
+<pattern value="*/set">
+	<factory-create-rule classname="com.synthesis.promo.engine.promotion.config.SetObjectCreationFactory"/>
+	
+	<set-top-rule methodname="setTransversalParameterCollection" />
+</pattern>
+<pattern value="*/condition">
+	<factory-create-rule classname="com.synthesis.promo.engine.promotion.config.ConditionObjectCreationFactory"/>
+	   <pattern value="parameter">
+			<object-create-rule classname="ar.com.retailsolutions.common.configuration.SingleParameter"/>
+			<set-properties-rule /> 
+			<set-next-rule methodname="addParameter" />
+		</pattern>
+	<set-top-rule methodname="setTransversalParameterCollection" />
+</pattern>
+
+
+</digester-rules>

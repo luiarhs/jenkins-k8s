@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!--
+	$Id: promoengine.xsd 6629 2014-06-30 02:49:35Z germanb $
+-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:element name="applied-elements">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element maxOccurs="1" minOccurs="1" ref="use-set"/>
+            </xsd:sequence>
+       </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="benefit">
+        <xsd:complexType>
+        	<xsd:sequence>
+        	    <xsd:sequence>
+                   <xsd:element ref="parameter" minOccurs="0" maxOccurs="unbounded"/>
+                </xsd:sequence>
+                <xsd:element ref="applied-elements" minOccurs="0" maxOccurs="1"/>
+        	</xsd:sequence>
+            <xsd:attribute name="instance" type="xsd:string" use="required"/>
+            <xsd:attribute name="nro" type="xsd:string" use="optional"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="benefits">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="benefit" minOccurs="1" maxOccurs="unbounded"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="combo">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element maxOccurs="unbounded" minOccurs="1" ref="combo-component"/>
+            </xsd:sequence>
+            <xsd:attribute name="limit" type="xsd:positiveInteger" use="optional"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="combo-component">
+        <xsd:complexType>
+            <xsd:attribute name="attribute" type="xsd:string" use="required"/>
+            <xsd:attribute name="max" type="xsd:float" use="optional"/>
+            <xsd:attribute name="min" type="xsd:float" use="required"/>
+            <xsd:attribute name="order-criteria" type="xsd:string" use="optional"/>
+            <xsd:attribute name="equivalence-attribute" type="xsd:string" use="optional"/>
+            <xsd:attribute name="inequivalence-attribute" type="xsd:string" use="optional"/>
+            <xsd:attribute name="use-set" type="xsd:string" use="required"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="evaluation-algorithm">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="step" minOccurs="1" maxOccurs="unbounded"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="function">
+        <xsd:complexType>
+        	<xsd:sequence>
+        		<xsd:choice minOccurs="1" maxOccurs="unbounded">
+                <xsd:element maxOccurs="unbounded" minOccurs="1" ref="promotion-usage"/>
+                <xsd:element maxOccurs="unbounded" minOccurs="1" ref="function"/>
+                </xsd:choice>
+            </xsd:sequence>
+            <xsd:attribute name="name" type="xsd:string" use="required"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="parameter">
+        <xsd:complexType>
+            <xsd:attribute name="key" type="xsd:string" use="required"/>
+            <xsd:attribute name="value" type="xsd:string" use="required"/>
+        </xsd:complexType>
+    </xsd:element>
+    
+    <xsd:element name="promo-engine">
+        <xsd:complexType>
+        	<xsd:sequence>
+        		<xsd:element minOccurs="3" ref="parameter" maxOccurs="unbounded" />
+        		<xsd:element ref="promotions" minOccurs="1"	maxOccurs="1" />
+        		<xsd:element ref="lists" minOccurs="0"	maxOccurs="1" />
+        		<xsd:element ref="evaluation-algorithm" minOccurs="1" maxOccurs="1" />
+        	</xsd:sequence>
+        	<xsd:attribute name="end-date" type="xsd:string" use="required" />
+        	<xsd:attribute name="map-version" type="xsd:unsignedLong" use="required" />
+        	<xsd:attribute name="start-date" type="xsd:string" use="required" />
+        	<xsd:attribute name="validity-after-void" type="xsd:positiveInteger" use="optional" />
+        	<xsd:attribute name="suggest" use="optional" default="not">			
+        		<xsd:simpleType>
+					  <xsd:restriction base="xsd:string">
+					    <xsd:enumeration value="not"/>
+					    <xsd:enumeration value="always"/>
+					    <xsd:enumeration value="conditional"/>
+					  </xsd:restriction>
+				</xsd:simpleType>
+        	</xsd:attribute>
+        </xsd:complexType>
+    </xsd:element>
+        <xsd:element name="cell">
+        <xsd:complexType>
+            <xsd:attribute name="order" type="xsd:string" use="required"/>
+            <xsd:attribute name="value" type="xsd:string" use="required"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="condition">
+        <xsd:complexType>
+        	<xsd:choice>
+            <xsd:sequence>
+                <xsd:element ref="parameter" minOccurs="0" maxOccurs="unbounded"/>
+            </xsd:sequence>
+            <xsd:sequence>
+	            <xsd:element maxOccurs="unbounded" minOccurs="0" ref="condition"/>
+            </xsd:sequence>
+            </xsd:choice>
+            <xsd:attribute name="name" type="xsd:string" use="required"/>
+            <xsd:attribute name="type" type="xsd:string" use="required"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="row">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element maxOccurs="unbounded" minOccurs="1" ref="cell"/>
+            </xsd:sequence>
+            <xsd:attribute name="order" type="xsd:unsignedInt" use="required"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="table">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element maxOccurs="unbounded" minOccurs="0" ref="row"/>
+            </xsd:sequence>
+            <xsd:attribute name="name" type="xsd:string" use="required"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="tables">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="table" minOccurs="1" maxOccurs="unbounded"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="promotion">
+        <xsd:complexType>
+        	<xsd:choice>
+        		<xsd:sequence>
+        			<xsd:element ref="sets" minOccurs="1" maxOccurs="1" />
+        			<xsd:element ref="condition" maxOccurs="1" minOccurs="0" />
+        			<xsd:element ref="combo" maxOccurs="1" minOccurs="0" />
+        			<xsd:element ref="benefits" minOccurs="1" maxOccurs="1" />        			
+        			<xsd:element ref="parameter" minOccurs="0" maxOccurs="unbounded" />
+        		</xsd:sequence>
+        		<xsd:sequence>
+        			<xsd:element ref="parameter" minOccurs="0" maxOccurs="unbounded" />
+        			<xsd:element ref="tables" minOccurs="0"	maxOccurs="1" />
+        		</xsd:sequence>
+        	</xsd:choice>
+        	<xsd:attribute name="className" type="xsd:string" use="required" />
+        	<xsd:attribute name="name" type="xsd:string" use="required" />
+        	<xsd:attribute name="nro" type="xsd:string" use="optional" />
+        	<xsd:attribute name="reportParticipants" type="xsd:boolean"	use="optional" />
+        	<xsd:attribute name="suggest" use="optional">			
+        		<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+					    <xsd:enumeration value="not"/>
+					    <xsd:enumeration value="always"/>
+				    </xsd:restriction>
+				</xsd:simpleType>
+        	</xsd:attribute>
+        	<xsd:attribute name="descriptor" type="xsd:string" use="optional"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="promotion-usage">
+        <xsd:complexType>
+            <xsd:attribute name="name" type="xsd:string" use="required"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="promotions">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element maxOccurs="unbounded" minOccurs="1" ref="promotion"/>
+            </xsd:sequence>
+            <xsd:attribute name="priority-function-classname" type="xsd:string" use="optional"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="set">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element maxOccurs="unbounded" minOccurs="0" ref="set"/>
+            </xsd:sequence>
+            <xsd:attribute name="attribute" type="xsd:string" use="optional"/>
+            <xsd:attribute name="name" type="xsd:string" use="optional"/>
+            <xsd:attribute name="type" type="xsd:string" use="required"/>
+            <xsd:attribute name="comparator" type="xsd:string" use="optional"/>
+            <xsd:attribute name="value" type="xsd:string" use="optional"/>
+            <xsd:attribute name="inequivAttribute" type="xsd:string" use="optional"/>
+            <xsd:attribute name="order-criteria" type="xsd:string" use="optional"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="sets">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element maxOccurs="unbounded" minOccurs="1" ref="set"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="step">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="function" minOccurs="1" maxOccurs="1"/>
+            </xsd:sequence>
+	        <xsd:attribute name="onStatus" type="xsd:string" use="optional"/>                     
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="use-set">
+        <xsd:complexType>
+            <xsd:attribute name="name" type="xsd:string" use="required"/>
+            <xsd:attribute name="max" type="xsd:float" use="optional"/>
+            <xsd:attribute name="attribute" type="xsd:string" use="optional"/>
+            <xsd:attribute name="order-criteria" type="xsd:string" use="optional"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="lists">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element maxOccurs="unbounded" minOccurs="1" ref="list"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+		<xsd:element name="list">
+        <xsd:complexType>
+            <xsd:attribute name="code" type="xsd:string" use="required"/>
+            <xsd:attribute name="set" type="xsd:string" use="required"/>
+            <xsd:attribute name="attrOri" type="xsd:string" use="required"/>
+            <xsd:attribute name="attrDest" type="xsd:string" use="required"/>
+            <xsd:attribute name="value" type="xsd:string" use="required"/>
+        </xsd:complexType>
+    </xsd:element>    
+</xsd:schema>
