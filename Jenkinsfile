@@ -16,8 +16,8 @@ pipeline {
             steps {
                 container('jmeter') {
                     script {
-                        // Zip all the files in the /app folder using the Pipeline Utility Steps plugin
-                        zip zipFile: 'bundle.zip', archive: false, dir: '/app'
+                        // Zip all the files in the app folder using the Pipeline Utility Steps plugin
+                        zip zipFile: 'bundle.zip', archive: false, dir: 'app'
                     }
                 }
             }
@@ -41,7 +41,7 @@ pipeline {
                 container('jmeter') {
                     script {
                         // Define the path to your JMeter test script
-                        def jmeterTestFile = 'script.jmx'
+                        def jmeterTestFile = 'test.jmx'
                         def resultFile = 'result.jtl'
 
                         // Run JMeter test using shell command
