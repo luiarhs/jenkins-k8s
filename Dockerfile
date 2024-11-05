@@ -21,6 +21,7 @@ RUN apt-get update -qqy && apt-get upgrade -qqy \
         libfreetype6 \
         telnet \
         fontconfig \
+        openssh-client \
     && mkdir -p /tmp/dependencies \
     && curl -L --silent ${JMETER_DOWNLOAD_URL} > /tmp/dependencies/apache-jmeter-${JMETER_VERSION}.tgz \
     && mkdir -p /opt \
@@ -48,6 +49,9 @@ ENV PATH=$PATH:$JMETER_BIN:$JMETER_LIB:$JMETER_PLUGINS
 
 # Install a specific JMeter plugin (e.g., bzm-rte)
 RUN PluginsManagerCMD.sh install bzm-rte=3.3
+
+# Configure SSH to support specific host key algorithms
+RUN mkdir -p /root/.ssh && echo -e "Host *\n    HostKeyAlgorithms +ssh-rsa,ssh-dss" > /root/.ssh/config
 
 # Clean up the package lists to reduce image size
 RUN apt-get clean \
