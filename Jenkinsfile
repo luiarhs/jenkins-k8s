@@ -28,7 +28,7 @@ pipeline {
                     script {
                         def path = 'jmeter/scripts/4690.jmx'
                         sh """
-                            jmter -n -t ${path} -l result.jtl -Djava.awt.headless=true
+                            jmeter -n -t ${path} -l result.jtl -Djava.awt.headless=true
                         """
                     }
                 }
