@@ -26,32 +26,44 @@ pipeline {
             steps {
                 container('jmeter') {
                     script {
-                        // Use scp to transfer the files to the remote host
-                        withCredentials([usernamePassword(credentialsId: 'POS_QA', usernameVariable: 'REMOTE_USER', passwordVariable: 'REMOTE_PASSWORD')]) {
-                            def remote = configureRemote(REMOTE_NAME, REMOTE_HOST, REMOTE_USER, REMOTE_PASSWORD)
-                            // Transfer the files to the remote host
-                            transferFile(remote, 'bundle.zip', REMOTE_PATH)
-                        }
-                    }
-                }
-            }
-        }
-        stage('Run JMeter Test') {
-            steps {
-                container('jmeter') {
-                    script {
-                        // Define the path to your JMeter test script
-                        def jmeterTestFile = 'test.jmx'
-                        def resultFile = 'result.jtl'
-
-                        // Run JMeter test using shell command
+                        def path = 'jmeter/scripts/4690.jmx'
                         sh """
-                            jmeter -n -t ${jmeterTestFile} -l ${resultFile} -Djava.awt.headless=true
+                            jmter -n -t ${path} -l result.jtl -Djava.awt.headless=true
                         """
                     }
                 }
             }
         }
+        // stage('Transfer Files') {
+        //     steps {
+        //         container('jmeter') {
+        //             script {
+        //                 // Use scp to transfer the files to the remote host
+        //                 withCredentials([usernamePassword(credentialsId: 'POS_QA', usernameVariable: 'REMOTE_USER', passwordVariable: 'REMOTE_PASSWORD')]) {
+        //                     def remote = configureRemote(REMOTE_NAME, REMOTE_HOST, REMOTE_USER, REMOTE_PASSWORD)
+        //                     // Transfer the files to the remote host
+        //                     transferFile(remote, 'bundle.zip', REMOTE_PATH)
+        //                 }
+        //             }
+        //         }
+        //     }
+        // }
+        // stage('Run JMeter Test') {
+        //     steps {
+        //         container('jmeter') {
+        //             script {
+        //                 // Define the path to your JMeter test script
+        //                 def jmeterTestFile = 'test.jmx'
+        //                 def resultFile = 'result.jtl'
+
+        //                 // Run JMeter test using shell command
+        //                 sh """
+        //                     jmeter -n -t ${jmeterTestFile} -l ${resultFile} -Djava.awt.headless=true
+        //                 """
+        //             }
+        //         }
+        //     }
+        // }
         stage('Sleep') {
             steps {
                 script {
