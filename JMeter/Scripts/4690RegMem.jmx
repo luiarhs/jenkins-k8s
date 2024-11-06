@@ -28,6 +28,19 @@
       <hashTree>
         <RecordingController guiclass="RecordController" testclass="RecordingController" testname="Recording Controller" enabled="true"/>
         <hashTree>
+          <FTPSampler guiclass="FtpTestSamplerGui" testclass="FTPSampler" testname="FTP Request" enabled="false">
+            <stringProp name="FTPSampler.server">172.22.13.75</stringProp>
+            <stringProp name="FTPSampler.port"></stringProp>
+            <stringProp name="FTPSampler.filename">F:/agentQAtest2.zip</stringProp>
+            <stringProp name="FTPSampler.localfilename">D:/agentQAtest2.zip</stringProp>
+            <stringProp name="FTPSampler.inputdata"></stringProp>
+            <boolProp name="FTPSampler.binarymode">false</boolProp>
+            <boolProp name="FTPSampler.saveresponse">false</boolProp>
+            <boolProp name="FTPSampler.upload">true</boolProp>
+            <stringProp name="ConfigTestElement.username">ftppos</stringProp>
+            <stringProp name="ConfigTestElement.password">pos</stringProp>
+          </FTPSampler>
+          <hashTree/>
           <ConfigTestElement guiclass="com.blazemeter.jmeter.rte.sampler.gui.RTEConfigGui" testclass="ConfigTestElement" testname="bzm-RTE-config" enabled="true">
             <stringProp name="RTEConnectionConfig.port">23</stringProp>
             <stringProp name="RTEConnectionConfig.server">172.22.13.75</stringProp>
@@ -217,13 +230,13 @@
             <stringProp name="RTESampler.waitDisconnectTimeout">10000</stringProp>
           </com.blazemeter.jmeter.rte.sampler.RTESampler>
           <hashTree/>
-          <com.blazemeter.jmeter.rte.sampler.RTESampler guiclass="com.blazemeter.jmeter.rte.sampler.gui.RTESamplerGui" testclass="com.blazemeter.jmeter.rte.sampler.RTESampler" testname="4690-BorraCarpeta" enabled="true">
+          <com.blazemeter.jmeter.rte.sampler.RTESampler guiclass="com.blazemeter.jmeter.rte.sampler.gui.RTESamplerGui" testclass="com.blazemeter.jmeter.rte.sampler.RTESampler" testname="4690-RegeneraMem" enabled="true">
             <stringProp name="RTESampler.action">SEND_INPUT</stringProp>
             <elementProp name="Inputs.inputs" elementType="com.blazemeter.jmeter.rte.sampler.Inputs">
               <collectionProp name="Inputs.inputs">
                 <elementProp name="" elementType="com.blazemeter.jmeter.rte.sampler.NavigationInputRowGui">
                   <stringProp name="NavigationInputRowGui.repeated">0</stringProp>
-                  <stringProp name="Input.input">rmdir -r bridgep3Ant</stringProp>
+                  <stringProp name="Input.input">adxpldrb</stringProp>
                   <stringProp name="NavigationInputRowGui.type">Tabulator</stringProp>
                 </elementProp>
               </collectionProp>
@@ -248,14 +261,36 @@
             <boolProp name="RTESampler.waitDisconnect">false</boolProp>
             <stringProp name="RTESampler.waitDisconnectTimeout">10000</stringProp>
           </com.blazemeter.jmeter.rte.sampler.RTESampler>
-          <hashTree/>
-          <com.blazemeter.jmeter.rte.sampler.RTESampler guiclass="com.blazemeter.jmeter.rte.sampler.gui.RTESamplerGui" testclass="com.blazemeter.jmeter.rte.sampler.RTESampler" testname="4690-DirBridge" enabled="true">
+          <hashTree>
+            <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Duration Assertion" enabled="false">
+              <stringProp name="DurationAssertion.duration">1500</stringProp>
+            </DurationAssertion>
+            <hashTree/>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="false">
+              <stringProp name="ConstantTimer.delay">1500</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+          </hashTree>
+          <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
+            <intProp name="ActionProcessor.action">1</intProp>
+            <intProp name="ActionProcessor.target">0</intProp>
+            <stringProp name="ActionProcessor.duration">0</stringProp>
+          </TestAction>
+          <hashTree>
+            <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
+              <stringProp name="TestPlan.comments">270seg son 4:30 min de espera para que termine Regeneración de memoria</stringProp>
+              <stringProp name="ConstantTimer.delay">270000</stringProp>
+              <stringProp name="RandomTimer.range">1000</stringProp>
+            </UniformRandomTimer>
+            <hashTree/>
+          </hashTree>
+          <com.blazemeter.jmeter.rte.sampler.RTESampler guiclass="com.blazemeter.jmeter.rte.sampler.gui.RTESamplerGui" testclass="com.blazemeter.jmeter.rte.sampler.RTESampler" testname="4690-VerRebuild" enabled="true">
             <stringProp name="RTESampler.action">SEND_INPUT</stringProp>
             <elementProp name="Inputs.inputs" elementType="com.blazemeter.jmeter.rte.sampler.Inputs">
               <collectionProp name="Inputs.inputs">
                 <elementProp name="" elementType="com.blazemeter.jmeter.rte.sampler.NavigationInputRowGui">
                   <stringProp name="NavigationInputRowGui.repeated">0</stringProp>
-                  <stringProp name="Input.input">dir bridg*</stringProp>
+                  <stringProp name="Input.input">m:</stringProp>
                   <stringProp name="NavigationInputRowGui.type">Tabulator</stringProp>
                 </elementProp>
               </collectionProp>
@@ -313,12 +348,12 @@
             <stringProp name="RTESampler.waitDisconnectTimeout">10000</stringProp>
           </com.blazemeter.jmeter.rte.sampler.RTESampler>
           <hashTree/>
-          <com.blazemeter.jmeter.rte.sampler.RTESampler guiclass="com.blazemeter.jmeter.rte.sampler.gui.RTESamplerGui" testclass="com.blazemeter.jmeter.rte.sampler.RTESampler" testname="4690-Salir" enabled="true">
+          <com.blazemeter.jmeter.rte.sampler.RTESampler guiclass="com.blazemeter.jmeter.rte.sampler.gui.RTESamplerGui" testclass="com.blazemeter.jmeter.rte.sampler.RTESampler" testname="4690-Logoff" enabled="true">
             <stringProp name="RTESampler.action">SEND_INPUT</stringProp>
             <elementProp name="Inputs.inputs" elementType="com.blazemeter.jmeter.rte.sampler.Inputs">
               <collectionProp name="Inputs.inputs"/>
             </elementProp>
-            <stringProp name="RTESampler.attentionKey">F3</stringProp>
+            <stringProp name="RTESampler.attentionKey">F9</stringProp>
             <boolProp name="RTESampler.waitSync">true</boolProp>
             <stringProp name="RTESampler.waitSyncTimeout">10000</stringProp>
             <boolProp name="RTESampler.waitCursor">false</boolProp>
@@ -339,7 +374,7 @@
             <stringProp name="RTESampler.waitDisconnectTimeout">10000</stringProp>
           </com.blazemeter.jmeter.rte.sampler.RTESampler>
           <hashTree/>
-          <com.blazemeter.jmeter.rte.sampler.RTESampler guiclass="com.blazemeter.jmeter.rte.sampler.gui.RTESamplerGui" testclass="com.blazemeter.jmeter.rte.sampler.RTESampler" testname="bzm-RTE-DISCONNECT" enabled="true">
+          <com.blazemeter.jmeter.rte.sampler.RTESampler guiclass="com.blazemeter.jmeter.rte.sampler.gui.RTESamplerGui" testclass="com.blazemeter.jmeter.rte.sampler.RTESampler" testname="4690-DISCONNECT" enabled="true">
             <stringProp name="RTESampler.action">DISCONNECT</stringProp>
             <elementProp name="Inputs.inputs" elementType="com.blazemeter.jmeter.rte.sampler.Inputs">
               <collectionProp name="Inputs.inputs"/>

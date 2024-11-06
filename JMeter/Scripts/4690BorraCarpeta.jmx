@@ -28,6 +28,19 @@
       <hashTree>
         <RecordingController guiclass="RecordController" testclass="RecordingController" testname="Recording Controller" enabled="true"/>
         <hashTree>
+          <FTPSampler guiclass="FtpTestSamplerGui" testclass="FTPSampler" testname="FTP Request" enabled="false">
+            <stringProp name="FTPSampler.server">172.22.13.75</stringProp>
+            <stringProp name="FTPSampler.port"></stringProp>
+            <stringProp name="FTPSampler.filename">F:/agentQAtest2.zip</stringProp>
+            <stringProp name="FTPSampler.localfilename">D:/agentQAtest2.zip</stringProp>
+            <stringProp name="FTPSampler.inputdata"></stringProp>
+            <boolProp name="FTPSampler.binarymode">false</boolProp>
+            <boolProp name="FTPSampler.saveresponse">false</boolProp>
+            <boolProp name="FTPSampler.upload">true</boolProp>
+            <stringProp name="ConfigTestElement.username">ftppos</stringProp>
+            <stringProp name="ConfigTestElement.password">pos</stringProp>
+          </FTPSampler>
+          <hashTree/>
           <ConfigTestElement guiclass="com.blazemeter.jmeter.rte.sampler.gui.RTEConfigGui" testclass="ConfigTestElement" testname="bzm-RTE-config" enabled="true">
             <stringProp name="RTEConnectionConfig.port">23</stringProp>
             <stringProp name="RTEConnectionConfig.server">172.22.13.75</stringProp>
@@ -223,7 +236,7 @@
               <collectionProp name="Inputs.inputs">
                 <elementProp name="" elementType="com.blazemeter.jmeter.rte.sampler.NavigationInputRowGui">
                   <stringProp name="NavigationInputRowGui.repeated">0</stringProp>
-                  <stringProp name="Input.input">rmdir -r bridgep3Ant</stringProp>
+                  <stringProp name="Input.input">rmdir bridgeDAA</stringProp>
                   <stringProp name="NavigationInputRowGui.type">Tabulator</stringProp>
                 </elementProp>
               </collectionProp>
