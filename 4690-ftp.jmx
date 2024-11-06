@@ -31,7 +31,7 @@
           <FTPSampler guiclass="FtpTestSamplerGui" testclass="FTPSampler" testname="FTP Request" enabled="true">
             <stringProp name="FTPSampler.server">172.22.13.75</stringProp>
             <stringProp name="FTPSampler.port"></stringProp>
-            <stringProp name="FTPSampler.filename">F:/bundle.zip</stringProp>
+            <stringProp name="FTPSampler.filename">M:/bundle.zip</stringProp>
             <stringProp name="FTPSampler.localfilename">bundle.zip</stringProp>
             <stringProp name="FTPSampler.inputdata"></stringProp>
             <boolProp name="FTPSampler.binarymode">false</boolProp>
