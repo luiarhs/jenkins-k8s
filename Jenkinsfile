@@ -17,20 +17,8 @@ pipeline {
                 container('jmeter') {
                     script {
                         // Zip all the files in the app folder using the Pipeline Utility Steps plugin
-                        zip zipFile: 'bundle.zip', archive: false, dir: 'app'
+                        zip zipFile: 'bundle.zip', archive: false, dir: 'bridgep3Ant'
                         sh 'ls -l'
-                    }
-                }
-            }
-        }
-        stage('Transfer Files') {
-            steps {
-                container('jmeter') {
-                    script {
-                        def path = '4690-ftp.jmx'
-                        sh """
-                            jmeter -n -t ${path} -l result.jtl -Djava.awt.headless=true
-                        """
                     }
                 }
             }
@@ -49,6 +37,43 @@ pipeline {
         //         }
         //     }
         // }
+        stage('Transfer Files') {
+            steps {
+                container('jmeter') {
+                    script {
+                        def path = '4690-ftp.jmx'
+                        sh """
+                            jmeter -n -t ${path} -l result.jtl -Djava.awt.headless=true
+                        """
+                    }
+                }
+            }
+        }
+        stage('Clean Remote') {
+            steps {
+                container('jmeter') {
+                    script {
+                        def path = '4690-clean.jmx'
+                        sh """
+                            jmeter -n -t ${path} -l result.jtl -Djava.awt.headless=true
+                        """
+                    }
+                }
+            }
+        }
+        stage('Unzip Files') {
+            steps {
+                container('jmeter') {
+                    script {
+                        def path = '4690-unzip.jmx'
+                        sh """
+                            jmeter -n -t ${path} -l result.jtl -Djava.awt.headless=true
+                        """
+                    }
+                }
+            }
+        }
+    
         // stage('Run JMeter Test') {
         //     steps {
         //         container('jmeter') {
