@@ -45,6 +45,7 @@ pipeline {
                         sh """
                             jmeter -n -t ${path} -l result.jtl -Djava.awt.headless=true
                         """
+                        sh 'cat jmeter.log'
                     }
                 }
             }
@@ -57,6 +58,7 @@ pipeline {
                         sh """
                             jmeter -n -t ${path} -l result.jtl -Djava.awt.headless=true
                         """
+                        sh 'cat jmeter.log'
                     }
                 }
             }
@@ -69,6 +71,7 @@ pipeline {
                         sh """
                             jmeter -n -t ${path} -l result.jtl -Djava.awt.headless=true
                         """
+                        sh 'cat jmeter.log'
                     }
                 }
             }
@@ -102,7 +105,6 @@ pipeline {
         stage('Publish Performance Report') {
             steps {
                 script {
-                    sh 'cat TestLog.log'
                     // Publish the performance report using the Performance plugin
                     perfReport errorFailedThreshold: 0, // Set this to your acceptable failure threshold (e.g., response time)
                                errorUnstableThreshold: 0, 
