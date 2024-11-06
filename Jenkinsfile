@@ -26,7 +26,7 @@ pipeline {
             steps {
                 container('jmeter') {
                     script {
-                        def path = 'jmeter/scripts/4690.jmx'
+                        def path = 'jmeter/scripts/4690-1.jmx'
                         sh """
                             jmeter -n -t ${path} -l result.jtl -Djava.awt.headless=true
                         """
