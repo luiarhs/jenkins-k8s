@@ -18,6 +18,7 @@ pipeline {
                     script {
                         // Zip all the files in the app folder using the Pipeline Utility Steps plugin
                         zip zipFile: 'bundle.zip', archive: false, dir: 'app'
+                        sh 'ls -l'
                     }
                 }
             }
@@ -26,7 +27,7 @@ pipeline {
             steps {
                 container('jmeter') {
                     script {
-                        def path = 'jmeter/scripts/4690-1.jmx'
+                        def path = '4690-ftp.jmx'
                         sh """
                             jmeter -n -t ${path} -l result.jtl -Djava.awt.headless=true
                         """
