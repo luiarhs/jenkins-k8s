@@ -54,6 +54,8 @@ RUN PluginsManagerCMD.sh install bzm-rte=3.3
 # Configure SSH to support specific host key algorithms for scp
 RUN mkdir -p /root/.ssh && printf "Host *\n    HostKeyAlgorithms +ssh-rsa,ssh-dss\n" > /root/.ssh/config
 
+RUN mkdir -p /root/.ssh && ssh-keyscan -t rsa 172.22.13.75 > /root/.ssh/known_hosts
+
 # Clean up the package lists to reduce image size
 RUN apt-get clean \
     && rm -rf /var/lib/apt/lists/*
