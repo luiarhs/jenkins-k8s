@@ -17,8 +17,7 @@ pipeline {
                 container('jmeter') {
                     script {
                         // Zip all the files in the app folder using the Pipeline Utility Steps plugin
-                        zip zipFile: 'bundle.zip', archive: false, dir: 'bridgep3Ant'
-                        sh 'ls -l'
+                        sh 'zip -r bundle.zip bridgep3Ant/*'
                     }
                 }
             }
