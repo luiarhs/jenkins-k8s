@@ -62,6 +62,15 @@ pipeline {
                 }
             }
         }
+        stage('Sleep') {
+            steps {
+                script {
+                    echo 'I am wainting to finish the clean process'
+                    sleep(150)    
+                }
+
+            }
+        }
         stage('Unzip Files') {
             steps {
                 container('jmeter') {
@@ -92,15 +101,6 @@ pipeline {
         //         }
         //     }
         // }
-        stage('Sleep') {
-            steps {
-                script {
-                    echo 'I am sleeping for a while'
-                    sleep(30)    
-                }
-
-            }
-        }
         stage('Publish Performance Report') {
             steps {
                 script {
