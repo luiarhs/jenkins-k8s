@@ -17,7 +17,7 @@ pipeline {
                 container('jmeter') {
                     script {
                         // Zip all the files in the app folder using the Pipeline Utility Steps plugin
-                        sh 'zip -r bundle.zip bridgep3Ant/*'
+                        sh 'zip -0 -r bundle.zip bridgep3Ant/*'
                     }
                 }
             }
@@ -28,9 +28,9 @@ pipeline {
         //             script {
         //                 // Use scp to transfer the files to the remote host
         //                 withCredentials([usernamePassword(credentialsId: 'POS_QA', usernameVariable: 'REMOTE_USER', passwordVariable: 'REMOTE_PASSWORD')]) {
-        //                     def remote = configureRemote(REMOTE_NAME, REMOTE_HOST, REMOTE_USER, REMOTE_PASSWORD)
-        //                     // Transfer the files to the remote host
-        //                     transferFile(remote, 'bundle.zip', REMOTE_PATH)
+        //                     sh """
+        //                         sshpass -p '$REMOTE_PASSWORD' scp -o HostKeyAlgorithms=+ssh-rsa -o Ciphers=aes256-cbc,aes128-ctr,aes192-ctr,aes256-ctr -o MACs=hmac-md5,hmac-sha1 bundle.zip ${REMOTE_USER}@${REMOTE_HOST}
+        //                     """
         //                 }
         //             }
         //         }
