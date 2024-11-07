@@ -49,28 +49,28 @@ pipeline {
                 }
             }
         }
-        stage('Clean Remote') {
-            steps {
-                container('jmeter') {
-                    script {
-                        def path = '4690-clean.jmx'
-                        sh """
-                            jmeter -n -t ${path} -l result.jtl -Djava.awt.headless=true
-                        """
-                        sh 'cat jmeter.log'
-                    }
-                }
-            }
-        }
-        stage('Sleep') {
-            steps {
-                script {
-                    echo 'I am wainting to finish the clean process'
-                    sleep(150)    
-                }
+        // stage('Clean Remote') {
+        //     steps {
+        //         container('jmeter') {
+        //             script {
+        //                 def path = '4690-clean.jmx'
+        //                 sh """
+        //                     jmeter -n -t ${path} -l result.jtl -Djava.awt.headless=true
+        //                 """
+        //                 sh 'cat jmeter.log'
+        //             }
+        //         }
+        //     }
+        // }
+        // stage('Sleep') {
+        //     steps {
+        //         script {
+        //             echo 'I am wainting to finish the clean process'
+        //             sleep(10)    
+        //         }
 
-            }
-        }
+        //     }
+        // }
         stage('Unzip Files') {
             steps {
                 container('jmeter') {
