@@ -22,33 +22,33 @@ pipeline {
                 }
             }
         }
-        stage('Transfer Files') {
-            steps {
-                container('jmeter') {
-                    script {
-                        // Use scp to transfer the files to the remote host
-                        withCredentials([usernamePassword(credentialsId: 'POS_QA', usernameVariable: 'REMOTE_USER', passwordVariable: 'REMOTE_PASSWORD')]) {
-                            sh """
-                                sshpass -p '$REMOTE_PASSWORD' scp -o HostKeyAlgorithms=+ssh-rsa -o Ciphers=aes256-cbc,aes128-ctr,aes192-ctr,aes256-ctr -o MACs=hmac-md5,hmac-sha1 bundle.zip ${REMOTE_USER}@${REMOTE_HOST}
-                            """
-                        }
-                    }
-                }
-            }
-        }
         // stage('Transfer Files') {
         //     steps {
         //         container('jmeter') {
         //             script {
-        //                 def path = '4690-ftp.jmx'
-        //                 sh """
-        //                     jmeter -n -t ${path} -l result.jtl -Djava.awt.headless=true
-        //                 """
-        //                 sh 'cat jmeter.log'
+        //                 // Use scp to transfer the files to the remote host
+        //                 withCredentials([usernamePassword(credentialsId: 'POS_QA', usernameVariable: 'REMOTE_USER', passwordVariable: 'REMOTE_PASSWORD')]) {
+        //                     sh """
+        //                         sshpass -p '$REMOTE_PASSWORD' scp -o HostKeyAlgorithms=+ssh-rsa -o Ciphers=aes256-cbc,aes128-ctr,aes192-ctr,aes256-ctr -o MACs=hmac-md5,hmac-sha1 bundle.zip ${REMOTE_USER}@${REMOTE_HOST}
+        //                     """
+        //                 }
         //             }
         //         }
         //     }
         // }
+        stage('Transfer Files') {
+            steps {
+                container('jmeter') {
+                    script {
+                        def path = '4690-ftp.jmx'
+                        sh """
+                            jmeter -n -t ${path} -l result.jtl -Djava.awt.headless=true
+                        """
+                        sh 'cat jmeter.log'
+                    }
+                }
+            }
+        }
         stage('Clean Remote') {
             steps {
                 container('jmeter') {
