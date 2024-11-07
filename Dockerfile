@@ -23,6 +23,7 @@ RUN apt-get update -qqy && apt-get upgrade -qqy \
         fontconfig \
         openssh-client \
         sshpass \
+        zip \
     && mkdir -p /tmp/dependencies \
     && curl -L --silent ${JMETER_DOWNLOAD_URL} > /tmp/dependencies/apache-jmeter-${JMETER_VERSION}.tgz \
     && mkdir -p /opt \
