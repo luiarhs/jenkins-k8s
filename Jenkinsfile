@@ -54,9 +54,9 @@ pipeline {
                 container('jmeter') {
                     script {
                         def path = '4690-clean.jmx'
-                        // sh """
-                        //     jmeter -n -t ${path} -l result.jtl -Djava.awt.headless=true
-                        // """
+                        sh """
+                            jmeter -n -t ${path} -l result.jtl -Djava.awt.headless=true
+                        """
                         sh 'cat jmeter.log'
                     }
                 }
@@ -66,7 +66,7 @@ pipeline {
             steps {
                 script {
                     echo 'I am wainting to finish the clean process'
-                    // sleep(150)
+                    sleep(150)
                 }
 
             }
@@ -106,23 +106,14 @@ pipeline {
                 }
             }
         }
-        stage('Sleep Memory') {
-            steps {
-                script {
-                    echo 'I am wainting to finish the clean process'
-                    sleep(350)
-                }
-
-            }
-        }
         stage('Send Load') {
             steps {
                 container('jmeter') {
                     script {
                         def path = '4690-load.jmx'
-                        // sh """
-                        //     jmeter -n -t ${path} -l result.jtl -Djava.awt.headless=true
-                        // """
+                        sh """
+                            jmeter -n -t ${path} -l result.jtl -Djava.awt.headless=true
+                        """
                         sh 'cat jmeter.log'
                     }
                 }
