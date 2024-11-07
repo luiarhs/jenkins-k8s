@@ -62,7 +62,7 @@ pipeline {
                 }
             }
         }
-        stage('Sleep') {
+        stage('Sleep Clean') {
             steps {
                 script {
                     echo 'I am wainting to finish the clean process'
@@ -84,7 +84,7 @@ pipeline {
                 }
             }
         }
-        stage('Sleep') {
+        stage('Sleep Unzip') {
             steps {
                 script {
                     echo 'I am wainting to finish the clean process'
@@ -106,7 +106,7 @@ pipeline {
                 }
             }
         }
-        stage('Sleep') {
+        stage('Sleep Memory') {
             steps {
                 script {
                     echo 'I am wainting to finish the clean process'
