@@ -17,7 +17,7 @@ pipeline {
                 container('jmeter') {
                     script {
                         // Zip all the files in the app folder using the Pipeline Utility Steps plugin
-                        sh 'zip -r -9 bundle.zip bridgep3Ant/*'
+                        sh 'zip -r -0 bundle.zip bridgep3Ant/*'
                     }
                 }
             }
@@ -62,15 +62,6 @@ pipeline {
                 }
             }
         }
-        stage('Sleep Clean') {
-            steps {
-                script {
-                    echo 'I am wainting to finish the clean process'
-                    sleep(150)
-                }
-
-            }
-        }
         stage('Unzip Files') {
             steps {
                 container('jmeter') {
@@ -82,15 +73,6 @@ pipeline {
                         sh 'cat jmeter.log'
                     }
                 }
-            }
-        }
-        stage('Sleep Unzip') {
-            steps {
-                script {
-                    echo 'I am wainting to finish the clean process'
-                    sleep(350)
-                }
-
             }
         }
         stage('Memory Reload') {
