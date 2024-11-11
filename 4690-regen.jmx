@@ -238,18 +238,19 @@
             <boolProp name="RTESampler.waitSilent">false</boolProp>
             <stringProp name="RTESampler.waitSilentTime">1000</stringProp>
             <stringProp name="RTESampler.waitSilentTimeout">60000</stringProp>
-            <boolProp name="RTESampler.waitText">false</boolProp>
-            <stringProp name="RTESampler.waitTextRegex"></stringProp>
-            <stringProp name="RTESampler.waitTextTimeout">30000</stringProp>
+            <boolProp name="RTESampler.waitText">true</boolProp>
+            <stringProp name="RTESampler.waitTextRegex">Rebuild successful</stringProp>
+            <stringProp name="RTESampler.waitTextTimeout">270000</stringProp>
             <stringProp name="RTESampler.waitTextAreaTop">1</stringProp>
             <stringProp name="RTESampler.waitTextAreaLeft">1</stringProp>
             <stringProp name="RTESampler.waitTextAreaBottom"></stringProp>
             <stringProp name="RTESampler.waitTextAreaRight"></stringProp>
             <boolProp name="RTESampler.waitDisconnect">false</boolProp>
             <stringProp name="RTESampler.waitDisconnectTimeout">10000</stringProp>
+            <stringProp name="TestPlan.comments">Espera el mensaje: &quot;Rebuild successful&quot; o timeout de 4:30min</stringProp>
           </com.blazemeter.jmeter.rte.sampler.RTESampler>
           <hashTree/>
-          <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
+          <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="false">
             <intProp name="ActionProcessor.action">1</intProp>
             <intProp name="ActionProcessor.target">0</intProp>
             <stringProp name="ActionProcessor.duration">0</stringProp>
