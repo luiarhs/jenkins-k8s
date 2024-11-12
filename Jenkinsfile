@@ -75,44 +75,28 @@ pipeline {
                 }
             }
         }
-        stage('Memory Reload') {
-            steps {
-                container('jmeter') {
-                    script {
-                        def path = '4690-regen.jmx'
-                        sh """
-                            jmeter -n -t ${path} -l result.jtl -Djava.awt.headless=true
-                        """
-                        sh 'cat jmeter.log'
-                    }
-                }
-            }
-        }
-        stage('Send Load') {
-            steps {
-                container('jmeter') {
-                    script {
-                        def path = '4690-load.jmx'
-                        sh """
-                            jmeter -n -t ${path} -l result.jtl -Djava.awt.headless=true
-                        """
-                        sh 'cat jmeter.log'
-                    }
-                }
-            }
-        }
-        // stage('Run JMeter Test') {
+        // stage('Memory Reload') {
         //     steps {
         //         container('jmeter') {
         //             script {
-        //                 // Define the path to your JMeter test script
-        //                 def jmeterTestFile = 'test.jmx'
-        //                 def resultFile = 'result.jtl'
-
-        //                 // Run JMeter test using shell command
+        //                 def path = '4690-regen.jmx'
         //                 sh """
-        //                     jmeter -n -t ${jmeterTestFile} -l ${resultFile} -Djava.awt.headless=true
+        //                     jmeter -n -t ${path} -l result.jtl -Djava.awt.headless=true
         //                 """
+        //                 sh 'cat jmeter.log'
+        //             }
+        //         }
+        //     }
+        // }
+        // stage('Send Load') {
+        //     steps {
+        //         container('jmeter') {
+        //             script {
+        //                 def path = '4690-load.jmx'
+        //                 sh """
+        //                     jmeter -n -t ${path} -l result.jtl -Djava.awt.headless=true
+        //                 """
+        //                 sh 'cat jmeter.log'
         //             }
         //         }
         //     }
