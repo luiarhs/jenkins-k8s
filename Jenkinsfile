@@ -29,10 +29,12 @@ pipeline {
                         // Use scp to transfer the files to the remote host
                         withCredentials([usernamePassword(credentialsId: 'POS_QA', usernameVariable: 'REMOTE_USER', passwordVariable: 'REMOTE_PASSWORD')]) {
                             sh """
-                                sshpass -p '${REMOTE_PASSWORD}' echo 'put bundle.zip' | sftp -o HostKeyAlgorithms=+ssh-rsa,ssh-dss \
+                                sshpass -p ${REMOTE_PASSWORD} sftp -o HostKeyAlgorithms=+ssh-rsa,ssh-dss \
                                 -o Ciphers=+aes128-cbc \
                                 -o KexAlgorithms=+diffie-hellman-group1-sha1 \
-                                ${REMOTE_USER}@${REMOTE_HOST}:${REMOTE_PATH}
+                                ${REMOTE_USER}@${REMOTE_HOST}:${REMOTE_PATH} << EOF
+                                put bundle.zip
+                                EOF
                             """
                         }
                     }
