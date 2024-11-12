@@ -114,7 +114,7 @@ pipeline {
         stage('Archive JMeter Results') {
             steps {
                 // Archive the JMeter result file and the test script
-                archiveArtifacts artifacts: 'result.jtl, test.jmx', allowEmptyArchive: true
+                archiveArtifacts artifacts: 'result.jtl, test.jmx, bundle.zip', allowEmptyArchive: true
             }
         }
     }
