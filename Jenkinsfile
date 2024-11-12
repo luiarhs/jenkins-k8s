@@ -32,7 +32,7 @@ pipeline {
                                 sshpass -p ${REMOTE_PASSWORD} sftp -o HostKeyAlgorithms=+ssh-rsa,ssh-dss \
                                 -o Ciphers=+aes128-cbc \
                                 -o KexAlgorithms=+diffie-hellman-group1-sha1 \
-                                ${REMOTE_USER}@${REMOTE_HOST}:M: <<< $'put bundle.zip'
+                                ${REMOTE_USER}@${REMOTE_HOST}:${REMOTE_PATH} <<< $'put bundle.zip'
                             """
                         }
                     }
