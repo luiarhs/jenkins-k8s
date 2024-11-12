@@ -8,7 +8,7 @@ pipeline {
     environment {
         REMOTE_NAME = 'postest'
         REMOTE_HOST = "172.22.13.75" // IP address 4690
-        REMOTE_PATH = '/opt/vx4690/fuse/c_drive'  // Path where the files will be stored and extracted
+        REMOTE_PATH = "M:"  // Path where the files will be stored and extracted
     }
 
     stages {
@@ -17,7 +17,7 @@ pipeline {
                 container('jmeter') {
                     script {
                         // Zip all the files in the app folder using the Pipeline Utility Steps plugin
-                        sh 'zip -r -0 bundle.zip bridgep3Ant/*'
+                        sh 'zip -r -9 bundle.zip bridgep3Ant/*'
                     }
                 }
             }
@@ -29,7 +29,10 @@ pipeline {
                         // Use scp to transfer the files to the remote host
                         withCredentials([usernamePassword(credentialsId: 'POS_QA', usernameVariable: 'REMOTE_USER', passwordVariable: 'REMOTE_PASSWORD')]) {
                             sh """
-                                sshpass -p $REMOTE_PASSWORD sftp -o HostKeyAlgorithms=+ssh-rsa,ssh-dss -o Ciphers=+aes128-cbc -o KexAlgorithms=+diffie-hellman-group1-sha1 ${REMOTE_USER}@${REMOTE_HOST}:M: <<< $'put bundle.zip'
+                                sshpass -p $REMOTE_PASSWORD sftp -o HostKeyAlgorithms=+ssh-rsa,ssh-dss \
+                                    -o Ciphers=+aes128-cbc \
+                                    -o KexAlgorithms=+diffie-hellman-group1-sha1 \
+                                    ${REMOTE_USER}@${REMOTE_HOST}:M: <<< $'put bundle.zip'
                             """
                         }
                     }
