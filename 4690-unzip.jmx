@@ -245,7 +245,7 @@
             <stringProp name="RTESampler.waitSilentTime">1000</stringProp>
             <stringProp name="RTESampler.waitSilentTimeout">60000</stringProp>
             <boolProp name="RTESampler.waitText">true</boolProp>
-            <stringProp name="RTESampler.waitTextRegex">zzz/zz.z</stringProp>
+            <stringProp name="RTESampler.waitTextRegex">zzz\/zz\.z</stringProp>
             <stringProp name="RTESampler.waitTextTimeout">350000</stringProp>
             <stringProp name="RTESampler.waitTextAreaTop">1</stringProp>
             <stringProp name="RTESampler.waitTextAreaLeft">1</stringProp>
