@@ -244,8 +244,8 @@
             <boolProp name="RTESampler.waitSilent">false</boolProp>
             <stringProp name="RTESampler.waitSilentTime">1000</stringProp>
             <stringProp name="RTESampler.waitSilentTimeout">60000</stringProp>
-            <boolProp name="RTESampler.waitText">false</boolProp>
-            <stringProp name="RTESampler.waitTextRegex"></stringProp>
+            <boolProp name="RTESampler.waitText">true</boolProp>
+            <stringProp name="RTESampler.waitTextRegex">zzz/zz.z</stringProp>
             <stringProp name="RTESampler.waitTextTimeout">30000</stringProp>
             <stringProp name="RTESampler.waitTextAreaTop">1</stringProp>
             <stringProp name="RTESampler.waitTextAreaLeft">1</stringProp>
@@ -255,19 +255,6 @@
             <stringProp name="RTESampler.waitDisconnectTimeout">10000</stringProp>
           </com.blazemeter.jmeter.rte.sampler.RTESampler>
           <hashTree/>
-          <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
-            <intProp name="ActionProcessor.action">1</intProp>
-            <intProp name="ActionProcessor.target">0</intProp>
-            <stringProp name="ActionProcessor.duration">0</stringProp>
-          </TestAction>
-          <hashTree>
-            <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
-              <stringProp name="TestPlan.comments">270seg son 6:00 min de espera para que termine el proceso anterior</stringProp>
-              <stringProp name="ConstantTimer.delay">360000</stringProp>
-              <stringProp name="RandomTimer.range">1000</stringProp>
-            </UniformRandomTimer>
-            <hashTree/>
-          </hashTree>
           <com.blazemeter.jmeter.rte.sampler.RTESampler guiclass="com.blazemeter.jmeter.rte.sampler.gui.RTESamplerGui" testclass="com.blazemeter.jmeter.rte.sampler.RTESampler" testname="4690-Opc7Exit" enabled="true">
             <stringProp name="RTESampler.action">SEND_INPUT</stringProp>
             <elementProp name="Inputs.inputs" elementType="com.blazemeter.jmeter.rte.sampler.Inputs">
