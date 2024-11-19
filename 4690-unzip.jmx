@@ -236,7 +236,7 @@
             </elementProp>
             <stringProp name="RTESampler.attentionKey">ENTER</stringProp>
             <boolProp name="RTESampler.waitSync">true</boolProp>
-            <stringProp name="RTESampler.waitSyncTimeout">10000</stringProp>
+            <stringProp name="RTESampler.waitSyncTimeout">350000</stringProp>
             <boolProp name="RTESampler.waitCursor">false</boolProp>
             <stringProp name="RTESampler.waitCursorRow">1</stringProp>
             <stringProp name="RTESampler.waitCursorColumn">1</stringProp>
