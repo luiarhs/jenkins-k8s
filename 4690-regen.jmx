@@ -240,7 +240,7 @@
             <stringProp name="RTESampler.waitSilentTimeout">60000</stringProp>
             <boolProp name="RTESampler.waitText">true</boolProp>
             <stringProp name="RTESampler.waitTextRegex">Rebuild successful</stringProp>
-            <stringProp name="RTESampler.waitTextTimeout">270000</stringProp>
+            <stringProp name="RTESampler.waitTextTimeout">360000</stringProp>
             <stringProp name="RTESampler.waitTextAreaTop">1</stringProp>
             <stringProp name="RTESampler.waitTextAreaLeft">1</stringProp>
             <stringProp name="RTESampler.waitTextAreaBottom"></stringProp>
@@ -257,8 +257,8 @@
           </TestAction>
           <hashTree>
             <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
-              <stringProp name="TestPlan.comments">270seg son 4:30 min de espera para que termine Regeneración de memoria</stringProp>
-              <stringProp name="ConstantTimer.delay">270000</stringProp>
+              <stringProp name="TestPlan.comments">360seg son 6 min de espera para que termine Regeneración de memoria</stringProp>
+              <stringProp name="ConstantTimer.delay">360000</stringProp>
               <stringProp name="RandomTimer.range">1000</stringProp>
             </UniformRandomTimer>
             <hashTree/>
